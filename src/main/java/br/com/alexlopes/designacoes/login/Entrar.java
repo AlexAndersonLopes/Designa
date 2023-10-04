@@ -5,7 +5,6 @@ import br.com.alexlopes.designacoes.model.Usuario;
 import br.com.alexlopes.designacoes.util.ClasseEmail;
 import br.com.alexlopes.designacoes.util.Janela;
 import br.com.alexlopes.designacoes.util.Mensagem;
-import br.com.alexlopes.designacoes.views.MenuPrincipal;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.HeadlessException;
@@ -279,9 +278,9 @@ public class Entrar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mostrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarMouseClicked
-        txtSenha.setEchoChar('*');
+        txtSenha.setEchoChar('•');
         if (senhaVisivel) {
-            txtSenha.setEchoChar('*');
+            txtSenha.setEchoChar('•');
             senhaVisivel = false;
         } else {
             txtSenha.setEchoChar((char) 0);

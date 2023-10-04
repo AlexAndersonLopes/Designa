@@ -6,7 +6,6 @@ import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Image;
 import com.lowagie.text.PageSize;
-import com.lowagie.text.Rectangle;
 import com.lowagie.text.pdf.PdfWriter;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -14,8 +13,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
@@ -558,10 +559,15 @@ public class GerarPDF extends javax.swing.JFrame {
             for (TodasPartes a : lista) {
                 docPdf.newPage();
 
-                labelSemana.setText(a.getSemana());
-                lpresidente.setText(a.getPresidenteA());
+                labelSemana.setText("Semana: " +  a.getDia() + " de " + a.getMes() + ", " + a.getAno());
 
-                if (!lconselheiro.getText().equals("NA") && !lconselheiro.getText().equals("")) {
+                if (!a.getPresidenteA().equals("NA") && !a.getPresidenteA().equals("")) {
+                    lpresidente.setText(a.getPresidenteA());
+                } else {
+                    lpresidente.setText("");
+                }
+
+                if (!a.getPresidenteB().equals("NA") && !a.getPresidenteB().equals("")) {
                     labelConselheiro.setVisible(true);
                     lconselheiro.setText(a.getPresidenteB());
                 } else {
@@ -569,35 +575,138 @@ public class GerarPDF extends javax.swing.JFrame {
                     lconselheiro.setText("");
                 }
 
-                lOracaoInicial.setText(a.getOracaoInicial());
-                ltesouros.setText(a.getTesouros());
-                ljoias.setText(a.getJoias());
-                lleituraBiblia.setText(a.getLeituraBibliaA());
-                labelParte1.setText(a.getNomeParte1());
-                parte1a.setText(a.getParte1A());
-                ajudante1a.setText(a.getAjudante1A());
-                labelParte2.setText(a.getNomeParte2());
-                parte2a.setText(a.getParte2A());
-                ajudante2a.setText(a.getAjudante2A());
-                labelParte3.setText(a.getNomeparte3());
-                parte3a.setText(a.getParte3A());
-                ajudante3a.setText(a.getAjudante3A());
+                if (!a.getOracaoInicial().equals("NA") && !a.getOracaoInicial().equals("")) {
+                    lOracaoInicial.setText(a.getOracaoInicial());
+                } else {
+                    lOracaoInicial.setText("");
+                }
+
+                if (!a.getTesouros().equals("NA") && !a.getTesouros().equals("")) {
+                    ltesouros.setText(a.getTesouros());
+                } else {
+                    ltesouros.setText("");
+                }
+
+                if (!a.getJoias().equals("NA") && !a.getJoias().equals("")) {
+                    ljoias.setText(a.getJoias());
+                } else {
+                    ljoias.setText("");
+                }
+
+                if (!a.getLeituraBibliaA().equals("NA") && !a.getLeituraBibliaA().equals("")) {
+                    lleituraBiblia.setText(a.getLeituraBibliaA());
+                } else {
+                    lleituraBiblia.setText("");
+                }
+
+                if (!a.getNomeParte1().equals("NA") && !a.getNomeParte1().equals("")) {
+                    labelParte1.setText(a.getNomeParte1());
+                } else {
+                    labelParte1.setText("");
+                }
+
+                if (!a.getParte1A().equals("NA") && !a.getParte1A().equals("")) {
+                    parte1a.setText(a.getParte1A());
+                } else {
+                    parte1a.setText("");
+                }
+
+                if (!a.getAjudante1A().equals("NA") && !a.getAjudante1A().equals("")) {
+                    ajudante1a.setText(a.getAjudante1A());
+                } else {
+                    ajudante1a.setText("");
+                }
+
+                if (!a.getNomeParte2().equals("NA") && !a.getNomeParte2().equals("")) {
+                    labelParte2.setText(a.getNomeParte2());
+                } else {
+                    labelParte2.setText("");
+                }
+
+                if (!a.getParte2A().equals("NA") && !a.getParte2A().equals("")) {
+                    parte2a.setText(a.getParte2A());
+                } else {
+                    parte2a.setText("");
+                }
+
+                if (!a.getAjudante2A().equals("NA") && !a.getAjudante2A().equals("")) {
+                    ajudante2a.setText(a.getAjudante2A());
+                } else {
+                    ajudante2a.setText("");
+                }
+
+                if (!a.getNomeparte3().equals("NA") && !a.getNomeparte3().equals("")) {
+                    labelParte3.setText(a.getNomeparte3());
+                } else {
+                    labelParte3.setText("");
+                }
+
+                if (!a.getParte3A().equals("NA") && !a.getParte3A().equals("")) {
+                    parte3a.setText(a.getParte3A());
+                } else {
+                    parte3a.setText("");
+                }
+
+                if (!a.getAjudante3A().equals("NA") && !a.getAjudante3A().equals("")) {
+                    ajudante3a.setText(a.getAjudante3A());
+                } else {
+                    ajudante3a.setText("");
+                }
 
                 if (!a.getLeituraBibliaB().equals("NA") && !a.getNomeParte2().equals("NA") && !a.getNomeparte3().equals("NA")
                         && !a.getLeituraBibliaB().equals("") && !a.getNomeParte2().equals("") && !a.getNomeparte3().equals("")) {
                     salaB.setVisible(true);
-                    leituraB.setText(a.getLeituraBibliaB());
-                    parte1b.setText(a.getParte1B());
-                    ajudante1b.setText(a.getAjudante1B());
-                    parte2b.setText(a.getParte2B());
-                    ajudante2b.setText(a.getAjudante2B());
-                    parte3b.setText(a.getParte3B());
-                    ajudante3b.setText(a.getAjudante3B());
+                    if (!a.getLeituraBibliaB().equals("NA") && !a.getLeituraBibliaB().equals("")) {
+                        leituraB.setText(a.getLeituraBibliaB());
+                    } else {
+                        leituraB.setText("");
+                    }
+
+                    if (!a.getParte1B().equals("NA") && !a.getParte1B().equals("")) {
+                        parte1b.setText(a.getParte1B());
+                    } else {
+                        parte1b.setText("");
+                    }
+
+                    if (!a.getAjudante1B().equals("NA") && !a.getAjudante1B().equals("")) {
+                        ajudante1b.setText(a.getAjudante1B());
+                    } else {
+                        ajudante1b.setText("");
+                    }
+
+                    if (!a.getParte2B().equals("NA") && !a.getParte2B().equals("")) {
+                        parte2b.setText(a.getParte2B());
+                    } else {
+                        parte2b.setText("");
+                    }
+
+                    if (!a.getAjudante2B().equals("NA") && !a.getAjudante2B().equals("")) {
+                        ajudante2b.setText(a.getAjudante2B());
+                    } else {
+                        ajudante2b.setText("");
+                    }
+
+                    if (!a.getParte3B().equals("NA") && !a.getParte3B().equals("")) {
+                        parte3b.setText(a.getParte3B());
+                    } else {
+                        parte3b.setText("");
+                    }
+
+                    if (!a.getAjudante3B().equals("NA") && !a.getAjudante3B().equals("")) {
+                        ajudante3b.setText(a.getAjudante3B());
+                    } else {
+                        ajudante3b.setText("");
+                    }
                 } else {
                     salaB.setVisible(false);
                 }
 
-                lnossa1.setText(a.getNossaVida1());
+                if (!a.getNossaVida1().equals("NA") && !a.getNossaVida1().equals("")) {
+                    lnossa1.setText(a.getNossaVida1());
+                } else {
+                    lnossa1.setText("");
+                }
+
                 if (!a.getNossaVida2().equals("NA") && !a.getNossaVida2().equals("")) {
                     labelNossa2.setVisible(true);
                     lnossa2.setText(a.getNossaVida2());
@@ -606,10 +715,26 @@ public class GerarPDF extends javax.swing.JFrame {
                     lnossa2.setText("");
                 }
 
-                lestudo.setText(a.getEstudoLivro());
-                lleitor.setText(a.getLeitor());
-                lOracaoFinal.setText(a.getOracaoFinal());
- 
+                if (!a.getEstudoLivro().equals("NA") && !a.getEstudoLivro().equals("")) {
+                    lestudo.setText(a.getEstudoLivro());
+                } else {
+                    lestudo.setText("");
+                }
+
+                if (!a.getLeitor().equals("NA") && !a.getLeitor().equals("")) {
+                    labelLeitorEstudo.setVisible(true);
+                    lleitor.setText(a.getLeitor());
+                } else {
+                    labelLeitorEstudo.setVisible(false);
+                    lleitor.setText("");
+                }
+
+                if (!a.getOracaoFinal().equals("NA") && !a.getOracaoFinal().equals("")) {
+                    lOracaoFinal.setText(a.getOracaoFinal());
+                } else {
+                    lOracaoFinal.setText("");
+                }
+
                 BufferedImage imag = preencherDesignacao();
                 Image imagem = Image.getInstance(bufferedImageToByteArray(imag));
                 imagem.scaleToFit(595, 842);

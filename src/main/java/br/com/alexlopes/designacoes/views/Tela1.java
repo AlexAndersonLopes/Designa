@@ -20,7 +20,6 @@ import br.com.alexlopes.designacoes.model.Presidente;
 import br.com.alexlopes.designacoes.model.Semana;
 import br.com.alexlopes.designacoes.model.Tesouros;
 import br.com.alexlopes.designacoes.model.TodasPartes;
-import br.com.alexlopes.designacoes.util.ArquivoPDF;
 import br.com.alexlopes.designacoes.util.GerarPDF;
 import br.com.alexlopes.designacoes.util.Janela;
 import br.com.alexlopes.designacoes.util.Mensagem;
@@ -80,23 +79,6 @@ public class Tela1 extends javax.swing.JFrame {
         listaIgnorar.add(-1);
         listaIgnorarEstudantes.add(-1);
         iniciar();
-
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                confirmarSaida();
-            }
-        });
-    }
-
-    private void confirmarSaida() {
-        Object[] options = {"Sim", "Não"};
-        int option = JOptionPane.showOptionDialog(this, "Deseja realmente sair?", "Confirmação", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
-        if (option == JOptionPane.YES_OPTION) {
-            dispose();
-        } else {
-            setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        }
     }
 
     @SuppressWarnings("unchecked")
@@ -187,7 +169,7 @@ public class Tela1 extends javax.swing.JFrame {
         comboAno = new javax.swing.JComboBox<>();
         botaoDefinirData = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Designar particpantes para Reunião do Meio de Semana");
         setMaximumSize(new java.awt.Dimension(1352, 675));
         setMinimumSize(new java.awt.Dimension(1352, 675));
@@ -1701,9 +1683,9 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte1.setText(primeiraA.getNome() + " " + primeiraA.getSobrenome());
             listaIgnorarEstudantes.add(primeiraA.getId());
 
-            ajudantePrimeiraA = pDAO.buscarPessoaComCondicoes2("Ajudante", primeiraA.getSexo(), listaIgnorarEstudantes, primeiraA.getDataUltima(), "SalaA");
+            ajudantePrimeiraA = pDAO.buscarPessoaComCondicoes2("Ajudante", primeiraA.getSexo(), listaIgnorarEstudantes, primeiraA.getAjudante(), "SalaA");
             if (ajudantePrimeiraA == null) {
-                //  ajudantePrimeiraA = pDAO.buscarPessoaComCondicoes3("Ajudante", primeiraA.getSexo());
+                ajudantePrimeiraA = pDAO.buscarPessoaComCondicoes3("Ajudante", primeiraA.getSexo());
             }
             txtAjudante1.setText(ajudantePrimeiraA.getNome() + " " + ajudantePrimeiraA.getSobrenome());
             listaIgnorarEstudantes.add(ajudantePrimeiraA.getId());
@@ -1717,7 +1699,7 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte2.setText(primeiraA.getNome() + " " + primeiraA.getSobrenome());
             listaIgnorarEstudantes.add(primeiraA.getId());
 
-            ajudantePrimeiraA = pDAO.buscarPessoaComCondicoes2("Ajudante", primeiraA.getSexo(), listaIgnorarEstudantes, primeiraA.getDataUltima(), "SalaA");
+            ajudantePrimeiraA = pDAO.buscarPessoaComCondicoes2("Ajudante", primeiraA.getSexo(), listaIgnorarEstudantes, primeiraA.getAjudante(), "SalaA");
             if (ajudantePrimeiraA == null) {
                 ajudantePrimeiraA = pDAO.buscarPessoaComCondicoes3("Ajudante", primeiraA.getSexo());
             }
@@ -1733,9 +1715,9 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte1B.setText(primeiraB.getNome() + " " + primeiraB.getSobrenome());
             listaIgnorarEstudantes.add(primeiraB.getId());
 
-            ajudantePrimeiraB = pDAO.buscarPessoaComCondicoes2("Ajudante", primeiraB.getSexo(), listaIgnorarEstudantes, primeiraB.getDataUltima(), "SalaB");
+            ajudantePrimeiraB = pDAO.buscarPessoaComCondicoes2("Ajudante", primeiraB.getSexo(), listaIgnorarEstudantes, primeiraB.getAjudante(), "SalaB");
             if (ajudantePrimeiraB == null) {
-                // ajudantePrimeiraB = pDAO.buscarPessoaComCondicoes3("Ajudante", primeiraB.getSexo());
+                ajudantePrimeiraB = pDAO.buscarPessoaComCondicoes3("Ajudante", primeiraB.getSexo());
             }
             txtAjudante1B.setText(ajudantePrimeiraB.getNome() + " " + ajudantePrimeiraB.getSobrenome());
             listaIgnorarEstudantes.add(ajudantePrimeiraB.getId());
@@ -1749,7 +1731,7 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte2B.setText(primeiraB.getNome() + " " + primeiraB.getSobrenome());
             listaIgnorarEstudantes.add(primeiraB.getId());
 
-            ajudantePrimeiraB = pDAO.buscarPessoaComCondicoes2("Ajudante", primeiraB.getSexo(), listaIgnorarEstudantes, primeiraB.getDataUltima(), "SalaB");
+            ajudantePrimeiraB = pDAO.buscarPessoaComCondicoes2("Ajudante", primeiraB.getSexo(), listaIgnorarEstudantes, primeiraB.getAjudante(), "SalaB");
             if (ajudantePrimeiraB == null) {
                 ajudantePrimeiraB = pDAO.buscarPessoaComCondicoes3("Ajudante", primeiraB.getSexo());
             }
@@ -1765,7 +1747,7 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte2.setText(primeiraA.getNome() + " " + primeiraA.getSobrenome());
             listaIgnorarEstudantes.add(primeiraA.getId());
 
-            ajudantePrimeiraA = pDAO.buscarPessoaComCondicoes2("Ajudante", primeiraA.getSexo(), listaIgnorarEstudantes, primeiraA.getDataUltima(), "SalaA");
+            ajudantePrimeiraA = pDAO.buscarPessoaComCondicoes2("Ajudante", primeiraA.getSexo(), listaIgnorarEstudantes, primeiraA.getAjudante(), "SalaA");
             if (ajudantePrimeiraA == null) {
                 ajudantePrimeiraA = pDAO.buscarPessoaComCondicoes3("Ajudante", primeiraA.getSexo());
             }
@@ -1781,7 +1763,7 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte2B.setText(primeiraB.getNome() + " " + primeiraB.getSobrenome());
             listaIgnorarEstudantes.add(primeiraB.getId());
 
-            ajudantePrimeiraB = pDAO.buscarPessoaComCondicoes2("Ajudante", primeiraB.getSexo(), listaIgnorarEstudantes, primeiraB.getDataUltima(), "SalaB");
+            ajudantePrimeiraB = pDAO.buscarPessoaComCondicoes2("Ajudante", primeiraB.getSexo(), listaIgnorarEstudantes, primeiraB.getAjudante(), "SalaB");
             if (ajudantePrimeiraB == null) {
                 ajudantePrimeiraB = pDAO.buscarPessoaComCondicoes3("Ajudante", primeiraB.getSexo());
             }
@@ -1797,7 +1779,7 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte3.setText(primeira2A.getNome() + " " + primeira2A.getSobrenome());
             listaIgnorarEstudantes.add(primeira2A.getId());
 
-            ajudantePrimeira2A = pDAO.buscarPessoaComCondicoes2("Ajudante", primeira2A.getSexo(), listaIgnorarEstudantes, primeira2A.getDataUltima(), "SalaA");
+            ajudantePrimeira2A = pDAO.buscarPessoaComCondicoes2("Ajudante", primeira2A.getSexo(), listaIgnorarEstudantes, primeira2A.getAjudante(), "SalaA");
             if (ajudantePrimeira2A == null) {
                 ajudantePrimeira2A = pDAO.buscarPessoaComCondicoes3("Ajudante", primeira2A.getSexo());
             }
@@ -1813,7 +1795,7 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte3B.setText(primeira2B.getNome() + " " + primeira2B.getSobrenome());
             listaIgnorarEstudantes.add(primeira2B.getId());
 
-            ajudantePrimeira2B = pDAO.buscarPessoaComCondicoes2("Ajudante", primeira2B.getSexo(), listaIgnorarEstudantes, primeira2B.getDataUltima(), "SalaB");
+            ajudantePrimeira2B = pDAO.buscarPessoaComCondicoes2("Ajudante", primeira2B.getSexo(), listaIgnorarEstudantes, primeira2B.getAjudante(), "SalaB");
             if (ajudantePrimeira2B == null) {
                 ajudantePrimeira2B = pDAO.buscarPessoaComCondicoes3("Ajudante", primeira2B.getSexo());
             }
@@ -1829,9 +1811,9 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte2.setText(revisitaA.getNome() + " " + revisitaA.getSobrenome());
             listaIgnorarEstudantes.add(revisitaA.getId());
 
-            ajudanteRevisitaA = pDAO.buscarPessoaComCondicoes2("Ajudante", revisitaA.getSexo(), listaIgnorarEstudantes, revisitaA.getDataUltima(), "SalaA");
+            ajudanteRevisitaA = pDAO.buscarPessoaComCondicoes2("Ajudante", revisitaA.getSexo(), listaIgnorarEstudantes, revisitaA.getAjudante(), "SalaA");
             if (ajudanteRevisitaA == null) {
-                // ajudanteRevisitaA = pDAO.buscarPessoaComCondicoes3("Ajudante", revisitaA.getSexo());
+                ajudanteRevisitaA = pDAO.buscarPessoaComCondicoes3("Ajudante", revisitaA.getSexo());
             }
             txtAjudante2.setText(ajudanteRevisitaA.getNome() + " " + ajudanteRevisitaA.getSobrenome());
             listaIgnorarEstudantes.add(ajudanteRevisitaA.getId());
@@ -1845,9 +1827,9 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte2B.setText(revisitaB.getNome() + " " + revisitaB.getSobrenome());
             listaIgnorarEstudantes.add(revisitaB.getId());
 
-            ajudanteRevisitaB = pDAO.buscarPessoaComCondicoes2("Ajudante", revisitaB.getSexo(), listaIgnorarEstudantes, revisitaB.getDataUltima(), "SalaB");
+            ajudanteRevisitaB = pDAO.buscarPessoaComCondicoes2("Ajudante", revisitaB.getSexo(), listaIgnorarEstudantes, revisitaB.getAjudante(), "SalaB");
             if (ajudanteRevisitaB == null) {
-                // ajudanteRevisitaB = pDAO.buscarPessoaComCondicoes3("Ajudante", revisitaB.getSexo());
+                ajudanteRevisitaB = pDAO.buscarPessoaComCondicoes3("Ajudante", revisitaB.getSexo());
             }
             txtAjudante2B.setText(ajudanteRevisitaB.getNome() + " " + ajudanteRevisitaB.getSobrenome());
             listaIgnorarEstudantes.add(ajudanteRevisitaB.getId());
@@ -1861,7 +1843,7 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte3.setText(revisitaA.getNome() + " " + revisitaA.getSobrenome());
             listaIgnorarEstudantes.add(revisitaA.getId());
 
-            ajudanteRevisitaA = pDAO.buscarPessoaComCondicoes2("Ajudante", revisitaA.getSexo(), listaIgnorarEstudantes, revisitaA.getDataUltima(), "SalaA");
+            ajudanteRevisitaA = pDAO.buscarPessoaComCondicoes2("Ajudante", revisitaA.getSexo(), listaIgnorarEstudantes, revisitaA.getAjudante(), "SalaA");
             if (ajudanteRevisitaA == null) {
                 ajudanteRevisitaA = pDAO.buscarPessoaComCondicoes3("Ajudante", revisitaA.getSexo());
             }
@@ -1877,7 +1859,7 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte3B.setText(revisitaB.getNome() + " " + revisitaB.getSobrenome());
             listaIgnorarEstudantes.add(revisitaB.getId());
 
-            ajudanteRevisitaB = pDAO.buscarPessoaComCondicoes2("Ajudante", revisitaB.getSexo(), listaIgnorarEstudantes, revisitaB.getDataUltima(), "SalaB");
+            ajudanteRevisitaB = pDAO.buscarPessoaComCondicoes2("Ajudante", revisitaB.getSexo(), listaIgnorarEstudantes, revisitaB.getAjudante(), "SalaB");
             if (ajudanteRevisitaB == null) {
                 ajudanteRevisitaB = pDAO.buscarPessoaComCondicoes3("Ajudante", revisitaB.getSexo());
             }
@@ -1893,7 +1875,7 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte2.setText(revisitaA.getNome() + " " + revisitaA.getSobrenome());
             listaIgnorarEstudantes.add(revisitaA.getId());
 
-            ajudanteRevisitaA = pDAO.buscarPessoaComCondicoes2("Ajudante", revisitaA.getSexo(), listaIgnorarEstudantes, revisitaA.getDataUltima(), "SalaA");
+            ajudanteRevisitaA = pDAO.buscarPessoaComCondicoes2("Ajudante", revisitaA.getSexo(), listaIgnorarEstudantes, revisitaA.getAjudante(), "SalaA");
             if (ajudanteRevisitaA == null) {
                 ajudanteRevisitaA = pDAO.buscarPessoaComCondicoes3("Ajudante", revisitaA.getSexo());
             }
@@ -1909,7 +1891,7 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte2B.setText(revisitaB.getNome() + " " + revisitaB.getSobrenome());
             listaIgnorarEstudantes.add(revisitaB.getId());
 
-            ajudanteRevisitaB = pDAO.buscarPessoaComCondicoes2("Ajudante", revisitaB.getSexo(), listaIgnorarEstudantes, revisitaB.getDataUltima(), "SalaB");
+            ajudanteRevisitaB = pDAO.buscarPessoaComCondicoes2("Ajudante", revisitaB.getSexo(), listaIgnorarEstudantes, revisitaB.getAjudante(), "SalaB");
             if (ajudanteRevisitaB == null) {
                 ajudanteRevisitaB = pDAO.buscarPessoaComCondicoes3("Ajudante", revisitaB.getSexo());
             }
@@ -1925,7 +1907,7 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte3.setText(revisita2A.getNome() + " " + revisita2A.getSobrenome());
             listaIgnorarEstudantes.add(revisita2A.getId());
 
-            ajudanteRevisita2A = pDAO.buscarPessoaComCondicoes2("Ajudante", revisita2A.getSexo(), listaIgnorarEstudantes, revisita2A.getDataUltima(), "SalaA");
+            ajudanteRevisita2A = pDAO.buscarPessoaComCondicoes2("Ajudante", revisita2A.getSexo(), listaIgnorarEstudantes, revisita2A.getAjudante(), "SalaA");
             if (ajudanteRevisita2A == null) {
                 ajudanteRevisita2A = pDAO.buscarPessoaComCondicoes3("Ajudante", revisita2A.getSexo());
             }
@@ -1941,7 +1923,7 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte3B.setText(revisita2B.getNome() + " " + revisita2B.getSobrenome());
             listaIgnorarEstudantes.add(revisita2B.getId());
 
-            ajudanteRevisita2B = pDAO.buscarPessoaComCondicoes2("Ajudante", revisita2B.getSexo(), listaIgnorarEstudantes, revisita2B.getDataUltima(), "SalaB");
+            ajudanteRevisita2B = pDAO.buscarPessoaComCondicoes2("Ajudante", revisita2B.getSexo(), listaIgnorarEstudantes, revisita2B.getAjudante(), "SalaB");
             if (ajudanteRevisita2B == null) {
                 ajudanteRevisita2B = pDAO.buscarPessoaComCondicoes3("Ajudante", revisita2B.getSexo());
             }
@@ -1957,9 +1939,9 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte3.setText(estudoA.getNome() + " " + estudoA.getSobrenome());
             listaIgnorarEstudantes.add(estudoA.getId());
 
-            estudoAjudanteA = pDAO.buscarPessoaComCondicoes2("Ajudante", estudoA.getSexo(), listaIgnorarEstudantes, estudoA.getDataUltima(), "SalaA");
+            estudoAjudanteA = pDAO.buscarPessoaComCondicoes2("Ajudante", estudoA.getSexo(), listaIgnorarEstudantes, estudoA.getAjudante(), "SalaA");
             if (estudoAjudanteA == null) {
-                // estudoAjudanteA = pDAO.buscarPessoaComCondicoes3("Ajudante", estudoA.getSexo());
+                estudoAjudanteA = pDAO.buscarPessoaComCondicoes3("Ajudante", estudoA.getSexo());
             }
             txtAjudante3.setText(estudoAjudanteA.getNome() + " " + estudoAjudanteA.getSobrenome());
             listaIgnorarEstudantes.add(estudoAjudanteA.getId());
@@ -1973,9 +1955,9 @@ public class Tela1 extends javax.swing.JFrame {
             txtParte3B.setText(estudoB.getNome() + " " + estudoB.getSobrenome());
             listaIgnorarEstudantes.add(estudoB.getId());
 
-            estudoAjudanteB = pDAO.buscarPessoaComCondicoes2("Ajudante", estudoB.getSexo(), listaIgnorarEstudantes, estudoB.getDataUltima(), "SalaB");
+            estudoAjudanteB = pDAO.buscarPessoaComCondicoes2("Ajudante", estudoB.getSexo(), listaIgnorarEstudantes, estudoB.getAjudante(), "SalaB");
             if (estudoAjudanteB == null) {
-                // estudoAjudanteB = pDAO.buscarPessoaComCondicoes3("Ajudante", estudoB.getSexo());
+                estudoAjudanteB = pDAO.buscarPessoaComCondicoes3("Ajudante", estudoB.getSexo());
             }
             txtAjudante3B.setText(estudoAjudanteB.getNome() + " " + estudoAjudanteB.getSobrenome());
             listaIgnorarEstudantes.add(estudoAjudanteB.getId());
@@ -2093,11 +2075,7 @@ public class Tela1 extends javax.swing.JFrame {
     }
 
     private void salvarPdf() {
-        try {/*
-            ArquivoPDF pdf = new ArquivoPDF();
-            pdf.salvar(todas);
-            Janela.ag.pd.setText("Salvo com Sucesso");*/
-
+        try {
             GerarPDF pdf = new GerarPDF();
             pdf.salvar(todas);
             Janela.ag.pd.setText("Salvo com Sucesso");

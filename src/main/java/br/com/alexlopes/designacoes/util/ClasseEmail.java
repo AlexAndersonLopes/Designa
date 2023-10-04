@@ -119,4 +119,24 @@ public class ClasseEmail {
         return sb.toString();
     }
 
+    public void enviarEmail(String titulo, String texto) {
+        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username));
+            message.setRecipient(Message.RecipientType.TO, new InternetAddress(username));
+            message.setSubject(titulo);
+            message.setText(texto);
+            // Envia o e-mail
+            Transport.send(message);
+            Mensagem.mensagemExito("Email enviado com Sucesso para o Desenvolvedor");
+        } catch (MessagingException e) {
+            Mensagem.mensagemErro("Tente novamente mais tarde");
+        }
+    }
+
 }

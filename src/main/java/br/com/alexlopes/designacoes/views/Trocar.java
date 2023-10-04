@@ -88,7 +88,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 9) {
             numero = 9;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //10 = primeira conversa 2 A
         if (a == 10) {
@@ -100,7 +100,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 11) {
             numero = 11;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //12 = revisita A
         if (a == 12) {
@@ -112,7 +112,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 13) {
             numero = 13;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //14 = revisita 2 A
         if (a == 14) {
@@ -124,7 +124,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 15) {
             numero = 15;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //16 = estudo biblico A
         if (a == 16) {
@@ -136,7 +136,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 17) {
             numero = 17;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //18 = discurso A
         if (a == 18) {
@@ -178,7 +178,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 24) {
             numero = 24;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //25 = primeira conversa 2 B
         if (a == 25) {
@@ -190,7 +190,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 26) {
             numero = 26;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //27 = revisita B
         if (a == 27) {
@@ -202,7 +202,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 28) {
             numero = 28;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //29 = revisita 2 B
         if (a == 29) {
@@ -214,7 +214,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 30) {
             numero = 30;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //31 = estudo biblico B
         if (a == 31) {
@@ -226,7 +226,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 32) {
             numero = 32;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //33 = discurso B
         if (a == 33) {
@@ -250,7 +250,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 36) {
             numero = 36;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //37 = primeira conversa 1 B
         if (a == 37) {
@@ -262,7 +262,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 38) {
             numero = 38;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //39 = revisita 1 A
         if (a == 39) {
@@ -274,7 +274,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 40) {
             numero = 40;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //41 = revisita 1 B
         if (a == 41) {
@@ -286,7 +286,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 42) {
             numero = 42;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         botaoLista.setText("Lista: " + des);
     }
@@ -349,7 +349,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 9) {
             numero = 9;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //10 = primeira conversa 2 A
         if (a == 10) {
@@ -361,7 +361,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 11) {
             numero = 11;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //12 = revisita A
         if (a == 12) {
@@ -373,7 +373,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 13) {
             numero = 13;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //14 = revisita 2 A
         if (a == 14) {
@@ -385,7 +385,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 15) {
             numero = 15;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //16 = estudo biblico A
         if (a == 16) {
@@ -397,7 +397,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 17) {
             numero = 17;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //18 = discurso A
         if (a == 18) {
@@ -439,7 +439,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 24) {
             numero = 24;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //25 = primeira conversa 2 B
         if (a == 25) {
@@ -451,7 +451,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 26) {
             numero = 26;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //27 = revisita B
         if (a == 27) {
@@ -463,7 +463,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 28) {
             numero = 28;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //29 = revisita 2 B
         if (a == 29) {
@@ -475,7 +475,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 30) {
             numero = 30;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //31 = estudo biblico B
         if (a == 31) {
@@ -487,7 +487,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 32) {
             numero = 32;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //33 = discurso B
         if (a == 33) {
@@ -511,7 +511,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 36) {
             numero = 36;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //37 = primeira conversa 1 B
         if (a == 37) {
@@ -523,7 +523,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 38) {
             numero = 38;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //39 = revisita 1 A
         if (a == 39) {
@@ -535,7 +535,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 40) {
             numero = 40;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         //41 = revisita 1 B
         if (a == 41) {
@@ -547,7 +547,7 @@ public class Trocar extends javax.swing.JFrame {
         if (a == 42) {
             numero = 42;
             des = "Ajudante";
-            mostrarTabelaPessoa(b, "Ajudante");
+            mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
         botaoLista.setText("Lista: " + des);
     }
@@ -585,11 +585,11 @@ public class Trocar extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "PARTICIPANTE", "DATA - Última parte qualquer"
+                "ID", "PARTICIPANTE", "Última parte", "Ajudante"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -610,9 +610,12 @@ public class Trocar extends javax.swing.JFrame {
             tabela.getColumnModel().getColumn(0).setMinWidth(0);
             tabela.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabela.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabela.getColumnModel().getColumn(2).setMinWidth(175);
-            tabela.getColumnModel().getColumn(2).setPreferredWidth(175);
-            tabela.getColumnModel().getColumn(2).setMaxWidth(175);
+            tabela.getColumnModel().getColumn(2).setMinWidth(120);
+            tabela.getColumnModel().getColumn(2).setPreferredWidth(120);
+            tabela.getColumnModel().getColumn(2).setMaxWidth(120);
+            tabela.getColumnModel().getColumn(3).setMinWidth(120);
+            tabela.getColumnModel().getColumn(3).setPreferredWidth(120);
+            tabela.getColumnModel().getColumn(3).setMaxWidth(120);
         }
 
         botaoTrocar.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
@@ -720,8 +723,8 @@ public class Trocar extends javax.swing.JFrame {
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(77, 77, 77)
                         .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jDesktopPane1Layout.setVerticalGroup(
@@ -797,25 +800,29 @@ public class Trocar extends javax.swing.JFrame {
 
     private void txtProcurarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProcurarKeyReleased
         PessoaDAO pesDAO = new PessoaDAO();
-        List<Object[]> lista = pesDAO.buscarDeterminadaPessoa(des, txtProcurar.getText());
+        List<Object[]> resultadoConsulta = pesDAO.buscarDeterminadaPessoa(des, txtProcurar.getText());
         tab = (DefaultTableModel) tabela.getModel();
         tab.setNumRows(0);
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        for (Object[] a : lista) {
-            int id = (int) a[0]; // ID da pessoa
-            String nomeCompleto = (String) a[1]; // Nome completo
-            LocalDate dataUltima = (LocalDate) a[2]; // Data última
-
-            String formattedDate = "";
+        for (Object[] resultado : resultadoConsulta) {
+            int idPessoa = (int) resultado[0]; // ID da pessoa
+            String nomeCompleto = (String) resultado[1]; // Nome completo
+            LocalDate dataUltima = (LocalDate) resultado[2]; // Data última    
+            LocalDate ajudante = (LocalDate) resultado[3]; // Data última    
+            String dataUltimaFormatada = dataUltima != null ? dataUltima.format(df) : ""; // Trata o valor nulo
+                String ajudanteFormatada = ajudante != null ? ajudante.format(df) : ""; // Trata o valor nulo
             if (dataUltima != null) {
-                formattedDate = dataUltima.format(dateFormatter);
+                dataUltimaFormatada = dataUltima.format(df);                
             }
-
+            if (ajudante != null) {
+                ajudanteFormatada = ajudante.format(df);
+            }
             tab.addRow(new Object[]{
-                id,
+                idPessoa,
                 nomeCompleto,
-                formattedDate 
+                dataUltimaFormatada,
+                ajudanteFormatada
             });
         }
     }//GEN-LAST:event_txtProcurarKeyReleased
@@ -973,15 +980,49 @@ public class Trocar extends javax.swing.JFrame {
         for (Object[] resultado : resultadoConsulta) {
             int idPessoa = (int) resultado[0]; // ID da pessoa
             String nomeCompleto = (String) resultado[1]; // Nome completo
-            LocalDate dataUltima = (LocalDate) resultado[2]; // Data última        
-            String dataUltimaFormatada = "";
+            LocalDate dataUltima = (LocalDate) resultado[2]; // Data última    
+            LocalDate ajudante = (LocalDate) resultado[3]; // Data última    
+            String dataUltimaFormatada = dataUltima != null ? dataUltima.format(df) : ""; // Trata o valor nulo
+                String ajudanteFormatada = ajudante != null ? ajudante.format(df) : ""; // Trata o valor nulo
             if (dataUltima != null) {
-                dataUltimaFormatada = dataUltima.format(df);
+                dataUltimaFormatada = dataUltima.format(df);                
+            }
+            if (ajudante != null) {
+                ajudanteFormatada = ajudante.format(df);
             }
             tab.addRow(new Object[]{
                 idPessoa,
                 nomeCompleto,
-                dataUltimaFormatada
+                dataUltimaFormatada,
+                ajudanteFormatada
+            });
+        }
+    }
+    
+    private void mostrarTabelaPessoaAjudante(String sexo, String descricao) {
+        PessoaDAO pessoaRepository = new PessoaDAO();
+        List<Object[]> resultadoConsulta = pessoaRepository.buscarNomesAjudantePorDataMaisAntiga(sexo, descricao, listaIgnorar);
+        tab = (DefaultTableModel) tabela.getModel();
+        tab.setNumRows(0);
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        for (Object[] resultado : resultadoConsulta) {
+            int idPessoa = (int) resultado[0]; // ID da pessoa
+            String nomeCompleto = (String) resultado[1]; // Nome completo
+            LocalDate dataUltima = (LocalDate) resultado[2]; // Data última    
+            LocalDate ajudante = (LocalDate) resultado[3]; // Data última    
+            String dataUltimaFormatada = dataUltima != null ? dataUltima.format(df) : ""; // Trata o valor nulo
+                String ajudanteFormatada = ajudante != null ? ajudante.format(df) : ""; // Trata o valor nulo
+            if (dataUltima != null) {
+                dataUltimaFormatada = dataUltima.format(df);                
+            }
+            if (ajudante != null) {
+                ajudanteFormatada = ajudante.format(df);
+            }
+            tab.addRow(new Object[]{
+                idPessoa,
+                nomeCompleto,
+                dataUltimaFormatada,
+                ajudanteFormatada
             });
         }
     }
@@ -1004,7 +1045,7 @@ public class Trocar extends javax.swing.JFrame {
             tab.addRow(new Object[]{
                 idPessoa,
                 nomeCompleto,
-                dataFormatada
+                dataFormatada,
             });
         }
         tabela.getColumnModel().getColumn(0).setMinWidth(0);
@@ -1034,7 +1075,7 @@ public class Trocar extends javax.swing.JFrame {
             tab.addRow(new Object[]{
                 idPessoa,
                 nomeCompleto,
-                dataFormatada
+                dataFormatada,
             });
         }
         tabela.getColumnModel().getColumn(0).setMinWidth(0);

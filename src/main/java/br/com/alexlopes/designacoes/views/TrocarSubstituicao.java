@@ -5,6 +5,7 @@ import br.com.alexlopes.designacoes.model.Pessoa;
 import br.com.alexlopes.designacoes.util.Janela;
 import br.com.alexlopes.designacoes.util.Mensagem;
 import br.com.alexlopes.designacoes.util.whats.FolhaDesignacao;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.time.LocalDate;
@@ -156,8 +157,8 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
         txtTipo.setOpaque(true);
 
         txtParte.setBackground(new java.awt.Color(255, 255, 255));
-        txtParte.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        txtParte.setForeground(new java.awt.Color(0, 0, 102));
+        txtParte.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtParte.setForeground(new java.awt.Color(0, 0, 0));
         txtParte.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtParte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtParte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -169,7 +170,7 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
         });
 
         txtAjudante.setBackground(new java.awt.Color(255, 255, 255));
-        txtAjudante.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtAjudante.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtAjudante.setForeground(new java.awt.Color(51, 102, 0));
         txtAjudante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtAjudante.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -222,11 +223,11 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "PARTICIPANTE", "ÚLTIMA PARTE"
+                "ID", "PARTICIPANTE", "ÚLTIMA PARTE", "AJUDANTE"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -246,9 +247,12 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
             tabela.getColumnModel().getColumn(0).setMinWidth(0);
             tabela.getColumnModel().getColumn(0).setPreferredWidth(0);
             tabela.getColumnModel().getColumn(0).setMaxWidth(0);
-            tabela.getColumnModel().getColumn(1).setMinWidth(220);
-            tabela.getColumnModel().getColumn(1).setPreferredWidth(220);
-            tabela.getColumnModel().getColumn(1).setMaxWidth(220);
+            tabela.getColumnModel().getColumn(2).setMinWidth(120);
+            tabela.getColumnModel().getColumn(2).setPreferredWidth(120);
+            tabela.getColumnModel().getColumn(2).setMaxWidth(120);
+            tabela.getColumnModel().getColumn(3).setMinWidth(120);
+            tabela.getColumnModel().getColumn(3).setPreferredWidth(120);
+            tabela.getColumnModel().getColumn(3).setMaxWidth(120);
         }
 
         jButton1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
@@ -320,22 +324,23 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addContainerGap(368, Short.MAX_VALUE)
                         .addComponent(todos)
                         .addGap(47, 47, 47)
                         .addComponent(homem)
                         .addGap(39, 39, 39)
                         .addComponent(mulher)
-                        .addGap(46, 46, 46)))
+                        .addGap(79, 79, 79)))
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelDesignacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -343,30 +348,30 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(todos)
-                    .addComponent(homem)
-                    .addComponent(mulher))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(122, 122, 122))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(panelDesignacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(todos)
+                            .addComponent(homem)
+                            .addComponent(mulher))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -393,15 +398,21 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
             for (Object[] resultado : resultadoConsulta) {
                 int idPessoa = (int) resultado[0]; // ID da pessoa
                 String nomeCompleto = (String) resultado[1]; // Nome completo
-                LocalDate dataUltima = (LocalDate) resultado[2]; // Data última        
-                String dataUltimaFormatada = "";
+                LocalDate dataUltima = (LocalDate) resultado[2]; // Data última    
+                LocalDate ajudante = (LocalDate) resultado[3]; // Data última    
+                String dataUltimaFormatada = dataUltima != null ? dataUltima.format(df) : ""; // Trata o valor nulo
+                String ajudanteFormatada = ajudante != null ? ajudante.format(df) : ""; // Trata o valor nulo
                 if (dataUltima != null) {
                     dataUltimaFormatada = dataUltima.format(df);
+                }
+                if (ajudante != null) {
+                    ajudanteFormatada = ajudante.format(df);
                 }
                 tab.addRow(new Object[]{
                     idPessoa,
                     nomeCompleto,
-                    dataUltimaFormatada
+                    dataUltimaFormatada,
+                    ajudanteFormatada
                 });
             }
         } catch (Exception e) {
@@ -419,15 +430,21 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
             for (Object[] resultado : resultadoConsulta) {
                 int idPessoa = (int) resultado[0]; // ID da pessoa
                 String nomeCompleto = (String) resultado[1]; // Nome completo
-                LocalDate dataUltima = (LocalDate) resultado[2]; // Data última        
-                String dataUltimaFormatada = "";
+                LocalDate dataUltima = (LocalDate) resultado[2]; // Data última    
+                LocalDate ajudante = (LocalDate) resultado[3]; // Data última    
+                String dataUltimaFormatada = dataUltima != null ? dataUltima.format(df) : ""; // Trata o valor nulo
+                String ajudanteFormatada = ajudante != null ? ajudante.format(df) : ""; // Trata o valor nulo
                 if (dataUltima != null) {
                     dataUltimaFormatada = dataUltima.format(df);
+                }
+                if (ajudante != null) {
+                    ajudanteFormatada = ajudante.format(df);
                 }
                 tab.addRow(new Object[]{
                     idPessoa,
                     nomeCompleto,
-                    dataUltimaFormatada
+                    dataUltimaFormatada,
+                    ajudanteFormatada
                 });
             }
         } catch (Exception e) {
@@ -445,15 +462,21 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
             for (Object[] resultado : resultadoConsulta) {
                 int idPessoa = (int) resultado[0]; // ID da pessoa
                 String nomeCompleto = (String) resultado[1]; // Nome completo
-                LocalDate dataUltima = (LocalDate) resultado[2]; // Data última        
-                String dataUltimaFormatada = "";
+                LocalDate dataUltima = (LocalDate) resultado[2]; // Data última    
+                LocalDate ajudante = (LocalDate) resultado[3]; // Data última    
+                String dataUltimaFormatada = dataUltima != null ? dataUltima.format(df) : ""; // Trata o valor nulo
+                String ajudanteFormatada = ajudante != null ? ajudante.format(df) : ""; // Trata o valor nulo
                 if (dataUltima != null) {
                     dataUltimaFormatada = dataUltima.format(df);
+                }
+                if (ajudante != null) {
+                    ajudanteFormatada = ajudante.format(df);
                 }
                 tab.addRow(new Object[]{
                     idPessoa,
                     nomeCompleto,
-                    dataUltimaFormatada
+                    dataUltimaFormatada,
+                    ajudanteFormatada
                 });
             }
         } catch (Exception e) {
@@ -470,6 +493,10 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
             parteBD2 = "Ajudante";
             responsavel = 2;
         }
+        Color corBranco = new Color(255, 255, 255);
+        txtParte.setBackground(corBranco);
+        Color corVermelho = new Color(0, 116, 245);
+        txtAjudante.setBackground(corVermelho);
     }//GEN-LAST:event_txtAjudanteMouseClicked
 
     private void txtParteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParteMouseClicked
@@ -481,11 +508,14 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
             parteBD2 = parteBD;
             responsavel = 1;
         }
+        Color corBranco = new Color(255, 255, 255);
+        txtAjudante.setBackground(corBranco);
+        Color corVermelho = new Color(0, 116, 245);
+        txtParte.setBackground(corVermelho);
     }//GEN-LAST:event_txtParteMouseClicked
 
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
         linha = tabela.getSelectedRow();
-
         if (responsavel == 1) {
             a = new Pessoa();
             if (linha >= 0) {
@@ -514,7 +544,7 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
     }//GEN-LAST:event_tabelaMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {            
+        try {
             FolhaDesignacao folha = new FolhaDesignacao(a, b, txtData.getText(), txtTipoParte.getText(), txtSala.getText());
         } catch (Exception e) {
             return;
@@ -615,15 +645,19 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
         for (Object[] resultado : resultadoConsulta) {
             int idPessoa = (int) resultado[0]; // ID da pessoa
             String nomeCompleto = (String) resultado[1]; // Nome completo
-            LocalDate dataUltima = (LocalDate) resultado[2]; // Data última        
-            String dataUltimaFormatada = "";
+            LocalDate dataUltima = (LocalDate) resultado[2]; // Data última    
+            LocalDate ajudante = (LocalDate) resultado[3]; // Data última    
+            String dataUltimaFormatada = dataUltima != null ? dataUltima.format(df) : ""; // Trata o valor nulo
+            String ajudanteFormatada = ajudante != null ? ajudante.format(df) : ""; // Trata o valor nulo
             if (dataUltima != null) {
                 dataUltimaFormatada = dataUltima.format(df);
+                ajudanteFormatada = ajudante.format(df);
             }
             tab.addRow(new Object[]{
                 idPessoa,
                 nomeCompleto,
-                dataUltimaFormatada
+                dataUltimaFormatada,
+                ajudanteFormatada
             });
         }
     }

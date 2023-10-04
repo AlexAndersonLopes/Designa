@@ -8,6 +8,7 @@ import br.com.alexlopes.designacoes.model.Usuario;
 import br.com.alexlopes.designacoes.util.whats.Aguarde;
 import br.com.alexlopes.designacoes.views.AlterarParticipantes;
 import br.com.alexlopes.designacoes.views.CadastroParticipantes;
+import br.com.alexlopes.designacoes.views.FalarCom;
 import br.com.alexlopes.designacoes.views.MenuPrincipal;
 import br.com.alexlopes.designacoes.views.Substituicao;
 import br.com.alexlopes.designacoes.views.Tela1;
@@ -141,6 +142,13 @@ public class Janela {
             sub.setExtendedState(JFrame.MAXIMIZED_BOTH);
             sub.setVisible(true);
         }
+    }
+
+    public static void irFalarCom() {
+        FalarCom a = new FalarCom();
+        a.setLocationRelativeTo(null);
+        a.pack();
+        a.setVisible(true);
     }
 
 }

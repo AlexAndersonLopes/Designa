@@ -483,11 +483,32 @@ public class PessoaDAO {
                     .setParameter("descricaoParte", descricaoParte)
                     .setParameter("sexo", sexo)
                     .setParameter("salaIgnorada", salaIgnorada);
+            query.setParameter("dataIgnorar", dataIgnorar);
 
-            // Define o parâmetro dataIgnorar apenas se não for nulo
-            if (dataIgnorar != null) {
-                query.setParameter("dataIgnorar", dataIgnorar);
+            List<Pessoa> pessoas = query.getResultList();
+            if (!pessoas.isEmpty()) {
+                return pessoas.get(0);
             }
+            return buscarPessoaComCondicoes2222(descricaoParte, sexo, idsPessoasIgnorar, dataIgnorar, salaIgnorada);
+        } finally {
+            FabricaJPA.closeEtityManager();
+        }
+    }
+
+    public Pessoa buscarPessoaComCondicoes2222(String descricaoParte, String sexo, List<Integer> idsPessoasIgnorar, LocalDate dataIgnorar, String salaIgnorada) {
+        EntityManager em = FabricaJPA.getEntityManager();
+        try {
+            String jpql = "SELECT DISTINCT p FROM Pessoa p "
+                    + "WHERE (p.id NOT IN (:idsPessoasIgnorar) OR p.id IS NULL) "
+                    + "AND (p.sexo IS NULL OR :sexo IS NULL OR p.sexo = :sexo) "
+                    + "AND (p.ajudante IS NULL OR p.ajudante = (SELECT MIN(p2.ajudante) FROM Pessoa p2 WHERE p2.id NOT IN (:idsPessoasIgnorar))) "
+                    + "AND EXISTS (SELECT 1 FROM Parte parte WHERE parte.pessoa = p AND parte.descricao = :descricaoParte) "
+                    + "ORDER BY p.ajudante ASC";
+
+            TypedQuery<Pessoa> query = em.createQuery(jpql, Pessoa.class)
+                    .setParameter("idsPessoasIgnorar", idsPessoasIgnorar)
+                    .setParameter("descricaoParte", descricaoParte)
+                    .setParameter("sexo", sexo);
 
             List<Pessoa> pessoas = query.getResultList();
             if (!pessoas.isEmpty()) {
@@ -556,7 +577,11 @@ public class PessoaDAO {
             Pessoa pessoa = em.find(Pessoa.class, pessoaId);
             if (pessoa != null) {
                 pessoa.setDataUltima(novaData);
-                pessoa.setSala(novaSala); // Adicionando a nova sala
+                if (novaSala != null) {
+                    pessoa.setSala(novaSala); // Adicionando a nova sala
+                } else {
+                    pessoa.setSala(pessoa.getSala());
+                }
                 em.merge(pessoa);
             }
             em.getTransaction().commit();
@@ -571,7 +596,7 @@ public class PessoaDAO {
 
     public List<Object[]> buscarNomesJoiasOrdenadosPorDataMaisAntiga(String sexo, String descricao, List<Integer> idsIgnorar) {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima FROM Parte p WHERE p.descricao = :descricao AND p.pessoa.id NOT IN (:idsIgnorar)";
+        String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima, p.pessoa.ajudante FROM Parte p WHERE p.descricao = :descricao AND p.pessoa.id NOT IN (:idsIgnorar)";
         if (sexo != null) {
             jpql += " AND p.pessoa.sexo = :sexo";
         }
@@ -584,10 +609,26 @@ public class PessoaDAO {
         }
         return query.getResultList();
     }
+    
+    public List<Object[]> buscarNomesAjudantePorDataMaisAntiga(String sexo, String descricao, List<Integer> idsIgnorar) {
+        EntityManager em = FabricaJPA.getEntityManager();
+        String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima, p.pessoa.ajudante FROM Parte p WHERE p.descricao = :descricao AND p.pessoa.id NOT IN (:idsIgnorar)";
+        if (sexo != null) {
+            jpql += " AND p.pessoa.sexo = :sexo";
+        }
+        jpql += " ORDER BY p.pessoa.ajudante";
+        TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
+        query.setParameter("descricao", descricao);
+        query.setParameter("idsIgnorar", idsIgnorar);
+        if (sexo != null) {
+            query.setParameter("sexo", sexo);
+        }
+        return query.getResultList();
+    }
 
     public List<Object[]> buscarDeterminadaPessoa(String descricao, String nomeSobrenome) {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima FROM Parte p WHERE p.descricao = :descricao AND CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome) LIKE :nomeSobrenome ORDER BY p.pessoa.dataUltima";
+        String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima, p.pessoa.ajudante FROM Parte p WHERE p.descricao = :descricao AND CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome) LIKE :nomeSobrenome ORDER BY p.pessoa.dataUltima";
         TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
         query.setParameter("descricao", descricao);
         query.setParameter("nomeSobrenome", "%" + nomeSobrenome + "%");
@@ -636,9 +677,10 @@ public class PessoaDAO {
         }
     }
 
+    
     public List<Object[]> buscarNomesParaSubstituicao(String sexo, String descricao) {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima FROM Parte p WHERE p.descricao = :descricao";
+        String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima, p.pessoa.ajudante FROM Parte p WHERE p.descricao = :descricao";
         if (sexo != null) {
             jpql += " AND p.pessoa.sexo = :sexo";
         }
@@ -650,7 +692,8 @@ public class PessoaDAO {
         }
         return query.getResultList();
     }
-
+    
+    
     public void atualizarAjudante(int pessoaId, LocalDate novoValorAjudante) {
         EntityManager em = FabricaJPA.getEntityManager();
         EntityTransaction transaction = em.getTransaction();
