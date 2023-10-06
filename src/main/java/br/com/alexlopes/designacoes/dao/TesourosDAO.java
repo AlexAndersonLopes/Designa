@@ -11,6 +11,28 @@ import java.util.List;
 import java.util.Random;
 
 public class TesourosDAO {
+    
+    // Método para criar a tabela tesouros
+    public static void criarTabela() {
+        EntityManager em = FabricaJPA.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            String createTableSQL = "CREATE TABLE Tesouros (id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY, pessoa INT NOT NULL, data DATE, FOREIGN KEY (pessoa) REFERENCES pessoa(id) ON DELETE CASCADE)";
+            em.createNativeQuery(createTableSQL).executeUpdate();
+            tx.commit();
+            System.out.println("Tabela tesouros criada com sucesso.");
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close();
+            }
+        }
+    }
 
     //Cadastrar os designados para os Tesouros da reunião de meio de semana
     public void cadastrar(Tesouros a) {

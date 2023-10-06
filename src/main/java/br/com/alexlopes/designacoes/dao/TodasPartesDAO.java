@@ -3,10 +3,33 @@ package br.com.alexlopes.designacoes.dao;
 import br.com.alexlopes.designacoes.fabrica.FabricaJPA;
 import br.com.alexlopes.designacoes.model.TodasPartes;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
 
 public class TodasPartesDAO {
+    
+    // Método para criar a tabela TodasPartes
+    public static void criarTabela() {
+        EntityManager em = FabricaJPA.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            String createTableSQL = "CREATE TABLE TodasPartes (id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY, dia VARCHAR(3) NOT NULL, mes VARCHAR(15) NOT NULL, ano VARCHAR(15) NOT NULL, semana VARCHAR(100) NOT NULL, presidenteA VARCHAR(100) DEFAULT '_________', presidenteB VARCHAR(100) DEFAULT '_________', oracaoInicial VARCHAR(100) DEFAULT '_________', tesouros VARCHAR(100) DEFAULT '_________', joias VARCHAR(100) DEFAULT '_________', leituraBibliaA VARCHAR(100) DEFAULT '_________', leituraBibliaB VARCHAR(100) DEFAULT '_________', nomeParte1 VARCHAR(100) DEFAULT '_________', parte1A VARCHAR(100) DEFAULT '_________', ajudante1A VARCHAR(100) DEFAULT '_________', parte1B VARCHAR(100) DEFAULT '_________', ajudante1B VARCHAR(100) DEFAULT '_________', nomeParte2 VARCHAR(100) DEFAULT '_________', parte2A VARCHAR(100) DEFAULT '_________', ajudante2A VARCHAR(100) DEFAULT '_________', parte2B VARCHAR(100) DEFAULT '_________', ajudante2B VARCHAR(100) DEFAULT '_________', nomeparte3 VARCHAR(100) DEFAULT '_________', parte3A VARCHAR(100) DEFAULT '_________', ajudante3A VARCHAR(100) DEFAULT '_________', parte3B VARCHAR(100) DEFAULT '_________', ajudante3B VARCHAR(100) DEFAULT '_________', nossaVida1 VARCHAR(100) DEFAULT '_________', nossaVida2 VARCHAR(100) DEFAULT '_________', estudoLivro VARCHAR(100) DEFAULT '_________', leitor VARCHAR(100) DEFAULT '_________', oracaoFinal VARCHAR(100) DEFAULT '_________')";
+            em.createNativeQuery(createTableSQL).executeUpdate();
+            tx.commit();
+            System.out.println("Tabela TodasPartes criada com sucesso.");
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close();
+            }
+        }
+    }
 
     public void cadastrar(TodasPartes a) {
         EntityManager em = FabricaJPA.getEntityManager();

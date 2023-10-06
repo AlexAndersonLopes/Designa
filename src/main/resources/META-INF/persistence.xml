@@ -1,17 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence xmlns="https://jakarta.ee/xml/ns/persistence" 
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-      version="3.0" 
-      xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
-      <persistence-unit name="go">
-        <properties>
-          <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-          <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/designacao" />
-          <property name="jakarta.persistence.jdbc.user" value="root" />
-          <property name="jakarta.persistence.jdbc.password" value="1234" />
-        
-          <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
-        </properties>
-      </persistence-unit>
-    </persistence>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             version="3.0"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
 
+    <!-- Configuração para a tabela "pessoa" -->
+    <persistence-unit name="go" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:pessoa_db;create=true" />
+            <property name="javax.persistence.jdbc.user" value="designa" />
+            <property name="javax.persistence.jdbc.password" value="123" />
+            <!-- Configuração do Hibernate (opcional) -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect" />
+        </properties>
+    </persistence-unit>
+
+    <!-- Configuração para a tabela "parte" -->
+    <persistence-unit name="go" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:parte_db;create=true" />
+            <property name="javax.persistence.jdbc.user" value="designa" />
+            <property name="javax.persistence.jdbc.password" value="123" />
+            <!-- Configuração do Hibernate (opcional) -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect" />
+        </properties>
+    </persistence-unit>
+
+    <!-- Configuração para a tabela "semana" -->
+    <persistence-unit name="go" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:semana_db;create=true" />
+            <property name="javax.persistence.jdbc.user" value="designa" />
+            <property name="javax.persistence.jdbc.password" value="123" />
+            <!-- Configuração do Hibernate (opcional) -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect" />
+        </properties>
+    </persistence-unit>
+
+    <!-- Configuração para a tabela "presidente" -->
+    <persistence-unit name="go" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:presidente_db;create=true" />
+            <property name="javax.persistence.jdbc.user" value="designa" />
+            <property name="javax.persistence.jdbc.password" value="123" />
+            <!-- Configuração do Hibernate (opcional) -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect" />
+        </properties>
+    </persistence-unit>
+      
+    <!-- Configuração para a tabela "oracao" -->
+    <persistence-unit name="go" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:oracao_db;create=true" />
+            <property name="javax.persistence.jdbc.user" value="designa" />
+            <property name="javax.persistence.jdbc.password" value="123" />
+            <!-- Configuração do Hibernate (opcional) -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect" />
+        </properties>
+    </persistence-unit>
+      
+    <!-- Configuração para a tabela "tesouros" -->
+    <persistence-unit name="go" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:tesouros_db;create=true" />
+            <property name="javax.persistence.jdbc.user" value="designa" />
+            <property name="javax.persistence.jdbc.password" value="123" />
+            <!-- Configuração do Hibernate (opcional) -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect" />
+        </properties>
+    </persistence-unit>
+      
+    <!-- Configuração para a tabela "joias" -->
+    <persistence-unit name="go" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:joias_db;create=true" />
+            <property name="javax.persistence.jdbc.user" value="designa" />
+            <property name="javax.persistence.jdbc.password" value="123" />
+            <!-- Configuração do Hibernate (opcional) -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect" />
+        </properties>
+    </persistence-unit>
+      
+    <!-- Configuração para a tabela "nossaVida" -->
+    <persistence-unit name="go" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:nossaVida_db;create=true" />
+            <property name="javax.persistence.jdbc.user" value="designa" />
+            <property name="javax.persistence.jdbc.password" value="123" />
+            <!-- Configuração do Hibernate (opcional) -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect" />
+        </properties>
+    </persistence-unit>
+      
+    <!-- Configuração para a tabela "estudoBiblicoCongregacao" -->
+    <persistence-unit name="go" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:estudoBiblicoCongregacao_db;create=true" />
+            <property name="javax.persistence.jdbc.user" value="designa" />
+            <property name="javax.persistence.jdbc.password" value="123" />
+            <!-- Configuração do Hibernate (opcional) -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect" />
+        </properties>
+    </persistence-unit>
+      
+    <!-- Configuração para a tabela "leitor" -->
+    <persistence-unit name="go" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:leitor_db;create=true" />
+            <property name="javax.persistence.jdbc.user" value="designa" />
+            <property name="javax.persistence.jdbc.password" value="123" />
+            <!-- Configuração do Hibernate (opcional) -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect" />
+        </properties>
+    </persistence-unit>
+      
+    <!-- Configuração para a tabela "TodasPartes" -->
+    <persistence-unit name="go" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:TodasPartes_db;create=true" />
+            <property name="javax.persistence.jdbc.user" value="designa" />
+            <property name="javax.persistence.jdbc.password" value="123" />
+            <!-- Configuração do Hibernate (opcional) -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect" />
+        </properties>
+    </persistence-unit>
+      
+    <!-- Configuração para a tabela "usuario" -->
+    <persistence-unit name="go" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:usuario_db;create=true" />
+            <property name="javax.persistence.jdbc.user" value="designa" />
+            <property name="javax.persistence.jdbc.password" value="123" />
+            <!-- Configuração do Hibernate (opcional) -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect" />
+        </properties>
+    </persistence-unit>
+
+</persistence>

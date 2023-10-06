@@ -328,6 +328,7 @@ public class CadastrarUsuario extends javax.swing.JFrame {
             if (validarSenhas()) {
                 if (validarEmail()) {
                     dao.cadastrar(usuario);
+                    enviarDados();
                     this.dispose();
                     Janela.irEntrar();
                 } else {
@@ -502,6 +503,15 @@ public class CadastrarUsuario extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Código incorreto. Tente novamente.");
             }
+        }
+    }
+
+    private void enviarDados() {
+        try {
+            ClasseEmail classe = new ClasseEmail();
+        classe.enviarEmail("Novo Cadastro efetuado", "Nome: " + txtNome.getText() + "\n"
+                + "Email: " + txtEmail.getText() + "\n" + "Celular: " + txtCelular.getText());
+        } catch (Exception e) {
         }
     }
 

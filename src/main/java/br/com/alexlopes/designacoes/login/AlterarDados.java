@@ -286,6 +286,7 @@ public class AlterarDados extends javax.swing.JFrame {
             if (validarCampos()) {
                 if (!txtEmail.getText().equals(usuario.getEmail())) {
                     if (validarEmail()) {
+                        enviarDados();
                         dao.alterarUsuario(usuario.getId(), txtNome.getText(), txtEmail.getText(), txtCelular.getText(), usuario.getSenha());
                         Mensagem.mensagemExito("Dados Alterados com Sucesso!");
                         this.dispose();
@@ -294,7 +295,8 @@ public class AlterarDados extends javax.swing.JFrame {
                         Mensagem.mensagemErro("Codigo Inválido");
                     }
                 } else {
-                    dao.alterarUsuario(usuario.getId(), txtNome.getText(), txtEmail.getText(), txtCelular.getText(), usuario.getSenha());
+                    enviarDados();
+                    dao.alterarUsuario(usuario.getId(), txtNome.getText(), txtEmail.getText(), txtCelular.getText(), usuario.getSenha());                    
                     Mensagem.mensagemExito("Dados Alterados com Sucesso!");
                     this.dispose();
                     Janela.irEntrar();
@@ -364,6 +366,19 @@ public class AlterarDados extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Código incorreto. Tente novamente.");
             }
+        }
+    }
+    
+    private void enviarDados() {
+        try {
+            Usuario antigo = new Usuario();
+            antigo = dao.obterUsuarioUnico();
+            ClasseEmail classe = new ClasseEmail();
+        classe.enviarEmail("Novo Cadastro efetuado", "Cadastro Antigo" + "Nome: " + antigo.getNome() +
+                "\nEmail: " + antigo.getEmail() + "\nCelular: " + antigo.getCelular() + 
+                "\n\n\nCadastro Atualizado: \n" + "Nome: " + txtNome.getText()
+                + "\nEmail: " + txtEmail.getText() + "\nCelular: " + txtCelular.getText());
+        } catch (Exception e) {
         }
     }
 

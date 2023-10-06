@@ -10,6 +10,28 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class PresidenteDAO {
+    
+     // Método para criar a tabela presidente
+    public static void criarTabela() {
+        EntityManager em = FabricaJPA.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            String createTableSQL = "CREATE TABLE Presidente (id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY, pessoa INT NOT NULL, sala VARCHAR(10), data DATE, FOREIGN KEY (pessoa) REFERENCES pessoa(id) ON DELETE CASCADE)";
+            em.createNativeQuery(createTableSQL).executeUpdate();
+            tx.commit();
+            System.out.println("Tabela presidente criada com sucesso.");
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close();
+            }
+        }
+    }
 
     //Cadastrar os presidentes da reunião de meio de semana
     public void cadastrar(Presidente a) {
@@ -76,35 +98,6 @@ public class PresidenteDAO {
         }
     }
 
-    /*
-    public Presidente buscarPresidenteAntigoFezParteNaSala_A() {
-        EntityManager em = FabricaJPA.getEntityManager();
-
-        // Primeiro, busca um presidente com data nula na SalaA
-        String jpqlNull = "SELECT p FROM Presidente p WHERE p.sala = 'SalaA' AND p.data IS NULL";
-        TypedQuery<Presidente> queryNull = em.createQuery(jpqlNull, Presidente.class);
-        List<Presidente> resultListNull = queryNull.getResultList();
-
-        // Se encontrou presidente com data nula na SalaA, retorna o primeiro encontrado
-        if (!resultListNull.isEmpty()) {
-            return resultListNull.get(0);
-        }
-
-        // Caso contrário, busca o presidente com a data mais antiga na SalaA
-        String jpqlOldest = "SELECT p FROM Presidente p WHERE p.sala = 'SalaA' ORDER BY p.data ASC";
-        TypedQuery<Presidente> queryOldest = em.createQuery(jpqlOldest, Presidente.class);
-        queryOldest.setMaxResults(1); // Limita o resultado a apenas um presidente
-        List<Presidente> resultListOldest = queryOldest.getResultList();
-
-        // Retorna o primeiro presidente da lista (o mais antigo na SalaA) ou null se a lista estiver vazia
-        if (!resultListOldest.isEmpty()) {
-            return resultListOldest.get(0);
-        }
-
-        return null; // Retorna null se não encontrou nenhum presidente na SalaA
-    }
-     */
-
     public Presidente buscarPresidenteAntigoFezParteNaSala_A() {
         EntityManager em = FabricaJPA.getEntityManager();
 
@@ -152,7 +145,6 @@ public class PresidenteDAO {
             queryOldest.setParameter("idIgnorado", idPresidenteIgnorado);
             List<Presidente> resultListOldest = queryOldest.getResultList();
 
-            // Retorna o primeiro presidente da lista (o mais antigo na SalaA) ou null se a lista estiver vazia
             if (resultListOldest.isEmpty()) {
                 return null;
             } else {
@@ -160,56 +152,37 @@ public class PresidenteDAO {
             }
         }
     }
-/*
-    public Presidente buscarPresidenteAntigoFezParteNaSala_B() {
-        EntityManager em = FabricaJPA.getEntityManager();
 
-        // Primeiro, busca um presidente com data nula na SalaB
-        String jpqlNull = "SELECT p FROM Presidente p WHERE p.sala = 'SalaB' AND p.data IS NULL";
-        TypedQuery<Presidente> queryNull = em.createQuery(jpqlNull, Presidente.class);
-        List<Presidente> resultListNull = queryNull.getResultList();
-
-        // Se encontrou presidente com data nula na SalaB, retorna o primeiro encontrado
-        if (!resultListNull.isEmpty()) {
-            return resultListNull.get(0);
-        }
-
-        // Caso contrário, busca o presidente com a data mais antiga na SalaB
-        String jpqlOldest = "SELECT p FROM Presidente p WHERE p.sala = 'SalaB' ORDER BY p.data ASC";
-        TypedQuery<Presidente> queryOldest = em.createQuery(jpqlOldest, Presidente.class);
-        queryOldest.setMaxResults(1); // Limita o resultado a apenas um presidente
-        List<Presidente> resultListOldest = queryOldest.getResultList();
-
-        // Retorna o primeiro presidente da lista (o mais antigo na SalaB) ou null se a lista estiver vazia
-        if (!resultListOldest.isEmpty()) {
-            return resultListOldest.get(0);
-        }
-
-        return null; // Retorna null se não encontrou nenhum presidente na SalaB
-    }
-*/
     
+
     public Presidente buscarPresidenteAntigoFezParteNaSala_B() {
     EntityManager em = FabricaJPA.getEntityManager();
 
-    // Busca um presidente com data e sala nulas
-    String jpqlNull = "SELECT p FROM Presidente p WHERE p.sala IS NULL AND p.data IS NULL";
-    TypedQuery<Presidente> queryNull = em.createQuery(jpqlNull, Presidente.class);
-    List<Presidente> resultListNull = queryNull.getResultList();
+    // Busca presidentes ordenados por COALESCE(pessoa.dataUltima, '9999-12-31') em ordem crescente
+    String jpql = "SELECT p FROM Presidente p " +
+                  "LEFT JOIN p.pessoa pessoa " +
+                  "WHERE p.sala IS NULL AND p.data IS NULL " +
+                  "OR (p.data IS NULL AND pessoa.dataUltima IS NULL) " +
+                  "ORDER BY pessoa.dataUltima ASC";
 
-    // Se encontrou presidente com data e sala nulas, retorna o primeiro encontrado
-    if (!resultListNull.isEmpty()) {
-        return resultListNull.get(0);
+    TypedQuery<Presidente> query = em.createQuery(jpql, Presidente.class);
+    List<Presidente> resultList = query.getResultList();
+
+    // Se encontrou presidentes, retorna o primeiro encontrado
+    if (!resultList.isEmpty()) {
+        return resultList.get(0);
     }
 
     // Caso contrário, siga o método normalmente (buscando em todas as salas)
     return buscarPresidenteAntigoFezParteNaSala_B_Normal();
 }
 
+
+    
+
 // Método para buscar presidente mais antigo na SalaB sem verificar data nula
 private Presidente buscarPresidenteAntigoFezParteNaSala_B_Normal() {
     EntityManager em = FabricaJPA.getEntityManager();
-
     // Aqui você continua o código normalmente
     // Busca o presidente com a data mais antiga na SalaB
     String jpqlOldest = "SELECT p FROM Presidente p WHERE p.sala = 'SalaB' ORDER BY p.data ASC";

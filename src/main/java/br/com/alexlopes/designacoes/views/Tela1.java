@@ -1999,6 +1999,9 @@ public class Tela1 extends javax.swing.JFrame {
 
                         // Deixar todas variaveis null
                         limparVariaveis();
+                        
+                        //Atualizar tabela do menu principal
+                        Janela.menu.mostrarTabela();
 
                         // Atualizar a interface do usuário na thread de interface do usuário
                         SwingUtilities.invokeLater(new Runnable() {

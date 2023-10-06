@@ -176,8 +176,12 @@ public class FalarCom extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarActionPerformed
-        if (validarCampos()) {
-            classe.enviarEmail(txtTitulo.getText(), "Email: " + seuEmail.getText() + "\n\n" + txtEmail.getText());
+        try {
+            if (validarCampos()) {
+                classe.enviarEmail(txtTitulo.getText(), "Email: " + seuEmail.getText() + "\n\n" + txtEmail.getText());
+                Mensagem.mensagemExito("Email enviado com Sucesso para o Desenvolvedor");
+            }
+        } catch (Exception e) {
         }
     }//GEN-LAST:event_EnviarActionPerformed
 

@@ -1,6 +1,5 @@
 package br.com.alexlopes.designacoes.fabrica;
 
-import br.com.alexlopes.designacoes.util.Mensagem;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -30,5 +29,4 @@ public class FabricaJPA {
             fabrica.close();
         }
     }
-
 }

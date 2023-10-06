@@ -46,7 +46,6 @@ br\com\alexlopes\designacoes\views\Tela1$50.class
 br\com\alexlopes\designacoes\views\Tela1$47.class
 br\com\alexlopes\designacoes\model\Leitor.class
 br\com\alexlopes\designacoes\views\Substituicao$14.class
-br\com\alexlopes\designacoes\views\Tela1$52$1.class
 br\com\alexlopes\designacoes\views\TrocarSubstituicao$2.class
 br\com\alexlopes\designacoes\util\ClasseEmail.class
 br\com\alexlopes\designacoes\util\GerarPDF.class
@@ -60,11 +59,11 @@ br\com\alexlopes\designacoes\views\Substituicao$25.class
 br\com\alexlopes\designacoes\views\TrocarSubstituicao.class
 br\com\alexlopes\designacoes\model\NossaVida.class
 br\com\alexlopes\designacoes\views\Substituicao$5.class
+br\com\alexlopes\designacoes\views\Tela1$51$2.class
 br\com\alexlopes\designacoes\views\Tela1$49.class
 br\com\alexlopes\designacoes\dao\ParteDAO.class
 br\com\alexlopes\designacoes\views\Substituicao$22.class
 br\com\alexlopes\designacoes\views\Tela1$29.class
-br\com\alexlopes\designacoes\views\Tela1$52$2.class
 br\com\alexlopes\designacoes\views\Tela1$19.class
 br\com\alexlopes\designacoes\views\Tela1$4.class
 br\com\alexlopes\designacoes\dao\PresidenteDAO.class
@@ -77,8 +76,8 @@ br\com\alexlopes\designacoes\views\TrocarSubstituicao$7.class
 br\com\alexlopes\designacoes\model\Tesouros.class
 br\com\alexlopes\designacoes\views\MenuPrincipal$11.class
 br\com\alexlopes\designacoes\views\Tela1$33.class
-br\com\alexlopes\designacoes\views\Tela1$53.class
 br\com\alexlopes\designacoes\views\Trocar$5.class
+br\com\alexlopes\designacoes\views\Tela1$51$1.class
 br\com\alexlopes\designacoes\views\Tela1$1.class
 br\com\alexlopes\designacoes\views\AlterarParticipantes$5.class
 br\com\alexlopes\designacoes\views\FalarCom$3.class
@@ -177,6 +176,7 @@ br\com\alexlopes\designacoes\views\Tela1$51.class
 br\com\alexlopes\designacoes\model\Joias.class
 br\com\alexlopes\designacoes\views\CadastroParticipantes$4.class
 br\com\alexlopes\designacoes\login\CadastrarUsuario$12.class
+br\com\alexlopes\designacoes\views\MenuPrincipal$17.class
 br\com\alexlopes\designacoes\views\Substituicao$12.class
 br\com\alexlopes\designacoes\util\Mensagem.class
 br\com\alexlopes\designacoes\views\Tela1$39.class

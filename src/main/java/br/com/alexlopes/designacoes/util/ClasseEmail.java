@@ -13,8 +13,9 @@ import javax.mail.internet.MimeMessage;
 public class ClasseEmail {
 
     private final String host = "smtp.gmail.com";
-    private final String username = "alex91lopes@gmail.com";
-    private final String password = "vggqwmeqvtvcfnyt";
+    private final String username = "programadesigna@gmail.com";
+    //private final String password = "vggqwmeqvtvcfnyt";iddq oara ehaz nf
+    private final String password = "hkup rpkg vrjf xrex";
     private final Properties props;
 
     public ClasseEmail() {
@@ -132,8 +133,7 @@ public class ClasseEmail {
             message.setSubject(titulo);
             message.setText(texto);
             // Envia o e-mail
-            Transport.send(message);
-            Mensagem.mensagemExito("Email enviado com Sucesso para o Desenvolvedor");
+            Transport.send(message);           
         } catch (MessagingException e) {
             Mensagem.mensagemErro("Tente novamente mais tarde");
         }

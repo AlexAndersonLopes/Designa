@@ -3,10 +3,33 @@ package br.com.alexlopes.designacoes.dao;
 import br.com.alexlopes.designacoes.fabrica.FabricaJPA;
 import br.com.alexlopes.designacoes.model.Parte;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
 
 public class ParteDAO {
+    
+     // Método para criar a tabela parte
+    public static void criarTabela() {
+        EntityManager em = FabricaJPA.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            String createTableSQL = "CREATE TABLE Parte (id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY, descricao VARCHAR(50) NOT NULL, pessoa_id INT NOT NULL, FOREIGN KEY (pessoa_id) REFERENCES pessoa(id) ON DELETE CASCADE)";
+            em.createNativeQuery(createTableSQL).executeUpdate();
+            tx.commit();
+            System.out.println("Tabela parte criada com sucesso.");
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close();
+            }
+        }
+    }
 
     public void cadastrar(Parte a) {
         EntityManager em = FabricaJPA.getEntityManager();

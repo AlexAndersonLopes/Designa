@@ -11,6 +11,28 @@ import java.util.List;
 import java.util.Random;
 
 public class PessoaDAO {
+    
+     // Método para criar a tabela pessoa
+    public static void criarTabela() {
+        EntityManager em = FabricaJPA.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            String createTableSQL = "CREATE TABLE Pessoa (id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY, nome VARCHAR(100) NOT NULL, sobrenome VARCHAR(100) NOT NULL, sexo VARCHAR(20) NOT NULL, celular VARCHAR(20) NOT NULL, dataUltima DATE, sala VARCHAR(10), ajudante DATE)";
+            em.createNativeQuery(createTableSQL).executeUpdate();
+            tx.commit();
+            System.out.println("Tabela pessoa criada com sucesso.");
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close();
+            }
+        }
+    }
 
     public void cadastrar(Pessoa a) {
         EntityManager em = FabricaJPA.getEntityManager();

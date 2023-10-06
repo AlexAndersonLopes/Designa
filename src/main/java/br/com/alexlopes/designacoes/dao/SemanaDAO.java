@@ -3,11 +3,34 @@ package br.com.alexlopes.designacoes.dao;
 import br.com.alexlopes.designacoes.fabrica.FabricaJPA;
 import br.com.alexlopes.designacoes.model.Semana;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
 import java.time.LocalDate;
 import java.util.List;
 
 public class SemanaDAO {
+    
+    // Método para criar a tabela semana
+    public static void criarTabela() {
+        EntityManager em = FabricaJPA.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            String createTableSQL = "CREATE TABLE Semana (id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY, data DATE NOT NULL)";
+            em.createNativeQuery(createTableSQL).executeUpdate();
+            tx.commit();
+            System.out.println("Tabela semana criada com sucesso.");
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close();
+            }
+        }
+    }
 
     public void cadastrar(Semana a) {
         EntityManager em = FabricaJPA.getEntityManager();

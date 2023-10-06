@@ -11,6 +11,28 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class UsuarioDAO {
+    
+    // Método para criar a tabela Usuario
+    public static void criarTabela() {
+        EntityManager em = FabricaJPA.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            String createTableSQL = "CREATE TABLE Usuario (id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY, nome VARCHAR(100) NOT NULL, email VARCHAR(100) NOT NULL, celular VARCHAR(15) NOT NULL, senha VARCHAR(64) NOT NULL)";
+            em.createNativeQuery(createTableSQL).executeUpdate();
+            tx.commit();
+            System.out.println("Tabela usuario criada com sucesso.");
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close();
+            }
+        }
+    }
 
     public void cadastrar(Usuario a) {
         EntityManager em = FabricaJPA.getEntityManager();
