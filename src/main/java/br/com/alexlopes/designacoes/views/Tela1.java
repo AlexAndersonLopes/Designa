@@ -26,8 +26,6 @@ import br.com.alexlopes.designacoes.util.Mensagem;
 import br.com.alexlopes.designacoes.util.whats.FolhaDesignacao;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -35,8 +33,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 public class Tela1 extends javax.swing.JFrame {
@@ -1486,6 +1482,21 @@ public class Tela1 extends javax.swing.JFrame {
             txtAjudante3.setText(ajudanteRevisitaA.getNome() + " " + ajudanteRevisitaA.getSobrenome());
             listaIgnorarEstudantes.add(ajudanteRevisitaA.getId());
         }
+        if (cRevisita.isSelected() && txtParte2.getText().isEmpty() && cVideo.isSelected() && !cPrimeiraConversa.isSelected()) {
+            revisitaA = pDAO.buscarPessoaComCondicoes("Revisita", null, listaIgnorarEstudantes);
+            if (revisitaA == null) {
+                revisitaA = pDAO.buscarPessoaComCondicoes2("Revisita", null);
+            }
+            txtParte2.setText(revisitaA.getNome() + " " + revisitaA.getSobrenome());
+            listaIgnorarEstudantes.add(revisitaA.getId());
+
+            ajudanteRevisitaA = pDAO.buscarPessoaComCondicoesAjudante("Ajudante", revisitaA.getSexo(), listaIgnorarEstudantes, revisitaA.getAjudante());
+            if (ajudanteRevisitaA == null) {
+                ajudanteRevisitaA = pDAO.buscarPessoaComCondicoes2("Ajudante", revisitaA.getSexo());
+            }
+            txtAjudante2.setText(ajudanteRevisitaA.getNome() + " " + ajudanteRevisitaA.getSobrenome());
+            listaIgnorarEstudantes.add(ajudanteRevisitaA.getId());
+        }
         if (cRevisita1.isSelected() && txtParte2.getText().isEmpty()) {
             revisitaA = pDAO.buscarPessoaComCondicoes("Revisita", null, listaIgnorarEstudantes);
             if (revisitaA == null) {
@@ -1866,6 +1877,39 @@ public class Tela1 extends javax.swing.JFrame {
             txtAjudante3B.setText(ajudanteRevisitaB.getNome() + " " + ajudanteRevisitaB.getSobrenome());
             listaIgnorarEstudantes.add(ajudanteRevisitaB.getId());
         }
+
+        if (cRevisita.isSelected() && txtParte2.getText().isEmpty() && cVideo.isSelected() && !cPrimeiraConversa.isSelected()) {
+            //SALA A
+            revisitaA = pDAO.buscarPessoaComCondicoesSalaB("Revisita", null, listaIgnorarEstudantes, "SalaA");
+            if (revisitaA == null) {
+                revisitaA = pDAO.buscarPessoaComCondicoesSalaB2("Revisita", null);
+            }
+            txtParte2.setText(revisitaA.getNome() + " " + revisitaA.getSobrenome());
+            listaIgnorarEstudantes.add(revisitaA.getId());
+
+            ajudanteRevisitaA = pDAO.buscarPessoaComCondicoes2("Ajudante", revisitaA.getSexo(), listaIgnorarEstudantes, revisitaA.getAjudante(), "SalaA");
+            if (ajudanteRevisitaA == null) {
+                ajudanteRevisitaA = pDAO.buscarPessoaComCondicoes3("Ajudante", revisitaA.getSexo());
+            }
+            txtAjudante2.setText(ajudanteRevisitaA.getNome() + " " + ajudanteRevisitaA.getSobrenome());
+            listaIgnorarEstudantes.add(ajudanteRevisitaA.getId());
+        }
+        if (cRevisita.isSelected() && txtParte2B.getText().isEmpty() && cVideo.isSelected() && !cPrimeiraConversa.isSelected()) {
+            //SALA B
+            revisitaB = pDAO.buscarPessoaComCondicoesSalaB("Revisita", null, listaIgnorarEstudantes, "SalaB");
+            if (revisitaB == null) {
+                revisitaB = pDAO.buscarPessoaComCondicoesSalaB2("Revisita", null);
+            }
+            txtParte2B.setText(revisitaB.getNome() + " " + revisitaB.getSobrenome());
+            listaIgnorarEstudantes.add(revisitaB.getId());
+
+            ajudanteRevisitaB = pDAO.buscarPessoaComCondicoes2("Ajudante", revisitaB.getSexo(), listaIgnorarEstudantes, revisitaB.getAjudante(), "SalaB");
+            if (ajudanteRevisitaB == null) {
+                ajudanteRevisitaB = pDAO.buscarPessoaComCondicoes3("Ajudante", revisitaB.getSexo());
+            }
+            txtAjudante2B.setText(ajudanteRevisitaB.getNome() + " " + ajudanteRevisitaB.getSobrenome());
+            listaIgnorarEstudantes.add(ajudanteRevisitaB.getId());
+        }
         if (cRevisita1.isSelected() && txtParte2.getText().isEmpty()) {
             //SALA A
             revisitaA = pDAO.buscarPessoaComCondicoesSalaB("Revisita", null, listaIgnorarEstudantes, "SalaA");
@@ -1999,7 +2043,7 @@ public class Tela1 extends javax.swing.JFrame {
 
                         // Deixar todas variaveis null
                         limparVariaveis();
-                        
+
                         //Atualizar tabela do menu principal
                         Janela.menu.mostrarTabela();
 
@@ -2902,6 +2946,19 @@ public class Tela1 extends javax.swing.JFrame {
                     txtAjudante3B.setText("");
                     txtParte3B.setEnabled(true);
                     txtAjudante3B.setEnabled(true);
+                }
+            }
+            if (cRevisita.isSelected() && cVideo.isSelected() && !cPrimeiraConversa.isSelected()) {
+                labelParte2.setText("Revisita:");
+                txtParte2.setText("");
+                txtParte2.setEnabled(true);
+                txtAjudante2.setText("");
+                txtAjudante2.setEnabled(true);
+                if (cSalaAB.isSelected()) {
+                    txtParte2B.setText("");
+                    txtAjudante2B.setText("");
+                    txtParte2B.setEnabled(true);
+                    txtAjudante2B.setEnabled(true);
                 }
             }
             if (cRevisita.isSelected() && !cVideo.isSelected()) {

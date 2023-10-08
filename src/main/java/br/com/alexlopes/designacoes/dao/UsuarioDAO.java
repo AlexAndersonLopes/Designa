@@ -21,7 +21,6 @@ public class UsuarioDAO {
             String createTableSQL = "CREATE TABLE Usuario (id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY, nome VARCHAR(100) NOT NULL, email VARCHAR(100) NOT NULL, celular VARCHAR(15) NOT NULL, senha VARCHAR(64) NOT NULL)";
             em.createNativeQuery(createTableSQL).executeUpdate();
             tx.commit();
-            System.out.println("Tabela usuario criada com sucesso.");
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {
                 tx.rollback();

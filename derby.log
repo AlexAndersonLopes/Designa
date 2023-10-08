@@ -1,19 +1,6 @@
 ----------------------------------------------------------------
-Thu Oct 05 21:22:37 BRT 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018b-025d-6588-00000700ae10 
-on database directory C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\designa with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 
-Loaded from file:/C:/Users/alex9/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
-java.vendor=Oracle Corporation
-java.runtime.version=17.0.7+8-LTS-224
-user.dir=C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes
-os.name=Windows 11
-os.arch=amd64
-os.version=10.0
-derby.system.home=null
-Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Thu Oct 05 21:22:42 BRT 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance 601a400f-018b-025d-6588-00000700ae10 
+Sun Oct 08 12:43:10 BRT 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018b-0ff4-e8f3-000004271ab8 
 on database directory C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\pessoa_db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 
 Loaded from file:/C:/Users/alex9/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation

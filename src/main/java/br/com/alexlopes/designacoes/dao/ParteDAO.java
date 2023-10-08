@@ -18,7 +18,6 @@ public class ParteDAO {
             String createTableSQL = "CREATE TABLE Parte (id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY, descricao VARCHAR(50) NOT NULL, pessoa_id INT NOT NULL, FOREIGN KEY (pessoa_id) REFERENCES pessoa(id) ON DELETE CASCADE)";
             em.createNativeQuery(createTableSQL).executeUpdate();
             tx.commit();
-            System.out.println("Tabela parte criada com sucesso.");
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {
                 tx.rollback();

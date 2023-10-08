@@ -19,7 +19,6 @@ public class SemanaDAO {
             String createTableSQL = "CREATE TABLE Semana (id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY, data DATE NOT NULL)";
             em.createNativeQuery(createTableSQL).executeUpdate();
             tx.commit();
-            System.out.println("Tabela semana criada com sucesso.");
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {
                 tx.rollback();

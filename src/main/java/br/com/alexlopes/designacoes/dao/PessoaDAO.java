@@ -21,7 +21,6 @@ public class PessoaDAO {
             String createTableSQL = "CREATE TABLE Pessoa (id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY, nome VARCHAR(100) NOT NULL, sobrenome VARCHAR(100) NOT NULL, sexo VARCHAR(20) NOT NULL, celular VARCHAR(20) NOT NULL, dataUltima DATE, sala VARCHAR(10), ajudante DATE)";
             em.createNativeQuery(createTableSQL).executeUpdate();
             tx.commit();
-            System.out.println("Tabela pessoa criada com sucesso.");
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {
                 tx.rollback();

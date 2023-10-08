@@ -21,7 +21,6 @@ public class TesourosDAO {
             String createTableSQL = "CREATE TABLE Tesouros (id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY, pessoa INT NOT NULL, data DATE, FOREIGN KEY (pessoa) REFERENCES pessoa(id) ON DELETE CASCADE)";
             em.createNativeQuery(createTableSQL).executeUpdate();
             tx.commit();
-            System.out.println("Tabela tesouros criada com sucesso.");
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {
                 tx.rollback();

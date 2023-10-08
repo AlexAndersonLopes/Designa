@@ -559,7 +559,7 @@ public class GerarPDF extends javax.swing.JFrame {
             for (TodasPartes a : lista) {
                 docPdf.newPage();
 
-                labelSemana.setText("Semana: " +  a.getDia() + " de " + a.getMes() + ", " + a.getAno());
+                labelSemana.setText("Semana: " + a.getDia() + " de " + a.getMes() + ", " + a.getAno());
 
                 if (!a.getPresidenteA().equals("NA") && !a.getPresidenteA().equals("")) {
                     lpresidente.setText(a.getPresidenteA());
@@ -612,8 +612,10 @@ public class GerarPDF extends javax.swing.JFrame {
                 }
 
                 if (!a.getAjudante1A().equals("NA") && !a.getAjudante1A().equals("")) {
+                    labelParte7.setVisible(true);
                     ajudante1a.setText(a.getAjudante1A());
                 } else {
+                    labelParte7.setVisible(false);
                     ajudante1a.setText("");
                 }
 
@@ -648,8 +650,10 @@ public class GerarPDF extends javax.swing.JFrame {
                 }
 
                 if (!a.getAjudante3A().equals("NA") && !a.getAjudante3A().equals("")) {
+                    labelParte11.setVisible(true);
                     ajudante3a.setText(a.getAjudante3A());
                 } else {
+                    labelParte11.setVisible(false);
                     ajudante3a.setText("");
                 }
 

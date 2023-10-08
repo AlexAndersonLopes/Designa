@@ -267,7 +267,7 @@ public class FolhaDesignacao extends javax.swing.JFrame {
                 Janela.ag.b1.setText("NÃO ENVIADO");
             }
         }
-        if (!dados.getParte1A().isEmpty()) {
+        if (!dados.getParte1A().isEmpty() && !dados.getParte1A().equals("NA")) {
             zap = new WhatsApp();
             Pessoa parte1A = dao.buscarPessoaPorNomeESobrenomeZap(dados.getParte1A());
             Pessoa ajudante1A = dao.buscarPessoaPorNomeESobrenomeZap(dados.getAjudante1A());
