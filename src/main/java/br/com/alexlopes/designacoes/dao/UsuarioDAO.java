@@ -1,5 +1,9 @@
 package br.com.alexlopes.designacoes.dao;
 
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import br.com.alexlopes.designacoes.fabrica.FabricaJPA;
 import br.com.alexlopes.designacoes.model.Usuario;
 import jakarta.persistence.EntityManager;
@@ -9,9 +13,10 @@ import jakarta.persistence.TypedQuery;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 public class UsuarioDAO {
-    
+
     // Método para criar a tabela Usuario
     public static void criarTabela() {
         EntityManager em = FabricaJPA.getEntityManager();
@@ -28,10 +33,41 @@ public class UsuarioDAO {
             e.printStackTrace();
         } finally {
             if (em != null && em.isOpen()) {
-                em.close();
+                FabricaJPA.closeEtityManager();
             }
         }
     }
+
+    public static boolean tabelaUsuarioExiste() {
+    EntityManager em = FabricaJPA.getEntityManager();
+    try {
+        List<?> result = em.createNativeQuery("SELECT 1 FROM Usuario").getResultList();
+        return !result.isEmpty();
+    } catch (Exception e) {
+        e.printStackTrace();
+        return false;
+    } finally {
+        if (em != null && em.isOpen()) {
+            FabricaJPA.closeEtityManager();
+        }
+    }
+}
+
+public static boolean tabelaUsuarioPossuiRegistros() {
+    if (tabelaUsuarioExiste()) {
+        EntityManager em = FabricaJPA.getEntityManager();
+        try {
+            Long count = em.createQuery("SELECT COUNT(u) FROM Usuario u", Long.class).getSingleResult();
+            return count > 0;
+        } finally {
+            if (em != null && em.isOpen()) {
+                FabricaJPA.closeEtityManager();
+            }
+        }
+    }
+    return false; // Retorna false se a tabela não existir.
+}
+
 
     public void cadastrar(Usuario a) {
         EntityManager em = FabricaJPA.getEntityManager();

@@ -16,7 +16,8 @@ import java.util.List;
 
 public class ArquivoPDF {
 
-    private final String cam = System.getProperty("user.home") + "\\OneDrive\\Área de Trabalho\\Designações\\";
+   // private final String cam = System.getProperty("user.home") + "\\OneDrive\\Área de Trabalho\\Designações\\";
+    private final String cam = System.getProperty("user.dir") + File.separator + "Designacoes" + File.separator;
     private String seguir;
     private String caminho;
 
