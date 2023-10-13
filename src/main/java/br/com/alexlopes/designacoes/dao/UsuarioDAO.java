@@ -78,7 +78,7 @@ public class UsuarioDAO {
         }
     }
 
-    //Retornar o nome do usuario
+    //Retornar o nome do usuario   NoResultException 
     public Usuario obterUsuarioUnico() {
         EntityManager em = FabricaJPA.getEntityManager();
         try {

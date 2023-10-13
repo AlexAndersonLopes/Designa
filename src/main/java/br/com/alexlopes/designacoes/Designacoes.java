@@ -13,6 +13,8 @@ import br.com.alexlopes.designacoes.dao.TesourosDAO;
 import br.com.alexlopes.designacoes.dao.TodasPartesDAO;
 import br.com.alexlopes.designacoes.dao.UsuarioDAO;
 import br.com.alexlopes.designacoes.util.Janela;
+import br.com.alexlopes.designacoes.util.Mensagem;
+import java.io.File;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -21,7 +23,7 @@ import java.sql.SQLException;
 public class Designacoes {
 
     public static void main(String[] args) {
-
+        
         if (!bancoDeDadosExiste()) {
             criarBancoDeDados();
             criarTabelas();
@@ -30,25 +32,30 @@ public class Designacoes {
             Janela.irEntrar();
         }
     }
-
+/*
     public static boolean bancoDeDadosExiste() {
-        String url = "jdbc:derby:designa;";
         try {
-            DriverManager.getConnection(url);
+            DriverManager.getConnection("jdbc:derby:pessoa_db");
             return true;
         } catch (SQLException e) {
+            Mensagem.mensagemErro("ERRO");
             return false;
         }
+    }*/
+    public static boolean bancoDeDadosExiste() {
+        // Verifique se o diretório do banco de dados existe
+        File databaseDir = new File("pessoa_db");
+        return databaseDir.exists();
     }
+    
 
     public static boolean tabelaUsuarioExiste() {
         try {
             // Verifica se a tabela de usuário existe no banco de dados
-            DatabaseMetaData metaData = DriverManager.getConnection("jdbc:derby:designa;").getMetaData();
+            DatabaseMetaData metaData = DriverManager.getConnection("jdbc:derby:pessoa_db").getMetaData();
             ResultSet tables = metaData.getTables(null, null, "Usuario", null);
             return tables.next();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException e) {           
             return false;
         }
     }
@@ -69,7 +76,7 @@ public class Designacoes {
     }
 
     public static void criarBancoDeDados() {
-        String url = "jdbc:derby:designa;create=true";
+        String url = "jdbc:derby:pessoa_db;create=true";
         try {
             DriverManager.getConnection(url);
             System.out.println("Banco de dados criado com sucesso.");
@@ -77,5 +84,6 @@ public class Designacoes {
             e.printStackTrace();
         }
     }
+
 
 }

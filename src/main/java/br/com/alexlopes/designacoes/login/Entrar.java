@@ -25,7 +25,8 @@ public class Entrar extends javax.swing.JFrame {
 
     private boolean senhaVisivel = false;
     private UsuarioDAO dao = new UsuarioDAO();
-    private Usuario usuario, usu;
+    private final Usuario usuario;
+    private Usuario usu;
 
     public Entrar() {
         initComponents();
@@ -169,7 +170,7 @@ public class Entrar extends javax.swing.JFrame {
             }
         });
 
-        mostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/mostrarSenha.png"))); // NOI18N
+        mostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/mostrarSenha.png"))); // NOI18N
         mostrar.setToolTipText("Mostrar Senha");
         mostrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mostrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -208,8 +209,8 @@ public class Entrar extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(mostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(28, 28, 28))
+                                .addComponent(mostrar)
+                                .addGap(49, 49, 49))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(166, 166, 166)
                                 .addComponent(esqueciSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)

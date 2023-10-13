@@ -10,8 +10,6 @@
             <property name="javax.persistence.jdbc.url" value="jdbc:derby:pessoa_db;create=true" />
             <property name="javax.persistence.jdbc.user" value="designa" />
             <property name="javax.persistence.jdbc.password" value="123" />
-            <!-- Configuração do Hibernate (opcional) -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect" />
         </properties>
     </persistence-unit>
 

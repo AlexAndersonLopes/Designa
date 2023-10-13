@@ -10,7 +10,7 @@ public class FabricaJPA {
 
     private static EntityManager em;
     private static EntityManagerFactory fabrica;
-
+   
     public static EntityManager getEntityManager() {
         if (fabrica == null || !fabrica.isOpen()) {
             fabrica = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);

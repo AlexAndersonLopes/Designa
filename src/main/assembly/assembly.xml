@@ -1,0 +1,14 @@
+<assembly>
+    <id>Designacoes</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>lib</outputDirectory> <!-- Especifica um diretório chamado "lib" -->
+            <includes>
+                <include>*:*</include>
+            </includes>
+        </dependencySet>
+    </dependencySets>
+</assembly>
