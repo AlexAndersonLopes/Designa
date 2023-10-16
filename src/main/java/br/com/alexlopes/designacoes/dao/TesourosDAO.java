@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Random;
 
 public class TesourosDAO {
-    
+
     // Método para criar a tabela tesouros
     public static void criarTabela() {
         EntityManager em = FabricaJPA.getEntityManager();
@@ -25,10 +25,9 @@ public class TesourosDAO {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            e.printStackTrace();
         } finally {
-            if (em != null && em.isOpen()) {
-                em.close();
+            if (em.isOpen()) {
+                FabricaJPA.closeEtityManager();
             }
         }
     }
@@ -52,12 +51,18 @@ public class TesourosDAO {
     // Verificar se existe um registro de tesouros com base no ID da pessoa
     public boolean verificarExistenciaTesouroPorPessoaId(int pessoaId) {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT COUNT(t) FROM Tesouros t WHERE t.pessoa.id = :pessoaId";
-        TypedQuery<Long> query = em.createQuery(jpql, Long.class);
-        query.setParameter("pessoaId", pessoaId);
-        Long resultado = query.getSingleResult();
+        try {
+            String jpql = "SELECT COUNT(t) FROM Tesouros t WHERE t.pessoa.id = :pessoaId";
+            TypedQuery<Long> query = em.createQuery(jpql, Long.class);
+            query.setParameter("pessoaId", pessoaId);
+            Long resultado = query.getSingleResult();
 
-        return resultado > 0;
+            return resultado > 0;
+        } catch (Exception e) {
+        } finally {
+            FabricaJPA.closeEtityManager();
+        }
+        return false;
     }
 
     // Excluir registro de Tesouros com base no ID da pessoa
@@ -87,10 +92,9 @@ public class TesourosDAO {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            e.printStackTrace(); // Tratar exceções ou fazer o registro de erro adequado aqui
         } finally {
-            if (em != null && em.isOpen()) {
-                em.close(); // Feche o EntityManager apenas se estiver aberto
+            if (em.isOpen()) {
+                FabricaJPA.closeEtityManager();
             }
         }
     }
@@ -161,9 +165,15 @@ public class TesourosDAO {
     //BUSCAR TODOS OS TESOUROS ORDENADO POR DATA
     public List<Object[]> buscarNomesTesourosOrdenadosPorDataMaisAntiga() {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.data FROM Tesouros p ORDER BY p.data";
-        TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
-        return query.getResultList();
+        try {
+            String jpql = "SELECT CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.data FROM Tesouros p ORDER BY p.data";
+            TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
+            return query.getResultList();
+        } catch (Exception e) {
+        } finally {
+            FabricaJPA.closeEtityManager();
+        }
+        return null;
     }
 
     //Buscar pessoa por id
@@ -179,7 +189,7 @@ public class TesourosDAO {
             }
             return null; // Retorna nulo se não encontrar um presidente com o ID da pessoa
         } finally {
-            em.close();
+            FabricaJPA.closeEtityManager();
         }
     }
 

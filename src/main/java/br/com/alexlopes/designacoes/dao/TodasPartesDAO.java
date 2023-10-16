@@ -22,10 +22,9 @@ public class TodasPartesDAO {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            e.printStackTrace();
         } finally {
-            if (em != null && em.isOpen()) {
-                em.close();
+            if (em.isOpen()) {
+                FabricaJPA.closeEtityManager();
             }
         }
     }

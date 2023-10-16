@@ -30,44 +30,42 @@ public class UsuarioDAO {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            e.printStackTrace();
         } finally {
-            if (em != null && em.isOpen()) {
+            if (em.isOpen()) {
                 FabricaJPA.closeEtityManager();
             }
         }
     }
 
     public static boolean tabelaUsuarioExiste() {
-    EntityManager em = FabricaJPA.getEntityManager();
-    try {
-        List<?> result = em.createNativeQuery("SELECT 1 FROM Usuario").getResultList();
-        return !result.isEmpty();
-    } catch (Exception e) {
-        e.printStackTrace();
-        return false;
-    } finally {
-        if (em != null && em.isOpen()) {
-            FabricaJPA.closeEtityManager();
-        }
-    }
-}
-
-public static boolean tabelaUsuarioPossuiRegistros() {
-    if (tabelaUsuarioExiste()) {
         EntityManager em = FabricaJPA.getEntityManager();
         try {
-            Long count = em.createQuery("SELECT COUNT(u) FROM Usuario u", Long.class).getSingleResult();
-            return count > 0;
+            List<?> result = em.createNativeQuery("SELECT 1 FROM Usuario").getResultList();
+            return !result.isEmpty();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         } finally {
             if (em != null && em.isOpen()) {
                 FabricaJPA.closeEtityManager();
             }
         }
     }
-    return false; // Retorna false se a tabela não existir.
-}
 
+    public static boolean tabelaUsuarioPossuiRegistros() {
+        if (tabelaUsuarioExiste()) {
+            EntityManager em = FabricaJPA.getEntityManager();
+            try {
+                Long count = em.createQuery("SELECT COUNT(u) FROM Usuario u", Long.class).getSingleResult();
+                return count > 0;
+            } finally {
+                if (em != null && em.isOpen()) {
+                    FabricaJPA.closeEtityManager();
+                }
+            }
+        }
+        return false; // Retorna false se a tabela não existir.
+    }
 
     public void cadastrar(Usuario a) {
         EntityManager em = FabricaJPA.getEntityManager();
@@ -96,8 +94,8 @@ public static boolean tabelaUsuarioPossuiRegistros() {
             }
             return hash;
         } catch (NoSuchAlgorithmException e) {
-            // Trate a exceção adequadamente
-            System.out.println(e);
+        } finally {
+            FabricaJPA.closeEtityManager();
         }
         return null;
     }

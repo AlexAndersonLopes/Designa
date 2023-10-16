@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Random;
 
 public class JoiasDAO {
-    
+
     // Método para criar a tabela joias
     public static void criarTabela() {
         EntityManager em = FabricaJPA.getEntityManager();
@@ -25,10 +25,9 @@ public class JoiasDAO {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            e.printStackTrace();
         } finally {
-            if (em != null && em.isOpen()) {
-                em.close();
+            if (em.isOpen()) {
+                FabricaJPA.closeEtityManager();
             }
         }
     }
@@ -52,12 +51,19 @@ public class JoiasDAO {
     // Verificar se existe um registro de joias com base no ID da pessoa
     public boolean verificarExistenciaJoiaPorPessoaId(int pessoaId) {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT COUNT(j) FROM Joias j WHERE j.pessoa.id = :pessoaId";
-        TypedQuery<Long> query = em.createQuery(jpql, Long.class);
-        query.setParameter("pessoaId", pessoaId);
-        Long resultado = query.getSingleResult();
-
-        return resultado > 0;
+        try {
+            String jpql = "SELECT COUNT(j) FROM Joias j WHERE j.pessoa.id = :pessoaId";
+            TypedQuery<Long> query = em.createQuery(jpql, Long.class);
+            query.setParameter("pessoaId", pessoaId);
+            Long resultado = query.getSingleResult();
+            return resultado > 0;
+        } catch (Exception e) {
+        } finally {
+            if (em.isOpen()) {
+                FabricaJPA.closeEtityManager();
+            }
+        }
+        return false;
     }
 
     // Excluir registro de Joias com base no ID da pessoa
@@ -87,10 +93,9 @@ public class JoiasDAO {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            e.printStackTrace(); // Tratar exceções ou fazer o registro de erro adequado aqui
         } finally {
-            if (em != null && em.isOpen()) {
-                em.close(); // Feche o EntityManager apenas se estiver aberto
+            if (em.isOpen()) {
+                FabricaJPA.closeEtityManager();
             }
         }
     }
@@ -144,9 +149,6 @@ public class JoiasDAO {
             }
             em.getTransaction().commit();
         } catch (Exception e) {
-            e.printStackTrace();
-            em.getTransaction().rollback();
-            throw e;
         } finally {
             FabricaJPA.closeEtityManager();
         }
@@ -155,9 +157,15 @@ public class JoiasDAO {
     //BUSCAR TODAS JOIAS ORDENADO POR DATA
     public List<Object[]> buscarNomesJoiasOrdenadosPorDataMaisAntiga() {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.data FROM Joias p ORDER BY p.data";
+        try {
+            String jpql = "SELECT CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.data FROM Joias p ORDER BY p.data";
         TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
         return query.getResultList();
+        } catch (Exception e) {
+        }finally {
+            FabricaJPA.closeEtityManager();
+        }
+        return null;
     }
 
     //Buscar pessoa por id
@@ -173,7 +181,7 @@ public class JoiasDAO {
             }
             return null; // Retorna nulo se não encontrar um presidente com o ID da pessoa
         } finally {
-            em.close();
+            FabricaJPA.closeEtityManager();
         }
     }
 

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Random;
 
 public class LeitorDAO {
-    
+
     // Método para criar a tabela leitor
     public static void criarTabela() {
         EntityManager em = FabricaJPA.getEntityManager();
@@ -25,10 +25,9 @@ public class LeitorDAO {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            e.printStackTrace();
         } finally {
-            if (em != null && em.isOpen()) {
-                em.close();
+            if (em.isOpen()) {
+                FabricaJPA.closeEtityManager();
             }
         }
     }
@@ -52,12 +51,20 @@ public class LeitorDAO {
     // Verificar se existe um registro de leitor com base no ID da pessoa
     public boolean verificarExistenciaLeitorPorPessoaId(int pessoaId) {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT COUNT(l) FROM Leitor l WHERE l.pessoa.id = :pessoaId";
-        TypedQuery<Long> query = em.createQuery(jpql, Long.class);
-        query.setParameter("pessoaId", pessoaId);
-        Long resultado = query.getSingleResult();
+        try {
+            String jpql = "SELECT COUNT(l) FROM Leitor l WHERE l.pessoa.id = :pessoaId";
+            TypedQuery<Long> query = em.createQuery(jpql, Long.class);
+            query.setParameter("pessoaId", pessoaId);
+            Long resultado = query.getSingleResult();
 
-        return resultado > 0;
+            return resultado > 0;
+        } catch (Exception e) {
+        } finally {
+            if (em.isOpen()) {
+                FabricaJPA.closeEtityManager();
+            }
+        }
+        return false;
     }
 
     // Excluir registro de Leitor com base no ID da pessoa
@@ -87,10 +94,9 @@ public class LeitorDAO {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            e.printStackTrace(); // Tratar exceções ou fazer o registro de erro adequado aqui
         } finally {
-            if (em != null && em.isOpen()) {
-                em.close(); // Feche o EntityManager apenas se estiver aberto
+            if (em.isOpen()) {
+                FabricaJPA.closeEtityManager();
             }
         }
     }
@@ -144,9 +150,6 @@ public class LeitorDAO {
             }
             em.getTransaction().commit();
         } catch (Exception e) {
-            e.printStackTrace();
-            em.getTransaction().rollback();
-            throw e;
         } finally {
             FabricaJPA.closeEtityManager();
         }
@@ -155,10 +158,16 @@ public class LeitorDAO {
     //BUSCAR TODAS Leitor ORDENADO POR DATA
     public List<Object[]> buscarNomesLeitorOrdenadosPorDataMaisAntiga(List<Integer> idsIgnorar) {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.data FROM Leitor p WHERE p.pessoa.id NOT IN (:idsIgnorar) ORDER BY p.data";
-        TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
-        query.setParameter("idsIgnorar", idsIgnorar);
-        return query.getResultList();
+        try {
+            String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.data FROM Leitor p WHERE p.pessoa.id NOT IN (:idsIgnorar) ORDER BY p.data";
+            TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
+            query.setParameter("idsIgnorar", idsIgnorar);
+            return query.getResultList();
+        } catch (Exception e) {
+        } finally {
+            FabricaJPA.closeEtityManager();
+        }
+        return null;
     }
 
     //Buscar pessoa por id
@@ -174,7 +183,7 @@ public class LeitorDAO {
             }
             return null; // Retorna nulo se não encontrar um presidente com o ID da pessoa
         } finally {
-            em.close();
+            FabricaJPA.closeEtityManager();
         }
     }
 

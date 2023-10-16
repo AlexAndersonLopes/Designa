@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Random;
 
 public class NossaVidaDAO {
-    
+
     // Método para criar a tabela nossaVida
     public static void criarTabela() {
         EntityManager em = FabricaJPA.getEntityManager();
@@ -25,10 +25,9 @@ public class NossaVidaDAO {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            e.printStackTrace();
         } finally {
-            if (em != null && em.isOpen()) {
-                em.close();
+            if (em.isOpen()) {
+                FabricaJPA.closeEtityManager();
             }
         }
     }
@@ -41,9 +40,6 @@ public class NossaVidaDAO {
             em.persist(a);
             em.getTransaction().commit();
         } catch (Exception e) {
-            e.getStackTrace();
-            em.getTransaction().rollback();
-            throw e;
         } finally {
             FabricaJPA.closeEtityManager();
         }
@@ -52,12 +48,18 @@ public class NossaVidaDAO {
     // Verificar se existe um registro em nossaVida com base no ID da pessoa
     public boolean verificarExistenciaNossaVidaPorPessoaId(int pessoaId) {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT COUNT(nv) FROM NossaVida nv WHERE nv.pessoa.id = :pessoaId";
-        TypedQuery<Long> query = em.createQuery(jpql, Long.class);
-        query.setParameter("pessoaId", pessoaId);
-        Long resultado = query.getSingleResult();
+        try {
+            String jpql = "SELECT COUNT(nv) FROM NossaVida nv WHERE nv.pessoa.id = :pessoaId";
+            TypedQuery<Long> query = em.createQuery(jpql, Long.class);
+            query.setParameter("pessoaId", pessoaId);
+            Long resultado = query.getSingleResult();
 
-        return resultado > 0;
+            return resultado > 0;
+        } catch (Exception e) {
+        } finally {
+            FabricaJPA.closeEtityManager();
+        }
+        return false;
     }
 
     // Excluir registro em nossaVida com base no ID da pessoa
@@ -80,17 +82,12 @@ public class NossaVidaDAO {
                 tx.rollback();
             }
         } catch (NoResultException e) {
-            // Trate o caso em que nenhuma nossaVida com o ID de pessoa especificado foi encontrada
-            tx.rollback();
-            System.out.println("NossaVida não encontrada com o ID de pessoa: " + pessoaId);
         } catch (Exception e) {
             if (tx != null && tx.isActive()) {
-                tx.rollback();
             }
-            e.printStackTrace(); // Tratar exceções ou fazer o registro de erro adequado aqui
         } finally {
-            if (em != null && em.isOpen()) {
-                em.close(); // Feche o EntityManager apenas se estiver aberto
+            if (em.isOpen()) {
+                FabricaJPA.closeEtityManager();
             }
         }
     }
@@ -144,9 +141,6 @@ public class NossaVidaDAO {
             }
             em.getTransaction().commit();
         } catch (Exception e) {
-            e.printStackTrace();
-            em.getTransaction().rollback();
-            throw e;
         } finally {
             FabricaJPA.closeEtityManager();
         }
@@ -155,9 +149,15 @@ public class NossaVidaDAO {
     //BUSCAR TODAS Nossa Vida Cristã ORDENADO POR DATA
     public List<Object[]> buscarNomesNossaVidaOrdenadosPorDataMaisAntiga() {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.data FROM NossaVida p ORDER BY p.data";
-        TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
-        return query.getResultList();
+        try {
+            String jpql = "SELECT CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.data FROM NossaVida p ORDER BY p.data";
+            TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
+            return query.getResultList();
+        } catch (Exception e) {
+        } finally {
+            FabricaJPA.closeEtityManager();
+        }
+        return null;
     }
 
     //Buscar pessoa por id
@@ -173,7 +173,7 @@ public class NossaVidaDAO {
             }
             return null; // Retorna nulo se não encontrar um presidente com o ID da pessoa
         } finally {
-            em.close();
+            FabricaJPA.closeEtityManager();
         }
     }
 }

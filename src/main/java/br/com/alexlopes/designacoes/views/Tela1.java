@@ -2016,55 +2016,45 @@ public class Tela1 extends javax.swing.JFrame {
             Janela.ag.botao.setText("Aguarde");
             Janela.ag.botao.setEnabled(false);
 
-            Thread thread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        // Cadastrar na tabela do banco de dados: SEMANA
-                        cadastrarSemana();
-
-                        // Cadastrar cada parte no BD
-                        salvarAlterar();
-
-                        // SALVAR NA CLASSE TODAS AS PARTES
-                        salvarTodasPartes();
-
-                        // Salvar em arquivo .pdf
-                        salvarPdf();
-
-                        // Enviar ZAP
-                        enviarZap();
-
-                        // Limpar Tela e Listas
-                        limparTelaListas();
-
-                        // Verificar se há mais segundas-feiras a processar
-                        verificarSegundas();
-
-                        // Deixar todas variaveis null
-                        limparVariaveis();
-
-                        //Atualizar tabela do menu principal
-                        Janela.menu.mostrarTabela();
-
-                        // Atualizar a interface do usuário na thread de interface do usuário
-                        SwingUtilities.invokeLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                Janela.ag.botao.setEnabled(true);
-                                Janela.ag.botao.setText("OK");
-                            }
-                        });
-                    } catch (Exception e) {
-                        SwingUtilities.invokeLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                Janela.ag.botao.setEnabled(true);
-                                Janela.ag.botao.setText("OK");
-                            }
-                        });
-                        e.printStackTrace();
-                    }
+            Thread thread = new Thread(() -> {
+                try {
+                    // Cadastrar na tabela do banco de dados: SEMANA
+                    cadastrarSemana();
+                    
+                    // Cadastrar cada parte no BD
+                    salvarAlterar();
+                    
+                    // SALVAR NA CLASSE TODAS AS PARTES
+                    salvarTodasPartes();
+                    
+                    // Salvar em arquivo .pdf
+                    salvarPdf();
+                    
+                    // Enviar ZAP
+                    enviarZap();
+                    
+                    // Limpar Tela e Listas
+                    limparTelaListas();
+                    
+                    // Verificar se há mais segundas-feiras a processar
+                    verificarSegundas();
+                    
+                    // Deixar todas variaveis null
+                    limparVariaveis();
+                    
+                    //Atualizar tabela do menu principal
+                    Janela.menu.mostrarTabela();
+                    
+                    // Atualizar a interface do usuário na thread de interface do usuário
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.ag.botao.setEnabled(true);
+                        Janela.ag.botao.setText("OK");
+                    });
+                } catch (Exception e) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.ag.botao.setEnabled(true);
+                        Janela.ag.botao.setText("OK");
+                    });
                 }
             });
 
@@ -2074,7 +2064,6 @@ public class Tela1 extends javax.swing.JFrame {
         } catch (Exception e) {
             Janela.ag.botao.setEnabled(true);
             Janela.ag.botao.setText("OK");
-            e.printStackTrace();
         }
     }//GEN-LAST:event_botaoSalvarSemanaActionPerformed
 

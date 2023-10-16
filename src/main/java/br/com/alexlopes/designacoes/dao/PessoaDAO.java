@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Random;
 
 public class PessoaDAO {
-    
-     // Método para criar a tabela pessoa
+
+    // Método para criar a tabela pessoa
     public static void criarTabela() {
         EntityManager em = FabricaJPA.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -25,10 +25,9 @@ public class PessoaDAO {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            e.printStackTrace();
         } finally {
-            if (em != null && em.isOpen()) {
-                em.close();
+            if (em.isOpen()) {
+                FabricaJPA.closeEtityManager();
             }
         }
     }
@@ -96,24 +95,36 @@ public class PessoaDAO {
 
     public Pessoa buscarPessoaPorNomeESobrenome(String nome, String sobrenome) {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT p FROM Pessoa p WHERE p.nome = :nome AND p.sobrenome = :sobrenome";
-        TypedQuery<Pessoa> query = em.createQuery(jpql, Pessoa.class);
-        query.setParameter("nome", nome);
-        query.setParameter("sobrenome", sobrenome);
-        return query.getSingleResult();
+        try {
+            String jpql = "SELECT p FROM Pessoa p WHERE p.nome = :nome AND p.sobrenome = :sobrenome";
+            TypedQuery<Pessoa> query = em.createQuery(jpql, Pessoa.class);
+            query.setParameter("nome", nome);
+            query.setParameter("sobrenome", sobrenome);
+            return query.getSingleResult();
+        } catch (Exception e) {
+        } finally {
+            FabricaJPA.closeEtityManager();
+        }
+        return null;
     }
 
     public Pessoa buscarPessoaPorNomeESobrenomes(String nomeCompleto) {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT p FROM Pessoa p WHERE CONCAT(p.nome, ' ', p.sobrenome) = :nomeCompleto";
-        TypedQuery<Pessoa> query = em.createQuery(jpql, Pessoa.class);
-        query.setParameter("nomeCompleto", nomeCompleto);
-
         try {
-            return query.getSingleResult();
-        } catch (NoResultException ex) {
-            return null; // Retorna null se nenhuma correspondência for encontrada
+            String jpql = "SELECT p FROM Pessoa p WHERE CONCAT(p.nome, ' ', p.sobrenome) = :nomeCompleto";
+            TypedQuery<Pessoa> query = em.createQuery(jpql, Pessoa.class);
+            query.setParameter("nomeCompleto", nomeCompleto);
+
+            try {
+                return query.getSingleResult();
+            } catch (NoResultException ex) {
+                return null; // Retorna null se nenhuma correspondência for encontrada
+            }
+        } catch (Exception e) {
+        } finally {
+            FabricaJPA.closeEtityManager();
         }
+        return null;
     }
 
     public Pessoa buscarPessoaComCondicoes(String descricaoParte, String sexo, List<Integer> idsPessoasIgnorar) {
@@ -607,7 +618,6 @@ public class PessoaDAO {
             }
             em.getTransaction().commit();
         } catch (Exception e) {
-            e.printStackTrace();
             em.getTransaction().rollback();
             throw e;
         } finally {
@@ -617,43 +627,61 @@ public class PessoaDAO {
 
     public List<Object[]> buscarNomesJoiasOrdenadosPorDataMaisAntiga(String sexo, String descricao, List<Integer> idsIgnorar) {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima, p.pessoa.ajudante FROM Parte p WHERE p.descricao = :descricao AND p.pessoa.id NOT IN (:idsIgnorar)";
-        if (sexo != null) {
-            jpql += " AND p.pessoa.sexo = :sexo";
+        try {
+            String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima, p.pessoa.ajudante FROM Parte p WHERE p.descricao = :descricao AND p.pessoa.id NOT IN (:idsIgnorar)";
+            if (sexo != null) {
+                jpql += " AND p.pessoa.sexo = :sexo";
+            }
+            jpql += " ORDER BY p.pessoa.dataUltima";
+            TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
+            query.setParameter("descricao", descricao);
+            query.setParameter("idsIgnorar", idsIgnorar);
+            if (sexo != null) {
+                query.setParameter("sexo", sexo);
+            }
+            return query.getResultList();
+        } catch (Exception e) {
+        } finally {
+            FabricaJPA.closeEtityManager();
         }
-        jpql += " ORDER BY p.pessoa.dataUltima";
-        TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
-        query.setParameter("descricao", descricao);
-        query.setParameter("idsIgnorar", idsIgnorar);
-        if (sexo != null) {
-            query.setParameter("sexo", sexo);
-        }
-        return query.getResultList();
+        return null;
     }
-    
+
     public List<Object[]> buscarNomesAjudantePorDataMaisAntiga(String sexo, String descricao, List<Integer> idsIgnorar) {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima, p.pessoa.ajudante FROM Parte p WHERE p.descricao = :descricao AND p.pessoa.id NOT IN (:idsIgnorar)";
-        if (sexo != null) {
-            jpql += " AND p.pessoa.sexo = :sexo";
+        try {
+            String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima, p.pessoa.ajudante FROM Parte p WHERE p.descricao = :descricao AND p.pessoa.id NOT IN (:idsIgnorar)";
+            if (sexo != null) {
+                jpql += " AND p.pessoa.sexo = :sexo";
+            }
+            jpql += " ORDER BY p.pessoa.ajudante";
+            TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
+            query.setParameter("descricao", descricao);
+            query.setParameter("idsIgnorar", idsIgnorar);
+            if (sexo != null) {
+                query.setParameter("sexo", sexo);
+            }
+            return query.getResultList();
+        } catch (Exception e) {
+        } finally {
+            FabricaJPA.closeEtityManager();
         }
-        jpql += " ORDER BY p.pessoa.ajudante";
-        TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
-        query.setParameter("descricao", descricao);
-        query.setParameter("idsIgnorar", idsIgnorar);
-        if (sexo != null) {
-            query.setParameter("sexo", sexo);
-        }
-        return query.getResultList();
+        return null;
     }
 
     public List<Object[]> buscarDeterminadaPessoa(String descricao, String nomeSobrenome) {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima, p.pessoa.ajudante FROM Parte p WHERE p.descricao = :descricao AND CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome) LIKE :nomeSobrenome ORDER BY p.pessoa.dataUltima";
-        TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
-        query.setParameter("descricao", descricao);
-        query.setParameter("nomeSobrenome", "%" + nomeSobrenome + "%");
-        return query.getResultList();
+        try {
+            String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima, p.pessoa.ajudante FROM Parte p WHERE p.descricao = :descricao AND CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome) LIKE :nomeSobrenome ORDER BY p.pessoa.dataUltima";
+            TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
+            query.setParameter("descricao", descricao);
+            query.setParameter("nomeSobrenome", "%" + nomeSobrenome + "%");
+            return query.getResultList();
+        } catch (Exception e) {
+        } finally {
+            FabricaJPA.closeEtityManager();
+        }
+        return null;
     }
 
     public void atualizarPessoa(int pessoaId, Pessoa novaPessoa) {
@@ -698,23 +726,27 @@ public class PessoaDAO {
         }
     }
 
-    
     public List<Object[]> buscarNomesParaSubstituicao(String sexo, String descricao) {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima, p.pessoa.ajudante FROM Parte p WHERE p.descricao = :descricao";
-        if (sexo != null) {
-            jpql += " AND p.pessoa.sexo = :sexo";
+        try {
+            String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima, p.pessoa.ajudante FROM Parte p WHERE p.descricao = :descricao";
+            if (sexo != null) {
+                jpql += " AND p.pessoa.sexo = :sexo";
+            }
+            jpql += " ORDER BY p.pessoa.dataUltima";
+            TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
+            query.setParameter("descricao", descricao);
+            if (sexo != null) {
+                query.setParameter("sexo", sexo);
+            }
+            return query.getResultList();
+        } catch (Exception e) {
+        } finally {
+            FabricaJPA.closeEtityManager();
         }
-        jpql += " ORDER BY p.pessoa.dataUltima";
-        TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
-        query.setParameter("descricao", descricao);
-        if (sexo != null) {
-            query.setParameter("sexo", sexo);
-        }
-        return query.getResultList();
+        return null;
     }
-    
-    
+
     public void atualizarAjudante(int pessoaId, LocalDate novoValorAjudante) {
         EntityManager em = FabricaJPA.getEntityManager();
         EntityTransaction transaction = em.getTransaction();
@@ -725,8 +757,6 @@ public class PessoaDAO {
 
             if (pessoa != null) {
                 pessoa.setAjudante(novoValorAjudante); // Defina o novo valor para o campo "ajudante"
-            } else {
-                // Trate o caso em que a Pessoa não foi encontrada
             }
 
             transaction.commit();
@@ -736,7 +766,7 @@ public class PessoaDAO {
             }
             throw e;
         } finally {
-            em.close();
+            FabricaJPA.closeEtityManager();
         }
     }
 }

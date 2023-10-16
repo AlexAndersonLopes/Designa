@@ -60,7 +60,7 @@ br\com\alexlopes\designacoes\views\Substituicao$25.class
 br\com\alexlopes\designacoes\views\TrocarSubstituicao.class
 br\com\alexlopes\designacoes\model\NossaVida.class
 br\com\alexlopes\designacoes\views\Substituicao$5.class
-br\com\alexlopes\designacoes\views\Tela1$51$2.class
+br\com\alexlopes\designacoes\views\MenuPrincipal$19.class
 br\com\alexlopes\designacoes\views\Tela1$49.class
 br\com\alexlopes\designacoes\dao\ParteDAO.class
 br\com\alexlopes\designacoes\views\Substituicao$22.class
@@ -78,7 +78,6 @@ br\com\alexlopes\designacoes\model\Tesouros.class
 br\com\alexlopes\designacoes\views\MenuPrincipal$11.class
 br\com\alexlopes\designacoes\views\Tela1$33.class
 br\com\alexlopes\designacoes\views\Trocar$5.class
-br\com\alexlopes\designacoes\views\Tela1$51$1.class
 br\com\alexlopes\designacoes\views\Tela1$1.class
 br\com\alexlopes\designacoes\views\AlterarParticipantes$5.class
 br\com\alexlopes\designacoes\views\FalarCom$3.class
@@ -120,7 +119,6 @@ br\com\alexlopes\designacoes\util\ClasseEmail$4.class
 br\com\alexlopes\designacoes\views\Tela1$3.class
 br\com\alexlopes\designacoes\views\CadastroParticipantes$3.class
 br\com\alexlopes\designacoes\login\Entrar.class
-br\com\alexlopes\designacoes\views\Tela1$52.class
 br\com\alexlopes\designacoes\login\Entrar$4.class
 br\com\alexlopes\designacoes\views\Substituicao$29.class
 br\com\alexlopes\designacoes\login\AlterarDados$7.class

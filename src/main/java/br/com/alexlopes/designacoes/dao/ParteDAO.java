@@ -8,8 +8,8 @@ import jakarta.persistence.TypedQuery;
 import java.util.List;
 
 public class ParteDAO {
-    
-     // Método para criar a tabela parte
+
+    // Método para criar a tabela parte
     public static void criarTabela() {
         EntityManager em = FabricaJPA.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -22,10 +22,9 @@ public class ParteDAO {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            e.printStackTrace();
         } finally {
-            if (em != null && em.isOpen()) {
-                em.close();
+            if (em.isOpen()) {
+                FabricaJPA.closeEtityManager();
             }
         }
     }
@@ -69,12 +68,9 @@ public class ParteDAO {
             }
             em.getTransaction().commit();
         } catch (Exception e) {
-            em.getTransaction().rollback();
-            throw e;
         } finally {
             FabricaJPA.closeEtityManager();
         }
     }
-    
 
 }

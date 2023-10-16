@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Random;
 
 public class EstudoBiblicoCongregacaoDAO {
-    
+
     // Método para criar a tabela estudoBiblicoCongregacao
     public static void criarTabela() {
         EntityManager em = FabricaJPA.getEntityManager();
@@ -25,10 +25,9 @@ public class EstudoBiblicoCongregacaoDAO {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            e.printStackTrace();
         } finally {
-            if (em != null && em.isOpen()) {
-                em.close();
+            if (em.isOpen()) {
+                FabricaJPA.closeEtityManager();
             }
         }
     }
@@ -52,12 +51,20 @@ public class EstudoBiblicoCongregacaoDAO {
     // Verificar se existe um registro de estudoBiblicoCongregacao com base no ID da pessoa
     public boolean verificarExistenciaEstudoBiblicoPorPessoaId(int pessoaId) {
         EntityManager em = FabricaJPA.getEntityManager();
-        String jpql = "SELECT COUNT(e) FROM EstudoBiblicoCongregacao e WHERE e.pessoa.id = :pessoaId";
-        TypedQuery<Long> query = em.createQuery(jpql, Long.class);
-        query.setParameter("pessoaId", pessoaId);
-        Long resultado = query.getSingleResult();
-
-        return resultado > 0;
+        try {
+            String jpql = "SELECT COUNT(e) FROM EstudoBiblicoCongregacao e WHERE e.pessoa.id = :pessoaId";
+            TypedQuery<Long> query = em.createQuery(jpql, Long.class);
+            query.setParameter("pessoaId", pessoaId);
+            Long resultado = query.getSingleResult();
+            return resultado > 0;
+            
+        } catch (Exception e) {
+        } finally {
+            if (em != null && em.isOpen()) {
+                FabricaJPA.closeEtityManager();
+            }
+        }
+        return false;
     }
 
     // Excluir registro de EstudoBiblicoCongregacao com base no ID da pessoa
@@ -87,10 +94,9 @@ public class EstudoBiblicoCongregacaoDAO {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            e.printStackTrace(); // Tratar exceções ou fazer o registro de erro adequado aqui
         } finally {
-            if (em != null && em.isOpen()) {
-                em.close(); // Feche o EntityManager apenas se estiver aberto
+            if (em.isOpen()) {
+                FabricaJPA.closeEtityManager();
             }
         }
     }
@@ -144,9 +150,6 @@ public class EstudoBiblicoCongregacaoDAO {
             }
             em.getTransaction().commit();
         } catch (Exception e) {
-            e.printStackTrace();
-            em.getTransaction().rollback();
-            throw e;
         } finally {
             FabricaJPA.closeEtityManager();
         }
@@ -165,7 +168,7 @@ public class EstudoBiblicoCongregacaoDAO {
             }
             return null; // Retorna nulo se não encontrar um presidente com o ID da pessoa
         } finally {
-            em.close();
+            FabricaJPA.closeEtityManager();
         }
     }
 
