@@ -341,9 +341,9 @@ public class CadastrarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
     private void mostrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrar1MouseClicked
-        txtSenha.setEchoChar('*');
+        txtSenha.setEchoChar('•');
         if (senhaVisivel) {
-            txtSenha.setEchoChar('*');
+            txtSenha.setEchoChar('•');
             senhaVisivel = false;
         } else {
             txtSenha.setEchoChar((char) 0);
@@ -352,9 +352,9 @@ public class CadastrarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_mostrar1MouseClicked
 
     private void mostrar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrar2MouseClicked
-        txtConfirmarSenha.setEchoChar('*');
+        txtConfirmarSenha.setEchoChar('•');
         if (senhaVisivel2) {
-            txtConfirmarSenha.setEchoChar('*');
+            txtConfirmarSenha.setEchoChar('•');
             senhaVisivel2 = false;
         } else {
             txtConfirmarSenha.setEchoChar((char) 0);

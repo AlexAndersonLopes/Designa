@@ -68,14 +68,6 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtLocal" alignment="0" min="-2" pref="397" max="-2" attributes="0"/>
-                          <Component id="txtParte" alignment="0" min="-2" pref="542" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -88,6 +80,14 @@
                                   <Component id="txtNome" alignment="1" min="-2" pref="580" max="-2" attributes="0"/>
                                   <Component id="txtData" alignment="1" min="-2" pref="561" max="-2" attributes="0"/>
                               </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtLocal" min="-2" pref="397" max="-2" attributes="0"/>
+                                  <Component id="txtParte" min="-2" pref="650" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -103,9 +103,9 @@
                       <Component id="txtAjudante" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="txtData" min="-2" pref="39" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
-                      <Component id="txtParte" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+                      <Component id="txtParte" min="-2" pref="153" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       <Component id="txtLocal" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace pref="267" max="32767" attributes="0"/>
                   </Group>
@@ -152,17 +152,6 @@
                 <Property name="text" type="java.lang.String" value="???????????????????????????????"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="txtParte">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial Black" size="30" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="??????????????????????"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="txtLocal">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -172,6 +161,19 @@
                   <Color blue="0" green="0" red="66" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="???????????"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="txtParte">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial Black" size="33" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+                <Property name="text" type="java.lang.String" value="?????"/>
+                <Property name="verticalAlignment" type="int" value="1"/>
               </Properties>
             </Component>
           </SubComponents>

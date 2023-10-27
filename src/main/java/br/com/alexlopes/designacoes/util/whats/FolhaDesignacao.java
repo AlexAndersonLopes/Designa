@@ -5,13 +5,13 @@ import br.com.alexlopes.designacoes.model.Pessoa;
 import br.com.alexlopes.designacoes.model.TodasPartes;
 import br.com.alexlopes.designacoes.util.Janela;
 import br.com.alexlopes.designacoes.util.SalvarImagem;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -27,6 +27,7 @@ public class FolhaDesignacao extends javax.swing.JFrame {
 
     public FolhaDesignacao(Pessoa a01, Pessoa b02, String dataParte, String parteTipo, String salaLocal) {
         initComponents();
+        System.out.println(parteTipo);
         try {
             dataParte = dataParte.replace("Semana: ", "");
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -49,7 +50,7 @@ public class FolhaDesignacao extends javax.swing.JFrame {
                 txtAjudante.setText("    ");
             }
             txtData.setText("Semana: " + diadia + " de " + mess + ", " + anoano);
-            txtParte.setText(parteTipo);
+            txtParte.setText("<html>" + parteTipo + "</html>");
             txtLocal.setText(salaLocal);
             BufferedImage imag = preencherDesignacao();
             //si.salvar(imag, a01.getNome() + a01.getSobrenome() + "_" + diadia + mess);
@@ -60,8 +61,8 @@ public class FolhaDesignacao extends javax.swing.JFrame {
 
         } catch (Exception e) {
         }
-    }
-
+    }   
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -78,8 +79,8 @@ public class FolhaDesignacao extends javax.swing.JFrame {
         txtNome = new javax.swing.JLabel();
         txtAjudante = new javax.swing.JLabel();
         txtData = new javax.swing.JLabel();
-        txtParte = new javax.swing.JLabel();
         txtLocal = new javax.swing.JLabel();
+        txtParte = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,24 +102,20 @@ public class FolhaDesignacao extends javax.swing.JFrame {
         txtData.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtData.setText("???????????????????????????????");
 
-        txtParte.setFont(new java.awt.Font("Arial Black", 0, 30)); // NOI18N
-        txtParte.setForeground(new java.awt.Color(0, 0, 102));
-        txtParte.setText("??????????????????????");
-
         txtLocal.setFont(new java.awt.Font("Arial Black", 0, 33)); // NOI18N
         txtLocal.setForeground(new java.awt.Color(102, 0, 0));
         txtLocal.setText("???????????");
+
+        txtParte.setFont(new java.awt.Font("Arial Black", 0, 33)); // NOI18N
+        txtParte.setForeground(new java.awt.Color(0, 0, 102));
+        txtParte.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        txtParte.setText("?????");
+        txtParte.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtParte, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -128,7 +125,13 @@ public class FolhaDesignacao extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtParte, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -140,9 +143,9 @@ public class FolhaDesignacao extends javax.swing.JFrame {
                 .addComponent(txtAjudante, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(131, 131, 131)
-                .addComponent(txtParte, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(137, 137, 137)
+                .addGap(128, 128, 128)
+                .addComponent(txtParte, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
                 .addComponent(txtLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(267, Short.MAX_VALUE))
         );

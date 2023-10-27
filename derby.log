@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Sat Oct 14 21:13:06 BRT 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018b-30ad-ed3f-0000060e54e0 
+Fri Oct 27 20:31:10 BRT 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018b-737a-31e3-00000612a200 
 on database directory C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\pessoa_db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 
 Loaded from file:/C:/Users/alex9/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation

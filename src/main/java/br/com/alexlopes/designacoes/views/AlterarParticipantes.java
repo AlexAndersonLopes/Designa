@@ -22,6 +22,8 @@ import br.com.alexlopes.designacoes.util.Janela;
 import br.com.alexlopes.designacoes.util.Mensagem;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.text.ParseException;
 import java.util.List;
 import java.util.logging.Level;
@@ -42,6 +44,13 @@ public class AlterarParticipantes extends javax.swing.JFrame {
     public AlterarParticipantes() {
         initComponents();
         mostrarTabela();
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                dispose();
+                Janela.irMenu();
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -93,7 +102,7 @@ public class AlterarParticipantes extends javax.swing.JFrame {
         botaoRemover = new javax.swing.JButton();
         botaoExcluir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setOpaque(false);
 

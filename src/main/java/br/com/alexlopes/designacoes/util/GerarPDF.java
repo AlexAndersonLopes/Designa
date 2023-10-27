@@ -13,10 +13,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
@@ -349,21 +347,19 @@ public class GerarPDF extends javax.swing.JFrame {
                                         .addComponent(labelSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(labelTesouros)
-                                                .addComponent(labelJoias)
-                                                .addComponent(labelLeituraBiblia))
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addGap(152, 152, 152)
-                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(ljoias, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(ltesouros, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addGap(35, 35, 35)
-                                                    .addComponent(lleituraBiblia, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(labelLeituraBiblia)
+                                                .addComponent(labelJoias))
+                                            .addGap(35, 35, 35)
+                                            .addComponent(lleituraBiblia, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(labelParte1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(labelParte7, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(labelParte7, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(labelTesouros, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(ljoias, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(ltesouros, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                 .addGap(51, 51, 51))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -398,17 +394,18 @@ public class GerarPDF extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(labelTesouros6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelTesouros5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGap(2, 2, 2)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(labelNossa2)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(labelLeitorEstudo)
-                                                    .addComponent(labelEstudo))
-                                                .addComponent(labelNossa1))
-                                            .addGap(54, 54, 54))
-                                        .addComponent(labelTesouros6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(labelTesouros5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(labelNossa1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(labelLeitorEstudo)
+                                                        .addComponent(labelEstudo))
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE))))
+                                        .addComponent(labelNossa2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -582,8 +579,10 @@ public class GerarPDF extends javax.swing.JFrame {
                 }
 
                 if (!a.getTesouros().equals("NA") && !a.getTesouros().equals("")) {
+                    labelTesouros.setText(a.getLabelTesouros() + ":");
                     ltesouros.setText(a.getTesouros());
                 } else {
+                    labelTesouros.setText("Discurso:");
                     ltesouros.setText("");
                 }
 
@@ -706,15 +705,19 @@ public class GerarPDF extends javax.swing.JFrame {
                 }
 
                 if (!a.getNossaVida1().equals("NA") && !a.getNossaVida1().equals("")) {
+                    labelNossa1.setText(a.getLabelNossaVida1() + ":");
                     lnossa1.setText(a.getNossaVida1());
                 } else {
+                    labelNossa1.setText("Nossa Vida - parte 1:");
                     lnossa1.setText("");
                 }
 
                 if (!a.getNossaVida2().equals("NA") && !a.getNossaVida2().equals("")) {
                     labelNossa2.setVisible(true);
+                    labelNossa2.setText(a.getLabelNossaVida2() + ":");
                     lnossa2.setText(a.getNossaVida2());
-                } else {
+                } else {                   
+                    labelNossa2.setText("Nossa Vida - parte 2:");
                     labelNossa2.setVisible(false);
                     lnossa2.setText("");
                 }

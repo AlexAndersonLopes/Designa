@@ -34,6 +34,7 @@ br\com\alexlopes\designacoes\views\Tela1$8.class
 br\com\alexlopes\designacoes\views\TrocarSubstituicao$8.class
 br\com\alexlopes\designacoes\login\AlterarDados$5.class
 br\com\alexlopes\designacoes\login\CadastrarUsuario$11.class
+br\com\alexlopes\designacoes\views\FalarCom$5.class
 br\com\alexlopes\designacoes\login\Entrar$2.class
 br\com\alexlopes\designacoes\views\MenuPrincipal$12.class
 br\com\alexlopes\designacoes\views\CadastroParticipantes$5.class
@@ -47,6 +48,7 @@ br\com\alexlopes\designacoes\views\Tela1$50.class
 br\com\alexlopes\designacoes\views\Tela1$47.class
 br\com\alexlopes\designacoes\model\Leitor.class
 br\com\alexlopes\designacoes\views\Substituicao$14.class
+br\com\alexlopes\designacoes\views\AlterarParticipantes$12.class
 br\com\alexlopes\designacoes\views\TrocarSubstituicao$2.class
 br\com\alexlopes\designacoes\util\ClasseEmail.class
 br\com\alexlopes\designacoes\util\GerarPDF.class
@@ -77,6 +79,7 @@ br\com\alexlopes\designacoes\views\TrocarSubstituicao$7.class
 br\com\alexlopes\designacoes\model\Tesouros.class
 br\com\alexlopes\designacoes\views\MenuPrincipal$11.class
 br\com\alexlopes\designacoes\views\Tela1$33.class
+br\com\alexlopes\designacoes\views\Tela1$53.class
 br\com\alexlopes\designacoes\views\Trocar$5.class
 br\com\alexlopes\designacoes\views\Tela1$1.class
 br\com\alexlopes\designacoes\views\AlterarParticipantes$5.class
@@ -90,16 +93,17 @@ br\com\alexlopes\designacoes\util\SalvarImagem.class
 br\com\alexlopes\designacoes\views\Substituicao$3.class
 br\com\alexlopes\designacoes\views\MenuPrincipal$5.class
 br\com\alexlopes\designacoes\model\Semana.class
+br\com\alexlopes\designacoes\views\Tela1$54.class
 br\com\alexlopes\designacoes\views\Trocar$6.class
 br\com\alexlopes\designacoes\views\Tela1$30.class
 br\com\alexlopes\designacoes\views\AlterarParticipantes$4.class
-br\com\alexlopes\designacoes\util\ArquivoPDF.class
 br\com\alexlopes\designacoes\views\TrocarSubstituicao$5.class
 br\com\alexlopes\designacoes\views\Substituicao$17.class
 br\com\alexlopes\designacoes\views\Tela1$27.class
 br\com\alexlopes\designacoes\views\FalarCom$2.class
 br\com\alexlopes\designacoes\views\Tela1$2.class
 br\com\alexlopes\designacoes\dao\LeitorDAO.class
+br\com\alexlopes\designacoes\views\CadastroParticipantes$8.class
 br\com\alexlopes\designacoes\login\AlterarDados$8.class
 br\com\alexlopes\designacoes\views\MenuPrincipal$6.class
 br\com\alexlopes\designacoes\views\FalarCom$1.class
@@ -119,6 +123,7 @@ br\com\alexlopes\designacoes\util\ClasseEmail$4.class
 br\com\alexlopes\designacoes\views\Tela1$3.class
 br\com\alexlopes\designacoes\views\CadastroParticipantes$3.class
 br\com\alexlopes\designacoes\login\Entrar.class
+br\com\alexlopes\designacoes\views\Tela1$52.class
 br\com\alexlopes\designacoes\login\Entrar$4.class
 br\com\alexlopes\designacoes\views\Substituicao$29.class
 br\com\alexlopes\designacoes\login\AlterarDados$7.class
@@ -140,6 +145,7 @@ br\com\alexlopes\designacoes\util\whats\Aguarde$3.class
 br\com\alexlopes\designacoes\views\Substituicao$11.class
 br\com\alexlopes\designacoes\views\Tela1$5.class
 br\com\alexlopes\designacoes\login\AlterarDados$1.class
+br\com\alexlopes\designacoes\views\Substituicao$31.class
 br\com\alexlopes\designacoes\views\Substituicao$6.class
 br\com\alexlopes\designacoes\login\AlterarDados.class
 br\com\alexlopes\designacoes\model\TodasPartes.class

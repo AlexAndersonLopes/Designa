@@ -14,8 +14,6 @@ import br.com.alexlopes.designacoes.dao.TodasPartesDAO;
 import br.com.alexlopes.designacoes.dao.UsuarioDAO;
 import br.com.alexlopes.designacoes.util.Janela;
 import java.io.File;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class Designacoes {
 
@@ -23,7 +21,6 @@ public class Designacoes {
 
         if (!bancoDeDadosExiste() || !UsuarioDAO.tabelaUsuarioPossuiRegistros()) {
             if (!bancoDeDadosExiste()) {
-                criarBancoDeDados();
                 criarTabelas();
             }
             Janela.irCadastrarUsuario();
@@ -52,13 +49,58 @@ public class Designacoes {
         UsuarioDAO.criarTabela();
     }
 
-    public static void criarBancoDeDados() {
-        String url = "jdbc:derby:pessoa_db;create=true";
-        try {
-            DriverManager.getConnection(url);
-            System.out.println("Banco de dados criado com sucesso.");
-        } catch (SQLException e) {
-        }
-    }
-
 }
+/*
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             version="3.0"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+
+    <persistence-unit name="go" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+            <!-- Configuração do Derby -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:derby:pessoa_db;create=true" />
+            <property name="jakarta.persistence.jdbc.user" value="designa" />
+            <property name="jakarta.persistence.jdbc.password" value="123" />
+            
+            <!-- Configuração do Hibernate para o HikariCP -->
+            <property name="hibernate.hikari.dataSourceClassName" value="com.zaxxer.hikari.HikariDataSource" />
+            <property name="hibernate.hikari.dataSource.url" value="jdbc:derby:pessoa_db;create=true" />
+            <property name="hibernate.hikari.dataSource.user" value="designa" />
+            <property name="hibernate.hikari.dataSource.password" value="123" />
+            
+            <!-- Configuração de dialeto específico para Derby -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect"/>
+        </properties>
+    </persistence-unit>
+</persistence>
+
+*/
+
+
+
+
+
+
+/*
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             version="3.0"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+
+    <persistence-unit name="go" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:derby:pessoa_db;create=true" />
+            <property name="jakarta.persistence.jdbc.user" value="designa" />
+            <property name="jakarta.persistence.jdbc.password" value="123" />
+        </properties>
+    </persistence-unit>
+
+</persistence>
+
+*/

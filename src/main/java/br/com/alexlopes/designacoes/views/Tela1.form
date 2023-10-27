@@ -729,7 +729,7 @@
                               <EmptySpace pref="26" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="labelTesouros" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelTesouros" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="txtTesouros" min="-2" pref="200" max="-2" attributes="0"/>
                                   </Group>
@@ -760,11 +760,11 @@
                                           <Component id="labelAjudante2" min="-2" max="-2" attributes="0"/>
                                           <Component id="labelAjudante3" min="-2" max="-2" attributes="0"/>
                                           <Component id="labelParte3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="labelNossaVida1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="labelNossaVida2" min="-2" max="-2" attributes="0"/>
                                           <Component id="labelEstudoCongregacao" min="-2" max="-2" attributes="0"/>
                                           <Component id="labelLeitor" min="-2" max="-2" attributes="0"/>
                                           <Component id="labelOracaoFinal" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelNossaVida1" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
+                                          <Component id="labelNossaVida2" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1279,8 +1279,13 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="text" type="java.lang.String" value="Tesouros:"/>
+                <Property name="toolTipText" type="java.lang.String" value="Clique para Alterar o tema do Discurso"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelTesourosMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelJoias">
               <Properties>
@@ -1377,6 +1382,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Hand Cursor"/>
                 </Property>
@@ -1843,7 +1849,11 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nossa Vida Crist&#xe3; parte 1:"/>
+                <Property name="toolTipText" type="java.lang.String" value="Clique para Alterar o tema "/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelNossaVida1MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelNossaVida2">
               <Properties>
@@ -1854,7 +1864,11 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nossa Vida Crist&#xe3; parte 2:"/>
+                <Property name="toolTipText" type="java.lang.String" value="Clique para Alterar o tema "/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelNossaVida2MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelEstudoCongregacao">
               <Properties>

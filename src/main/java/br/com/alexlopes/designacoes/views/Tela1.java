@@ -26,6 +26,8 @@ import br.com.alexlopes.designacoes.util.Mensagem;
 import br.com.alexlopes.designacoes.util.whats.FolhaDesignacao;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -33,12 +35,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 public class Tela1 extends javax.swing.JFrame {
 
     private TodasPartes todas;
-    private TodasPartesDAO tddao = new TodasPartesDAO();
+    private final TodasPartesDAO tddao = new TodasPartesDAO();
     private String ano, mes, dia;
     private int linha = 0;
     private LocalDate semanaAtual;
@@ -61,7 +64,6 @@ public class Tela1 extends javax.swing.JFrame {
     private Pessoa estudoA, estudoB, estudoAjudanteA, estudoAjudanteB;
 
     private List<LocalDate> segundasFeiras = new ArrayList<>();
-    private List<Integer> listaIgnorar = new ArrayList<>();
     private List<Integer> listaIgnorarEstudantes = new ArrayList<>();
 
     public Tela1() {
@@ -72,9 +74,15 @@ public class Tela1 extends javax.swing.JFrame {
 
         panelA.setVisible(false);
         panelA1.setVisible(false);
-        listaIgnorar.add(-1);
         listaIgnorarEstudantes.add(-1);
         iniciar();
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                dispose();
+                Janela.irMenu();
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -758,7 +766,14 @@ public class Tela1 extends javax.swing.JFrame {
 
         labelTesouros.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelTesouros.setForeground(new java.awt.Color(0, 0, 0));
+        labelTesouros.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelTesouros.setText("Tesouros:");
+        labelTesouros.setToolTipText("Clique para Alterar o tema do Discurso");
+        labelTesouros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelTesourosMouseClicked(evt);
+            }
+        });
 
         labelJoias.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelJoias.setForeground(new java.awt.Color(0, 0, 0));
@@ -800,6 +815,7 @@ public class Tela1 extends javax.swing.JFrame {
         txtTesouros.setBackground(new java.awt.Color(255, 255, 255));
         txtTesouros.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         txtTesouros.setForeground(new java.awt.Color(0, 0, 0));
+        txtTesouros.setToolTipText("");
         txtTesouros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtTesouros.setMaximumSize(new java.awt.Dimension(200, 25));
         txtTesouros.setMinimumSize(new java.awt.Dimension(200, 25));
@@ -1018,10 +1034,22 @@ public class Tela1 extends javax.swing.JFrame {
         labelNossaVida1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelNossaVida1.setForeground(new java.awt.Color(0, 0, 0));
         labelNossaVida1.setText("Nossa Vida Cristã parte 1:");
+        labelNossaVida1.setToolTipText("Clique para Alterar o tema ");
+        labelNossaVida1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelNossaVida1MouseClicked(evt);
+            }
+        });
 
         labelNossaVida2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelNossaVida2.setForeground(new java.awt.Color(0, 0, 0));
         labelNossaVida2.setText("Nossa Vida Cristã parte 2:");
+        labelNossaVida2.setToolTipText("Clique para Alterar o tema ");
+        labelNossaVida2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelNossaVida2MouseClicked(evt);
+            }
+        });
 
         labelEstudoCongregacao.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelEstudoCongregacao.setForeground(new java.awt.Color(0, 0, 0));
@@ -1045,7 +1073,7 @@ public class Tela1 extends javax.swing.JFrame {
                         .addContainerGap(26, Short.MAX_VALUE)
                         .addGroup(panelA1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(panelA1Layout.createSequentialGroup()
-                                .addComponent(labelTesouros)
+                                .addComponent(labelTesouros, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtTesouros, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelA1Layout.createSequentialGroup()
@@ -1070,11 +1098,11 @@ public class Tela1 extends javax.swing.JFrame {
                                     .addComponent(labelAjudante2)
                                     .addComponent(labelAjudante3)
                                     .addComponent(labelParte3)
-                                    .addComponent(labelNossaVida1)
-                                    .addComponent(labelNossaVida2)
                                     .addComponent(labelEstudoCongregacao)
                                     .addComponent(labelLeitor)
-                                    .addComponent(labelOracaoFinal))
+                                    .addComponent(labelOracaoFinal)
+                                    .addComponent(labelNossaVida1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelNossaVida2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(panelA1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtAjudante2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1257,6 +1285,7 @@ public class Tela1 extends javax.swing.JFrame {
         if (comboMes.getSelectedIndex() != 0) {
             if (comboAno.getSelectedIndex() != 0) {
                 verData();
+                setTema();
             } else {
                 Mensagem.mensagemAlerta("Selecione o Ano");
             }
@@ -1294,49 +1323,49 @@ public class Tela1 extends javax.swing.JFrame {
                 presidenteA = preDAO.buscarPresidenteAntigoFezParteNaSala_A();
                 pessoa = pDAO.buscarPessoaPorId(presidenteA.getPessoa().getId());
                 txtPresidente.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-                listaIgnorar.add(presidenteA.getPessoa().getId());
+                listaIgnorarEstudantes.add(presidenteA.getPessoa().getId());
             } else {
                 pessoa = pDAO.buscarPessoaPorId(presidenteA.getPessoa().getId());
                 txtPresidente.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-                listaIgnorar.add(presidenteA.getPessoa().getId());
+                listaIgnorarEstudantes.add(presidenteA.getPessoa().getId());
             }
         }
         if (cOracaoInicial.isSelected() && txtOracaoInicial.getText().isEmpty()) {
             OracaoDAO oDAO = new OracaoDAO();
-            oracaoA = oDAO.buscarOracaoSemDataMaisAntigaParaPessoas(listaIgnorar);
+            oracaoA = oDAO.buscarOracaoSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
             pessoa = pDAO.buscarPessoaPorId(oracaoA.getPessoa().getId());
             txtOracaoInicial.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(oracaoA.getPessoa().getId());
+            listaIgnorarEstudantes.add(oracaoA.getPessoa().getId());
         }
         if (cOracaoFinal.isSelected() && txtOracaoFinal.getText().isEmpty()) {
             OracaoDAO oDAO = new OracaoDAO();
-            oracaoB = oDAO.buscarOracaoSemDataMaisAntigaParaPessoas(listaIgnorar);
+            oracaoB = oDAO.buscarOracaoSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
             if (oracaoB == null) {
                 oracaoB = oDAO.buscarOracaoSemDataMaisAntigaParaPessoas2();
             }
             pessoa = pDAO.buscarPessoaPorId(oracaoB.getPessoa().getId());
             txtOracaoFinal.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(oracaoB.getPessoa().getId());
+            listaIgnorarEstudantes.add(oracaoB.getPessoa().getId());
         }
         if (cTesouros.isSelected() && txtTesouros.getText().isEmpty()) {
             TesourosDAO tDAO = new TesourosDAO();
-            tesouros = tDAO.buscarTesouroSemDataMaisAntigaParaPessoas(listaIgnorar);
+            tesouros = tDAO.buscarTesouroSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
             if (tesouros == null) {
                 tesouros = tDAO.buscarTesouroSemDataMaisAntigaParaPessoas2();
             }
             pessoa = pDAO.buscarPessoaPorId(tesouros.getPessoa().getId());
             txtTesouros.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(tesouros.getPessoa().getId());
+            listaIgnorarEstudantes.add(tesouros.getPessoa().getId());
         }
         if (cJoias.isSelected() && txtJoias.getText().isEmpty()) {
             JoiasDAO jDAO = new JoiasDAO();
-            joias = jDAO.buscarJoiaSemDataMaisAntigaParaPessoas(listaIgnorar);
+            joias = jDAO.buscarJoiaSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
             if (joias == null) {
                 joias = jDAO.buscarJoiaSemDataMaisAntigaParaPessoas2();
             }
             pessoa = pDAO.buscarPessoaPorId(joias.getPessoa().getId());
             txtJoias.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(joias.getPessoa().getId());
+            listaIgnorarEstudantes.add(joias.getPessoa().getId());
         }
         if (cLeituraBiblia.isSelected() && txtLeituraBiblia.getText().isEmpty()) {
             leituraBibliaA = pDAO.buscarPessoaComCondicoes("LeituraBiblia", null, listaIgnorarEstudantes);
@@ -1345,43 +1374,43 @@ public class Tela1 extends javax.swing.JFrame {
         }
         if (cNossaVida1.isSelected() && txtCrista1.getText().isEmpty()) {
             NossaVidaDAO vidaDAO = new NossaVidaDAO();
-            nossaVida1 = vidaDAO.buscarNossaVidaSemDataMaisAntigaParaPessoas(listaIgnorar);
+            nossaVida1 = vidaDAO.buscarNossaVidaSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
             if (nossaVida1 == null) {
                 nossaVida1 = vidaDAO.buscarNossaVidaSemDataMaisAntigaParaPessoas2();
             }
             pessoa = pDAO.buscarPessoaPorId(nossaVida1.getPessoa().getId());
             txtCrista1.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(nossaVida1.getPessoa().getId());
+            listaIgnorarEstudantes.add(nossaVida1.getPessoa().getId());
         }
         if (cNossaVida2.isSelected() && txtNossaVida2.getText().isEmpty()) {
             NossaVidaDAO vidaDAO = new NossaVidaDAO();
-            nossaVida2 = vidaDAO.buscarNossaVidaSemDataMaisAntigaParaPessoas(listaIgnorar);
+            nossaVida2 = vidaDAO.buscarNossaVidaSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
             if (nossaVida2 == null) {
                 nossaVida2 = vidaDAO.buscarNossaVidaSemDataMaisAntigaParaPessoas2();
             }
             pessoa = pDAO.buscarPessoaPorId(nossaVida2.getPessoa().getId());
             txtNossaVida2.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(nossaVida2.getPessoa().getId());
+            listaIgnorarEstudantes.add(nossaVida2.getPessoa().getId());
         }
         if (cEstudoCongregacao.isSelected() && txtEstudoCongregacao.getText().isEmpty()) {
             EstudoBiblicoCongregacaoDAO congDAO = new EstudoBiblicoCongregacaoDAO();
-            estudoCong = congDAO.buscarEstudoBiblicoCongregacaoSemDataMaisAntigaParaPessoas(listaIgnorar);
+            estudoCong = congDAO.buscarEstudoBiblicoCongregacaoSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
             if (estudoCong == null) {
                 estudoCong = congDAO.buscarEstudoBiblicoCongregacaoSemDataMaisAntigaParaPessoas2();
             }
             pessoa = pDAO.buscarPessoaPorId(estudoCong.getPessoa().getId());
             txtEstudoCongregacao.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(estudoCong.getPessoa().getId());
+            listaIgnorarEstudantes.add(estudoCong.getPessoa().getId());
         }
         if (cLeitor.isSelected() && txtLeitor.getText().isEmpty()) {
             LeitorDAO leiDAO = new LeitorDAO();
-            leitor = leiDAO.buscarLeitorSemDataMaisAntigaParaPessoas(listaIgnorar);
+            leitor = leiDAO.buscarLeitorSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
             if (leitor == null) {
                 leitor = leiDAO.buscarLeitorSemDataMaisAntigaParaPessoas2();
             }
             pessoa = pDAO.buscarPessoaPorId(leitor.getPessoa().getId());
             txtLeitor.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(leitor.getPessoa().getId());
+            listaIgnorarEstudantes.add(leitor.getPessoa().getId());
         }
         if (cDiscurso.isSelected() && txtParte3.getText().isEmpty()) {
             discursoA = pDAO.buscarPessoaComCondicoes("Discurso", null, listaIgnorarEstudantes);
@@ -1555,11 +1584,11 @@ public class Tela1 extends javax.swing.JFrame {
                 presidenteA = preDAO.buscarPresidenteAntigoFezParteNaSala_A();
                 pessoa = pDAO.buscarPessoaPorId(presidenteA.getPessoa().getId());
                 txtPresidente.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-                listaIgnorar.add(presidenteA.getPessoa().getId());
+                listaIgnorarEstudantes.add(presidenteA.getPessoa().getId());
             } else {
                 pessoa = pDAO.buscarPessoaPorId(presidenteA.getPessoa().getId());
                 txtPresidente.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-                listaIgnorar.add(presidenteA.getPessoa().getId());
+                listaIgnorarEstudantes.add(presidenteA.getPessoa().getId());
             }
         }
         if (cPresidente.isSelected() && txtPresidenteB.getText().isEmpty()) {
@@ -1567,87 +1596,87 @@ public class Tela1 extends javax.swing.JFrame {
             presidenteB = preDAO.buscarPresidenteAntigoFezParteNaSala_A(presidenteA.getId());
             pessoa = pDAO.buscarPessoaPorId(presidenteB.getPessoa().getId());
             txtPresidenteB.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(presidenteB.getPessoa().getId());
+            listaIgnorarEstudantes.add(presidenteB.getPessoa().getId());
         } //PRESIDENTE PARA SALA A
         if (cOracaoInicial.isSelected() && txtOracaoInicial.getText().isEmpty()) {
             OracaoDAO oDAO = new OracaoDAO();
-            oracaoA = oDAO.buscarOracaoSemDataMaisAntigaParaPessoas(listaIgnorar);
+            oracaoA = oDAO.buscarOracaoSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
             if (oracaoA == null) {
                 oracaoA = oDAO.buscarOracaoSemDataMaisAntigaParaPessoas2();
             }
             pessoa = pDAO.buscarPessoaPorId(oracaoA.getPessoa().getId());
             txtOracaoInicial.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(oracaoA.getPessoa().getId());
+            listaIgnorarEstudantes.add(oracaoA.getPessoa().getId());
         }
         if (cOracaoFinal.isSelected() && txtOracaoFinal.getText().isEmpty()) {
             OracaoDAO oDAO = new OracaoDAO();
-            oracaoB = oDAO.buscarOracaoSemDataMaisAntigaParaPessoas(listaIgnorar);
+            oracaoB = oDAO.buscarOracaoSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
             if (oracaoB == null) {
                 oracaoB = oDAO.buscarOracaoSemDataMaisAntigaParaPessoas2();
             }
             pessoa = pDAO.buscarPessoaPorId(oracaoB.getPessoa().getId());
             txtOracaoFinal.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(oracaoB.getPessoa().getId());
+            listaIgnorarEstudantes.add(oracaoB.getPessoa().getId());
         }
         if (cTesouros.isSelected() && txtTesouros.getText().isEmpty()) {
             TesourosDAO tDAO = new TesourosDAO();
-            tesouros = tDAO.buscarTesouroSemDataMaisAntigaParaPessoas(listaIgnorar);
+            tesouros = tDAO.buscarTesouroSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
             if (tesouros == null) {
                 tesouros = tDAO.buscarTesouroSemDataMaisAntigaParaPessoas2();
             }
             pessoa = pDAO.buscarPessoaPorId(tesouros.getPessoa().getId());
             txtTesouros.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(tesouros.getPessoa().getId());
+            listaIgnorarEstudantes.add(tesouros.getPessoa().getId());
         }
         if (cJoias.isSelected() && txtJoias.getText().isEmpty()) {
             JoiasDAO jDAO = new JoiasDAO();
-            joias = jDAO.buscarJoiaSemDataMaisAntigaParaPessoas(listaIgnorar);
+            joias = jDAO.buscarJoiaSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
             if (joias == null) {
                 joias = jDAO.buscarJoiaSemDataMaisAntigaParaPessoas2();
             }
             pessoa = pDAO.buscarPessoaPorId(joias.getPessoa().getId());
             txtJoias.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(joias.getPessoa().getId());
+            listaIgnorarEstudantes.add(joias.getPessoa().getId());
         }
         if (cNossaVida1.isSelected() && txtCrista1.getText().isEmpty()) {
             NossaVidaDAO vidaDAO = new NossaVidaDAO();
-            nossaVida1 = vidaDAO.buscarNossaVidaSemDataMaisAntigaParaPessoas(listaIgnorar);
+            nossaVida1 = vidaDAO.buscarNossaVidaSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
             if (nossaVida1 == null) {
                 nossaVida1 = vidaDAO.buscarNossaVidaSemDataMaisAntigaParaPessoas2();
             }
             pessoa = pDAO.buscarPessoaPorId(nossaVida1.getPessoa().getId());
             txtCrista1.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(nossaVida1.getPessoa().getId());
+            listaIgnorarEstudantes.add(nossaVida1.getPessoa().getId());
         }
         if (cNossaVida2.isSelected() && txtNossaVida2.getText().isEmpty()) {
             NossaVidaDAO vidaDAO = new NossaVidaDAO();
-            nossaVida2 = vidaDAO.buscarNossaVidaSemDataMaisAntigaParaPessoas(listaIgnorar);
+            nossaVida2 = vidaDAO.buscarNossaVidaSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
             if (nossaVida2 == null) {
                 nossaVida2 = vidaDAO.buscarNossaVidaSemDataMaisAntigaParaPessoas2();
             }
             pessoa = pDAO.buscarPessoaPorId(nossaVida2.getPessoa().getId());
             txtNossaVida2.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(nossaVida2.getPessoa().getId());
+            listaIgnorarEstudantes.add(nossaVida2.getPessoa().getId());
         }
         if (cEstudoCongregacao.isSelected() && txtEstudoCongregacao.getText().isEmpty()) {
             EstudoBiblicoCongregacaoDAO congDAO = new EstudoBiblicoCongregacaoDAO();
-            estudoCong = congDAO.buscarEstudoBiblicoCongregacaoSemDataMaisAntigaParaPessoas(listaIgnorar);
+            estudoCong = congDAO.buscarEstudoBiblicoCongregacaoSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
             if (estudoCong == null) {
                 estudoCong = congDAO.buscarEstudoBiblicoCongregacaoSemDataMaisAntigaParaPessoas2();
             }
             pessoa = pDAO.buscarPessoaPorId(estudoCong.getPessoa().getId());
             txtEstudoCongregacao.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(estudoCong.getPessoa().getId());
+            listaIgnorarEstudantes.add(estudoCong.getPessoa().getId());
         }
         if (cLeitor.isSelected() && txtLeitor.getText().isEmpty()) {
             LeitorDAO leiDAO = new LeitorDAO();
-            leitor = leiDAO.buscarLeitorSemDataMaisAntigaParaPessoas(listaIgnorar);
+            leitor = leiDAO.buscarLeitorSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
             if (leitor == null) {
                 leitor = leiDAO.buscarLeitorSemDataMaisAntigaParaPessoas2();
             }
             pessoa = pDAO.buscarPessoaPorId(leitor.getPessoa().getId());
             txtLeitor.setText(pessoa.getNome() + " " + pessoa.getSobrenome());
-            listaIgnorar.add(leitor.getPessoa().getId());
+            listaIgnorarEstudantes.add(leitor.getPessoa().getId());
         }
         if (cLeituraBiblia.isSelected() && txtLeituraBiblia.getText().isEmpty()) {
             //SALA A
@@ -2045,6 +2074,8 @@ public class Tela1 extends javax.swing.JFrame {
                     //Atualizar tabela do menu principal
                     Janela.menu.mostrarTabela();
                     
+                    setTema();
+                    
                     // Atualizar a interface do usuário na thread de interface do usuário
                     SwingUtilities.invokeLater(() -> {
                         Janela.ag.botao.setEnabled(true);
@@ -2064,6 +2095,7 @@ public class Tela1 extends javax.swing.JFrame {
         } catch (Exception e) {
             Janela.ag.botao.setEnabled(true);
             Janela.ag.botao.setText("OK");
+            e.getStackTrace();
         }
     }//GEN-LAST:event_botaoSalvarSemanaActionPerformed
 
@@ -2087,11 +2119,9 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void limparTelaListas() {
         // Limpar as listas ignorar 
-        listaIgnorar.clear();
         listaIgnorarEstudantes.clear();
 
         // Recondicionar as Listas
-        listaIgnorar.add(-1);
         listaIgnorarEstudantes.add(-1);
 
         //Limpar Tela
@@ -2310,17 +2340,17 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtPresidenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPresidenteMouseClicked
         if (!txtPresidente.getText().isEmpty()) {
-            Janela.irTrocar(2, presidenteA.getPessoa().getSexo(), presidenteA.getPessoa(), listaIgnorar);
+            Janela.irTrocar(2, presidenteA.getPessoa().getSexo(), presidenteA.getPessoa(), listaIgnorarEstudantes);
         } else {
-            Janela.irTrocar2(2, "Homem", listaIgnorar);
+            Janela.irTrocar2(2, "Homem", listaIgnorarEstudantes);
         }
     }//GEN-LAST:event_txtPresidenteMouseClicked
 
     private void txtOracaoInicialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtOracaoInicialMouseClicked
         if (!txtOracaoInicial.getText().isEmpty()) {
-            Janela.irTrocar(4, oracaoA.getPessoa().getSexo(), oracaoA.getPessoa(), listaIgnorar);
+            Janela.irTrocar(4, oracaoA.getPessoa().getSexo(), oracaoA.getPessoa(), listaIgnorarEstudantes);
         } else {
-            Janela.irTrocar2(4, "Homem", listaIgnorar);
+            Janela.irTrocar2(4, "Homem", listaIgnorarEstudantes);
         }
     }//GEN-LAST:event_txtOracaoInicialMouseClicked
 
@@ -2334,33 +2364,33 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtTesourosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTesourosMouseClicked
         if (!txtTesouros.getText().isEmpty()) {
-            Janela.irTrocar(3, tesouros.getPessoa().getSexo(), tesouros.getPessoa(), listaIgnorar);
+            Janela.irTrocar(3, tesouros.getPessoa().getSexo(), tesouros.getPessoa(), listaIgnorarEstudantes);
         } else {
-            Janela.irTrocar2(3, "Homem", listaIgnorar);
+            Janela.irTrocar2(3, "Homem", listaIgnorarEstudantes);
         }
     }//GEN-LAST:event_txtTesourosMouseClicked
 
     private void txtCrista1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCrista1MouseClicked
         if (!txtCrista1.getText().isEmpty()) {
-            Janela.irTrocar(5, nossaVida1.getPessoa().getSexo(), nossaVida1.getPessoa(), listaIgnorar);
+            Janela.irTrocar(5, nossaVida1.getPessoa().getSexo(), nossaVida1.getPessoa(), listaIgnorarEstudantes);
         } else {
-            Janela.irTrocar2(5, "Homem", listaIgnorar);
+            Janela.irTrocar2(5, "Homem", listaIgnorarEstudantes);
         }
     }//GEN-LAST:event_txtCrista1MouseClicked
 
     private void txtLeitorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLeitorMouseClicked
         if (!txtLeitor.getText().isEmpty()) {
-            Janela.irTrocar(6, leitor.getPessoa().getSexo(), leitor.getPessoa(), listaIgnorar);
+            Janela.irTrocar(6, leitor.getPessoa().getSexo(), leitor.getPessoa(), listaIgnorarEstudantes);
         } else {
-            Janela.irTrocar2(6, "Homem", listaIgnorar);
+            Janela.irTrocar2(6, "Homem", listaIgnorarEstudantes);
         }
     }//GEN-LAST:event_txtLeitorMouseClicked
 
     private void txtJoiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtJoiasMouseClicked
         if (!txtJoias.getText().isEmpty()) {
-            Janela.irTrocar(7, joias.getPessoa().getSexo(), joias.getPessoa(), listaIgnorar);
+            Janela.irTrocar(7, joias.getPessoa().getSexo(), joias.getPessoa(), listaIgnorarEstudantes);
         } else {
-            Janela.irTrocar2(7, "Homem", listaIgnorar);
+            Janela.irTrocar2(7, "Homem", listaIgnorarEstudantes);
         }
     }//GEN-LAST:event_txtJoiasMouseClicked
 
@@ -2520,33 +2550,33 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtOracaoFinalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtOracaoFinalMouseClicked
         if (!txtOracaoFinal.getText().isEmpty()) {
-            Janela.irTrocar(19, oracaoB.getPessoa().getSexo(), oracaoB.getPessoa(), listaIgnorar);
+            Janela.irTrocar(19, oracaoB.getPessoa().getSexo(), oracaoB.getPessoa(), listaIgnorarEstudantes);
         } else {
-            Janela.irTrocar2(19, "Homem", listaIgnorar);
+            Janela.irTrocar2(19, "Homem", listaIgnorarEstudantes);
         }
     }//GEN-LAST:event_txtOracaoFinalMouseClicked
 
     private void txtNossaVida2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNossaVida2MouseClicked
         if (!txtNossaVida2.getText().isEmpty()) {
-            Janela.irTrocar(20, nossaVida2.getPessoa().getSexo(), nossaVida2.getPessoa(), listaIgnorar);
+            Janela.irTrocar(20, nossaVida2.getPessoa().getSexo(), nossaVida2.getPessoa(), listaIgnorarEstudantes);
         } else {
-            Janela.irTrocar2(20, "Homem", listaIgnorar);
+            Janela.irTrocar2(20, "Homem", listaIgnorarEstudantes);
         }
     }//GEN-LAST:event_txtNossaVida2MouseClicked
 
     private void txtEstudoCongregacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEstudoCongregacaoMouseClicked
         if (!txtEstudoCongregacao.getText().isEmpty()) {
-            Janela.irTrocar(21, estudoCong.getPessoa().getSexo(), estudoCong.getPessoa(), listaIgnorar);
+            Janela.irTrocar(21, estudoCong.getPessoa().getSexo(), estudoCong.getPessoa(), listaIgnorarEstudantes);
         } else {
-            Janela.irTrocar2(21, "Homem", listaIgnorar);
+            Janela.irTrocar2(21, "Homem", listaIgnorarEstudantes);
         }
     }//GEN-LAST:event_txtEstudoCongregacaoMouseClicked
 
     private void txtPresidenteBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPresidenteBMouseClicked
         if (!txtPresidenteB.getText().isEmpty()) {
-            Janela.irTrocar(22, presidenteB.getPessoa().getSexo(), presidenteB.getPessoa(), listaIgnorar);
+            Janela.irTrocar(22, presidenteB.getPessoa().getSexo(), presidenteB.getPessoa(), listaIgnorarEstudantes);
         } else {
-            Janela.irTrocar2(22, "Homem", listaIgnorar);
+            Janela.irTrocar2(22, "Homem", listaIgnorarEstudantes);
         }
     }//GEN-LAST:event_txtPresidenteBMouseClicked
 
@@ -3167,6 +3197,27 @@ public class Tela1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cOracaoFinalMouseClicked
 
+    private void labelNossaVida1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelNossaVida1MouseClicked
+        String tema = JOptionPane.showInputDialog("Tema:");
+        labelNossaVida1.setText(tema);
+    }//GEN-LAST:event_labelNossaVida1MouseClicked
+
+    private void labelNossaVida2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelNossaVida2MouseClicked
+        String tema = JOptionPane.showInputDialog("Tema:");
+        labelNossaVida2.setText(tema);
+    }//GEN-LAST:event_labelNossaVida2MouseClicked
+
+    private void labelTesourosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelTesourosMouseClicked
+        String tema = JOptionPane.showInputDialog("Tema:");
+        labelTesouros.setText(tema);
+    }//GEN-LAST:event_labelTesourosMouseClicked
+
+    private void setTema(){
+        labelNossaVida1.setText("Nossa Vida Cristã parte 1:");
+        labelNossaVida2.setText("Nossa Vida Cristã parte 2:");
+        labelTesouros.setText("Tesouros:");
+    }
+    
     private void conferirSelecionados() {
         if (cPresidente.isSelected() && txtPresidente.getText().isEmpty()) {
             txtPresidente.setText("");
@@ -3554,17 +3605,17 @@ public class Tela1 extends javax.swing.JFrame {
     protected void altPresidenteA(Pessoa a) {
         SwingUtilities.invokeLater(() -> {
             if (!txtPresidente.getText().isEmpty()) {
-                listaIgnorar.remove(Integer.valueOf(presidenteA.getPessoa().getId()));
+                listaIgnorarEstudantes.remove(Integer.valueOf(presidenteA.getPessoa().getId()));
                 PresidenteDAO daos = new PresidenteDAO();
                 presidenteA = daos.buscarPorIdPessoa(a.getId());
                 txtPresidente.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(presidenteA.getPessoa().getId());
+                listaIgnorarEstudantes.add(presidenteA.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Presidente sala A, Alterado com Sucesso");
             } else {
                 PresidenteDAO daos = new PresidenteDAO();
                 presidenteA = daos.buscarPorIdPessoa(a.getId());
                 txtPresidente.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(presidenteA.getPessoa().getId());
+                listaIgnorarEstudantes.add(presidenteA.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Presidente sala A, Alterado com Sucesso");
             }
         });
@@ -3573,17 +3624,17 @@ public class Tela1 extends javax.swing.JFrame {
     protected void altOracaoInicial(Pessoa a) {
         SwingUtilities.invokeLater(() -> {
             if (!txtOracaoInicial.getText().isEmpty()) {
-                listaIgnorar.remove(Integer.valueOf(oracaoA.getPessoa().getId()));
+                listaIgnorarEstudantes.remove(Integer.valueOf(oracaoA.getPessoa().getId()));
                 OracaoDAO daos = new OracaoDAO();
                 oracaoA = daos.buscarPorIdPessoa(a.getId());
                 txtOracaoInicial.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(oracaoA.getPessoa().getId());
+                listaIgnorarEstudantes.add(oracaoA.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Oração Inicial, Alterado com Sucesso");
             } else {
                 OracaoDAO daos = new OracaoDAO();
                 oracaoA = daos.buscarPorIdPessoa(a.getId());
                 txtOracaoInicial.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(oracaoA.getPessoa().getId());
+                listaIgnorarEstudantes.add(oracaoA.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Oração Inicial, Alterado com Sucesso");
             }
         });
@@ -3611,17 +3662,17 @@ public class Tela1 extends javax.swing.JFrame {
     protected void altTesouros(Pessoa a) {
         SwingUtilities.invokeLater(() -> {
             if (!txtTesouros.getText().isEmpty()) {
-                listaIgnorar.remove(Integer.valueOf(tesouros.getPessoa().getId()));
+                listaIgnorarEstudantes.remove(Integer.valueOf(tesouros.getPessoa().getId()));
                 TesourosDAO tDAO = new TesourosDAO();
                 tesouros = tDAO.buscarPorIdPessoa(a.getId());
                 txtTesouros.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(tesouros.getPessoa().getId());
+                listaIgnorarEstudantes.add(tesouros.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Tesouros, Alterado com Sucesso");
             } else {
                 TesourosDAO tDAO = new TesourosDAO();
                 tesouros = tDAO.buscarPorIdPessoa(a.getId());
                 txtTesouros.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(tesouros.getPessoa().getId());
+                listaIgnorarEstudantes.add(tesouros.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Tesouros, Alterado com Sucesso");
             }
         });
@@ -3630,17 +3681,17 @@ public class Tela1 extends javax.swing.JFrame {
     protected void altNossaVida1(Pessoa a) {
         SwingUtilities.invokeLater(() -> {
             if (!txtCrista1.getText().isEmpty()) {
-                listaIgnorar.remove(Integer.valueOf(nossaVida1.getPessoa().getId()));
+                listaIgnorarEstudantes.remove(Integer.valueOf(nossaVida1.getPessoa().getId()));
                 NossaVidaDAO vidaDAO = new NossaVidaDAO();
                 nossaVida1 = vidaDAO.buscarPorIdPessoa(a.getId());
                 txtCrista1.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(nossaVida1.getPessoa().getId());
+                listaIgnorarEstudantes.add(nossaVida1.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Nossa Vida parte 1, Alterado com Sucesso");
             } else {
                 NossaVidaDAO vidaDAO = new NossaVidaDAO();
                 nossaVida1 = vidaDAO.buscarPorIdPessoa(a.getId());
                 txtCrista1.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(nossaVida1.getPessoa().getId());
+                listaIgnorarEstudantes.add(nossaVida1.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Nossa Vida parte 1, Alterado com Sucesso");
             }
         });
@@ -3649,17 +3700,17 @@ public class Tela1 extends javax.swing.JFrame {
     protected void altLeitorEstudo(Pessoa a) {
         SwingUtilities.invokeLater(() -> {
             if (!txtLeitor.getText().isEmpty()) {
-                listaIgnorar.remove(Integer.valueOf(leitor.getPessoa().getId()));
+                listaIgnorarEstudantes.remove(Integer.valueOf(leitor.getPessoa().getId()));
                 LeitorDAO leiDAO = new LeitorDAO();
                 leitor = leiDAO.buscarPorIdPessoa(a.getId());
                 txtLeitor.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(leitor.getPessoa().getId());
+                listaIgnorarEstudantes.add(leitor.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Leitor do Estudo Bíblico de Congregação, Alterado com Sucesso");
             } else {
                 LeitorDAO leiDAO = new LeitorDAO();
                 leitor = leiDAO.buscarPorIdPessoa(a.getId());
                 txtLeitor.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(leitor.getPessoa().getId());
+                listaIgnorarEstudantes.add(leitor.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Leitor do Estudo Bíblico de Congregação, Alterado com Sucesso");
             }
         });
@@ -3668,17 +3719,17 @@ public class Tela1 extends javax.swing.JFrame {
     protected void altJoias(Pessoa a) {
         SwingUtilities.invokeLater(() -> {
             if (!txtJoias.getText().isEmpty()) {
-                listaIgnorar.remove(Integer.valueOf(joias.getPessoa().getId()));
+                listaIgnorarEstudantes.remove(Integer.valueOf(joias.getPessoa().getId()));
                 JoiasDAO jDAO = new JoiasDAO();
                 joias = jDAO.buscarPorIdPessoa(a.getId());
                 txtJoias.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(joias.getPessoa().getId());
+                listaIgnorarEstudantes.add(joias.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Joias Espirituais, Alterado com Sucesso");
             } else {
                 JoiasDAO jDAO = new JoiasDAO();
                 joias = jDAO.buscarPorIdPessoa(a.getId());
                 txtJoias.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(joias.getPessoa().getId());
+                listaIgnorarEstudantes.add(joias.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Joias Espirituais, Alterado com Sucesso");
             }
         });
@@ -3948,17 +3999,17 @@ public class Tela1 extends javax.swing.JFrame {
     protected void altOracaoFinal(Pessoa a) {
         SwingUtilities.invokeLater(() -> {
             if (!txtOracaoFinal.getText().isEmpty()) {
-                listaIgnorar.remove(Integer.valueOf(oracaoB.getPessoa().getId()));
+                listaIgnorarEstudantes.remove(Integer.valueOf(oracaoB.getPessoa().getId()));
                 OracaoDAO daos = new OracaoDAO();
                 oracaoB = daos.buscarPorIdPessoa(a.getId());
                 txtOracaoFinal.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(oracaoB.getPessoa().getId());
+                listaIgnorarEstudantes.add(oracaoB.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Oração Final, Alterado com Sucesso");
             } else {
                 OracaoDAO daos = new OracaoDAO();
                 oracaoB = daos.buscarPorIdPessoa(a.getId());
                 txtOracaoFinal.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(oracaoB.getPessoa().getId());
+                listaIgnorarEstudantes.add(oracaoB.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Oração Final, Alterado com Sucesso");
             }
         });
@@ -3967,17 +4018,17 @@ public class Tela1 extends javax.swing.JFrame {
     protected void altNossaVida2(Pessoa a) {
         SwingUtilities.invokeLater(() -> {
             if (!txtNossaVida2.getText().isEmpty()) {
-                listaIgnorar.remove(Integer.valueOf(nossaVida2.getPessoa().getId()));
+                listaIgnorarEstudantes.remove(Integer.valueOf(nossaVida2.getPessoa().getId()));
                 NossaVidaDAO vidaDAO = new NossaVidaDAO();
                 nossaVida2 = vidaDAO.buscarPorIdPessoa(a.getId());
                 txtNossaVida2.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(nossaVida2.getPessoa().getId());
+                listaIgnorarEstudantes.add(nossaVida2.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Nossa Vida parte 2, Alterado com Sucesso");
             } else {
                 NossaVidaDAO vidaDAO = new NossaVidaDAO();
                 nossaVida2 = vidaDAO.buscarPorIdPessoa(a.getId());
                 txtNossaVida2.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(nossaVida2.getPessoa().getId());
+                listaIgnorarEstudantes.add(nossaVida2.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Nossa Vida parte 2, Alterado com Sucesso");
             }
         });
@@ -3986,17 +4037,17 @@ public class Tela1 extends javax.swing.JFrame {
     protected void altEstudoCongregacao(Pessoa a) {
         SwingUtilities.invokeLater(() -> {
             if (!txtEstudoCongregacao.getText().isEmpty()) {
-                listaIgnorar.remove(Integer.valueOf(estudoCong.getPessoa().getId()));
+                listaIgnorarEstudantes.remove(Integer.valueOf(estudoCong.getPessoa().getId()));
                 EstudoBiblicoCongregacaoDAO congDAO = new EstudoBiblicoCongregacaoDAO();
                 estudoCong = congDAO.buscarPorIdPessoa(a.getId());
                 txtEstudoCongregacao.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(estudoCong.getPessoa().getId());
+                listaIgnorarEstudantes.add(estudoCong.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para o Estudo Bíblico de Congregação, Alterado com Sucesso");
             } else {
                 EstudoBiblicoCongregacaoDAO congDAO = new EstudoBiblicoCongregacaoDAO();
                 estudoCong = congDAO.buscarPorIdPessoa(a.getId());
                 txtEstudoCongregacao.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(estudoCong.getPessoa().getId());
+                listaIgnorarEstudantes.add(estudoCong.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para o Estudo Bíblico de Congregação, Alterado com Sucesso");
             }
         });
@@ -4005,17 +4056,17 @@ public class Tela1 extends javax.swing.JFrame {
     protected void altPresidenteB(Pessoa a) {
         SwingUtilities.invokeLater(() -> {
             if (!txtPresidenteB.getText().isEmpty()) {
-                listaIgnorar.remove(Integer.valueOf(presidenteB.getPessoa().getId()));
+                listaIgnorarEstudantes.remove(Integer.valueOf(presidenteB.getPessoa().getId()));
                 PresidenteDAO daos = new PresidenteDAO();
                 presidenteB = daos.buscarPorIdPessoa(a.getId());
                 txtPresidenteB.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(presidenteB.getPessoa().getId());
+                listaIgnorarEstudantes.add(presidenteB.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Presidente sala B, Alterado com Sucesso");
             } else {
                 PresidenteDAO daos = new PresidenteDAO();
                 presidenteB = daos.buscarPorIdPessoa(a.getId());
                 txtPresidenteB.setText(a.getNome() + " " + a.getSobrenome());
-                listaIgnorar.add(presidenteB.getPessoa().getId());
+                listaIgnorarEstudantes.add(presidenteB.getPessoa().getId());
                 Mensagem.mensagemExito("Designado para Presidente sala B, Alterado com Sucesso");
             }
         });
@@ -4164,7 +4215,7 @@ public class Tela1 extends javax.swing.JFrame {
                 txtAjudante2B.setText(a.getNome() + " " + a.getSobrenome());
                 listaIgnorarEstudantes.add(ajudanteRevisitaB.getId());
                 Mensagem.mensagemExito("Designado para Ajudante da Revisita - sala B, Alterado com Sucesso");
-            } else if (ajudanteRevisitaB != null && labelParte2.getText().equals("Revisita:")) {
+            } else if (ajudanteRevisitaB == null && labelParte2.getText().equals("Revisita:")) {
                 PessoaDAO pDAO = new PessoaDAO();
                 ajudanteRevisitaB = pDAO.buscarPessoaPorId(a.getId());
                 txtAjudante2B.setText(a.getNome() + " " + a.getSobrenome());
@@ -4177,7 +4228,7 @@ public class Tela1 extends javax.swing.JFrame {
                 txtAjudante3B.setText(a.getNome() + " " + a.getSobrenome());
                 listaIgnorarEstudantes.add(ajudanteRevisitaB.getId());
                 Mensagem.mensagemExito("Designado para Ajudante da Revisita - sala B, Alterado com Sucesso");
-            } else if (ajudanteRevisitaB != null && labelParte3.getText().equals("Revisita:")) {
+            } else if (ajudanteRevisitaB == null && labelParte3.getText().equals("Revisita:")) {
                 PessoaDAO pDAO = new PessoaDAO();
                 ajudanteRevisitaB = pDAO.buscarPessoaPorId(a.getId());
                 txtAjudante3B.setText(a.getNome() + " " + a.getSobrenome());
@@ -4462,6 +4513,9 @@ public class Tela1 extends javax.swing.JFrame {
         todas.setPresidenteA(txtPresidente.getText());
         todas.setPresidenteB(txtPresidenteB.getText());
         todas.setOracaoInicial(txtOracaoInicial.getText());
+        
+        todas.setLabelTesouros(labelTesouros.getText());
+        
         todas.setTesouros(txtTesouros.getText());
         todas.setJoias(txtJoias.getText());
         todas.setLeituraBibliaA(txtLeituraBiblia.getText());
@@ -4481,7 +4535,13 @@ public class Tela1 extends javax.swing.JFrame {
         todas.setAjudante3A(txtAjudante3.getText());
         todas.setParte3B(txtParte3B.getText());
         todas.setAjudante3B(txtAjudante3B.getText());
+        
+        todas.setLabelNossaVida1(labelNossaVida1.getText());
+        
         todas.setNossaVida1(txtCrista1.getText());
+        
+        todas.setLabelNossaVida2(labelNossaVida2.getText());
+        
         todas.setNossaVida2(txtNossaVida2.getText());
         todas.setEstudoLivro(txtEstudoCongregacao.getText());
         todas.setLeitor(txtLeitor.getText());
@@ -4560,10 +4620,8 @@ public class Tela1 extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Tela1().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Tela1().setVisible(true);
         });
     }
 

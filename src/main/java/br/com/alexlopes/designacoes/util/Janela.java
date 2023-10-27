@@ -138,9 +138,11 @@ public class Janela {
             sub.setExtendedState(JFrame.MAXIMIZED_BOTH);
             sub.pack();
             sub.setVisible(true);
-        } else {
+            sub.mostrarTabela();
+        } else {            
             sub.setExtendedState(JFrame.MAXIMIZED_BOTH);
             sub.setVisible(true);
+            sub.mostrarTabela();
         }
     }
 

@@ -68,12 +68,20 @@
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
             <version>3.1.0</version>
+        </dependency> 
+        
+                 <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>5.0.1</version>
         </dependency>
+                 
     </dependencies>
     
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
@@ -85,7 +93,6 @@
                             <mainClass>br.com.alexlopes.designacoes.Designacoes</mainClass>
                         </manifest>
                     </archive>
-                    <finalName>${project.build.finalName}</finalName>
                 </configuration>
                 <executions>
                     <execution>
@@ -99,6 +106,7 @@
             </plugin>
         </plugins>
     </build>
+
 
    
 </project>

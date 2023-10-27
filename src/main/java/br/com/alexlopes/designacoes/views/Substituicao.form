@@ -2,7 +2,7 @@
 
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -179,11 +179,10 @@
                               <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace pref="55" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <EmptySpace pref="26" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="labelParte1" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -192,11 +191,12 @@
                                   <Component id="jLabel11" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="labelParte2" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="labelParte3" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel14" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel15" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel16" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel17" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel18" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel5" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
+                                  <Component id="jLabel14" alignment="1" min="-2" pref="212" max="-2" attributes="0"/>
+                                  <Component id="jLabel15" alignment="1" min="-2" pref="212" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -706,6 +706,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="text" type="java.lang.String" value="Tesouros:"/>
               </Properties>
             </Component>
@@ -1005,6 +1006,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="text" type="java.lang.String" value="Nossa vida Crist&#xe3; 1:"/>
               </Properties>
             </Component>
@@ -1016,6 +1018,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="text" type="java.lang.String" value="Nossa vida Crist&#xe3; 2:"/>
               </Properties>
             </Component>

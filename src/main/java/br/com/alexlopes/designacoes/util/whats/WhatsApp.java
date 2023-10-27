@@ -12,9 +12,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -26,7 +26,7 @@ public class WhatsApp {
         return driver;
     }
 
-    public static void conectar() {
+    /*public static void conectar() {
         if (driver == null) {
             // Configurar o driver do Chrome usando o WebDriverManager
             ChromeOptions options = new ChromeOptions();
@@ -47,6 +47,37 @@ public class WhatsApp {
         // Abrir o WhatsApp Web se a janela não foi encontrada
         if (!whatsappWindowFound) {
             driver.get("https://web.whatsapp.com/");
+        }
+    }*/
+    public static void conectar() {
+        try {
+            if (driver == null) {
+                System.setProperty("webdriver.opera.driver", "C:\\Users\\alex9\\Downloads\\operadriver_win64\\operadriver_win64\\operadriver.exe");
+                // Configurar o driver do Opera usando o WebDriverManager
+                OperaOptions options = new OperaOptions();
+                WebDriverManager.operadriver().setup();
+                driver = new OperaDriver(options);
+            }
+            // Verificar se a janela do WhatsApp já está aberta
+            Set<String> windowHandles = driver.getWindowHandles();
+            boolean whatsappWindowFound = false;
+
+            for (String handle : windowHandles) {
+                driver.switchTo().window(handle);
+                String currentURL = driver.getCurrentUrl();
+                if (currentURL.startsWith("https://web.whatsapp.com/") || currentURL.equals("data:,")) {
+                    if (currentURL.equals("data:,")) {
+                        driver.get("https://web.whatsapp.com/");
+                    }
+                    whatsappWindowFound = true;
+                    break;
+                }
+            }
+            // Abrir o WhatsApp Web se a janela não foi encontrada
+            if (!whatsappWindowFound) {
+                driver.get("https://web.whatsapp.com/");
+            }
+        } catch (Exception e) {
         }
     }
 

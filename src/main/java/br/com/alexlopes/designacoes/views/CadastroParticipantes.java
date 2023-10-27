@@ -22,6 +22,8 @@ import br.com.alexlopes.designacoes.util.Janela;
 import br.com.alexlopes.designacoes.util.Mensagem;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.text.ParseException;
 import java.util.List;
 import java.util.logging.Level;
@@ -38,6 +40,13 @@ public class CadastroParticipantes extends javax.swing.JFrame {
     public CadastroParticipantes() {
         initComponents();
         mostrarTabela();
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                dispose();
+                Janela.irMenu();
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -519,6 +528,7 @@ public class CadastroParticipantes extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             Mensagem.mensagemErro("Erro ao tentar fazer o cadastro");
+            e.getStackTrace();
         }
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 

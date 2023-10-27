@@ -128,22 +128,22 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="txtSala" min="-2" pref="245" max="-2" attributes="0"/>
-                          <Component id="txtTipoParte" min="-2" pref="245" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="txtNomeAjudante" alignment="1" min="-2" pref="220" max="-2" attributes="0"/>
                           <Component id="txtData" alignment="1" min="-2" pref="243" max="-2" attributes="0"/>
                           <Component id="txtNome" alignment="1" min="-2" pref="234" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtSala" min="-2" pref="245" max="-2" attributes="0"/>
+                          <Component id="txtTipoParte" min="-2" pref="276" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -157,8 +157,8 @@
                       <EmptySpace type="unrelated" max="32767" attributes="0"/>
                       <Component id="txtData" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                      <Component id="txtTipoParte" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <Component id="txtTipoParte" min="-2" pref="62" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="txtSala" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
                   </Group>
@@ -210,7 +210,9 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="0" red="0" type="rgb"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="text" type="java.lang.String" value="Parte"/>
+                <Property name="verticalAlignment" type="int" value="1"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="txtSala">

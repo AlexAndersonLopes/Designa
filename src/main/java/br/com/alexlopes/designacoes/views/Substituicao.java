@@ -6,12 +6,13 @@ import br.com.alexlopes.designacoes.dao.TodasPartesDAO;
 import br.com.alexlopes.designacoes.model.Pessoa;
 import br.com.alexlopes.designacoes.model.Semana;
 import br.com.alexlopes.designacoes.model.TodasPartes;
-import br.com.alexlopes.designacoes.util.ArquivoPDF;
 import br.com.alexlopes.designacoes.util.GerarPDF;
 import br.com.alexlopes.designacoes.util.Janela;
 import br.com.alexlopes.designacoes.util.Mensagem;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -31,6 +32,13 @@ public class Substituicao extends javax.swing.JFrame {
     public Substituicao() {
         initComponents();
         mostrarTabela();
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                dispose();
+                Janela.irMenu();
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -97,7 +105,7 @@ public class Substituicao extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tabela.setBackground(new java.awt.Color(255, 255, 255));
         tabela.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -353,6 +361,7 @@ public class Substituicao extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Tesouros:");
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -499,10 +508,12 @@ public class Substituicao extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("Nossa vida Cristã 1:");
 
         jLabel15.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel15.setText("Nossa vida Cristã 2:");
 
         jLabel16.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -528,11 +539,10 @@ public class Substituicao extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(227, 227, 227))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(55, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addContainerGap(26, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(labelParte1, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -541,11 +551,12 @@ public class Substituicao extends javax.swing.JFrame {
                             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(labelParte2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(labelParte3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtPresidenteA, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -792,8 +803,12 @@ public class Substituicao extends javax.swing.JFrame {
 
     private void txtTesourosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTesourosMouseClicked
         if (!txtTesouros.getText().isEmpty()) {
+            String tema = "";
+            if(!jLabel5.getText().equals("Tesouros:")){
+                tema = jLabel5.getText();
+            }
             p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtTesouros.getText());
-            Janela.irTrocarSubstituicao("txtTesouros", 1, "Tesouros", "Tesouros", data, "SALA  A", p1, null);
+            Janela.irTrocarSubstituicao("txtTesouros", 1, "Tesouros", "Tesouros:<br> " + tema, data, "SALA  A", p1, null);
         } else {
             Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
         }
@@ -810,8 +825,12 @@ public class Substituicao extends javax.swing.JFrame {
 
     private void txtNossaVida1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNossaVida1MouseClicked
         if (!txtNossaVida1.getText().isEmpty()) {
+            String tema = "";
+            if(!jLabel14.getText().equals("Tesouros:")){
+                tema = jLabel14.getText();
+            }
             p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtNossaVida1.getText());
-            Janela.irTrocarSubstituicao("txtNossaVida1", 1, "NossaVidaCrista", "Nossa Vida Cristã parte 1", data, "SALA  A", p1, null);
+            Janela.irTrocarSubstituicao("txtNossaVida1", 1, "NossaVidaCrista", "Nossa Vida Cristã parte 1:<br> " + tema, data, "SALA  A", p1, null);
         } else {
             Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
         }
@@ -819,8 +838,12 @@ public class Substituicao extends javax.swing.JFrame {
 
     private void txtNossaVida2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNossaVida2MouseClicked
         if (!txtNossaVida2.getText().isEmpty()) {
+            String tema = "";
+            if(!jLabel15.getText().equals("Tesouros:")){
+                tema = jLabel15.getText();
+            }
             p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtNossaVida2.getText());
-            Janela.irTrocarSubstituicao("txtNossaVida2", 1, "NossaVidaCrista", "Nossa Vida Cristã parte 2", data, "SALA  A", p1, null);
+            Janela.irTrocarSubstituicao("txtNossaVida2", 1, "NossaVidaCrista", "Nossa Vida Cristã parte 2:<br> " + tema, data, "SALA  A", p1, null);
         } else {
             Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
         }
@@ -1049,7 +1072,7 @@ public class Substituicao extends javax.swing.JFrame {
         }
     }
 
-    private void mostrarTabela() {
+    public void mostrarTabela() {
         SemanaDAO semanaDAO = new SemanaDAO();
         List<Semana> semanas = semanaDAO.listarSemanasOrdenadasPorDataDesc();
 
@@ -1078,6 +1101,9 @@ public class Substituicao extends javax.swing.JFrame {
         txtPresidenteA.setText(partesDaSemana.getPresidenteA());
         txtPresidenteB.setText(partesDaSemana.getPresidenteB());
         txtOracaoInicial.setText(partesDaSemana.getOracaoInicial());
+        
+        jLabel5.setText(partesDaSemana.getLabelTesouros());
+        
         txtTesouros.setText(partesDaSemana.getTesouros());
         txtJoias.setText(partesDaSemana.getJoias());
         txtLeituraBibliaA.setText(partesDaSemana.getLeituraBibliaA());
@@ -1101,7 +1127,10 @@ public class Substituicao extends javax.swing.JFrame {
         txtAjudante2B.setText(partesDaSemana.getAjudante2B());
         txtParte3B.setText(partesDaSemana.getParte3B());
         txtAjudante3B.setText(partesDaSemana.getAjudante3B());
+        
+        jLabel14.setText(partesDaSemana.getLabelNossaVida1());
         txtNossaVida1.setText(partesDaSemana.getNossaVida1());
+        jLabel15.setText(partesDaSemana.getLabelNossaVida2());
         txtNossaVida2.setText(partesDaSemana.getNossaVida2());
         txtEstudoCongregacao.setText(partesDaSemana.getEstudoLivro());
         txtLeitor.setText(partesDaSemana.getLeitor());
@@ -1118,6 +1147,7 @@ public class Substituicao extends javax.swing.JFrame {
         todas.setPresidenteA(txtPresidenteA.getText());
         todas.setPresidenteB(txtPresidenteB.getText());
         todas.setOracaoInicial(txtOracaoInicial.getText());
+        todas.setLabelTesouros(jLabel5.getText());
         todas.setTesouros(txtTesouros.getText());
         todas.setJoias(txtJoias.getText());
         todas.setLeituraBibliaA(txtLeituraBibliaA.getText());
@@ -1137,7 +1167,9 @@ public class Substituicao extends javax.swing.JFrame {
         todas.setAjudante3A(txtAjudante3A.getText());
         todas.setParte3B(txtParte3B.getText());
         todas.setAjudante3B(txtAjudante3B.getText());
+        todas.setLabelNossaVida1(jLabel14.getText());
         todas.setNossaVida1(txtNossaVida1.getText());
+        todas.setLabelNossaVida2(jLabel15.getText());
         todas.setNossaVida2(txtNossaVida2.getText());
         todas.setEstudoLivro(txtEstudoCongregacao.getText());
         todas.setLeitor(txtLeitor.getText());

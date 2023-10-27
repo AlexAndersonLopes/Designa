@@ -18,6 +18,7 @@ public class TodasPartes {
     private String presidenteA;
     private String presidenteB;
     private String oracaoInicial;
+    private String labelTesouros;
     private String tesouros;
     private String joias;
     private String leituraBibliaA;
@@ -37,7 +38,9 @@ public class TodasPartes {
     private String ajudante3A;
     private String parte3B;
     private String ajudante3B;
+    private String labelNossaVida1;
     private String nossaVida1;
+    private String labelNossaVida2;
     private String nossaVida2;
     private String estudoLivro;
     private String leitor;
@@ -111,6 +114,14 @@ public class TodasPartes {
     public String getTesouros() {
         return tesouros;
     }
+
+    public String getLabelTesouros() {
+        return labelTesouros;
+    }
+
+    public void setLabelTesouros(String labelTesouros) {
+        this.labelTesouros = labelTesouros;
+    }    
 
     public void setTesouros(String tesouros) {
         this.tesouros = tesouros;
@@ -258,6 +269,22 @@ public class TodasPartes {
 
     public void setAjudante3B(String ajudante3B) {
         this.ajudante3B = ajudante3B;
+    }
+
+    public String getLabelNossaVida1() {
+        return labelNossaVida1;
+    }
+
+    public void setLabelNossaVida1(String labelNossaVida1) {
+        this.labelNossaVida1 = labelNossaVida1;
+    }
+
+    public String getLabelNossaVida2() {
+        return labelNossaVida2;
+    }
+
+    public void setLabelNossaVida2(String labelNossaVida2) {
+        this.labelNossaVida2 = labelNossaVida2;
     }
 
     public String getNossaVida1() {

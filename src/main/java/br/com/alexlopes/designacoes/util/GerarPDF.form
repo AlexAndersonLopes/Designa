@@ -75,27 +75,23 @@
                                           <Component id="labelSemana" min="-2" pref="625" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="labelTesouros" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="labelJoias" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="labelLeituraBiblia" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="labelJoias" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="ljoias" min="-2" pref="347" max="-2" attributes="0"/>
-                                                          <Component id="ltesouros" min="-2" pref="347" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                                      <Component id="lleituraBiblia" min="-2" pref="262" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
+                                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                              <Component id="lleituraBiblia" min="-2" pref="262" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="jLabel1" alignment="0" min="-2" pref="344" max="-2" attributes="0"/>
                                           <Component id="labelParte1" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
                                           <Component id="labelParte7" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="labelTesouros" min="-2" pref="276" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="ljoias" alignment="0" min="-2" pref="317" max="-2" attributes="0"/>
+                                                  <Component id="ltesouros" min="-2" pref="317" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
@@ -144,20 +140,22 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="labelNossa2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                                      <Component id="labelLeitorEstudo" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="labelEstudo" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="labelNossa1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                                          </Group>
                                           <Component id="labelTesouros6" alignment="1" min="-2" pref="253" max="-2" attributes="0"/>
                                           <Component id="labelTesouros5" alignment="1" min="-2" pref="225" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="labelNossa1" max="32767" attributes="0"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Group type="103" groupAlignment="1" attributes="0">
+                                                          <Component id="labelLeitorEstudo" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="labelEstudo" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Component id="labelNossa2" alignment="1" min="-2" pref="257" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>

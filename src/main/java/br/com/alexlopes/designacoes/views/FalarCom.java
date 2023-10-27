@@ -1,9 +1,12 @@
 package br.com.alexlopes.designacoes.views;
 
 import br.com.alexlopes.designacoes.util.ClasseEmail;
+import br.com.alexlopes.designacoes.util.Janela;
 import br.com.alexlopes.designacoes.util.Mensagem;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
 
 public class FalarCom extends javax.swing.JFrame {
@@ -14,6 +17,13 @@ public class FalarCom extends javax.swing.JFrame {
         initComponents();
         txtEmail.setLineWrap(true);
         txtEmail.setWrapStyleWord(true);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                dispose();
+                Janela.irMenu();
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -187,6 +197,7 @@ public class FalarCom extends javax.swing.JFrame {
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         this.dispose();
+        Janela.irMenu();
     }//GEN-LAST:event_voltarActionPerformed
 
     private boolean validarCampos() {
