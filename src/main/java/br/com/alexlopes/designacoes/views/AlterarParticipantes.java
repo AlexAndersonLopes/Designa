@@ -91,14 +91,16 @@ public class AlterarParticipantes extends javax.swing.JFrame {
         rTesouros = new javax.swing.JRadioButton();
         rJoias = new javax.swing.JRadioButton();
         rLeituraBiblia = new javax.swing.JRadioButton();
-        rPrimeiraConversa = new javax.swing.JRadioButton();
-        rRevisita = new javax.swing.JRadioButton();
-        rEstudoBiblico = new javax.swing.JRadioButton();
+        rIniciando = new javax.swing.JRadioButton();
+        rCultivando = new javax.swing.JRadioButton();
+        rExplicando = new javax.swing.JRadioButton();
         rNossaVidaCrista = new javax.swing.JRadioButton();
         rEstudoCongregacao = new javax.swing.JRadioButton();
         rLeituraEstudo = new javax.swing.JRadioButton();
         rAjudante = new javax.swing.JRadioButton();
         rDiscurso = new javax.swing.JRadioButton();
+        rFazendo = new javax.swing.JRadioButton();
+        rVideo = new javax.swing.JRadioButton();
         botaoRemover = new javax.swing.JButton();
         botaoExcluir = new javax.swing.JButton();
 
@@ -338,26 +340,26 @@ public class AlterarParticipantes extends javax.swing.JFrame {
         rLeituraBiblia.setContentAreaFilled(false);
         rLeituraBiblia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        rPrimeiraConversa.setBackground(new java.awt.Color(255, 255, 153));
-        rPrimeiraConversa.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        rPrimeiraConversa.setForeground(new java.awt.Color(0, 0, 102));
-        rPrimeiraConversa.setText("Primeira Conversa");
-        rPrimeiraConversa.setContentAreaFilled(false);
-        rPrimeiraConversa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rIniciando.setBackground(new java.awt.Color(255, 255, 153));
+        rIniciando.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        rIniciando.setForeground(new java.awt.Color(0, 0, 102));
+        rIniciando.setText("Iniciando conversas");
+        rIniciando.setContentAreaFilled(false);
+        rIniciando.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        rRevisita.setBackground(new java.awt.Color(255, 255, 153));
-        rRevisita.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        rRevisita.setForeground(new java.awt.Color(0, 0, 102));
-        rRevisita.setText("Revisita");
-        rRevisita.setContentAreaFilled(false);
-        rRevisita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rCultivando.setBackground(new java.awt.Color(255, 255, 153));
+        rCultivando.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        rCultivando.setForeground(new java.awt.Color(0, 0, 102));
+        rCultivando.setText("Cultivando o interesse");
+        rCultivando.setContentAreaFilled(false);
+        rCultivando.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        rEstudoBiblico.setBackground(new java.awt.Color(255, 255, 153));
-        rEstudoBiblico.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        rEstudoBiblico.setForeground(new java.awt.Color(0, 0, 102));
-        rEstudoBiblico.setText("Estudo Bíblico");
-        rEstudoBiblico.setContentAreaFilled(false);
-        rEstudoBiblico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rExplicando.setBackground(new java.awt.Color(255, 255, 153));
+        rExplicando.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        rExplicando.setForeground(new java.awt.Color(0, 0, 102));
+        rExplicando.setText("Explicando suas crenças");
+        rExplicando.setContentAreaFilled(false);
+        rExplicando.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         rNossaVidaCrista.setBackground(new java.awt.Color(255, 255, 255));
         rNossaVidaCrista.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -394,30 +396,46 @@ public class AlterarParticipantes extends javax.swing.JFrame {
         rDiscurso.setContentAreaFilled(false);
         rDiscurso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        rFazendo.setBackground(new java.awt.Color(255, 255, 153));
+        rFazendo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        rFazendo.setForeground(new java.awt.Color(0, 0, 102));
+        rFazendo.setText("Fazendo discipulos");
+        rFazendo.setContentAreaFilled(false);
+        rFazendo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        rVideo.setBackground(new java.awt.Color(255, 255, 153));
+        rVideo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        rVideo.setForeground(new java.awt.Color(0, 0, 0));
+        rVideo.setText("Consideração da Brochura");
+        rVideo.setContentAreaFilled(false);
+        rVideo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(rLeituraEstudo)
-                .addGap(119, 119, 119))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rEstudoCongregacao)
-                    .addComponent(rDiscurso)
-                    .addComponent(rNossaVidaCrista)
-                    .addComponent(rAjudante)
-                    .addComponent(rEstudoBiblico)
-                    .addComponent(rRevisita)
-                    .addComponent(rPrimeiraConversa)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                            .addComponent(rLeituraEstudo)
+                            .addGap(113, 113, 113))
+                        .addComponent(rEstudoCongregacao)
+                        .addComponent(rDiscurso)
+                        .addComponent(rNossaVidaCrista)
+                        .addComponent(rAjudante))
+                    .addComponent(rVideo)
+                    .addComponent(rFazendo)
+                    .addComponent(rExplicando)
+                    .addComponent(rIniciando)
+                    .addComponent(rCultivando, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rLeituraBiblia)
                     .addComponent(rJoias)
                     .addComponent(rTesouros)
                     .addComponent(rPresidente)
                     .addComponent(rOracao))
-                .addContainerGap())
+                .addGap(54, 54, 54))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -433,11 +451,15 @@ public class AlterarParticipantes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(rLeituraBiblia)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rPrimeiraConversa)
+                .addComponent(rVideo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rRevisita)
+                .addComponent(rIniciando)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rEstudoBiblico)
+                .addComponent(rCultivando)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rExplicando)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rFazendo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rDiscurso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -448,7 +470,7 @@ public class AlterarParticipantes extends javax.swing.JFrame {
                 .addComponent(rEstudoCongregacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rLeituraEstudo)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         botaoRemover.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
@@ -507,21 +529,21 @@ public class AlterarParticipantes extends javax.swing.JFrame {
                         .addGap(18, 18, 18)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(46, 46, 46))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(botaoRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(82, 82, 82))))
+                        .addGap(82, 82, 82))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(botaoRemover, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(homem)
                             .addComponent(mulher))
@@ -542,9 +564,7 @@ public class AlterarParticipantes extends javax.swing.JFrame {
                             .addComponent(botaoVoltar)
                             .addComponent(botaoCadastrar)
                             .addComponent(botaoExcluir)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(70, 70, 70))
         );
 
@@ -670,9 +690,12 @@ public class AlterarParticipantes extends javax.swing.JFrame {
         try {
             MaskFormatter maskFormatter;
             maskFormatter = switch (numQtd) {
-                case 11 -> new MaskFormatter("(##)#####-####");
-                case 10 -> new MaskFormatter("(##)####-####");
-                default -> new MaskFormatter();
+                case 11 ->
+                    new MaskFormatter("(##)#####-####");
+                case 10 ->
+                    new MaskFormatter("(##)####-####");
+                default ->
+                    new MaskFormatter();
             };
             maskFormatter.setValueContainsLiteralCharacters(false);
             txtCelular.setFormatterFactory(new DefaultFormatterFactory(maskFormatter));
@@ -766,7 +789,7 @@ public class AlterarParticipantes extends javax.swing.JFrame {
                 presidente.setData(null);
                 preDAO.cadastrar(presidente);
             }
-        } else if (!rPresidente.isSelected()){
+        } else if (!rPresidente.isSelected()) {
             PresidenteDAO preDAO = new PresidenteDAO();
             if (preDAO.verificarExistenciaPresidentePorPessoaId(pessoa.getId())) {
                 preDAO.excluirPresidentePorPessoaId(pessoa.getId());
@@ -819,25 +842,37 @@ public class AlterarParticipantes extends javax.swing.JFrame {
             parte.setDescricao("LeituraBiblia");
             parte.setPessoa(pessoa);
             pdao.cadastrar(parte);
-        }
-        if (rPrimeiraConversa.isSelected()) {
+        } 
+        if (rVideo.isSelected()) {
             Parte parte = new Parte();
-            parte.setDescricao("PrimeiraConversa");
+            parte.setDescricao("Video");
             parte.setPessoa(pessoa);
             pdao.cadastrar(parte);
-        }
-        if (rRevisita.isSelected()) {
+        } 
+        if (rIniciando.isSelected()) {
             Parte parte = new Parte();
-            parte.setDescricao("Revisita");
+            parte.setDescricao("Iniciando conversas");
             parte.setPessoa(pessoa);
             pdao.cadastrar(parte);
-        }
-        if (rEstudoBiblico.isSelected()) {
+        } 
+        if (rCultivando.isSelected()) {
             Parte parte = new Parte();
-            parte.setDescricao("EstudoBiblico");
+            parte.setDescricao("Cultivando o interesse");
             parte.setPessoa(pessoa);
             pdao.cadastrar(parte);
-        }
+        } 
+        if (rExplicando.isSelected()) {
+            Parte parte = new Parte();
+            parte.setDescricao("Explicando suas crenças");
+            parte.setPessoa(pessoa);
+            pdao.cadastrar(parte);
+        } 
+        if (rFazendo.isSelected()) {
+            Parte parte = new Parte();
+            parte.setDescricao("Fazendo discipulos");
+            parte.setPessoa(pessoa);
+            pdao.cadastrar(parte);
+        } 
         if (rDiscurso.isSelected()) {
             Parte parte = new Parte();
             parte.setDescricao("Discurso");
@@ -849,7 +884,7 @@ public class AlterarParticipantes extends javax.swing.JFrame {
             parte.setDescricao("Ajudante");
             parte.setPessoa(pessoa);
             pdao.cadastrar(parte);
-        }
+        } 
         if (rNossaVidaCrista.isSelected()) {
             Parte parte = new Parte();
             parte.setDescricao("NossaVidaCrista");
@@ -973,14 +1008,20 @@ public class AlterarParticipantes extends javax.swing.JFrame {
                 if (s.getDescricao().equals("LeituraBiblia")) {
                     rLeituraBiblia.setSelected(true);
                 }
-                if (s.getDescricao().equals("PrimeiraConversa")) {
-                    rPrimeiraConversa.setSelected(true);
+                if (s.getDescricao().equals("Video")) {
+                    rVideo.setSelected(true);
                 }
-                if (s.getDescricao().equals("Revisita")) {
-                    rRevisita.setSelected(true);
+                if (s.getDescricao().equals("Iniciando conversas")) {
+                    rIniciando.setSelected(true);
                 }
-                if (s.getDescricao().equals("EstudoBiblico")) {
-                    rEstudoBiblico.setSelected(true);
+                if (s.getDescricao().equals("Cultivando o interesse")) {
+                    rCultivando.setSelected(true);
+                }
+                if (s.getDescricao().equals("Explicando suas crenças")) {
+                    rExplicando.setSelected(true);
+                }
+                if (s.getDescricao().equals("Fazendo discipulos")) {
+                    rFazendo.setSelected(true);
                 }
                 if (s.getDescricao().equals("Discurso")) {
                     rDiscurso.setSelected(true);
@@ -1027,9 +1068,11 @@ public class AlterarParticipantes extends javax.swing.JFrame {
         rTesouros.setSelected(false);
         rJoias.setSelected(false);
         rLeituraBiblia.setSelected(false);
-        rPrimeiraConversa.setSelected(false);
-        rRevisita.setSelected(false);
-        rEstudoBiblico.setSelected(false);
+        rVideo.setSelected(false);
+        rIniciando.setSelected(false);
+        rCultivando.setSelected(false);
+        rExplicando.setSelected(false);
+        rFazendo.setSelected(false);
         rDiscurso.setSelected(false);
         rAjudante.setSelected(false);
         rNossaVidaCrista.setSelected(false);
@@ -1090,18 +1133,20 @@ public class AlterarParticipantes extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton mulher;
     private javax.swing.JRadioButton rAjudante;
+    private javax.swing.JRadioButton rCultivando;
     private javax.swing.JRadioButton rDiscurso;
-    private javax.swing.JRadioButton rEstudoBiblico;
     private javax.swing.JRadioButton rEstudoCongregacao;
+    private javax.swing.JRadioButton rExplicando;
+    private javax.swing.JRadioButton rFazendo;
+    private javax.swing.JRadioButton rIniciando;
     private javax.swing.JRadioButton rJoias;
     private javax.swing.JRadioButton rLeituraBiblia;
     private javax.swing.JRadioButton rLeituraEstudo;
     private javax.swing.JRadioButton rNossaVidaCrista;
     private javax.swing.JRadioButton rOracao;
     private javax.swing.JRadioButton rPresidente;
-    private javax.swing.JRadioButton rPrimeiraConversa;
-    private javax.swing.JRadioButton rRevisita;
     private javax.swing.JRadioButton rTesouros;
+    private javax.swing.JRadioButton rVideo;
     private javax.swing.JTable tabela;
     private javax.swing.JFormattedTextField txtCelular;
     private javax.swing.JTextField txtNome;

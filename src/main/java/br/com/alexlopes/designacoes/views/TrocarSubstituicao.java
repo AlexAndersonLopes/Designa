@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class TrocarSubstituicao extends javax.swing.JFrame {
 
-    private String parte, data, sala, parteBD, parteBD2, campo;
+    private String parte, data, sala, parteBD, parteBD2, campo, numeroParte;
     private Pessoa a, b;
     private DefaultTableModel tab;
     private int responsavel = 0, linha = -1, num;
@@ -25,7 +25,7 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
         initComponents();
     }
 
-    public TrocarSubstituicao(String campo, int num, String parteBD, String parte, String data, String sala, Pessoa a, Pessoa b) {
+    public TrocarSubstituicao(String campo, int num, String parteBD, String parte, String data, String sala, Pessoa a, Pessoa b, String parteNum) {
         initComponents();
 
         this.campo = campo;
@@ -36,6 +36,7 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
         this.sala = sala;
         this.a = a;
         this.b = b;
+        this.numeroParte = parteNum;
 
         //Partes sem ajudante
         if (num == 1) {
@@ -60,7 +61,7 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
             }
         };
         panelDesignacao = new javax.swing.JPanel(){
-            ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/folhaDesig.jpg"));
+            ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/novaFolhaS89.jpg"));
             Image image = icon.getImage();
             public void paintComponent(Graphics g){
                 super.paintComponent(g); // Chama o método paintComponent da superclasse
@@ -72,6 +73,7 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
         txtData = new javax.swing.JLabel();
         txtTipoParte = new javax.swing.JLabel();
         txtSala = new javax.swing.JLabel();
+        txtParteNumero = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         txtTipo = new javax.swing.JLabel();
         txtParte = new javax.swing.JLabel();
@@ -114,38 +116,46 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
         txtSala.setForeground(new java.awt.Color(153, 0, 0));
         txtSala.setText("Sala");
 
+        txtParteNumero.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtParteNumero.setForeground(new java.awt.Color(0, 0, 0));
+        txtParteNumero.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        txtParteNumero.setText("3");
+
         javax.swing.GroupLayout panelDesignacaoLayout = new javax.swing.GroupLayout(panelDesignacao);
         panelDesignacao.setLayout(panelDesignacaoLayout);
         panelDesignacaoLayout.setHorizontalGroup(
             panelDesignacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDesignacaoLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(panelDesignacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNomeAjudante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
             .addGroup(panelDesignacaoLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(panelDesignacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtSala, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTipoParte, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDesignacaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelDesignacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNomeAjudante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtParteNumero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         panelDesignacaoLayout.setVerticalGroup(
             panelDesignacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDesignacaoLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(89, 89, 89)
                 .addComponent(txtNome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtNomeAjudante)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtData)
-                .addGap(64, 64, 64)
-                .addComponent(txtTipoParte, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtNomeAjudante, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtParteNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(txtTipoParte, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(txtSala)
-                .addGap(117, 117, 117))
+                .addGap(105, 105, 105))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -547,7 +557,7 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
-            FolhaDesignacao folha = new FolhaDesignacao(a, b, txtData.getText(), parte, txtSala.getText());
+            FolhaDesignacao folha = new FolhaDesignacao(a, b, txtData.getText(), parte, txtSala.getText(), numeroParte);
         } catch (Exception e) {
             return;
         }
@@ -615,6 +625,7 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
         txtNome.setText(a.getNome() + " " + a.getSobrenome());
         txtNomeAjudante.setText("   ");
         txtData.setText(data);
+        txtParteNumero.setText(numeroParte);
         txtTipoParte.setText("<html>" + parte + "</html>");
         txtSala.setText(sala);
 
@@ -634,6 +645,7 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
             txtAjudante.setText("     ");
         }
         txtData.setText(data);
+        txtParteNumero.setText(numeroParte);
         txtTipoParte.setText(parte);
         txtSala.setText(sala);
     }
@@ -653,9 +665,9 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
             String ajudanteFormatada = ajudante != null ? ajudante.format(df) : ""; // Trata o valor nulo
             if (dataUltima != null) {
                 dataUltimaFormatada = dataUltima.format(df);
-                if(b != null){
-                  ajudanteFormatada = ajudante.format(df);  
-                }               
+                if (b != null) {
+                    ajudanteFormatada = ajudante.format(df);
+                }
             }
             tab.addRow(new Object[]{
                 idPessoa,
@@ -716,6 +728,7 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
     private javax.swing.JLabel txtNome;
     private javax.swing.JLabel txtNomeAjudante;
     private javax.swing.JLabel txtParte;
+    private javax.swing.JLabel txtParteNumero;
     private javax.swing.JLabel txtSala;
     private javax.swing.JLabel txtTipo;
     private javax.swing.JLabel txtTipoParte;

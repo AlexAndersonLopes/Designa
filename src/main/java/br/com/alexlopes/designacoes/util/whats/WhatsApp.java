@@ -5,6 +5,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 import javax.imageio.ImageIO;
@@ -12,9 +13,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -26,7 +27,7 @@ public class WhatsApp {
         return driver;
     }
 
-    /*public static void conectar() {
+    public static void conectar() {
         if (driver == null) {
             // Configurar o driver do Chrome usando o WebDriverManager
             ChromeOptions options = new ChromeOptions();
@@ -48,39 +49,7 @@ public class WhatsApp {
         if (!whatsappWindowFound) {
             driver.get("https://web.whatsapp.com/");
         }
-    }*/
-    public static void conectar() {
-        try {
-            if (driver == null) {
-                System.setProperty("webdriver.opera.driver", "C:\\Users\\alex9\\Downloads\\operadriver_win64\\operadriver_win64\\operadriver.exe");
-                // Configurar o driver do Opera usando o WebDriverManager
-                OperaOptions options = new OperaOptions();
-                WebDriverManager.operadriver().setup();
-                driver = new OperaDriver(options);
-            }
-            // Verificar se a janela do WhatsApp já está aberta
-            Set<String> windowHandles = driver.getWindowHandles();
-            boolean whatsappWindowFound = false;
-
-            for (String handle : windowHandles) {
-                driver.switchTo().window(handle);
-                String currentURL = driver.getCurrentUrl();
-                if (currentURL.startsWith("https://web.whatsapp.com/") || currentURL.equals("data:,")) {
-                    if (currentURL.equals("data:,")) {
-                        driver.get("https://web.whatsapp.com/");
-                    }
-                    whatsappWindowFound = true;
-                    break;
-                }
-            }
-            // Abrir o WhatsApp Web se a janela não foi encontrada
-            if (!whatsappWindowFound) {
-                driver.get("https://web.whatsapp.com/");
-            }
-        } catch (Exception e) {
-        }
     }
-
     public static void sair() {
         if (driver != null) {
             driver.quit();
@@ -90,7 +59,7 @@ public class WhatsApp {
 
     public boolean enviarMensagem(String telefone, BufferedImage imag) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 20);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             BufferedImage im = imag;
 
             driver.get(driver.getCurrentUrl());
@@ -142,7 +111,7 @@ public class WhatsApp {
     }
 
     public void enviarMensagemUsuario(BufferedImage imag) {
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         BufferedImage im = imag;
         String telefone = Janela.getUsuario().getCelular().replaceAll("[^0-9]", "");
 

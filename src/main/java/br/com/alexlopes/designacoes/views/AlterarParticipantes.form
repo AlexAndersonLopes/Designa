@@ -314,13 +314,13 @@
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jPanel4" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="botaoRemover" min="-2" pref="234" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jPanel4" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -331,9 +331,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="botaoRemover" pref="33" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="homem" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="mulher" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -360,10 +360,7 @@
                                   <Component id="botaoExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                   </Group>
@@ -547,28 +544,31 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="rLeituraEstudo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="rEstudoCongregacao" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="rDiscurso" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="rNossaVidaCrista" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="rAjudante" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="rEstudoBiblico" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="rRevisita" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="rPrimeiraConversa" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="rLeituraEstudo" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="rEstudoCongregacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rDiscurso" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rNossaVidaCrista" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rAjudante" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="rVideo" min="-2" max="-2" attributes="0"/>
+                              <Component id="rFazendo" min="-2" max="-2" attributes="0"/>
+                              <Component id="rExplicando" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="rIniciando" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="rCultivando" min="-2" pref="229" max="-2" attributes="0"/>
                               <Component id="rLeituraBiblia" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="rJoias" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="rTesouros" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="rPresidente" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="rOracao" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -586,11 +586,15 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="rLeituraBiblia" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="rPrimeiraConversa" min="-2" max="-2" attributes="0"/>
+                          <Component id="rVideo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="rRevisita" min="-2" max="-2" attributes="0"/>
+                          <Component id="rIniciando" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="rEstudoBiblico" min="-2" max="-2" attributes="0"/>
+                          <Component id="rCultivando" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="rExplicando" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="rFazendo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="rDiscurso" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -601,7 +605,7 @@
                           <Component id="rEstudoCongregacao" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="rLeituraEstudo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="24" max="32767" attributes="0"/>
+                          <EmptySpace pref="14" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -697,7 +701,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="rPrimeiraConversa">
+                <Component class="javax.swing.JRadioButton" name="rIniciando">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="99" green="ff" red="ff" type="rgb"/>
@@ -708,14 +712,14 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="66" green="0" red="0" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Primeira Conversa"/>
+                    <Property name="text" type="java.lang.String" value="Iniciando conversas"/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="rRevisita">
+                <Component class="javax.swing.JRadioButton" name="rCultivando">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="99" green="ff" red="ff" type="rgb"/>
@@ -726,14 +730,14 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="66" green="0" red="0" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Revisita"/>
+                    <Property name="text" type="java.lang.String" value="Cultivando o interesse"/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="rEstudoBiblico">
+                <Component class="javax.swing.JRadioButton" name="rExplicando">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="99" green="ff" red="ff" type="rgb"/>
@@ -744,7 +748,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="66" green="0" red="0" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Estudo B&#xed;blico"/>
+                    <Property name="text" type="java.lang.String" value="Explicando suas cren&#xe7;as"/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -835,6 +839,42 @@
                       <Color blue="66" green="0" red="0" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Discurso"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rFazendo">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="99" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Fazendo discipulos"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rVideo">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="99" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="18" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Considera&#xe7;&#xe3;o da Brochura"/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>

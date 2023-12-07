@@ -1571,6 +1571,7 @@ public class Tela1 extends javax.swing.JFrame {
             txtAjudante3.setText(estudoAjudanteA.getNome() + " " + estudoAjudanteA.getSobrenome());
             listaIgnorarEstudantes.add(estudoAjudanteA.getId());
         }
+        System.out.println("TERMONOUUU   OU   OU   OU   OU");
     }
 
     private void preencherSalaAB() {
@@ -2340,7 +2341,7 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtPresidenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPresidenteMouseClicked
         if (!txtPresidente.getText().isEmpty()) {
-            Janela.irTrocar(2, presidenteA.getPessoa().getSexo(), presidenteA.getPessoa(), listaIgnorarEstudantes);
+            Janela.irTrocar(2, presidenteA.getPessoa().getSexo(), presidenteA.getPessoa(), listaIgnorarEstudantes, null);
         } else {
             Janela.irTrocar2(2, "Homem", listaIgnorarEstudantes);
         }
@@ -2348,7 +2349,7 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtOracaoInicialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtOracaoInicialMouseClicked
         if (!txtOracaoInicial.getText().isEmpty()) {
-            Janela.irTrocar(4, oracaoA.getPessoa().getSexo(), oracaoA.getPessoa(), listaIgnorarEstudantes);
+            Janela.irTrocar(4, oracaoA.getPessoa().getSexo(), oracaoA.getPessoa(), listaIgnorarEstudantes, null);
         } else {
             Janela.irTrocar2(4, "Homem", listaIgnorarEstudantes);
         }
@@ -2356,7 +2357,7 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtLeituraBibliaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLeituraBibliaMouseClicked
         if (!txtLeituraBiblia.getText().isEmpty()) {
-            Janela.irTrocar(1, leituraBibliaA.getSexo(), leituraBibliaA, listaIgnorarEstudantes);
+            Janela.irTrocar(1, leituraBibliaA.getSexo(), leituraBibliaA, listaIgnorarEstudantes, null);
         } else {
             Janela.irTrocar2(1, "Homem", listaIgnorarEstudantes);
         }
@@ -2364,7 +2365,7 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtTesourosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTesourosMouseClicked
         if (!txtTesouros.getText().isEmpty()) {
-            Janela.irTrocar(3, tesouros.getPessoa().getSexo(), tesouros.getPessoa(), listaIgnorarEstudantes);
+            Janela.irTrocar(3, tesouros.getPessoa().getSexo(), tesouros.getPessoa(), listaIgnorarEstudantes, null);
         } else {
             Janela.irTrocar2(3, "Homem", listaIgnorarEstudantes);
         }
@@ -2372,7 +2373,7 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtCrista1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCrista1MouseClicked
         if (!txtCrista1.getText().isEmpty()) {
-            Janela.irTrocar(5, nossaVida1.getPessoa().getSexo(), nossaVida1.getPessoa(), listaIgnorarEstudantes);
+            Janela.irTrocar(5, nossaVida1.getPessoa().getSexo(), nossaVida1.getPessoa(), listaIgnorarEstudantes, null);
         } else {
             Janela.irTrocar2(5, "Homem", listaIgnorarEstudantes);
         }
@@ -2380,7 +2381,7 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtLeitorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLeitorMouseClicked
         if (!txtLeitor.getText().isEmpty()) {
-            Janela.irTrocar(6, leitor.getPessoa().getSexo(), leitor.getPessoa(), listaIgnorarEstudantes);
+            Janela.irTrocar(6, leitor.getPessoa().getSexo(), leitor.getPessoa(), listaIgnorarEstudantes, null);
         } else {
             Janela.irTrocar2(6, "Homem", listaIgnorarEstudantes);
         }
@@ -2388,7 +2389,7 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtJoiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtJoiasMouseClicked
         if (!txtJoias.getText().isEmpty()) {
-            Janela.irTrocar(7, joias.getPessoa().getSexo(), joias.getPessoa(), listaIgnorarEstudantes);
+            Janela.irTrocar(7, joias.getPessoa().getSexo(), joias.getPessoa(), listaIgnorarEstudantes, null);
         } else {
             Janela.irTrocar2(7, "Homem", listaIgnorarEstudantes);
         }
@@ -2396,7 +2397,7 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtParte1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParte1MouseClicked
         if (!txtParte1.getText().isEmpty() && !txtParte1.getText().equals("NA")) {
-            Janela.irTrocar(8, primeiraA.getSexo(), primeiraA, listaIgnorarEstudantes);
+            Janela.irTrocar(8, primeiraA.getSexo(), primeiraA, listaIgnorarEstudantes, null);
         } else {
             Janela.irTrocar2(8, null, listaIgnorarEstudantes);
         }
@@ -2405,7 +2406,7 @@ public class Tela1 extends javax.swing.JFrame {
     private void txtAjudante1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAjudante1MouseClicked
         if (!txtParte1.getText().isEmpty()) {
             if (!txtAjudante1.getText().isEmpty() && !txtAjudante1.getText().equals("NA")) {
-                Janela.irTrocar(9, ajudantePrimeiraA.getSexo(), ajudantePrimeiraA, listaIgnorarEstudantes);
+                Janela.irTrocar(9, ajudantePrimeiraA.getSexo(), ajudantePrimeiraA, listaIgnorarEstudantes, null);
             } else {
                 Janela.irTrocar2(9, primeiraA.getSexo(), listaIgnorarEstudantes);
             }
@@ -2417,19 +2418,19 @@ public class Tela1 extends javax.swing.JFrame {
     private void txtParte3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParte3MouseClicked
         if (!txtParte3.getText().isEmpty() && !txtParte3.getText().equals("")) {
             if (primeira2A != null && labelParte3.getText().equals("Primeira Conversa - 2:")) {
-                Janela.irTrocar(10, primeira2A.getSexo(), primeira2A, listaIgnorarEstudantes);
+                Janela.irTrocar(10, primeira2A.getSexo(), primeira2A, listaIgnorarEstudantes, null);
             }
             if (revisita2A != null && labelParte3.getText().equals("Revisita - 2:")) {
-                Janela.irTrocar(14, revisita2A.getSexo(), revisita2A, listaIgnorarEstudantes);
+                Janela.irTrocar(14, revisita2A.getSexo(), revisita2A, listaIgnorarEstudantes, null);
             }
             if (estudoA != null && labelParte3.getText().equals("Estudo Bíblico:")) {
-                Janela.irTrocar(16, estudoA.getSexo(), estudoA, listaIgnorarEstudantes);
+                Janela.irTrocar(16, estudoA.getSexo(), estudoA, listaIgnorarEstudantes, null);
             }
             if (discursoA != null && labelParte3.getText().equals("Discurso:")) {
-                Janela.irTrocar(18, discursoA.getSexo(), discursoA, listaIgnorarEstudantes);
+                Janela.irTrocar(18, discursoA.getSexo(), discursoA, listaIgnorarEstudantes, null);
             }
             if (revisitaA != null && labelParte3.getText().equals("Revisita:")) {
-                Janela.irTrocar(12, revisitaA.getSexo(), revisitaA, listaIgnorarEstudantes);
+                Janela.irTrocar(12, revisitaA.getSexo(), revisitaA, listaIgnorarEstudantes, null);
             }
         } else {
             if (primeira2A == null && labelParte3.getText().equals("Primeira Conversa - 2:")) {
@@ -2454,16 +2455,16 @@ public class Tela1 extends javax.swing.JFrame {
         if (!txtParte3.getText().isEmpty()) {
             if (!txtAjudante3.getText().isEmpty() && !txtAjudante3.getText().equals("")) {
                 if (ajudantePrimeira2A != null && labelParte3.getText().equals("Primeira Conversa - 2:")) {
-                    Janela.irTrocar(11, ajudantePrimeira2A.getSexo(), ajudantePrimeira2A, listaIgnorarEstudantes);
+                    Janela.irTrocar(11, ajudantePrimeira2A.getSexo(), ajudantePrimeira2A, listaIgnorarEstudantes, null);
                 }
                 if (ajudanteRevisita2A != null && labelParte3.getText().equals("Revisita - 2:")) {
-                    Janela.irTrocar(15, ajudanteRevisita2A.getSexo(), ajudanteRevisita2A, listaIgnorarEstudantes);
+                    Janela.irTrocar(15, ajudanteRevisita2A.getSexo(), ajudanteRevisita2A, listaIgnorarEstudantes, null);
                 }
                 if (estudoAjudanteA != null && labelParte3.getText().equals("Estudo Bíblico:")) {
-                    Janela.irTrocar(17, estudoAjudanteA.getSexo(), estudoAjudanteA, listaIgnorarEstudantes);
+                    Janela.irTrocar(17, estudoAjudanteA.getSexo(), estudoAjudanteA, listaIgnorarEstudantes, null);
                 }
                 if (ajudanteRevisitaA != null && labelParte3.getText().equals("Revisita:")) {
-                    Janela.irTrocar(13, ajudanteRevisitaA.getSexo(), ajudanteRevisitaA, listaIgnorarEstudantes);
+                    Janela.irTrocar(13, ajudanteRevisitaA.getSexo(), ajudanteRevisitaA, listaIgnorarEstudantes, null);
                 }
             } else {
                 if (ajudantePrimeira2A == null && labelParte3.getText().equals("Primeira Conversa - 2:")) {
@@ -2487,16 +2488,16 @@ public class Tela1 extends javax.swing.JFrame {
     private void txtParte2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParte2MouseClicked
         if (!txtParte2.getText().isEmpty()) {
             if (revisitaA != null && labelParte2.getText().equals("Revisita:")) {
-                Janela.irTrocar(12, revisitaA.getSexo(), revisitaA, listaIgnorarEstudantes);
+                Janela.irTrocar(12, revisitaA.getSexo(), revisitaA, listaIgnorarEstudantes, null);
             }
             if (primeiraA != null && labelParte2.getText().equals("Primeira Conversa - 1:")) {
-                Janela.irTrocar(35, primeiraA.getSexo(), primeiraA, listaIgnorarEstudantes);
+                Janela.irTrocar(35, primeiraA.getSexo(), primeiraA, listaIgnorarEstudantes, null);
             }
             if (revisitaA != null && labelParte2.getText().equals("Revisita - 1:")) {
-                Janela.irTrocar(39, revisitaA.getSexo(), revisitaA, listaIgnorarEstudantes);
+                Janela.irTrocar(39, revisitaA.getSexo(), revisitaA, listaIgnorarEstudantes, null);
             }
             if (primeiraA != null && labelParte2.getText().equals("Primeira Conversa:")) {
-                Janela.irTrocar(8, primeiraA.getSexo(), primeiraA, listaIgnorarEstudantes);
+                Janela.irTrocar(8, primeiraA.getSexo(), primeiraA, listaIgnorarEstudantes, null);
             }
         } else {
             if (revisitaA == null && labelParte2.getText().equals("Revisita:")) {
@@ -2518,16 +2519,16 @@ public class Tela1 extends javax.swing.JFrame {
         if (!txtParte2.getText().isEmpty()) {
             if (!txtAjudante2.getText().isEmpty() && !txtAjudante2.getText().equals("")) {
                 if (ajudanteRevisitaA != null && labelParte2.getText().equals("Revisita:")) {
-                    Janela.irTrocar(13, ajudanteRevisitaA.getSexo(), ajudanteRevisitaA, listaIgnorarEstudantes);
+                    Janela.irTrocar(13, ajudanteRevisitaA.getSexo(), ajudanteRevisitaA, listaIgnorarEstudantes, null);
                 }
                 if (ajudantePrimeiraA != null && labelParte2.getText().equals("Primeira Conversa - 1:")) {
-                    Janela.irTrocar(36, ajudantePrimeiraA.getSexo(), ajudantePrimeiraA, listaIgnorarEstudantes);
+                    Janela.irTrocar(36, ajudantePrimeiraA.getSexo(), ajudantePrimeiraA, listaIgnorarEstudantes, null);
                 }
                 if (ajudanteRevisitaA != null && labelParte2.getText().equals("Revisita - 1:")) {
-                    Janela.irTrocar(40, ajudanteRevisitaA.getSexo(), ajudanteRevisitaA, listaIgnorarEstudantes);
+                    Janela.irTrocar(40, ajudanteRevisitaA.getSexo(), ajudanteRevisitaA, listaIgnorarEstudantes, null);
                 }
                 if (ajudantePrimeiraA != null && labelParte2.getText().equals("Primeira Conversa:")) {
-                    Janela.irTrocar(9, ajudantePrimeiraA.getSexo(), ajudantePrimeiraA, listaIgnorarEstudantes);
+                    Janela.irTrocar(9, ajudantePrimeiraA.getSexo(), ajudantePrimeiraA, listaIgnorarEstudantes, null);
                 }
             } else {
                 if (ajudanteRevisitaA == null && labelParte2.getText().equals("Revisita:")) {
@@ -2550,7 +2551,7 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtOracaoFinalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtOracaoFinalMouseClicked
         if (!txtOracaoFinal.getText().isEmpty()) {
-            Janela.irTrocar(19, oracaoB.getPessoa().getSexo(), oracaoB.getPessoa(), listaIgnorarEstudantes);
+            Janela.irTrocar(19, oracaoB.getPessoa().getSexo(), oracaoB.getPessoa(), listaIgnorarEstudantes, null);
         } else {
             Janela.irTrocar2(19, "Homem", listaIgnorarEstudantes);
         }
@@ -2558,7 +2559,7 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtNossaVida2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNossaVida2MouseClicked
         if (!txtNossaVida2.getText().isEmpty()) {
-            Janela.irTrocar(20, nossaVida2.getPessoa().getSexo(), nossaVida2.getPessoa(), listaIgnorarEstudantes);
+            Janela.irTrocar(20, nossaVida2.getPessoa().getSexo(), nossaVida2.getPessoa(), listaIgnorarEstudantes, null);
         } else {
             Janela.irTrocar2(20, "Homem", listaIgnorarEstudantes);
         }
@@ -2566,7 +2567,7 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtEstudoCongregacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEstudoCongregacaoMouseClicked
         if (!txtEstudoCongregacao.getText().isEmpty()) {
-            Janela.irTrocar(21, estudoCong.getPessoa().getSexo(), estudoCong.getPessoa(), listaIgnorarEstudantes);
+            Janela.irTrocar(21, estudoCong.getPessoa().getSexo(), estudoCong.getPessoa(), listaIgnorarEstudantes, null);
         } else {
             Janela.irTrocar2(21, "Homem", listaIgnorarEstudantes);
         }
@@ -2574,7 +2575,7 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtPresidenteBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPresidenteBMouseClicked
         if (!txtPresidenteB.getText().isEmpty()) {
-            Janela.irTrocar(22, presidenteB.getPessoa().getSexo(), presidenteB.getPessoa(), listaIgnorarEstudantes);
+            Janela.irTrocar(22, presidenteB.getPessoa().getSexo(), presidenteB.getPessoa(), listaIgnorarEstudantes, null);
         } else {
             Janela.irTrocar2(22, "Homem", listaIgnorarEstudantes);
         }
@@ -2582,7 +2583,7 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtParte1BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParte1BMouseClicked
         if (!txtParte1B.getText().isEmpty() && !txtParte1B.getText().equals("NA")) {
-            Janela.irTrocar(23, primeiraB.getSexo(), primeiraB, listaIgnorarEstudantes);
+            Janela.irTrocar(23, primeiraB.getSexo(), primeiraB, listaIgnorarEstudantes, null);
         } else {
             Janela.irTrocar2(23, null, listaIgnorarEstudantes);
         }
@@ -2591,7 +2592,7 @@ public class Tela1 extends javax.swing.JFrame {
     private void txtAjudante1BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAjudante1BMouseClicked
         if (!txtParte1B.getText().isEmpty()) {
             if (!txtAjudante1B.getText().isEmpty() && !txtAjudante1B.getText().equals("NA")) {
-                Janela.irTrocar(24, ajudantePrimeiraB.getSexo(), ajudantePrimeiraB, listaIgnorarEstudantes);
+                Janela.irTrocar(24, ajudantePrimeiraB.getSexo(), ajudantePrimeiraB, listaIgnorarEstudantes, null);
             } else {
                 Janela.irTrocar2(24, primeiraB.getSexo(), listaIgnorarEstudantes);
             }
@@ -2603,19 +2604,19 @@ public class Tela1 extends javax.swing.JFrame {
     private void txtParte3BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParte3BMouseClicked
         if (!txtParte3B.getText().isEmpty() && !txtParte3B.getText().equals("")) {
             if (primeira2B != null && labelParte3.getText().equals("Primeira Conversa - 2:")) {
-                Janela.irTrocar(25, primeira2B.getSexo(), primeira2B, listaIgnorarEstudantes);
+                Janela.irTrocar(25, primeira2B.getSexo(), primeira2B, listaIgnorarEstudantes, null);
             }
             if (revisita2B != null && labelParte3.getText().equals("Revisita - 2:")) {
-                Janela.irTrocar(29, revisita2B.getSexo(), revisita2B, listaIgnorarEstudantes);
+                Janela.irTrocar(29, revisita2B.getSexo(), revisita2B, listaIgnorarEstudantes, null);
             }
             if (estudoB != null && labelParte3.getText().equals("Estudo Bíblico:")) {
-                Janela.irTrocar(31, estudoB.getSexo(), estudoB, listaIgnorarEstudantes);
+                Janela.irTrocar(31, estudoB.getSexo(), estudoB, listaIgnorarEstudantes, null);
             }
             if (discursoB != null && labelParte3.getText().equals("Discurso:")) {
-                Janela.irTrocar(33, discursoB.getSexo(), discursoB, listaIgnorarEstudantes);
+                Janela.irTrocar(33, discursoB.getSexo(), discursoB, listaIgnorarEstudantes, null);
             }
             if (revisitaB != null && labelParte3.getText().equals("Revisita:")) {
-                Janela.irTrocar(27, revisitaB.getSexo(), revisitaB, listaIgnorarEstudantes);
+                Janela.irTrocar(27, revisitaB.getSexo(), revisitaB, listaIgnorarEstudantes, null);
             }
         } else {
             if (primeira2B == null && labelParte3.getText().equals("Primeira Conversa - 2:")) {
@@ -2640,16 +2641,16 @@ public class Tela1 extends javax.swing.JFrame {
         if (!txtParte3B.getText().isEmpty()) {
             if (!txtAjudante3B.getText().isEmpty() && !txtAjudante3B.getText().equals("")) {
                 if (ajudantePrimeira2B != null && labelParte3.getText().equals("Primeira Conversa - 2:")) {
-                    Janela.irTrocar(26, ajudantePrimeira2B.getSexo(), ajudantePrimeira2B, listaIgnorarEstudantes);
+                    Janela.irTrocar(26, ajudantePrimeira2B.getSexo(), ajudantePrimeira2B, listaIgnorarEstudantes, null);
                 }
                 if (ajudanteRevisita2B != null && labelParte3.getText().equals("Revisita - 2:")) {
-                    Janela.irTrocar(30, ajudanteRevisita2B.getSexo(), ajudanteRevisita2B, listaIgnorarEstudantes);
+                    Janela.irTrocar(30, ajudanteRevisita2B.getSexo(), ajudanteRevisita2B, listaIgnorarEstudantes, null);
                 }
                 if (estudoAjudanteB != null && labelParte3.getText().equals("Estudo Bíblico:")) {
-                    Janela.irTrocar(32, estudoAjudanteB.getSexo(), estudoAjudanteB, listaIgnorarEstudantes);
+                    Janela.irTrocar(32, estudoAjudanteB.getSexo(), estudoAjudanteB, listaIgnorarEstudantes, null);
                 }
                 if (ajudanteRevisitaB != null && labelParte3.getText().equals("Revisita:")) {
-                    Janela.irTrocar(28, ajudanteRevisitaB.getSexo(), ajudanteRevisitaB, listaIgnorarEstudantes);
+                    Janela.irTrocar(28, ajudanteRevisitaB.getSexo(), ajudanteRevisitaB, listaIgnorarEstudantes, null);
                 }
             } else {
                 if (ajudantePrimeira2B == null && labelParte3.getText().equals("Primeira Conversa - 2:")) {
@@ -2673,16 +2674,16 @@ public class Tela1 extends javax.swing.JFrame {
     private void txtParte2BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParte2BMouseClicked
         if (!txtParte2B.getText().isEmpty() && !txtParte2B.getText().equals("")) {
             if (revisitaB != null && labelParte2.getText().equals("Revisita:")) {
-                Janela.irTrocar(27, revisitaB.getSexo(), revisitaB, listaIgnorarEstudantes);
+                Janela.irTrocar(27, revisitaB.getSexo(), revisitaB, listaIgnorarEstudantes, null);
             }
             if (primeiraB != null && labelParte2.getText().equals("Primeira Conversa - 1:")) {
-                Janela.irTrocar(37, primeiraB.getSexo(), primeiraB, listaIgnorarEstudantes);
+                Janela.irTrocar(37, primeiraB.getSexo(), primeiraB, listaIgnorarEstudantes, null);
             }
             if (revisitaB != null && labelParte2.getText().equals("Revisita - 1:")) {
-                Janela.irTrocar(41, revisitaB.getSexo(), revisitaB, listaIgnorarEstudantes);
+                Janela.irTrocar(41, revisitaB.getSexo(), revisitaB, listaIgnorarEstudantes, null);
             }
             if (primeiraB != null && labelParte2.getText().equals("Primeira Conversa:")) {
-                Janela.irTrocar(23, primeiraB.getSexo(), primeiraB, listaIgnorarEstudantes);
+                Janela.irTrocar(23, primeiraB.getSexo(), primeiraB, listaIgnorarEstudantes, null);
             }
         } else {
             if (revisitaB == null && labelParte2.getText().equals("Revisita:")) {
@@ -2704,16 +2705,16 @@ public class Tela1 extends javax.swing.JFrame {
         if (!txtParte2B.getText().isEmpty()) {
             if (!txtAjudante2B.getText().isEmpty() && !txtAjudante2B.getText().equals("")) {
                 if (ajudanteRevisitaB != null && labelParte2.getText().equals("Revisita:")) {
-                    Janela.irTrocar(28, ajudanteRevisitaB.getSexo(), ajudanteRevisitaB, listaIgnorarEstudantes);
+                    Janela.irTrocar(28, ajudanteRevisitaB.getSexo(), ajudanteRevisitaB, listaIgnorarEstudantes, null);
                 }
                 if (ajudantePrimeiraB != null && labelParte2.getText().equals("Primeira Conversa - 1:")) {
-                    Janela.irTrocar(38, ajudantePrimeiraB.getSexo(), ajudantePrimeiraB, listaIgnorarEstudantes);
+                    Janela.irTrocar(38, ajudantePrimeiraB.getSexo(), ajudantePrimeiraB, listaIgnorarEstudantes, null);
                 }
                 if (ajudanteRevisitaB != null && labelParte2.getText().equals("Revisita - 1:")) {
-                    Janela.irTrocar(42, ajudanteRevisitaB.getSexo(), ajudanteRevisitaB, listaIgnorarEstudantes);
+                    Janela.irTrocar(42, ajudanteRevisitaB.getSexo(), ajudanteRevisitaB, listaIgnorarEstudantes, null);
                 }
                 if (ajudantePrimeiraB != null && labelParte2.getText().equals("Primeira Conversa:")) {
-                    Janela.irTrocar(24, ajudantePrimeiraB.getSexo(), ajudantePrimeiraB, listaIgnorarEstudantes);
+                    Janela.irTrocar(24, ajudantePrimeiraB.getSexo(), ajudantePrimeiraB, listaIgnorarEstudantes, null);
                 }
             } else {
                 if (ajudanteRevisitaB == null && labelParte2.getText().equals("Revisita:")) {
@@ -2736,7 +2737,7 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void txtLeituraBibliaBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLeituraBibliaBMouseClicked
         if (!txtLeituraBibliaB.getText().isEmpty() && !txtLeituraBibliaB.getText().equals("")) {
-            Janela.irTrocar(34, leituraBibliaB.getSexo(), leituraBibliaB, listaIgnorarEstudantes);
+            Janela.irTrocar(34, leituraBibliaB.getSexo(), leituraBibliaB, listaIgnorarEstudantes, null);
         } else {
             Janela.irTrocar2(34, "Homem", listaIgnorarEstudantes);
         }

@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class SemanaDAO {
-    
+
     // Método para criar a tabela semana
     public static void criarTabela() {
         EntityManager em = FabricaJPA.getEntityManager();
@@ -32,12 +32,28 @@ public class SemanaDAO {
 
     public void cadastrar(Semana a) {
         EntityManager em = FabricaJPA.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
         try {
-            em.getTransaction().begin();
-            em.persist(a);
-            em.getTransaction().commit();
+            tx.begin();
+            // Verifica se a semana já está cadastrada pela data
+            Semana semanaExistente = em.createQuery("SELECT s FROM Semana s WHERE s.data = :data", Semana.class)
+                    .setParameter("data", a.getData())
+                    .getResultList()
+                    .stream()
+                    .findFirst()
+                    .orElse(null);
+            if (semanaExistente != null) {
+                // Se a semana já existe, atualizar os dados
+                semanaExistente.setData(a.getData());
+            } else {
+                // Se a semana não existe, fazer o cadastro normalmente
+                em.persist(a);
+            }
+            tx.commit();
         } catch (Exception e) {
-            em.getTransaction().rollback();
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
             throw e;
         } finally {
             FabricaJPA.closeEtityManager();
@@ -57,7 +73,7 @@ public class SemanaDAO {
             FabricaJPA.closeEtityManager();
         }
     }
-    
+
     //Mostrar todas as semanas cadastradas, na classe substituição
     public List<Semana> listarSemanasOrdenadasPorDataDesc() {
         EntityManager em = FabricaJPA.getEntityManager();

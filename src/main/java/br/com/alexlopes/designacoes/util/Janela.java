@@ -12,6 +12,7 @@ import br.com.alexlopes.designacoes.views.FalarCom;
 import br.com.alexlopes.designacoes.views.MenuPrincipal;
 import br.com.alexlopes.designacoes.views.Substituicao;
 import br.com.alexlopes.designacoes.views.Tela1;
+import br.com.alexlopes.designacoes.views.Tela2;
 import br.com.alexlopes.designacoes.views.Trocar;
 import br.com.alexlopes.designacoes.views.TrocarSubstituicao;
 import java.util.List;
@@ -20,6 +21,7 @@ import javax.swing.JFrame;
 public class Janela {
 
     public static Tela1 tela1;
+    public static Tela2 tela2;
     public static Substituicao sub;
     public static Aguarde ag;
     private static Usuario usuario;
@@ -90,6 +92,18 @@ public class Janela {
             tela1.setVisible(true);
         }
     }
+    
+     public static void irTela2() {
+        if (tela2 == null) {
+            tela2 = new Tela2();
+            tela2.pack();
+            tela2.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            tela2.setVisible(true);
+        } else {
+            tela2.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            tela2.setVisible(true);
+        }
+    }
 
     public static void irCadastroParticipantes() {
         CadastroParticipantes a = new CadastroParticipantes();
@@ -107,8 +121,8 @@ public class Janela {
         a.setVisible(true);
     }
 
-    public static void irTrocar(int c, String b, Pessoa p, List<Integer> lista) {
-        Trocar a = new Trocar(c, b, p, lista);
+    public static void irTrocar(int c, String b, Pessoa p, List<Integer> lista, String parte) {
+        Trocar a = new Trocar(c, b, p, lista, parte);
         a.setTitle("Alterar particpante para Reunião do Meio de Semana");
         a.setLocationRelativeTo(null);
         a.pack();
@@ -123,8 +137,8 @@ public class Janela {
         a.setVisible(true);
     }
 
-    public static void irTrocarSubstituicao(String campo, int num, String parteBD, String parte, String data, String sala, Pessoa a, Pessoa b) {
-        TrocarSubstituicao t = new TrocarSubstituicao(campo, num, parteBD, parte, data, sala, a, b);
+    public static void irTrocarSubstituicao(String campo, int num, String parteBD, String parte, String data, String sala, Pessoa a, Pessoa b, String numero) {
+        TrocarSubstituicao t = new TrocarSubstituicao(campo, num, parteBD, parte, data, sala, a, b, numero);
         t.setTitle("Tela de Substituição");
         t.setLocationRelativeTo(null);
         t.pack();

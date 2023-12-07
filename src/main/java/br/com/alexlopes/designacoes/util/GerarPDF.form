@@ -50,130 +50,127 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace pref="25" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="jLabel4" min="-2" pref="344" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="labelConselheiro" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="labelPresidente" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="labelOracaoInicial" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lOracaoInicial" min="-2" pref="254" max="-2" attributes="0"/>
-                                              <Component id="lconselheiro" min="-2" pref="254" max="-2" attributes="0"/>
-                                              <Component id="lpresidente" min="-2" pref="254" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel2" min="-2" pref="625" max="-2" attributes="0"/>
-                                          <Component id="labelSemana" min="-2" pref="625" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="labelLeituraBiblia" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="labelJoias" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                              <Component id="lleituraBiblia" min="-2" pref="262" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="jLabel1" alignment="0" min="-2" pref="344" max="-2" attributes="0"/>
-                                          <Component id="labelParte1" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
-                                          <Component id="labelParte7" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="labelTesouros" min="-2" pref="276" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="ljoias" alignment="0" min="-2" pref="317" max="-2" attributes="0"/>
-                                                  <Component id="ltesouros" min="-2" pref="317" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="labelParte11" min="-2" pref="155" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="ajudante3a" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel3" min="-2" pref="344" max="-2" attributes="0"/>
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="labelParte9" min="-2" pref="155" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="ajudante2a" min="-2" pref="230" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="labelParte2" min="-2" pref="155" max="-2" attributes="0"/>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="parte2a" min="-2" pref="230" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                                  <Component id="parte1a" alignment="1" min="-2" pref="236" max="-2" attributes="0"/>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="labelParte3" min="-2" pref="155" max="-2" attributes="0"/>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="parte3a" min="-2" pref="236" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="ajudante1a" alignment="1" min="-2" pref="236" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="salaB" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="labelTesouros6" alignment="1" min="-2" pref="253" max="-2" attributes="0"/>
                                           <Component id="labelTesouros5" alignment="1" min="-2" pref="225" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="labelNossa1" max="32767" attributes="0"/>
-                                                  <Group type="102" attributes="0">
-                                                      <Group type="103" groupAlignment="1" attributes="0">
-                                                          <Component id="labelLeitorEstudo" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="labelEstudo" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace pref="54" max="32767" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                          <Component id="labelNossa2" alignment="1" min="-2" pref="257" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
+                                                  <Component id="labelLeitorEstudo" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Component id="labelNossa2" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="labelEstudo" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="labelTesouros7" alignment="1" min="-2" pref="225" max="-2" attributes="0"/>
                                           <Component id="labelTesouros4" min="-2" pref="225" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lnossa1" min="-2" pref="347" max="-2" attributes="0"/>
-                                  <Component id="lnossa2" min="-2" pref="347" max="-2" attributes="0"/>
-                                  <Component id="lestudo" min="-2" pref="347" max="-2" attributes="0"/>
-                                  <Component id="lleitor" min="-2" pref="347" max="-2" attributes="0"/>
+                                  <Component id="lleitor" min="-2" pref="233" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lestudo" alignment="1" pref="233" max="32767" attributes="0"/>
+                                      <Component id="lnossa2" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="lnossa1" alignment="1" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel4" min="-2" pref="344" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="labelAjudante4A" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                                          <Component id="labelAjudante3A" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel3" min="-2" pref="344" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="labelParte2" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                                                          <Component id="labelAjudante2A" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                                                          <Component id="labelParte3" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                                                          <Component id="labelParte4" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                          <Component id="parte4A" alignment="1" pref="180" max="32767" attributes="0"/>
+                                                          <Component id="parte3a" alignment="1" max="32767" attributes="0"/>
+                                                          <Component id="ajudante2a" alignment="0" min="-2" pref="174" max="-2" attributes="0"/>
+                                                          <Component id="parte2a" alignment="0" min="-2" pref="174" max="-2" attributes="0"/>
+                                                          <Component id="ajudante3a" alignment="1" max="32767" attributes="0"/>
+                                                          <Component id="ajudante4A" alignment="1" max="32767" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Component id="labelNossa1" alignment="1" min="-2" pref="401" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                                  <Component id="ajudante1a" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                                                  <Component id="parte1a" min="-2" pref="180" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="salaB" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="labelConselheiro" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelPresidente" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelOracaoInicial" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lOracaoInicial" min="-2" pref="254" max="-2" attributes="0"/>
+                                          <Component id="lconselheiro" min="-2" pref="254" max="-2" attributes="0"/>
+                                          <Component id="lpresidente" min="-2" pref="254" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jLabel2" min="-2" pref="625" max="-2" attributes="0"/>
+                                  <Component id="labelSemana" min="-2" pref="625" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="labelLeituraBiblia" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelJoias" min="-2" pref="150" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                                              <Component id="lleituraBiblia" min="-2" pref="262" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
+                                              <Component id="ljoias" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jLabel1" alignment="0" min="-2" pref="344" max="-2" attributes="0"/>
+                                  <Component id="labelParte1" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                                  <Component id="labelAjudante1A" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="labelTesouros" min="-2" pref="377" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="ltesouros" min="-2" pref="269" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -217,7 +214,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="labelTesouros" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ltesouros" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="ltesouros" alignment="0" min="-2" pref="17" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="labelJoias" min="-2" max="-2" attributes="0"/>
@@ -240,7 +237,7 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="labelParte7" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelAjudante1A" min="-2" max="-2" attributes="0"/>
                               <Component id="ajudante1a" min="-2" pref="17" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -250,7 +247,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="labelParte9" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelAjudante2A" min="-2" max="-2" attributes="0"/>
                               <Component id="ajudante2a" min="-2" pref="17" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -260,15 +257,25 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="labelParte11" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelAjudante3A" min="-2" max="-2" attributes="0"/>
                               <Component id="ajudante3a" min="-2" pref="17" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="labelParte4" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="parte4A" alignment="1" min="-2" pref="17" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="labelAjudante4A" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="ajudante4A" alignment="1" min="-2" pref="17" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Component id="salaB" min="-2" max="-2" attributes="0"/>
+                      <Component id="salaB" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabel4" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="labelNossa1" min="-2" max="-2" attributes="0"/>
                       <Component id="labelTesouros4" min="-2" pref="17" max="-2" attributes="0"/>
@@ -276,7 +283,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                           <Component id="labelNossa2" min="-2" max="-2" attributes="0"/>
                           <Component id="labelTesouros7" min="-2" pref="17" max="-2" attributes="0"/>
                       </Group>
@@ -284,7 +291,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="labelEstudo" min="-2" max="-2" attributes="0"/>
                               <Component id="labelTesouros5" min="-2" pref="17" max="-2" attributes="0"/>
@@ -303,7 +310,7 @@
                       <Component id="labelOracaoFinal" min="-2" max="-2" attributes="0"/>
                       <Component id="lOracaoFinal" min="-2" pref="17" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -388,27 +395,37 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="parte1b" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
+                              <Component id="parte2b" alignment="1" min="-2" pref="249" max="-2" attributes="0"/>
+                              <Component id="parte3b" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
+                              <Component id="ajudante1b" alignment="1" min="-2" pref="249" max="-2" attributes="0"/>
+                              <Component id="ajudante2b" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
+                              <Component id="ajudante3b" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jLabel8" alignment="0" min="-2" pref="261" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="parte1b" alignment="0" max="32767" attributes="0"/>
-                          <Component id="parte2b" alignment="1" pref="249" max="32767" attributes="0"/>
-                          <Component id="parte3b" alignment="0" pref="249" max="32767" attributes="0"/>
-                          <Component id="ajudante1b" alignment="1" max="32767" attributes="0"/>
-                          <Component id="ajudante2b" alignment="0" max="32767" attributes="0"/>
-                          <Component id="ajudante3b" alignment="0" max="32767" attributes="0"/>
-                          <Component id="leituraB" alignment="1" max="32767" attributes="0"/>
+                          <Component id="leituraB" alignment="1" min="-2" pref="249" max="-2" attributes="0"/>
+                          <Component id="parte4B" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
+                          <Component id="ajudante4B" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="leituraB" min="-2" pref="18" max="-2" attributes="0"/>
-                      <EmptySpace pref="27" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="parte1b" min="-2" pref="18" max="-2" attributes="0"/>
@@ -422,7 +439,11 @@
                       <Component id="parte3b" min="-2" pref="18" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="ajudante3b" min="-2" pref="18" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="parte4B" min="-2" pref="18" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="ajudante4B" min="-2" pref="18" max="-2" attributes="0"/>
+                      <EmptySpace pref="17" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -493,6 +514,20 @@
                 </Property>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="parte4B">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial Black" size="14" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ajudante4B">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="14" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JLabel" name="labelPresidente">
@@ -547,7 +582,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Joias espirituais:"/>
+            <Property name="text" type="java.lang.String" value="2 - Joias espirituais:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelLeituraBiblia">
@@ -558,7 +593,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Leitura da B&#xed;blia:"/>
+            <Property name="text" type="java.lang.String" value="3 - Leitura da B&#xed;blia:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelParte1">
@@ -789,7 +824,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelParte7">
+        <Component class="javax.swing.JLabel" name="labelAjudante1A">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="14" style="0"/>
@@ -811,7 +846,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelParte9">
+        <Component class="javax.swing.JLabel" name="labelAjudante2A">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="14" style="0"/>
@@ -833,7 +868,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelParte11">
+        <Component class="javax.swing.JLabel" name="labelAjudante3A">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="14" style="0"/>
@@ -889,6 +924,49 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelParte4">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Parte 4:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="parte4A">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial Black" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelAjudante4A">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Ajudante:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ajudante4A">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="14" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>

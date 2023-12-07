@@ -25,9 +25,8 @@ public class FolhaDesignacao extends javax.swing.JFrame {
         initComponents();
     }
 
-    public FolhaDesignacao(Pessoa a01, Pessoa b02, String dataParte, String parteTipo, String salaLocal) {
+    public FolhaDesignacao(Pessoa a01, Pessoa b02, String dataParte, String parteTipo, String salaLocal, String ParteNum) {
         initComponents();
-        System.out.println(parteTipo);
         try {
             dataParte = dataParte.replace("Semana: ", "");
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -39,7 +38,6 @@ public class FolhaDesignacao extends javax.swing.JFrame {
             String mess = definirNomeMes(mesmes);
             //String mesAno = mesmes + String.valueOf(anoano);
 
-            PessoaDAO dao = new PessoaDAO();
             SalvarImagem si = new SalvarImagem();
             WhatsApp zap = new WhatsApp();
 
@@ -50,6 +48,7 @@ public class FolhaDesignacao extends javax.swing.JFrame {
                 txtAjudante.setText("    ");
             }
             txtData.setText("Semana: " + diadia + " de " + mess + ", " + anoano);
+            txtParteNumero.setText(ParteNum);
             txtParte.setText("<html>" + parteTipo + "</html>");
             txtLocal.setText(salaLocal);
             BufferedImage imag = preencherDesignacao();
@@ -69,7 +68,7 @@ public class FolhaDesignacao extends javax.swing.JFrame {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel(){
-            ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/folhaDesig.jpg"));
+            ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/novaFolhaS89.jpg"));
             Image image = icon.getImage();
             public void paintComponent(Graphics g){
                 super.paintComponent(g); // Chama o método paintComponent da superclasse
@@ -81,6 +80,7 @@ public class FolhaDesignacao extends javax.swing.JFrame {
         txtData = new javax.swing.JLabel();
         txtLocal = new javax.swing.JLabel();
         txtParte = new javax.swing.JLabel();
+        txtParteNumero = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,42 +112,55 @@ public class FolhaDesignacao extends javax.swing.JFrame {
         txtParte.setText("?????");
         txtParte.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
+        txtParteNumero.setFont(new java.awt.Font("Arial Black", 0, 30)); // NOI18N
+        txtParteNumero.setForeground(new java.awt.Color(0, 0, 0));
+        txtParteNumero.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtParteNumero.setText("0");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtAjudante)
+                .addGap(23, 23, 23))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(216, 216, 216)
-                        .addComponent(txtAjudante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtParte, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(txtParte, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(305, 305, 305)
+                        .addComponent(txtParteNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
+                .addGap(217, 217, 217)
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(txtAjudante, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(128, 128, 128)
+                .addGap(18, 18, 18)
+                .addComponent(txtAjudante, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtParteNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtParte, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addGap(62, 62, 62)
                 .addComponent(txtLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addContainerGap(254, Short.MAX_VALUE))
         );
 
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -490,5 +503,6 @@ public class FolhaDesignacao extends javax.swing.JFrame {
     private javax.swing.JLabel txtLocal;
     public javax.swing.JLabel txtNome;
     private javax.swing.JLabel txtParte;
+    private javax.swing.JLabel txtParteNumero;
     // End of variables declaration//GEN-END:variables
 }

@@ -18,6 +18,7 @@ import java.io.File;
 public class Designacoes {
 
     public static void main(String[] args) {
+        
 
         if (!bancoDeDadosExiste() || !UsuarioDAO.tabelaUsuarioPossuiRegistros()) {
             if (!bancoDeDadosExiste()) {

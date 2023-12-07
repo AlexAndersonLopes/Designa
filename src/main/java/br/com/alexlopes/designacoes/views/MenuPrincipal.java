@@ -560,11 +560,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        Janela.irTela1();
+        Janela.irTela2();
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        Janela.irTela1();
+        Janela.irTela2();
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked

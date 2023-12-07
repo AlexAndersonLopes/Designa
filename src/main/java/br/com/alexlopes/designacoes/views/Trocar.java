@@ -31,7 +31,7 @@ public class Trocar extends javax.swing.JFrame {
     //int é o tipo da parte que o usuario quer alterar
     //string b é o sexo do participante
     //string p é a pessoa
-    public Trocar(int a, String b, Pessoa p, List<Integer> lista) {
+    public Trocar(int a, String b, Pessoa p, List<Integer> lista, String parte) {
         initComponents();
         pessoa = p;
         labelNomeAntigo.setText(p.getNome() + " " + p.getSobrenome());
@@ -78,61 +78,61 @@ public class Trocar extends javax.swing.JFrame {
             des = "Joias";
             mostrarTabelaPessoa(b, "Joias");
         }
-        //8 = primeira conversa A
+        //8 = parte 1 a
         if (a == 8) {
             numero = 8;
-            des = "PrimeiraConversa";
-            mostrarTabelaPessoa(b, "PrimeiraConversa");
+            des = parte;
+            mostrarTabelaPessoa(b, parte);
         }
-        //9 = ajudante primeira conversa A
+        //9 = ajudante parte 1 A
         if (a == 9) {
             numero = 9;
             des = "Ajudante";
             mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
-        //10 = primeira conversa 2 A
+        //10 = parte 2 B
         if (a == 10) {
             numero = 10;
-            des = "PrimeiraConversa";
-            mostrarTabelaPessoa(b, "PrimeiraConversa");
+            des = parte;
+            mostrarTabelaPessoa(b, parte);
         }
-        //11 = ajudante primeira conversa 2 A
+        //11 = ajudante parte 2 B
         if (a == 11) {
             numero = 11;
             des = "Ajudante";
             mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
-        //12 = revisita A
+        //12 = parte 2 A
         if (a == 12) {
             numero = 12;
-            des = "Revisita";
-            mostrarTabelaPessoa(b, "Revisita");
+            des = parte;
+            mostrarTabelaPessoa(b, parte);
         }
-        //13 = ajudante revisita A
+        //13 = ajudante parte 2 A
         if (a == 13) {
             numero = 13;
             des = "Ajudante";
             mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
-        //14 = revisita 2 A
+        //14 = parte 2 B
         if (a == 14) {
             numero = 14;
-            des = "Revisita";
-            mostrarTabelaPessoa(b, "Revisita");
+            des = parte;
+            mostrarTabelaPessoa(b, parte);
         }
-        //15 = ajudante revisita 2 A
+        //15 = ajudante 2 B
         if (a == 15) {
             numero = 15;
             des = "Ajudante";
             mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
-        //16 = estudo biblico A
+        //16 = parte 3 A
         if (a == 16) {
             numero = 16;
-            des = "EstudoBiblico";
-            mostrarTabelaPessoa(b, "EstudoBiblico");
+            des = parte;
+            mostrarTabelaPessoa(b, parte);
         }
-        //17 = ajudante estudo biblico A
+        //17 = ajudante parte 3 A
         if (a == 17) {
             numero = 17;
             des = "Ajudante";
@@ -168,37 +168,37 @@ public class Trocar extends javax.swing.JFrame {
             des = "Presidente";
             mostrarTabelaPessoa(b, "Presidente");
         }
-        //23 = primeira conversa B
+        //23 = parte 4 A
         if (a == 23) {
             numero = 23;
-            des = "PrimeiraConversa";
-            mostrarTabelaPessoa(b, "PrimeiraConversa");
+            des = parte;
+            mostrarTabelaPessoa(b, parte);
         }
-        //24 = ajudante primeira conversa B
+        //24 = ajudante 4 A
         if (a == 24) {
             numero = 24;
             des = "Ajudante";
             mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
-        //25 = primeira conversa 2 B
+        //25 = PARTE 4 B
         if (a == 25) {
             numero = 25;
-            des = "PrimeiraConversa";
-            mostrarTabelaPessoa(b, "PrimeiraConversa");
+            des = parte;
+            mostrarTabelaPessoa(b, parte);
         }
-        //26 = ajudante primeira conversa 2 B
+        //26 = ajudante 4 B
         if (a == 26) {
             numero = 26;
             des = "Ajudante";
             mostrarTabelaPessoaAjudante(b, "Ajudante");
         }
-        //27 = revisita B
+        //27 = parte 3 B
         if (a == 27) {
             numero = 27;
-            des = "Revisita";
-            mostrarTabelaPessoa(b, "Revisita");
+            des = parte;
+            mostrarTabelaPessoa(b, parte);
         }
-        //28 = ajudante revisita B
+        //28 = ajudante 4 B
         if (a == 28) {
             numero = 28;
             des = "Ajudante";
@@ -844,88 +844,88 @@ public class Trocar extends javax.swing.JFrame {
 
     private void irTela1() {
         if (numero == 1) {
-            Janela.tela1.altLeituraBibliaA(pessoa2);
+            Janela.tela2.altLeituraBibliaA(pessoa2);
         }
         if (numero == 2) {
-            Janela.tela1.altPresidenteA(pessoa2);
+            Janela.tela2.altPresidenteA(pessoa2);
         }
         if (numero == 3) {
-            Janela.tela1.altTesouros(pessoa2);
+            Janela.tela2.altTesouros(pessoa2);
         }
         if (numero == 4) {
-            Janela.tela1.altOracaoInicial(pessoa2);
+            Janela.tela2.altOracaoInicial(pessoa2);
         }
         if (numero == 5) {
-            Janela.tela1.altNossaVida1(pessoa2);
+            Janela.tela2.altNossaVida1(pessoa2);
         }
         if (numero == 6) {
-            Janela.tela1.altLeitorEstudo(pessoa2);
+            Janela.tela2.altLeitorEstudo(pessoa2);
         }
         if (numero == 7) {
-            Janela.tela1.altJoias(pessoa2);
+            Janela.tela2.altJoias(pessoa2);
         }
         if (numero == 8) {
-            Janela.tela1.altPrimeiraConversaA(pessoa2);
+            Janela.tela2.altParte1A(pessoa2);
         }
         if (numero == 9) {
-            Janela.tela1.altAjudantePrimeiraConversaA(pessoa2);
+            Janela.tela2.altAjudante1A(pessoa2);
         }
         if (numero == 10) {
-            Janela.tela1.altPrimeiraConversa2A(pessoa2);
+            Janela.tela2.altParte1B(pessoa2);
         }
         if (numero == 11) {
-            Janela.tela1.altAjudantePrimeiraConversa2A(pessoa2);
+            Janela.tela2.altAjudante1B(pessoa2);
         }
         if (numero == 12) {
-            Janela.tela1.altRevisitaA(pessoa2);
+            Janela.tela2.altParte2A(pessoa2);
         }
         if (numero == 13) {
-            Janela.tela1.altAjudanteRevisitaA(pessoa2);
+            Janela.tela2.altAjudante2A(pessoa2);
         }
         if (numero == 14) {
-            Janela.tela1.altRevisita2A(pessoa2);
+            Janela.tela2.altParte2B(pessoa2);
         }
         if (numero == 15) {
-            Janela.tela1.altAjudanteRevisita2A(pessoa2);
+            Janela.tela2.altAjudante2B(pessoa2);
         }
         if (numero == 16) {
-            Janela.tela1.altEstudoBiblicoA(pessoa2);
+            Janela.tela2.altParte3A(pessoa2);
         }
         if (numero == 17) {
-            Janela.tela1.altAjudanteEstudoBiblicoA(pessoa2);
+            Janela.tela2.altAjudante3A(pessoa2);
         }
         if (numero == 18) {
             Janela.tela1.altDiscursoA(pessoa2);
         }
         if (numero == 19) {
-            Janela.tela1.altOracaoFinal(pessoa2);
+            Janela.tela2.altOracaoFinal(pessoa2);
         }
         if (numero == 20) {
-            Janela.tela1.altNossaVida2(pessoa2);
+            Janela.tela2.altNossaVida2(pessoa2);
         }
         if (numero == 21) {
-            Janela.tela1.altEstudoCongregacao(pessoa2);
+            Janela.tela2.altEstudoCongregacao(pessoa2);
         }
         if (numero == 22) {
-            Janela.tela1.altPresidenteB(pessoa2);
+            Janela.tela2.altPresidenteB(pessoa2);
         }
         if (numero == 23) {
-            Janela.tela1.altPrimeiraConversaB(pessoa2);
+            Janela.tela2.altParte4A(pessoa2);
         }
         if (numero == 24) {
-            Janela.tela1.altAjudantePrimeiraConversaB(pessoa2);
+            Janela.tela2.altAjudante4A(pessoa2);
         }
         if (numero == 25) {
-            Janela.tela1.altPrimeiraConversa2B(pessoa2);
+            Janela.tela2.altParte4B(pessoa2);
         }
         if (numero == 26) {
-            Janela.tela1.altAjudantePrimeiraConversa2B(pessoa2);
+            Janela.tela2.altAjudante4B(pessoa2);
         }
         if (numero == 27) {
-            Janela.tela1.altRevisitaB(pessoa2);
+            Janela.tela2.altParte3B(pessoa2);
         }
         if (numero == 28) {
-            Janela.tela1.altAjudanteRevisitaB(pessoa2);
+            Janela.tela2.altAjudante3B(pessoa2);
         }
         if (numero == 29) {
             Janela.tela1.altRevisita2B(pessoa2);

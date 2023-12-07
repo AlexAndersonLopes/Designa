@@ -2,6 +2,7 @@ package br.com.alexlopes.designacoes.dao;
 
 import br.com.alexlopes.designacoes.fabrica.FabricaJPA;
 import br.com.alexlopes.designacoes.model.Parte;
+import br.com.alexlopes.designacoes.model.Pessoa;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
@@ -72,5 +73,48 @@ public class ParteDAO {
             FabricaJPA.closeEtityManager();
         }
     }
+/*
+    //excluir pessoa que tenha tal descição
+    public void excluirPorDescricaoEPessoa(String descricao, Pessoa pessoa) {
+        EntityManager em = FabricaJPA.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            TypedQuery<Parte> query = em.createQuery("SELECT p FROM Parte p WHERE p.descricao = :descricao AND p.pessoa = :pessoa", Parte.class);
+            query.setParameter("descricao", descricao);
+            query.setParameter("pessoa", pessoa);
+            List<Parte> partes = query.getResultList();
+            for (Parte parte : partes) {
+                em.remove(parte);
+            }
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            throw e;
+        } finally {
+            FabricaJPA.closeEtityManager();
+        }
+    }
+    
+    //verifica se a pessoa tem tal descrição depois chamar o metodo esxluir
+    public boolean pessoaPossuiDescricao(Pessoa pessoa, String descricao) {
+        EntityManager em = FabricaJPA.getEntityManager();
+        try {
+            TypedQuery<Long> query = em.createQuery(
+                "SELECT COUNT(p) FROM Parte p WHERE p.pessoa = :pessoa AND p.descricao = :descricao",
+                Long.class
+            );
+            query.setParameter("pessoa", pessoa);
+            query.setParameter("descricao", descricao);
 
+            Long count = query.getSingleResult();
+
+            return count > 0;
+        } finally {
+            FabricaJPA.closeEtityManager();
+        }
+    }
+*/
 }

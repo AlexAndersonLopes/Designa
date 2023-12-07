@@ -38,6 +38,13 @@ public class TodasPartes {
     private String ajudante3A;
     private String parte3B;
     private String ajudante3B;
+    
+    private String nomeParte4;
+    private String parte4A;
+    private String ajudante4A;
+    private String parte4B;
+    private String ajudante4B;
+    
     private String labelNossaVida1;
     private String nossaVida1;
     private String labelNossaVida2;
@@ -45,6 +52,47 @@ public class TodasPartes {
     private String estudoLivro;
     private String leitor;
     private String oracaoFinal;
+
+    public String getNomeParte4() {
+        return nomeParte4;
+    }
+
+    public void setNomeParte4(String nomeParte4) {
+        this.nomeParte4 = nomeParte4;
+    }
+
+    public String getParte4A() {
+        return parte4A;
+    }
+
+    public void setParte4A(String parte4A) {
+        this.parte4A = parte4A;
+    }
+
+    public String getAjudante4A() {
+        return ajudante4A;
+    }
+
+    public void setAjudante4A(String ajudante4A) {
+        this.ajudante4A = ajudante4A;
+    }
+
+    public String getParte4B() {
+        return parte4B;
+    }
+
+    public void setParte4B(String parte4B) {
+        this.parte4B = parte4B;
+    }
+
+    public String getAjudante4B() {
+        return ajudante4B;
+    }
+
+    public void setAjudante4B(String ajudante4B) {
+        this.ajudante4B = ajudante4B;
+    }
+    
 
     public String getDia() {
         return dia;

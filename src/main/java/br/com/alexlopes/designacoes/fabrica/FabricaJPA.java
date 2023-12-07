@@ -28,4 +28,5 @@ public class FabricaJPA {
             fabrica.close();
         }
     }
+    
 }
