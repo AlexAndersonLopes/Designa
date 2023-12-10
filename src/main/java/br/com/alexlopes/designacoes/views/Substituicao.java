@@ -255,7 +255,7 @@ public class Substituicao extends javax.swing.JFrame {
         txtParte4B.setEditable(false);
         txtParte4B.setBackground(new java.awt.Color(204, 255, 204));
         txtParte4B.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        txtParte4B.setForeground(new java.awt.Color(0, 0, 0));
+        txtParte4B.setForeground(new java.awt.Color(0, 0, 51));
         txtParte4B.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtParte4B.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -265,7 +265,7 @@ public class Substituicao extends javax.swing.JFrame {
 
         txtAjudante4B.setEditable(false);
         txtAjudante4B.setBackground(new java.awt.Color(204, 255, 204));
-        txtAjudante4B.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        txtAjudante4B.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         txtAjudante4B.setForeground(new java.awt.Color(0, 0, 0));
         txtAjudante4B.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtAjudante4B.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -591,7 +591,7 @@ public class Substituicao extends javax.swing.JFrame {
         txtParte4A.setEditable(false);
         txtParte4A.setBackground(new java.awt.Color(204, 255, 204));
         txtParte4A.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        txtParte4A.setForeground(new java.awt.Color(0, 0, 0));
+        txtParte4A.setForeground(new java.awt.Color(0, 0, 51));
         txtParte4A.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtParte4A.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -601,7 +601,7 @@ public class Substituicao extends javax.swing.JFrame {
 
         txtAjudante4A.setEditable(false);
         txtAjudante4A.setBackground(new java.awt.Color(204, 255, 204));
-        txtAjudante4A.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        txtAjudante4A.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         txtAjudante4A.setForeground(new java.awt.Color(0, 0, 0));
         txtAjudante4A.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtAjudante4A.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -612,6 +612,7 @@ public class Substituicao extends javax.swing.JFrame {
 
         labelParte4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelParte4.setForeground(new java.awt.Color(0, 0, 102));
+        labelParte4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelParte4.setText("Parte 4:");
 
         jLabel13.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -717,8 +718,8 @@ public class Substituicao extends javax.swing.JFrame {
                                             .addComponent(jLabel9)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(nParte4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(labelParte4)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(labelParte4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtOracaoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -744,17 +745,17 @@ public class Substituicao extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(nNossa2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(nNossa2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(nEstudoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(nEstudoLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(18, 18, 18)
                                         .addComponent(jLabel16)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1087,7 +1088,7 @@ public class Substituicao extends javax.swing.JFrame {
         if (!txtParte1A.getText().isEmpty() && !txtParte1A.getText().equals("NA")) {
             p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte1A.getText());
             p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante1A.getText());
-            String qual = qualParte(labelParte1.getText());
+            String qual = labelParte1.getText();
             Janela.irTrocarSubstituicao("txtParte1A", 2, qual, labelParte1.getText(), data, "SALA  A", p1, p2, "4");
         } else {
             Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
@@ -1098,7 +1099,7 @@ public class Substituicao extends javax.swing.JFrame {
         if (!txtAjudante1A.getText().isEmpty() && !txtAjudante1A.getText().equals("NA")) {
             p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte1A.getText());
             p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante1A.getText());
-            String qual = qualParte(labelParte1.getText());
+            String qual = labelParte1.getText();
             Janela.irTrocarSubstituicao("txtParte1A", 2, qual, labelParte1.getText(), data, "SALA  A", p1, p2, "4");
         } else {
             Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
@@ -1109,7 +1110,7 @@ public class Substituicao extends javax.swing.JFrame {
         if (!txtParte2A.getText().isEmpty() && !txtParte2A.getText().equals("NA")) {
             p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte2A.getText());
             p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante2A.getText());
-            String qual = qualParte(labelParte2.getText());
+            String qual = labelParte2.getText();
             Janela.irTrocarSubstituicao("txtParte2A", 2, qual, labelParte2.getText(), data, "SALA  A", p1, p2, "5");
         } else {
             Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
@@ -1120,7 +1121,7 @@ public class Substituicao extends javax.swing.JFrame {
         if (!txtAjudante2A.getText().isEmpty() && !txtAjudante2A.getText().equals("NA")) {
             p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte2A.getText());
             p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante2A.getText());
-            String qual = qualParte(labelParte2.getText());
+            String qual = labelParte2.getText();
             Janela.irTrocarSubstituicao("txtParte2A", 2, qual, labelParte2.getText(), data, "SALA  A", p1, p2, "5");
         } else {
             Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
@@ -1132,10 +1133,10 @@ public class Substituicao extends javax.swing.JFrame {
             p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte3A.getText());
             if (!txtAjudante3A.getText().isEmpty()) {
                 p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante3A.getText());
-                String qual = qualParte(labelParte3.getText());
+                String qual = labelParte3.getText();
                 Janela.irTrocarSubstituicao("txtParte3A", 2, qual, labelParte3.getText(), data, "SALA  A", p1, p2, nParte3.getText());
             } else {
-                String qual = qualParte(labelParte3.getText());
+                String qual = labelParte3.getText();
                 Janela.irTrocarSubstituicao("txtParte3A", 2, qual, labelParte3.getText(), data, "SALA  A", p1, null, nParte3.getText());
             }
         } else {
@@ -1147,7 +1148,7 @@ public class Substituicao extends javax.swing.JFrame {
         if (!txtAjudante3A.getText().isEmpty() && !txtAjudante3A.getText().equals("NA")) {
             p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte3A.getText());
             p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante3A.getText());
-            String qual = qualParte(labelParte3.getText());
+            String qual = labelParte3.getText();
             Janela.irTrocarSubstituicao("txtParte3A", 2, qual, labelParte3.getText(), data, "SALA  A", p1, p2, nParte3.getText());
         } else {
             Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
@@ -1176,7 +1177,7 @@ public class Substituicao extends javax.swing.JFrame {
         if (!txtParte1B.getText().isEmpty() && !txtParte1B.getText().equals("NA")) {
             p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte1B.getText());
             p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante1B.getText());
-            String qual = qualParte(labelParte1.getText());
+            String qual = labelParte1.getText();
             Janela.irTrocarSubstituicao("txtParte1B", 2, qual, labelParte1.getText(), data, "SALA  B", p1, p2, "4");
         } else {
             Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
@@ -1187,7 +1188,7 @@ public class Substituicao extends javax.swing.JFrame {
         if (!txtAjudante1B.getText().isEmpty() && !txtAjudante1B.getText().equals("NA")) {
             p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte1B.getText());
             p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante1B.getText());
-            String qual = qualParte(labelParte1.getText());
+            String qual = labelParte1.getText();
             Janela.irTrocarSubstituicao("txtParte1B", 2, qual, labelParte1.getText(), data, "SALA  B", p1, p2, "4");
         } else {
             Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
@@ -1198,7 +1199,7 @@ public class Substituicao extends javax.swing.JFrame {
         if (!txtParte2B.getText().isEmpty() && !txtParte2B.getText().equals("NA")) {
             p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte2B.getText());
             p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante2B.getText());
-            String qual = qualParte(labelParte2.getText());
+            String qual = labelParte2.getText();
             Janela.irTrocarSubstituicao("txtParte2B", 2, qual, labelParte2.getText(), data, "SALA  B", p1, p2, "5");
         } else {
             Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
@@ -1209,7 +1210,7 @@ public class Substituicao extends javax.swing.JFrame {
         if (!txtAjudante2B.getText().isEmpty() && !txtAjudante2B.getText().equals("NA")) {
             p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte2B.getText());
             p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante2B.getText());
-            String qual = qualParte(labelParte2.getText());
+            String qual = labelParte2.getText();
             Janela.irTrocarSubstituicao("txtParte2B", 2, qual, labelParte2.getText(), data, "SALA  B", p1, p2, "5");
         } else {
             Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
@@ -1221,10 +1222,10 @@ public class Substituicao extends javax.swing.JFrame {
             p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte3B.getText());
             if (!txtAjudante3B.getText().isEmpty()) {
                 p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante3B.getText());
-                String qual = qualParte(labelParte3.getText());
+                String qual = labelParte3.getText();
                 Janela.irTrocarSubstituicao("txtParte3B", 2, qual, labelParte3.getText(), data, "SALA  B", p1, p2, nParte3.getText());
             } else {
-                String qual = qualParte(labelParte3.getText());
+                String qual = labelParte3.getText();
                 Janela.irTrocarSubstituicao("txtParte3B", 2, qual, labelParte3.getText(), data, "SALA  B", p1, null, nParte3.getText());
             }
         } else {
@@ -1236,7 +1237,7 @@ public class Substituicao extends javax.swing.JFrame {
         if (!txtAjudante3B.getText().isEmpty() && !txtAjudante3B.getText().equals("NA")) {
             p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte3B.getText());
             p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante3B.getText());
-            String qual = qualParte(labelParte3.getText());
+            String qual = labelParte3.getText();
             Janela.irTrocarSubstituicao("txtParte3B", 2, qual, labelParte3.getText(), data, "SALA  B", p1, p2, nParte3.getText());
         } else {
             Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
@@ -1272,19 +1273,57 @@ public class Substituicao extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void txtParte4AMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParte4AMouseClicked
-        // TODO add your handling code here:
+        if (!txtParte4A.getText().isEmpty() && !txtParte4A.getText().equals("NA")) {
+            p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte4A.getText());
+            if (!txtAjudante4A.getText().isEmpty()) {
+                p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante4A.getText());
+                String qual = labelParte4.getText();
+                Janela.irTrocarSubstituicao("txtParte4A", 2, qual, labelParte4.getText(), data, "SALA  A", p1, p2, nParte4.getText());
+            } else {
+                String qual = labelParte4.getText();
+                Janela.irTrocarSubstituicao("txtParte4A", 2, qual, labelParte4.getText(), data, "SALA  A", p1, null, nParte4.getText());
+            }
+        } else {
+            Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
+        }
     }//GEN-LAST:event_txtParte4AMouseClicked
 
     private void txtAjudante4AMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAjudante4AMouseClicked
-        // TODO add your handling code here:
+        if (!txtAjudante4A.getText().isEmpty() && !txtAjudante4A.getText().equals("NA")) {
+            p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte4A.getText());
+            p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante4A.getText());
+            String qual = labelParte4.getText();
+            Janela.irTrocarSubstituicao("txtParte4A", 2, qual, labelParte4.getText(), data, "SALA  A", p1, p2, nParte4.getText());
+        } else {
+            Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
+        }
     }//GEN-LAST:event_txtAjudante4AMouseClicked
 
     private void txtParte4BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParte4BMouseClicked
-        // TODO add your handling code here:
+        if (!txtParte4B.getText().isEmpty() && !txtParte4B.getText().equals("NA")) {
+            p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte4B.getText());
+            if (!txtAjudante4B.getText().isEmpty()) {
+                p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante4B.getText());
+                String qual = labelParte4.getText();
+                Janela.irTrocarSubstituicao("txtParte4B", 2, qual, labelParte4.getText(), data, "SALA  A", p1, p2, nParte4.getText());
+            } else {
+                String qual = labelParte4.getText();
+                Janela.irTrocarSubstituicao("txtParte4B", 2, qual, labelParte4.getText(), data, "SALA  A", p1, null, nParte4.getText());
+            }
+        } else {
+            Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
+        }
     }//GEN-LAST:event_txtParte4BMouseClicked
 
     private void txtAjudante4BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAjudante4BMouseClicked
-        // TODO add your handling code here:
+        if (!txtAjudante4B.getText().isEmpty() && !txtAjudante4B.getText().equals("NA")) {
+            p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte4B.getText());
+            p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante4B.getText());
+            String qual = labelParte4.getText();
+            Janela.irTrocarSubstituicao("txtParte4A", 2, qual, labelParte4.getText(), data, "SALA  A", p1, p2, nParte4.getText());
+        } else {
+            Mensagem.mensagemErro("Não tem ninguém designado nesse campo, para ser substituído.");
+        }
     }//GEN-LAST:event_txtAjudante4BMouseClicked
 
     private void salvarPdf() {
@@ -1292,10 +1331,11 @@ public class Substituicao extends javax.swing.JFrame {
             GerarPDF pdf = new GerarPDF();
             pdf.salvar(todas);
         } catch (Exception e) {
+            e.printStackTrace();
             Mensagem.mensagemErro("Erro ao salvar a lista em PDF");
         }
     }
-
+/*
     private String qualParte(String qual) {
         if (qual.equals("Primeira Conversa:") || qual.equals("Primeira Conversa - 1:") || qual.equals("Primeira Conversa - 2:")) {
             return "PrimeiraConversa";
@@ -1309,7 +1349,7 @@ public class Substituicao extends javax.swing.JFrame {
             return null;
         }
     }
-
+*/
     public void mostrarTabela() {
         SemanaDAO semanaDAO = new SemanaDAO();
         List<Semana> semanas = semanaDAO.listarSemanasOrdenadasPorDataDesc();
@@ -1412,6 +1452,11 @@ public class Substituicao extends javax.swing.JFrame {
         todas.setAjudante3A(txtAjudante3A.getText());
         todas.setParte3B(txtParte3B.getText());
         todas.setAjudante3B(txtAjudante3B.getText());
+        todas.setNomeParte4(labelParte4.getText());
+        todas.setParte4A(txtParte4A.getText());
+        todas.setAjudante4A(txtAjudante4A.getText());
+        todas.setParte4B(txtParte4B.getText());
+        todas.setAjudante4B(txtAjudante4B.getText());
         todas.setLabelNossaVida1(jLabel14.getText());
         todas.setNossaVida1(txtNossaVida1.getText());
         todas.setLabelNossaVida2(jLabel15.getText());
@@ -1506,6 +1551,20 @@ public class Substituicao extends javax.swing.JFrame {
         txtParte3B.setText(a1.getNome() + " " + a1.getSobrenome());
         if (b1 != null) {
             txtAjudante3B.setText(b1.getNome() + " " + b1.getSobrenome());
+        }
+    }
+    
+    public void alttxtParte4A(Pessoa a1, Pessoa b1) {
+        txtParte4A.setText(a1.getNome() + " " + a1.getSobrenome());
+        if (b1 != null) {
+            txtAjudante4A.setText(b1.getNome() + " " + b1.getSobrenome());
+        }
+    }
+    
+    public void alttxtParte4B(Pessoa a1, Pessoa b1) {
+        txtParte4B.setText(a1.getNome() + " " + a1.getSobrenome());
+        if (b1 != null) {
+            txtAjudante4B.setText(b1.getNome() + " " + b1.getSobrenome());
         }
     }
 

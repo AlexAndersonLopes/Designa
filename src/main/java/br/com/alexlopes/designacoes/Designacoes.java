@@ -1,9 +1,7 @@
 package br.com.alexlopes.designacoes;
 
 import br.com.alexlopes.designacoes.dao.EstudoBiblicoCongregacaoDAO;
-import br.com.alexlopes.designacoes.dao.JoiasDAO;
 import br.com.alexlopes.designacoes.dao.LeitorDAO;
-import br.com.alexlopes.designacoes.dao.NossaVidaDAO;
 import br.com.alexlopes.designacoes.dao.OracaoDAO;
 import br.com.alexlopes.designacoes.dao.ParteDAO;
 import br.com.alexlopes.designacoes.dao.PessoaDAO;
@@ -39,9 +37,7 @@ public class Designacoes {
         PessoaDAO.criarTabela();
         ParteDAO.criarTabela();
         EstudoBiblicoCongregacaoDAO.criarTabela();
-        JoiasDAO.criarTabela();
         LeitorDAO.criarTabela();
-        NossaVidaDAO.criarTabela();
         OracaoDAO.criarTabela();
         PresidenteDAO.criarTabela();
         SemanaDAO.criarTabela();

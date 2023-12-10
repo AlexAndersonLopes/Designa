@@ -625,6 +625,17 @@ public class PessoaDAO {
         }
     }
 
+    public List<Object[]> buscarTodasPessoas() {
+        EntityManager em = FabricaJPA.getEntityManager();
+        try {
+            String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima, p.pessoa.ajudante FROM Parte p GROUP BY p.pessoa.id, p.pessoa.nome, p.pessoa.sobrenome, p.pessoa.dataUltima, p.pessoa.ajudante";
+            TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
+            return query.getResultList();
+        } finally {
+            FabricaJPA.closeEtityManager();
+        }
+    }
+
     public List<Object[]> buscarNomesJoiasOrdenadosPorDataMaisAntiga(String sexo, String descricao, List<Integer> idsIgnorar) {
         EntityManager em = FabricaJPA.getEntityManager();
         try {
@@ -765,6 +776,61 @@ public class PessoaDAO {
                 transaction.rollback();
             }
             throw e;
+        } finally {
+            FabricaJPA.closeEtityManager();
+        }
+    }
+
+    public Pessoa buscarPartes(String descricaoParte, String sexo, List<Integer> idsPessoasIgnorar) {
+        EntityManager em = FabricaJPA.getEntityManager();
+        try {
+            String jpql = "SELECT DISTINCT p FROM Pessoa p "
+                    + "WHERE p.id NOT IN (:idsPessoasIgnorar) "
+                    + "AND (p.sexo IS NULL OR :sexo IS NULL OR p.sexo = :sexo) "
+                    + "AND EXISTS (SELECT 1 FROM Parte parte WHERE parte.pessoa = p AND parte.descricao = :descricaoParte) "
+                    + "AND p.dataUltima IS NULL";  // Adicionando a condição de dataUltima e ajudante nulos
+
+            TypedQuery<Pessoa> query = em.createQuery(jpql, Pessoa.class)
+                    .setParameter("idsPessoasIgnorar", idsPessoasIgnorar)
+                    .setParameter("descricaoParte", descricaoParte)
+                    .setParameter("sexo", sexo);
+
+            List<Pessoa> pessoas = query.getResultList();
+
+            if (!pessoas.isEmpty()) {
+                // Sorteie uma pessoa aleatória da lista
+                Random random = new Random();
+                int indiceSorteado = random.nextInt(pessoas.size());
+                return pessoas.get(indiceSorteado);
+            }
+
+            return buscarPartes2(descricaoParte, sexo, idsPessoasIgnorar);
+        } finally {
+            FabricaJPA.closeEtityManager();
+        }
+    }
+
+    public Pessoa buscarPartes2(String descricaoParte, String sexo, List<Integer> idsPessoasIgnorar) {
+        EntityManager em = FabricaJPA.getEntityManager();
+        try {
+            String jpql = "SELECT DISTINCT p FROM Pessoa p "
+                    + "WHERE p.id NOT IN (:idsPessoasIgnorar) "
+                    + "AND (p.sexo IS NULL OR :sexo IS NULL OR p.sexo = :sexo) "
+                    + "AND EXISTS (SELECT 1 FROM Parte parte WHERE parte.pessoa = p AND parte.descricao = :descricaoParte) "
+                    + "ORDER BY p.dataUltima ASC";  // Ordenar por dataUltima em ordem ascendente
+
+            TypedQuery<Pessoa> query = em.createQuery(jpql, Pessoa.class)
+                    .setParameter("idsPessoasIgnorar", idsPessoasIgnorar)
+                    .setParameter("descricaoParte", descricaoParte)
+                    .setParameter("sexo", sexo);
+
+            query.setMaxResults(1);  // Obter apenas a primeira pessoa da lista ordenada
+
+            List<Pessoa> pessoas = query.getResultList();
+            if (!pessoas.isEmpty()) {
+                return pessoas.get(0);
+            }
+            return buscarPessoaComCondicoesSemData(descricaoParte, sexo, idsPessoasIgnorar);
         } finally {
             FabricaJPA.closeEtityManager();
         }

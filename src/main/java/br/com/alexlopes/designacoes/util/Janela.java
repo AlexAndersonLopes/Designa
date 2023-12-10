@@ -11,7 +11,6 @@ import br.com.alexlopes.designacoes.views.CadastroParticipantes;
 import br.com.alexlopes.designacoes.views.FalarCom;
 import br.com.alexlopes.designacoes.views.MenuPrincipal;
 import br.com.alexlopes.designacoes.views.Substituicao;
-import br.com.alexlopes.designacoes.views.Tela1;
 import br.com.alexlopes.designacoes.views.Tela2;
 import br.com.alexlopes.designacoes.views.Trocar;
 import br.com.alexlopes.designacoes.views.TrocarSubstituicao;
@@ -20,7 +19,6 @@ import javax.swing.JFrame;
 
 public class Janela {
 
-    public static Tela1 tela1;
     public static Tela2 tela2;
     public static Substituicao sub;
     public static Aguarde ag;
@@ -81,17 +79,6 @@ public class Janela {
         }
     }
 
-    public static void irTela1() {
-        if (tela1 == null) {
-            tela1 = new Tela1();
-            tela1.pack();
-            tela1.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            tela1.setVisible(true);
-        } else {
-            tela1.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            tela1.setVisible(true);
-        }
-    }
     
      public static void irTela2() {
         if (tela2 == null) {

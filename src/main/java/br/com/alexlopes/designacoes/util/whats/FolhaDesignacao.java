@@ -5,7 +5,6 @@ import br.com.alexlopes.designacoes.model.Pessoa;
 import br.com.alexlopes.designacoes.model.TodasPartes;
 import br.com.alexlopes.designacoes.util.Janela;
 import br.com.alexlopes.designacoes.util.SalvarImagem;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -25,9 +24,13 @@ public class FolhaDesignacao extends javax.swing.JFrame {
         initComponents();
     }
 
-    public FolhaDesignacao(Pessoa a01, Pessoa b02, String dataParte, String parteTipo, String salaLocal, String ParteNum) {
+    public FolhaDesignacao(Pessoa a01, Pessoa b02, String dataParte, String parteTipo, String salaLocal, String ParteNum, int sub) {
         initComponents();
         try {
+            if(sub != 1){
+                WhatsApp.conectar();
+            }
+            
             dataParte = dataParte.replace("Semana: ", "");
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             LocalDate dataa = LocalDate.parse(dataParte, formatter);
@@ -36,7 +39,6 @@ public class FolhaDesignacao extends javax.swing.JFrame {
             int mesmes = dataa.getMonthValue();
             int anoano = dataa.getYear();
             String mess = definirNomeMes(mesmes);
-            //String mesAno = mesmes + String.valueOf(anoano);
 
             SalvarImagem si = new SalvarImagem();
             WhatsApp zap = new WhatsApp();
@@ -52,16 +54,19 @@ public class FolhaDesignacao extends javax.swing.JFrame {
             txtParte.setText("<html>" + parteTipo + "</html>");
             txtLocal.setText(salaLocal);
             BufferedImage imag = preencherDesignacao();
-            //si.salvar(imag, a01.getNome() + a01.getSobrenome() + "_" + diadia + mess);
-            si.salvar(imag, a01.getNome() + a01.getSobrenome() + "_" + diadia + mess, "Substituicao");
+            
+            if(sub == 1){
+                si.salvar(imag, a01.getNome() + a01.getSobrenome() + "_" + diadia + mess, "Substituição");
+            }
+            
             zap.enviarMensagem(a01.getCelular().replaceAll("[^0-9]", ""), imag);
 
             this.dispose();
-
+            Janela.irTela2();
         } catch (Exception e) {
         }
-    }   
-    
+    }
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -256,200 +261,159 @@ public class FolhaDesignacao extends javax.swing.JFrame {
         return imagemFolha(jPanel1);
     }
 
-    public void enviarWhatsApp(TodasPartes dados) {
+    public void salvarFolhaDesignacao(TodasPartes dados) {
         PessoaDAO dao = new PessoaDAO();
         SalvarImagem si = new SalvarImagem();
-        WhatsApp zap = new WhatsApp();
 
         if (!dados.getLeituraBibliaA().isEmpty()) {
-            zap = new WhatsApp();
             Pessoa leituraA = dao.buscarPessoaPorNomeESobrenomeZap(dados.getLeituraBibliaA());
             txtNome.setText(leituraA.getNome() + " " + leituraA.getSobrenome());
-            Janela.ag.a1.setText(leituraA.getNome() + " " + leituraA.getSobrenome());
             txtAjudante.setText("");
             txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
+            txtParteNumero.setText("3");
             txtParte.setText("Leitura da Bíblia");
             txtLocal.setText("SALA  A");
             BufferedImage imag = preencherDesignacao();
             si.salvar(imag, leituraA.getNome() + leituraA.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
-            try {
-                if (zap.enviarMensagem(leituraA.getCelular().replaceAll("[^0-9]", ""), imag)) {
-                    Janela.ag.b1.setText("ENVIADO");
-                } else {
-                    //zap.enviarMensagemUsuario(imag);
-                    Janela.ag.b1.setText("NÃO ENVIADO");
-                }
-            } catch (Exception e) {
-                Janela.ag.b1.setText("NÃO ENVIADO");
-            }
         }
         if (!dados.getParte1A().isEmpty() && !dados.getParte1A().equals("NA")) {
-            zap = new WhatsApp();
             Pessoa parte1A = dao.buscarPessoaPorNomeESobrenomeZap(dados.getParte1A());
             Pessoa ajudante1A = dao.buscarPessoaPorNomeESobrenomeZap(dados.getAjudante1A());
             txtNome.setText(parte1A.getNome() + " " + parte1A.getSobrenome());
-            Janela.ag.a2.setText(parte1A.getNome() + " " + parte1A.getSobrenome());
-            txtAjudante.setText(ajudante1A.getNome() + " " + ajudante1A.getSobrenome() + " - " + ajudante1A.getCelular());
+            if (!dados.getAjudante1A().isEmpty() && !dados.getAjudante1A().equals("NA")) {
+                txtAjudante.setText(ajudante1A.getNome() + " " + ajudante1A.getSobrenome() + " - " + ajudante1A.getCelular());
+            } else {
+                txtAjudante.setText("");
+            }
             txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
+            txtParteNumero.setText("4");
             txtParte.setText(dados.getNomeParte1());
             txtLocal.setText("SALA  A");
             BufferedImage imag = preencherDesignacao();
             si.salvar(imag, parte1A.getNome() + parte1A.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
-            try {
-                if (zap.enviarMensagem(parte1A.getCelular().replaceAll("[^0-9]", ""), imag)) {
-                    Janela.ag.b2.setText("ENVIADO");
-                } else {
-                    //zap.enviarMensagemUsuario(imag);
-                    Janela.ag.b2.setText("NÃO ENVIADO");
-                }
-            } catch (Exception e) {
-                Janela.ag.b2.setText("NÃO ENVIADO");
-            }
         }
         if (!dados.getParte2A().isEmpty()) {
-            zap = new WhatsApp();
             Pessoa parte2A = dao.buscarPessoaPorNomeESobrenomeZap(dados.getParte2A());
             Pessoa ajudante2A = dao.buscarPessoaPorNomeESobrenomeZap(dados.getAjudante2A());
             txtNome.setText(parte2A.getNome() + " " + parte2A.getSobrenome());
-            Janela.ag.a3.setText(parte2A.getNome() + " " + parte2A.getSobrenome());
-            txtAjudante.setText(ajudante2A.getNome() + " " + ajudante2A.getSobrenome() + " - " + ajudante2A.getCelular());
+            if (!dados.getAjudante2A().isEmpty() && !dados.getAjudante2A().equals("NA")) {
+                txtAjudante.setText(ajudante2A.getNome() + " " + ajudante2A.getSobrenome() + " - " + ajudante2A.getCelular());
+            } else {
+                txtAjudante.setText("");
+            }
             txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
+            txtParteNumero.setText("5");
             txtParte.setText(dados.getNomeParte2());
             txtLocal.setText("SALA  A");
             BufferedImage imag = preencherDesignacao();
             si.salvar(imag, parte2A.getNome() + parte2A.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
-            try {
-                if (zap.enviarMensagem(parte2A.getCelular().replaceAll("[^0-9]", ""), imag)) {
-                    Janela.ag.b3.setText("ENVIADO");
-                } else {
-                   // zap.enviarMensagemUsuario(imag);
-                    Janela.ag.b3.setText("NÃO ENVIADO");
-                }
-            } catch (Exception e) {
-                Janela.ag.b3.setText("NÃO ENVIADO");
-            }
         }
         if (!dados.getParte3A().isEmpty()) {
-            zap = new WhatsApp();
             Pessoa parte3A = dao.buscarPessoaPorNomeESobrenomeZap(dados.getParte3A());
             Pessoa ajudante3A = dao.buscarPessoaPorNomeESobrenomeZap(dados.getAjudante3A());
             txtNome.setText(parte3A.getNome() + " " + parte3A.getSobrenome());
-            Janela.ag.a4.setText(parte3A.getNome() + " " + parte3A.getSobrenome());
             if (!dados.getAjudante3A().isEmpty() && !dados.getAjudante3A().equals("NA")) {
                 txtAjudante.setText(ajudante3A.getNome() + " " + ajudante3A.getSobrenome() + " - " + ajudante3A.getCelular());
             } else {
                 txtAjudante.setText("");
             }
             txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
+            txtParteNumero.setText("6");
             txtParte.setText(dados.getNomeparte3());
             txtLocal.setText("SALA  A");
             BufferedImage imag = preencherDesignacao();
             si.salvar(imag, parte3A.getNome() + parte3A.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
-            try {
-                if (zap.enviarMensagem(parte3A.getCelular().replaceAll("[^0-9]", ""), imag)) {
-                    Janela.ag.b4.setText("ENVIADO");
-                } else {
-                    //zap.enviarMensagemUsuario(imag);
-                    Janela.ag.b4.setText("NÃO ENVIADO");
-                }
-            } catch (Exception e) {
-                Janela.ag.b4.setText("NÃO ENVIADO");
+        }
+        if (!dados.getParte4A().isEmpty()) {
+            Pessoa parte4A = dao.buscarPessoaPorNomeESobrenomeZap(dados.getParte4A());
+            Pessoa ajudante4A = dao.buscarPessoaPorNomeESobrenomeZap(dados.getAjudante4A());
+            txtNome.setText(parte4A.getNome() + " " + parte4A.getSobrenome());
+            if (!dados.getAjudante4A().isEmpty() && !dados.getAjudante4A().equals("NA")) {
+                txtAjudante.setText(ajudante4A.getNome() + " " + ajudante4A.getSobrenome() + " - " + ajudante4A.getCelular());
+            } else {
+                txtAjudante.setText("");
             }
+            txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
+            txtParteNumero.setText("7");
+            txtParte.setText(dados.getNomeParte4());
+            txtLocal.setText("SALA  A");
+            BufferedImage imag = preencherDesignacao();
+            si.salvar(imag, parte4A.getNome() + parte4A.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
         }
         if (!dados.getLeituraBibliaB().isEmpty() && !dados.getLeituraBibliaB().equals("NA")) {
-            zap = new WhatsApp();
             Pessoa leituraB = dao.buscarPessoaPorNomeESobrenomeZap(dados.getLeituraBibliaB());
-            Janela.ag.a5.setText(leituraB.getNome() + " " + leituraB.getSobrenome());
             txtNome.setText(leituraB.getNome() + " " + leituraB.getSobrenome());
             txtAjudante.setText("");
             txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
+            txtParteNumero.setText("3");
             txtParte.setText("Leitura da Bíblia");
             txtLocal.setText("SALA  B");
             BufferedImage imag = preencherDesignacao();
             si.salvar(imag, leituraB.getNome() + leituraB.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
-            try {
-                if (zap.enviarMensagem(leituraB.getCelular().replaceAll("[^0-9]", ""), imag)) {
-                    Janela.ag.b5.setText("ENVIADO");
-                } else {
-                   // zap.enviarMensagemUsuario(imag);
-                    Janela.ag.b5.setText("NÃO ENVIADO");
-                }
-            } catch (Exception e) {
-                Janela.ag.b5.setText("NÃO ENVIADO");
-            }
         }
         if (!dados.getParte1B().isEmpty() && !dados.getParte1B().equals("NA")) {
-            zap = new WhatsApp();
             Pessoa parte1B = dao.buscarPessoaPorNomeESobrenomeZap(dados.getParte1B());
             Pessoa ajudante1B = dao.buscarPessoaPorNomeESobrenomeZap(dados.getAjudante1B());
             txtNome.setText(parte1B.getNome() + " " + parte1B.getSobrenome());
-            Janela.ag.a6.setText(parte1B.getNome() + " " + parte1B.getSobrenome());
-            txtAjudante.setText(ajudante1B.getNome() + " " + ajudante1B.getSobrenome() + " - " + ajudante1B.getCelular());
+            if (!dados.getAjudante1B().isEmpty() && !dados.getAjudante1B().equals("NA")) {
+                txtAjudante.setText(ajudante1B.getNome() + " " + ajudante1B.getSobrenome() + " - " + ajudante1B.getCelular());
+            } else {
+                txtAjudante.setText("");
+            }
             txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
+            txtParteNumero.setText("4");
             txtParte.setText(dados.getNomeParte1());
             txtLocal.setText("SALA  B");
             BufferedImage imag = preencherDesignacao();
             si.salvar(imag, parte1B.getNome() + parte1B.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
-            try {
-                if (zap.enviarMensagem(parte1B.getCelular().replaceAll("[^0-9]", ""), imag)) {
-                    Janela.ag.b6.setText("ENVIADO");
-                } else {
-                   // zap.enviarMensagemUsuario(imag);
-                    Janela.ag.b6.setText("NÃO ENVIADO");
-                }
-            } catch (Exception e) {
-                Janela.ag.b6.setText("NÃO ENVIADO");
-            }
         }
         if (!dados.getParte2B().isEmpty() && !dados.getParte2B().equals("NA")) {
-            zap = new WhatsApp();
             Pessoa parte2B = dao.buscarPessoaPorNomeESobrenomeZap(dados.getParte2B());
             Pessoa ajudante2B = dao.buscarPessoaPorNomeESobrenomeZap(dados.getAjudante2B());
             txtNome.setText(parte2B.getNome() + " " + parte2B.getSobrenome());
-            Janela.ag.a7.setText(parte2B.getNome() + " " + parte2B.getSobrenome());
-            txtAjudante.setText(ajudante2B.getNome() + " " + ajudante2B.getSobrenome() + " - " + ajudante2B.getCelular());
+            if (!dados.getAjudante2B().isEmpty() && !dados.getAjudante2B().equals("NA")) {
+                txtAjudante.setText(ajudante2B.getNome() + " " + ajudante2B.getSobrenome() + " - " + ajudante2B.getCelular());
+            } else {
+                txtAjudante.setText("");
+            }
             txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
+            txtParteNumero.setText("5");
             txtParte.setText(dados.getNomeParte2());
             txtLocal.setText("SALA  B");
             BufferedImage imag = preencherDesignacao();
             si.salvar(imag, parte2B.getNome() + parte2B.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
-            try {
-                if (zap.enviarMensagem(parte2B.getCelular().replaceAll("[^0-9]", ""), imag)) {
-                    Janela.ag.b7.setText("ENVIADO");
-                } else {
-                   // zap.enviarMensagemUsuario(imag);
-                    Janela.ag.b7.setText("NÃO ENVIADO");
-                }
-            } catch (Exception e) {
-                Janela.ag.b7.setText("NÃO ENVIADO");
-            }
         }
         if (!dados.getParte3B().isEmpty() && !dados.getParte3B().equals("NA")) {
-            zap = new WhatsApp();
             Pessoa parte3B = dao.buscarPessoaPorNomeESobrenomeZap(dados.getParte3B());
             Pessoa ajudante3B = dao.buscarPessoaPorNomeESobrenomeZap(dados.getAjudante3B());
             txtNome.setText(parte3B.getNome() + " " + parte3B.getSobrenome());
-            Janela.ag.a8.setText(parte3B.getNome() + " " + parte3B.getSobrenome());
             if (!dados.getAjudante3B().isEmpty() && !dados.getAjudante3B().equals("NA")) {
                 txtAjudante.setText(ajudante3B.getNome() + " " + ajudante3B.getSobrenome() + " - " + ajudante3B.getCelular());
             } else {
                 txtAjudante.setText("");
             }
             txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
+            txtParteNumero.setText("6");
             txtParte.setText(dados.getNomeparte3());
             txtLocal.setText("SALA  B");
             BufferedImage imag = preencherDesignacao();
             si.salvar(imag, parte3B.getNome() + parte3B.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
-            try {
-                if (zap.enviarMensagem(parte3B.getCelular().replaceAll("[^0-9]", ""), imag)) {
-                    Janela.ag.b8.setText("ENVIADO");
-                } else {
-                   // zap.enviarMensagemUsuario(imag);
-                    Janela.ag.b8.setText("NÃO ENVIADO");
-                }
-            } catch (Exception e) {
-                Janela.ag.b8.setText("NÃO ENVIADO");
+        }
+        if (!dados.getParte4B().isEmpty() && !dados.getParte4B().equals("NA")) {
+            Pessoa parte4B = dao.buscarPessoaPorNomeESobrenomeZap(dados.getParte4B());
+            Pessoa ajudante4B = dao.buscarPessoaPorNomeESobrenomeZap(dados.getAjudante4B());
+            txtNome.setText(parte4B.getNome() + " " + parte4B.getSobrenome());
+            if (!dados.getAjudante4B().isEmpty() && !dados.getAjudante4B().equals("NA")) {
+                txtAjudante.setText(ajudante4B.getNome() + " " + ajudante4B.getSobrenome() + " - " + ajudante4B.getCelular());
+            } else {
+                txtAjudante.setText("");
             }
+            txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
+            txtParteNumero.setText("7");
+            txtParte.setText(dados.getNomeParte4());
+            txtLocal.setText("SALA  B");
+            BufferedImage imag = preencherDesignacao();
+            si.salvar(imag, parte4B.getNome() + parte4B.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
         }
         this.dispose();
     }

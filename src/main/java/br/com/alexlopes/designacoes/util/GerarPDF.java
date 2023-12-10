@@ -98,7 +98,7 @@ public class GerarPDF extends javax.swing.JFrame {
         labelAjudante4A = new javax.swing.JLabel();
         ajudante4A = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(707, 932));
         setMinimumSize(new java.awt.Dimension(707, 932));
 
@@ -222,6 +222,7 @@ public class GerarPDF extends javax.swing.JFrame {
 
         labelTesouros.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelTesouros.setForeground(new java.awt.Color(0, 0, 0));
+        labelTesouros.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelTesouros.setText("Discurso: ");
 
         labelJoias.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -266,9 +267,11 @@ public class GerarPDF extends javax.swing.JFrame {
 
         ltesouros.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         ltesouros.setForeground(new java.awt.Color(0, 0, 0));
+        ltesouros.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         ljoias.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         ljoias.setForeground(new java.awt.Color(0, 0, 0));
+        ljoias.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         lleituraBiblia.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lleituraBiblia.setForeground(new java.awt.Color(0, 0, 0));
@@ -332,15 +335,19 @@ public class GerarPDF extends javax.swing.JFrame {
 
         lnossa1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lnossa1.setForeground(new java.awt.Color(0, 0, 0));
+        lnossa1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         lnossa2.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lnossa2.setForeground(new java.awt.Color(0, 0, 0));
+        lnossa2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         lestudo.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lestudo.setForeground(new java.awt.Color(0, 0, 0));
+        lestudo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         lleitor.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         lleitor.setForeground(new java.awt.Color(0, 0, 0));
+        lleitor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         labelParte4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelParte4.setForeground(new java.awt.Color(0, 0, 0));
@@ -404,12 +411,12 @@ public class GerarPDF extends javax.swing.JFrame {
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(labelParte2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                         .addComponent(labelAjudante2A, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(labelParte3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(labelParte4, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGap(68, 68, 68)
+                                                        .addComponent(labelParte2, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                                                        .addComponent(labelParte3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(labelParte4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                         .addComponent(parte4A, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                                                         .addComponent(parte3a, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -423,16 +430,6 @@ public class GerarPDF extends javax.swing.JFrame {
                                                 .addComponent(parte1a, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(salaB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(labelConselheiro, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(labelPresidente, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(labelOracaoInicial, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lOracaoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lconselheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lpresidente, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(labelSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -440,20 +437,26 @@ public class GerarPDF extends javax.swing.JFrame {
                                         .addComponent(labelLeituraBiblia)
                                         .addComponent(labelJoias, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGap(0, 0, 0)
-                                            .addComponent(lleituraBiblia, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lleituraBiblia, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGap(248, 248, 248)
                                             .addComponent(ljoias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(labelParte1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(labelAjudante1A, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(labelTesouros, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(labelConselheiro)
+                                        .addComponent(labelPresidente)
+                                        .addComponent(labelOracaoInicial)
+                                        .addComponent(labelTesouros, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(ltesouros, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addContainerGap()))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(lOracaoInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                                        .addComponent(lconselheiro, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                                        .addComponent(lpresidente, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                                        .addComponent(ltesouros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(labelParte1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(labelOracaoFinal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -484,12 +487,11 @@ public class GerarPDF extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelTesouros)
-                            .addComponent(ltesouros, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(labelJoias))
+                    .addComponent(ltesouros, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTesouros))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelJoias, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ljoias, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -649,10 +651,14 @@ public class GerarPDF extends javax.swing.JFrame {
                     parte1a.setText(a.getParte1A());
                     if (!a.getAjudante1A().equals("NA") && !a.getAjudante1A().equals("")) {
                         labelAjudante1A.setVisible(true);
+                        labelAjudante4A.setText("Ajudante:");
                         ajudante1a.setVisible(true);
                         ajudante1a.setText(a.getAjudante1A());
+                    }else{
+                        ajudante1a.setText("");
                     }
                 } else {
+                    labelAjudante1A.setText("");
                     labelParte1.setVisible(false);
                     parte1a.setVisible(false);
                     labelAjudante1A.setVisible(false);
@@ -666,10 +672,14 @@ public class GerarPDF extends javax.swing.JFrame {
                     parte2a.setText(a.getParte2A());
                     if (!a.getAjudante2A().equals("NA") && !a.getAjudante2A().equals("")) {
                         labelAjudante2A.setVisible(true);
+                        labelAjudante2A.setText("Ajudante:");
                         ajudante2a.setVisible(true);
                         ajudante2a.setText(a.getAjudante2A());
+                    }else{
+                        ajudante2a.setText("");
                     }
                 } else {
+                    labelAjudante4A.setText("");
                     labelParte2.setVisible(false);
                     parte2a.setVisible(false);
                     labelAjudante2A.setVisible(false);
@@ -684,16 +694,20 @@ public class GerarPDF extends javax.swing.JFrame {
                     parte3a.setText(a.getParte3A());
                     if (!a.getAjudante3A().equals("NA") && !a.getAjudante3A().equals("")) {
                         labelAjudante3A.setVisible(true);
+                        labelAjudante3A.setText("Ajudante:");
                         ajudante3a.setVisible(true);
                         ajudante3a.setText(a.getAjudante3A());
+                    }else{
+                        ajudante3a.setText("");
                     }
                 } else {
+                    labelAjudante3A.setText("");
                     labelParte3.setVisible(false);
                     labelAjudante3A.setVisible(false);
                     parte3a.setVisible(false);
                     ajudante3a.setVisible(false);
                 }
-
+                System.out.println(a.getNomeParte4());
                 if (!a.getNomeParte4().equals("NA") && !a.getNomeParte4().equals("") && !a.getNomeParte4().equals("Faça seu melhor no ministério")) {
                     num++;
                     labelParte4.setVisible(true);
@@ -701,11 +715,16 @@ public class GerarPDF extends javax.swing.JFrame {
                     labelParte4.setText(String.valueOf(num) + " - " + a.getNomeParte4());
                     parte4A.setText(a.getParte4A());
                     if (!a.getAjudante4A().equals("NA") && !a.getAjudante4A().equals("")) {
+                        labelAjudante4A.setText("Ajudante:");
                         labelAjudante4A.setVisible(true);
                         ajudante4A.setVisible(true);
                         ajudante4A.setText(a.getAjudante4A());
+                    }else{
+                        ajudante4A.setText("");
                     }
                 } else {
+                    labelParte4.setText("");
+                    labelAjudante4A.setText("");
                     labelAjudante4A.setVisible(false);
                     labelParte4.setVisible(false);
                     parte4A.setVisible(false);
@@ -727,7 +746,9 @@ public class GerarPDF extends javax.swing.JFrame {
                         if (!a.getAjudante1B().equals("NA") && !a.getAjudante1B().equals("")) {
                             ajudante1b.setVisible(true);
                             ajudante1b.setText(a.getAjudante1B());
-                        }
+                        }else{
+                        ajudante1b.setText("");
+                    }
                     } else {
                         ajudante1b.setVisible(false);
                         parte1b.setVisible(false);
@@ -739,7 +760,9 @@ public class GerarPDF extends javax.swing.JFrame {
                         if (!a.getAjudante2B().equals("NA") && !a.getAjudante2B().equals("")) {
                             ajudante2b.setVisible(true);
                             ajudante2b.setText(a.getAjudante2B());
-                        }
+                        }else{
+                        ajudante2b.setText("");
+                    }
                     } else {
                         ajudante2b.setVisible(false);
                         parte2b.setVisible(false);
@@ -751,7 +774,9 @@ public class GerarPDF extends javax.swing.JFrame {
                         if (!a.getAjudante3B().equals("NA") && !a.getAjudante3B().equals("")) {
                             ajudante3b.setVisible(true);
                             ajudante3b.setText(a.getAjudante3B());
-                        }
+                        }else{
+                        ajudante3b.setText("");
+                    }
                     } else {
                         ajudante3b.setVisible(false);
                         parte3b.setVisible(false);
@@ -763,7 +788,9 @@ public class GerarPDF extends javax.swing.JFrame {
                         if (!a.getAjudante4B().equals("NA") && !a.getAjudante4B().equals("")) {
                             ajudante4B.setVisible(true);
                             ajudante4B.setText(a.getAjudante4B());
-                        }
+                        }else{
+                        ajudante4B.setText("");
+                    }
                     } else {
                         ajudante4B.setVisible(false);
                         parte4B.setVisible(false);

@@ -33,262 +33,183 @@ public class Trocar extends javax.swing.JFrame {
     //string p é a pessoa
     public Trocar(int a, String b, Pessoa p, List<Integer> lista, String parte) {
         initComponents();
+        txtProcurar.requestFocus();
         pessoa = p;
         labelNomeAntigo.setText(p.getNome() + " " + p.getSobrenome());
         listaIgnorar.addAll(lista);
         //1 = leitura da Biblia A
-        if (a == 1) {
-            numero = 1;
-            des = "LeituraBiblia";
-            mostrarTabelaPessoa(b, "LeituraBiblia");
+        switch (a) {
+            case 1 -> {
+                numero = 1;
+                des = "LeituraBiblia";
+                mostrarTabelaPessoa(b, "LeituraBiblia");
+                botaoLista.setText("Lista: " + des);
+            }
+            case 2 -> {
+                numero = 2;
+                des = "Presidente";
+                mostrarTabelaPessoa(b, "Presidente");
+                botaoLista.setText("Lista: " + des);
+            }
+            case 3 -> {
+                numero = 3;
+                des = "Tesouros";
+                mostrarTabelaPessoa(b, "Tesouros");
+                botaoLista.setText("Lista: " + des);
+            }
+            case 4 -> {
+                numero = 4;
+                des = "Oracao";
+                mostrarTabelaOracao();
+                botaoLista.setText("Lista: " + des);
+            }
+            case 5 -> {
+                numero = 5;
+                des = "NossaVidaCrista";
+                mostrarTabelaPessoa(b, "NossaVidaCrista");
+                botaoLista.setText("Todos");
+            }
+            case 6 -> {
+                numero = 6;
+                des = "LeituraEstudo";
+                mostrarTabelaLeitor();
+                botaoLista.setText("Lista: " + des);
+            }
+            case 7 -> {
+                numero = 7;
+                des = "Joias";
+                mostrarTabelaPessoa(b, "Joias");
+                botaoLista.setText("Lista: " + des);
+            }
+            case 8 -> {
+                numero = 8;
+                des = parte;
+                mostrarTabelaPessoa(b, parte);
+                botaoLista.setText("Todos");
+            }
+            case 9 -> {
+                numero = 9;
+                des = "Ajudante";
+                mostrarTabelaPessoaAjudante(b, "Ajudante");
+                botaoLista.setText("Todos");
+            }
+            case 10 -> {
+                numero = 10;
+                des = parte;
+                mostrarTabelaPessoa(b, parte);
+                botaoLista.setText("Todos");
+            }
+            case 11 -> {
+                numero = 11;
+                des = "Ajudante";
+                mostrarTabelaPessoaAjudante(b, "Ajudante");
+                botaoLista.setText("Todos");
+            }
+            case 12 -> {
+                numero = 12;
+                des = parte;
+                mostrarTabelaPessoa(b, parte);
+                botaoLista.setText("Todos");
+            }
+            case 13 -> {
+                numero = 13;
+                des = "Ajudante";
+                mostrarTabelaPessoaAjudante(b, "Ajudante");
+                botaoLista.setText("Todos");
+            }
+            case 14 -> {
+                numero = 14;
+                des = parte;
+                mostrarTabelaPessoa(b, parte);
+                botaoLista.setText("Todos");
+            }
+            case 15 -> {
+                numero = 15;
+                des = "Ajudante";
+                mostrarTabelaPessoaAjudante(b, "Ajudante");
+                botaoLista.setText("Todos");
+            }
+            case 16 -> {
+                numero = 16;
+                des = parte;
+                mostrarTabelaPessoa(b, parte);
+                botaoLista.setText("Todos");
+            }
+            case 17 -> {
+                numero = 17;
+                des = "Ajudante";
+                mostrarTabelaPessoaAjudante(b, "Ajudante");
+                botaoLista.setText("Todos");
+            }
+            case 19 -> {
+                numero = 19;
+                des = "Oracao";
+                mostrarTabelaOracao();
+                botaoLista.setText("Lista: " + des);
+            }
+            case 20 -> {
+                numero = 20;
+                des = "NossaVidaCrista";
+                mostrarTabelaPessoa(b, "NossaVidaCrista");
+                botaoLista.setText("Todos");
+            }
+            case 21 -> {
+                numero = 21;
+                des = "EstudoCongregacao";
+                mostrarTabelaPessoa(b, "EstudoCongregacao");
+                botaoLista.setText("Lista: " + des);
+            }
+            case 22 -> {
+                numero = 22;
+                des = "Presidente";
+                mostrarTabelaPessoa(b, "Presidente");
+                botaoLista.setText("Lista: " + des);
+            }
+            case 23 -> {
+                numero = 23;
+                des = parte;
+                mostrarTabelaPessoa(b, parte);
+                botaoLista.setText("Todos");
+            }
+            case 24 -> {
+                numero = 24;
+                des = "Ajudante";
+                mostrarTabelaPessoaAjudante(b, "Ajudante");
+                botaoLista.setText("Todos");
+            }
+            case 25 -> {
+                numero = 25;
+                des = parte;
+                mostrarTabelaPessoa(b, parte);
+                botaoLista.setText("Todos");
+            }
+            case 26 -> {
+                numero = 26;
+                des = "Ajudante";
+                mostrarTabelaPessoaAjudante(b, "Ajudante");
+                botaoLista.setText("Todos");
+            }
+            case 27 -> {
+                numero = 27;
+                des = parte;
+                mostrarTabelaPessoa(b, parte);
+                botaoLista.setText("Todos");
+            }
+            case 28 -> {
+                numero = 28;
+                des = "Ajudante";
+                mostrarTabelaPessoaAjudante(b, "Ajudante");
+                botaoLista.setText("Todos");
+            }
+            case 34 -> {
+                numero = 34;
+                des = "LeituraBiblia";
+                mostrarTabelaPessoa(b, "LeituraBiblia");
+                botaoLista.setText("Lista: " + des);
+            }
+            default -> {
+            }
         }
-        //2 = presidente A
-        if (a == 2) {
-            numero = 2;
-            des = "Presidente";
-            mostrarTabelaPessoa(b, "Presidente");
-        }
-        //3 = tesouros
-        if (a == 3) {
-            numero = 3;
-            des = "Tesouros";
-            mostrarTabelaPessoa(b, "Tesouros");
-        }
-        //4 = Oração inicial
-        if (a == 4) {
-            numero = 4;
-            des = "Oracao";
-            mostrarTabelaOracao();
-        }
-        //5 = Nossa Vida 1
-        if (a == 5) {
-            numero = 5;
-            des = "NossaVidaCrista";
-            mostrarTabelaPessoa(b, "NossaVidaCrista");
-        }
-        //6 = leitor estudo de livro
-        if (a == 6) {
-            numero = 6;
-            des = "LeituraEstudo";
-            mostrarTabelaLeitor();
-        }
-        //7 = joias
-        if (a == 7) {
-            numero = 7;
-            des = "Joias";
-            mostrarTabelaPessoa(b, "Joias");
-        }
-        //8 = parte 1 a
-        if (a == 8) {
-            numero = 8;
-            des = parte;
-            mostrarTabelaPessoa(b, parte);
-        }
-        //9 = ajudante parte 1 A
-        if (a == 9) {
-            numero = 9;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //10 = parte 2 B
-        if (a == 10) {
-            numero = 10;
-            des = parte;
-            mostrarTabelaPessoa(b, parte);
-        }
-        //11 = ajudante parte 2 B
-        if (a == 11) {
-            numero = 11;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //12 = parte 2 A
-        if (a == 12) {
-            numero = 12;
-            des = parte;
-            mostrarTabelaPessoa(b, parte);
-        }
-        //13 = ajudante parte 2 A
-        if (a == 13) {
-            numero = 13;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //14 = parte 2 B
-        if (a == 14) {
-            numero = 14;
-            des = parte;
-            mostrarTabelaPessoa(b, parte);
-        }
-        //15 = ajudante 2 B
-        if (a == 15) {
-            numero = 15;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //16 = parte 3 A
-        if (a == 16) {
-            numero = 16;
-            des = parte;
-            mostrarTabelaPessoa(b, parte);
-        }
-        //17 = ajudante parte 3 A
-        if (a == 17) {
-            numero = 17;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //18 = discurso A
-        if (a == 18) {
-            numero = 18;
-            des = "Discurso";
-            mostrarTabelaPessoa(b, "Discurso");
-        }
-        //19 = oracao final
-        if (a == 19) {
-            numero = 19;
-            des = "Oracao";
-            mostrarTabelaOracao();
-        }
-        //20 = nossa vida 2
-        if (a == 20) {
-            numero = 20;
-            des = "NossaVidaCrista";
-            mostrarTabelaPessoa(b, "NossaVidaCrista");
-        }
-        //21 = estudo biblico de congregação
-        if (a == 21) {
-            numero = 21;
-            des = "EstudoCongregacao";
-            mostrarTabelaPessoa(b, "EstudoCongregacao");
-        }
-        //22 = presidente B
-        if (a == 22) {
-            numero = 22;
-            des = "Presidente";
-            mostrarTabelaPessoa(b, "Presidente");
-        }
-        //23 = parte 4 A
-        if (a == 23) {
-            numero = 23;
-            des = parte;
-            mostrarTabelaPessoa(b, parte);
-        }
-        //24 = ajudante 4 A
-        if (a == 24) {
-            numero = 24;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //25 = PARTE 4 B
-        if (a == 25) {
-            numero = 25;
-            des = parte;
-            mostrarTabelaPessoa(b, parte);
-        }
-        //26 = ajudante 4 B
-        if (a == 26) {
-            numero = 26;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //27 = parte 3 B
-        if (a == 27) {
-            numero = 27;
-            des = parte;
-            mostrarTabelaPessoa(b, parte);
-        }
-        //28 = ajudante 4 B
-        if (a == 28) {
-            numero = 28;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //29 = revisita 2 B
-        if (a == 29) {
-            numero = 29;
-            des = "Revisita";
-            mostrarTabelaPessoa(b, "Revisita");
-        }
-        //30 = ajudante revisita 2 B
-        if (a == 30) {
-            numero = 30;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //31 = estudo biblico B
-        if (a == 31) {
-            numero = 31;
-            des = "EstudoBiblico";
-            mostrarTabelaPessoa(b, "EstudoBiblico");
-        }
-        //32 = ajudante estudo biblico B
-        if (a == 32) {
-            numero = 32;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //33 = discurso B
-        if (a == 33) {
-            numero = 33;
-            des = "Discurso";
-            mostrarTabelaPessoa(b, "Discurso");
-        }
-        //34= leitura biblia B
-        if (a == 34) {
-            numero = 34;
-            des = "LeituraBiblia";
-            mostrarTabelaPessoa(b, "LeituraBiblia");
-        }
-        //35 = primeira conversa 1 A
-        if (a == 35) {
-            numero = 35;
-            des = "PrimeiraConversa";
-            mostrarTabelaPessoa(b, "PrimeiraConversa");
-        }
-        //36 = ajudante primeira conversa 1 A
-        if (a == 36) {
-            numero = 36;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //37 = primeira conversa 1 B
-        if (a == 37) {
-            numero = 37;
-            des = "PrimeiraConversa";
-            mostrarTabelaPessoa(b, "PrimeiraConversa");
-        }
-        //38 = ajudante primeira conversa 1 B
-        if (a == 38) {
-            numero = 38;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //39 = revisita 1 A
-        if (a == 39) {
-            numero = 39;
-            des = "Revisita";
-            mostrarTabelaPessoa(b, "Revisita");
-        }
-        //40 = ajudante revisita 1 A
-        if (a == 40) {
-            numero = 40;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //41 = revisita 1 B
-        if (a == 41) {
-            numero = 41;
-            des = "Revisita";
-            mostrarTabelaPessoa(b, "Revisita");
-        }
-        //42 = ajudante revisita 1 B
-        if (a == 42) {
-            numero = 42;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        botaoLista.setText("Lista: " + des);
     }
 
     //METODO 2 CONSTRUTOR 2
@@ -296,260 +217,180 @@ public class Trocar extends javax.swing.JFrame {
     //string b é o sexo do participante
     public Trocar(int a, String b, List<Integer> lista) {
         initComponents();
+        txtProcurar.requestFocus();
         listaIgnorar.addAll(lista);
         //1 = leitura da Biblia A
-        if (a == 1) {
-            numero = 1;
-            des = "LeituraBiblia";
-            mostrarTabelaPessoa(b, "LeituraBiblia");
+        switch (a) {
+            case 1 -> {
+                numero = 1;
+                des = "LeituraBiblia";
+                mostrarTabelaPessoa(b, "LeituraBiblia");
+                botaoLista.setText("Lista: " + des);
+            }
+            case 2 -> {
+                numero = 2;
+                des = "Presidente";
+                mostrarTabelaPessoa(b, "Presidente");
+                botaoLista.setText("Lista: " + des);
+            }
+            case 3 -> {
+                numero = 3;
+                des = "Tesouros";
+                mostrarTabelaPessoa(b, "Tesouros");
+                botaoLista.setText("Lista: " + des);
+            }
+            case 4 -> {
+                numero = 4;
+                des = "Oracao";
+                mostrarTabelaOracao();
+                botaoLista.setText("Lista: " + des);
+            }
+            case 5 -> {
+                numero = 5;
+                des = "NossaVidaCrista";
+                mostrarTabelaPessoa(b, "NossaVidaCrista");
+                botaoLista.setText("Todos");
+            }
+            case 6 -> {
+                numero = 6;
+                des = "LeituraEstudo";
+                mostrarTabelaLeitor();
+                botaoLista.setText("Lista: " + des);
+            }
+            case 7 -> {
+                numero = 7;
+                des = "Joias";
+                mostrarTabelaPessoa(b, "Joias");
+                botaoLista.setText("Lista: " + des);
+            }
+            case 8 -> {
+                numero = 8;
+                des = "PrimeiraConversa";
+                mostrarTabelaPessoa(b, "PrimeiraConversa");
+                botaoLista.setText("Todos");
+            }
+            case 9 -> {
+                numero = 9;
+                des = "Ajudante";
+                mostrarTabelaPessoaAjudante(b, "Ajudante");
+                botaoLista.setText("Todos");
+            }
+            case 10 -> {
+                numero = 10;
+                des = "PrimeiraConversa";
+                mostrarTabelaPessoa(b, "PrimeiraConversa");
+                botaoLista.setText("Todos");
+            }
+            case 11 -> {
+                numero = 11;
+                des = "Ajudante";
+                mostrarTabelaPessoaAjudante(b, "Ajudante");
+                botaoLista.setText("Todos");
+            }
+            case 12 -> {
+                numero = 12;
+                des = "Revisita";
+                mostrarTabelaPessoa(b, "Revisita");
+                botaoLista.setText("Todos");
+            }
+            case 13 -> {
+                numero = 13;
+                des = "Ajudante";
+                mostrarTabelaPessoaAjudante(b, "Ajudante");
+            }
+            case 14 -> {
+                numero = 14;
+                des = "Revisita";
+                mostrarTabelaPessoa(b, "Revisita");
+                botaoLista.setText("Todos");
+            }
+            case 15 -> {
+                numero = 15;
+                des = "Ajudante";
+                mostrarTabelaPessoaAjudante(b, "Ajudante");
+                botaoLista.setText("Todos");
+            }
+            case 16 -> {
+                numero = 16;
+                des = "EstudoBiblico";
+                mostrarTabelaPessoa(b, "EstudoBiblico");
+                botaoLista.setText("Todos");
+            }
+            case 17 -> {
+                numero = 17;
+                des = "Ajudante";
+                mostrarTabelaPessoaAjudante(b, "Ajudante");
+                botaoLista.setText("Todos");
+            }
+            case 19 -> {
+                numero = 19;
+                des = "Oracao";
+                mostrarTabelaOracao();
+                botaoLista.setText("Lista: " + des);
+            }
+            case 20 -> {
+                numero = 20;
+                des = "NossaVidaCrista";
+                mostrarTabelaPessoa(b, "NossaVidaCrista");
+                botaoLista.setText("Todos");
+            }
+            case 21 -> {
+                numero = 21;
+                des = "EstudoCongregacao";
+                mostrarTabelaPessoa(b, "EstudoCongregacao");
+                botaoLista.setText("Todos");
+            }
+            case 22 -> {
+                numero = 22;
+                des = "Presidente";
+                mostrarTabelaPessoa(b, "Presidente");
+                botaoLista.setText("Lista: " + des);
+            }
+            case 23 -> {
+                numero = 23;
+                des = "PrimeiraConversa";
+                mostrarTabelaPessoa(b, "PrimeiraConversa");
+                botaoLista.setText("Todos");
+            }
+            case 24 -> {
+                numero = 24;
+                des = "Ajudante";
+                mostrarTabelaPessoaAjudante(b, "Ajudante");
+                botaoLista.setText("Todos");
+            }
+            case 25 -> {
+                numero = 25;
+                des = "PrimeiraConversa";
+                mostrarTabelaPessoa(b, "PrimeiraConversa");
+                botaoLista.setText("Todos");
+            }
+            case 26 -> {
+                numero = 26;
+                des = "Ajudante";
+                mostrarTabelaPessoaAjudante(b, "Ajudante");
+                botaoLista.setText("Todos");
+            }
+            case 27 -> {
+                numero = 27;
+                des = "Revisita";
+                mostrarTabelaPessoa(b, "Revisita");
+                botaoLista.setText("Todos");
+            }
+            case 28 -> {
+                numero = 28;
+                des = "Ajudante";
+                mostrarTabelaPessoaAjudante(b, "Ajudante");
+                botaoLista.setText("Todos");
+            }
+            case 34 -> {
+                numero = 34;
+                des = "LeituraBiblia";
+                mostrarTabelaPessoa(b, "LeituraBiblia");
+                botaoLista.setText("Lista: " + des);
+            }
+            default -> {
+            }
         }
-        //2 = presidente A
-        if (a == 2) {
-            numero = 2;
-            des = "Presidente";
-            mostrarTabelaPessoa(b, "Presidente");
-        }
-        //3 = tesouros
-        if (a == 3) {
-            numero = 3;
-            des = "Tesouros";
-            mostrarTabelaPessoa(b, "Tesouros");
-        }
-        //4 = Oração inicial
-        if (a == 4) {
-            numero = 4;
-            des = "Oracao";
-            mostrarTabelaOracao();
-        }
-        //5 = Nossa Vida 1
-        if (a == 5) {
-            numero = 5;
-            des = "NossaVidaCrista";
-            mostrarTabelaPessoa(b, "NossaVidaCrista");
-        }
-        //6 = leitor estudo de livro
-        if (a == 6) {
-            numero = 6;
-            des = "LeituraEstudo";
-            mostrarTabelaLeitor();
-        }
-        //7 = joias
-        if (a == 7) {
-            numero = 7;
-            des = "Joias";
-            mostrarTabelaPessoa(b, "Joias");
-        }
-        //8 = primeira conversa A
-        if (a == 8) {
-            numero = 8;
-            des = "PrimeiraConversa";
-            mostrarTabelaPessoa(b, "PrimeiraConversa");
-        }
-        //9 = ajudante primeira conversa A
-        if (a == 9) {
-            numero = 9;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //10 = primeira conversa 2 A
-        if (a == 10) {
-            numero = 10;
-            des = "PrimeiraConversa";
-            mostrarTabelaPessoa(b, "PrimeiraConversa");
-        }
-        //11 = ajudante primeira conversa 2 A
-        if (a == 11) {
-            numero = 11;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //12 = revisita A
-        if (a == 12) {
-            numero = 12;
-            des = "Revisita";
-            mostrarTabelaPessoa(b, "Revisita");
-        }
-        //13 = ajudante revisita A
-        if (a == 13) {
-            numero = 13;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //14 = revisita 2 A
-        if (a == 14) {
-            numero = 14;
-            des = "Revisita";
-            mostrarTabelaPessoa(b, "Revisita");
-        }
-        //15 = ajudante revisita 2 A
-        if (a == 15) {
-            numero = 15;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //16 = estudo biblico A
-        if (a == 16) {
-            numero = 16;
-            des = "EstudoBiblico";
-            mostrarTabelaPessoa(b, "EstudoBiblico");
-        }
-        //17 = ajudante estudo biblico A
-        if (a == 17) {
-            numero = 17;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //18 = discurso A
-        if (a == 18) {
-            numero = 18;
-            des = "Discurso";
-            mostrarTabelaPessoa(b, "Discurso");
-        }
-        //19 = oracao final
-        if (a == 19) {
-            numero = 19;
-            des = "Oracao";
-            mostrarTabelaOracao();
-        }
-        //20 = nossa vida 2
-        if (a == 20) {
-            numero = 20;
-            des = "NossaVidaCrista";
-            mostrarTabelaPessoa(b, "NossaVidaCrista");
-        }
-        //21 = estudo biblico de congregação
-        if (a == 21) {
-            numero = 21;
-            des = "EstudoCongregacao";
-            mostrarTabelaPessoa(b, "EstudoCongregacao");
-        }
-        //22 = presidente B
-        if (a == 22) {
-            numero = 22;
-            des = "Presidente";
-            mostrarTabelaPessoa(b, "Presidente");
-        }
-        //23 = primeira conversa B
-        if (a == 23) {
-            numero = 23;
-            des = "PrimeiraConversa";
-            mostrarTabelaPessoa(b, "PrimeiraConversa");
-        }
-        //24 = ajudante primeira conversa B
-        if (a == 24) {
-            numero = 24;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //25 = primeira conversa 2 B
-        if (a == 25) {
-            numero = 25;
-            des = "PrimeiraConversa";
-            mostrarTabelaPessoa(b, "PrimeiraConversa");
-        }
-        //26 = ajudante primeira conversa 2 B
-        if (a == 26) {
-            numero = 26;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //27 = revisita B
-        if (a == 27) {
-            numero = 27;
-            des = "Revisita";
-            mostrarTabelaPessoa(b, "Revisita");
-        }
-        //28 = ajudante revisita B
-        if (a == 28) {
-            numero = 28;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //29 = revisita 2 B
-        if (a == 29) {
-            numero = 29;
-            des = "Revisita";
-            mostrarTabelaPessoa(b, "Revisita");
-        }
-        //30 = ajudante revisita 2 B
-        if (a == 30) {
-            numero = 30;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //31 = estudo biblico B
-        if (a == 31) {
-            numero = 31;
-            des = "EstudoBiblico";
-            mostrarTabelaPessoa(b, "EstudoBiblico");
-        }
-        //32 = ajudante estudo biblico B
-        if (a == 32) {
-            numero = 32;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //33 = discurso B
-        if (a == 33) {
-            numero = 33;
-            des = "Discurso";
-            mostrarTabelaPessoa(b, "Discurso");
-        }
-        //34= leitura biblia B
-        if (a == 34) {
-            numero = 34;
-            des = "LeituraBiblia";
-            mostrarTabelaPessoa(b, "LeituraBiblia");
-        }
-        //35 = primeira conversa 1 A
-        if (a == 35) {
-            numero = 35;
-            des = "PrimeiraConversa";
-            mostrarTabelaPessoa(b, "PrimeiraConversa");
-        }
-        //36 = ajudante primeira conversa 1 A
-        if (a == 36) {
-            numero = 36;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //37 = primeira conversa 1 B
-        if (a == 37) {
-            numero = 37;
-            des = "PrimeiraConversa";
-            mostrarTabelaPessoa(b, "PrimeiraConversa");
-        }
-        //38 = ajudante primeira conversa 1 B
-        if (a == 38) {
-            numero = 38;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //39 = revisita 1 A
-        if (a == 39) {
-            numero = 39;
-            des = "Revisita";
-            mostrarTabelaPessoa(b, "Revisita");
-        }
-        //40 = ajudante revisita 1 A
-        if (a == 40) {
-            numero = 40;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        //41 = revisita 1 B
-        if (a == 41) {
-            numero = 41;
-            des = "Revisita";
-            mostrarTabelaPessoa(b, "Revisita");
-        }
-        //42 = ajudante revisita 1 B
-        if (a == 42) {
-            numero = 42;
-            des = "Ajudante";
-            mostrarTabelaPessoaAjudante(b, "Ajudante");
-        }
-        botaoLista.setText("Lista: " + des);
     }
 
     @SuppressWarnings("unchecked")
@@ -800,24 +641,20 @@ public class Trocar extends javax.swing.JFrame {
 
     private void txtProcurarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProcurarKeyReleased
         PessoaDAO pesDAO = new PessoaDAO();
-        List<Object[]> resultadoConsulta = pesDAO.buscarDeterminadaPessoa(des, txtProcurar.getText());
+        List<Pessoa> resultadoConsulta = pesDAO.buscarPorNome(txtProcurar.getText());
         tab = (DefaultTableModel) tabela.getModel();
         tab.setNumRows(0);
         DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        for (Object[] resultado : resultadoConsulta) {
-            int idPessoa = (int) resultado[0]; // ID da pessoa
-            String nomeCompleto = (String) resultado[1]; // Nome completo
-            LocalDate dataUltima = (LocalDate) resultado[2]; // Data última    
-            LocalDate ajudante = (LocalDate) resultado[3]; // Data última    
-            String dataUltimaFormatada = dataUltima != null ? dataUltima.format(df) : ""; // Trata o valor nulo
-                String ajudanteFormatada = ajudante != null ? ajudante.format(df) : ""; // Trata o valor nulo
-            if (dataUltima != null) {
-                dataUltimaFormatada = dataUltima.format(df);                
-            }
-            if (ajudante != null) {
-                ajudanteFormatada = ajudante.format(df);
-            }
+        for (Pessoa pessoa : resultadoConsulta) {
+            int idPessoa = pessoa.getId(); // substitua com o método getter correto
+            String nomeCompleto = pessoa.getNome() + " " + pessoa.getSobrenome(); // substitua com o método getter correto
+            LocalDate dataUltima = pessoa.getDataUltima(); // substitua com o método getter correto
+            LocalDate ajudante = pessoa.getAjudante(); // substitua com o método getter correto
+
+            String dataUltimaFormatada = dataUltima != null ? dataUltima.format(df) : "";
+            String ajudanteFormatada = ajudante != null ? ajudante.format(df) : "";
+
             tab.addRow(new Object[]{
                 idPessoa,
                 nomeCompleto,
@@ -825,6 +662,7 @@ public class Trocar extends javax.swing.JFrame {
                 ajudanteFormatada
             });
         }
+
     }//GEN-LAST:event_txtProcurarKeyReleased
 
     private void botaoListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListaActionPerformed
@@ -833,6 +671,8 @@ public class Trocar extends javax.swing.JFrame {
             mostrarTabelaLeitor();
         } else if (numero == 19 || numero == 4) {
             mostrarTabelaOracao();
+        } else if (numero == 5 || numero == 20 || numero >= 8 && numero <= 17 || numero >= 23 && numero <= 28) {
+            mostrarTabelaPessoaTodas();
         } else {
             mostrarTabelaPessoa(pessoa.getSexo(), des);
         }
@@ -894,9 +734,6 @@ public class Trocar extends javax.swing.JFrame {
         if (numero == 17) {
             Janela.tela2.altAjudante3A(pessoa2);
         }
-        if (numero == 18) {
-            Janela.tela1.altDiscursoA(pessoa2);
-        }
         if (numero == 19) {
             Janela.tela2.altOracaoFinal(pessoa2);
         }
@@ -927,47 +764,8 @@ public class Trocar extends javax.swing.JFrame {
         if (numero == 28) {
             Janela.tela2.altAjudante3B(pessoa2);
         }
-        if (numero == 29) {
-            Janela.tela1.altRevisita2B(pessoa2);
-        }
-        if (numero == 30) {
-            Janela.tela1.altAjudanteRevisita2B(pessoa2);
-        }
-        if (numero == 31) {
-            Janela.tela1.altEstudoBiblicoB(pessoa2);
-        }
-        if (numero == 32) {
-            Janela.tela1.altAjudanteEstudoBiblicoB(pessoa2);
-        }
-        if (numero == 33) {
-            Janela.tela1.altDiscursoB(pessoa2);
-        }
         if (numero == 34) {
-            Janela.tela1.altLeituraBibliaB(pessoa2);
-        }
-        if (numero == 35) {
-            Janela.tela1.altPrimeiraConversa1A(pessoa2);
-        }
-        if (numero == 36) {
-            Janela.tela1.altAjudantePrimeiraConversa1A(pessoa2);
-        }
-        if (numero == 37) {
-            Janela.tela1.altPrimeiraConversa1B(pessoa2);
-        }
-        if (numero == 38) {
-            Janela.tela1.altAjudantePrimeiraConversa1B(pessoa2);
-        }
-        if (numero == 39) {
-            Janela.tela1.altRevisita1A(pessoa2);
-        }
-        if (numero == 40) {
-            Janela.tela1.altRevisita1A(pessoa2);
-        }
-        if (numero == 41) {
-            Janela.tela1.altRevisita1B(pessoa2);
-        }
-        if (numero == 42) {
-            Janela.tela1.altAjudanteRevisita1B(pessoa2);
+            Janela.tela2.altLeituraBibliaB(pessoa2);
         }
     }
 
@@ -983,9 +781,9 @@ public class Trocar extends javax.swing.JFrame {
             LocalDate dataUltima = (LocalDate) resultado[2]; // Data última    
             LocalDate ajudante = (LocalDate) resultado[3]; // Data última    
             String dataUltimaFormatada = dataUltima != null ? dataUltima.format(df) : ""; // Trata o valor nulo
-                String ajudanteFormatada = ajudante != null ? ajudante.format(df) : ""; // Trata o valor nulo
+            String ajudanteFormatada = ajudante != null ? ajudante.format(df) : ""; // Trata o valor nulo
             if (dataUltima != null) {
-                dataUltimaFormatada = dataUltima.format(df);                
+                dataUltimaFormatada = dataUltima.format(df);
             }
             if (ajudante != null) {
                 ajudanteFormatada = ajudante.format(df);
@@ -998,7 +796,35 @@ public class Trocar extends javax.swing.JFrame {
             });
         }
     }
-    
+
+    private void mostrarTabelaPessoaTodas() {
+        PessoaDAO pessoaRepository = new PessoaDAO();
+        List<Object[]> resultadoConsulta = pessoaRepository.buscarTodasPessoas();
+        tab = (DefaultTableModel) tabela.getModel();
+        tab.setNumRows(0);
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        for (Object[] resultado : resultadoConsulta) {
+            int idPessoa = (int) resultado[0]; // ID da pessoa
+            String nomeCompleto = (String) resultado[1]; // Nome completo
+            LocalDate dataUltima = (LocalDate) resultado[2]; // Data última    
+            LocalDate ajudante = (LocalDate) resultado[3]; // Data última    
+            String dataUltimaFormatada = dataUltima != null ? dataUltima.format(df) : ""; // Trata o valor nulo
+            String ajudanteFormatada = ajudante != null ? ajudante.format(df) : ""; // Trata o valor nulo
+            if (dataUltima != null) {
+                dataUltimaFormatada = dataUltima.format(df);
+            }
+            if (ajudante != null) {
+                ajudanteFormatada = ajudante.format(df);
+            }
+            tab.addRow(new Object[]{
+                idPessoa,
+                nomeCompleto,
+                dataUltimaFormatada,
+                ajudanteFormatada
+            });
+        }
+    }
+
     private void mostrarTabelaPessoaAjudante(String sexo, String descricao) {
         PessoaDAO pessoaRepository = new PessoaDAO();
         List<Object[]> resultadoConsulta = pessoaRepository.buscarNomesAjudantePorDataMaisAntiga(sexo, descricao, listaIgnorar);
@@ -1011,9 +837,9 @@ public class Trocar extends javax.swing.JFrame {
             LocalDate dataUltima = (LocalDate) resultado[2]; // Data última    
             LocalDate ajudante = (LocalDate) resultado[3]; // Data última    
             String dataUltimaFormatada = dataUltima != null ? dataUltima.format(df) : ""; // Trata o valor nulo
-                String ajudanteFormatada = ajudante != null ? ajudante.format(df) : ""; // Trata o valor nulo
+            String ajudanteFormatada = ajudante != null ? ajudante.format(df) : ""; // Trata o valor nulo
             if (dataUltima != null) {
-                dataUltimaFormatada = dataUltima.format(df);                
+                dataUltimaFormatada = dataUltima.format(df);
             }
             if (ajudante != null) {
                 ajudanteFormatada = ajudante.format(df);
@@ -1045,8 +871,7 @@ public class Trocar extends javax.swing.JFrame {
             tab.addRow(new Object[]{
                 idPessoa,
                 nomeCompleto,
-                dataFormatada,
-            });
+                dataFormatada,});
         }
         tabela.getColumnModel().getColumn(0).setMinWidth(0);
         tabela.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -1075,8 +900,7 @@ public class Trocar extends javax.swing.JFrame {
             tab.addRow(new Object[]{
                 idPessoa,
                 nomeCompleto,
-                dataFormatada,
-            });
+                dataFormatada,});
         }
         tabela.getColumnModel().getColumn(0).setMinWidth(0);
         tabela.getColumnModel().getColumn(0).setMaxWidth(0);

@@ -1,9 +1,7 @@
 package br.com.alexlopes.designacoes.views;
 
 import br.com.alexlopes.designacoes.dao.EstudoBiblicoCongregacaoDAO;
-import br.com.alexlopes.designacoes.dao.JoiasDAO;
 import br.com.alexlopes.designacoes.dao.LeitorDAO;
-import br.com.alexlopes.designacoes.dao.NossaVidaDAO;
 import br.com.alexlopes.designacoes.dao.OracaoDAO;
 import br.com.alexlopes.designacoes.dao.ParteDAO;
 import br.com.alexlopes.designacoes.dao.PessoaDAO;
@@ -544,6 +542,7 @@ public class CadastroParticipantes extends javax.swing.JFrame {
                 mostrarTabela();
                 limparTela();
                 limparTelaCheck();
+
             }
         } catch (Exception e) {
             Mensagem.mensagemErro("Erro ao tentar fazer o cadastro");
@@ -558,9 +557,10 @@ public class CadastroParticipantes extends javax.swing.JFrame {
 
     private void txtCelularFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCelularFocusGained
         try {
-            MaskFormatter maskFormatter = new MaskFormatter("(##)#####-####");
-            maskFormatter.setValueContainsLiteralCharacters(false);
-            txtCelular.setFormatterFactory(new DefaultFormatterFactory(maskFormatter));
+            MaskFormatter maskFormatters = new MaskFormatter("(##)#####-####");
+            maskFormatters.setValueContainsLiteralCharacters(false);
+            txtCelular.setFormatterFactory(new DefaultFormatterFactory(maskFormatters));
+            txtCelular.setText("");
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -637,12 +637,6 @@ public class CadastroParticipantes extends javax.swing.JFrame {
             parte.setDescricao("Joias");
             parte.setPessoa(pessoa);
             pdao.cadastrar(parte);
-
-            Joias joias = new Joias();
-            JoiasDAO jDAO = new JoiasDAO();
-            joias.setPessoa(pessoa);
-            joias.setData(null);
-            jDAO.cadastrar(joias);
         }
         if (rLeituraBiblia.isSelected()) {
             Parte parte = new Parte();
@@ -697,12 +691,6 @@ public class CadastroParticipantes extends javax.swing.JFrame {
             parte.setDescricao("NossaVidaCrista");
             parte.setPessoa(pessoa);
             pdao.cadastrar(parte);
-
-            NossaVida nossaVida = new NossaVida();
-            NossaVidaDAO vidaDAO = new NossaVidaDAO();
-            nossaVida.setPessoa(pessoa);
-            nossaVida.setData(null);
-            vidaDAO.cadastrar(nossaVida);
         }
         if (rEstudoCongregacao.isSelected()) {
             Parte parte = new Parte();

@@ -30,7 +30,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private void confirmarSaida() {
         Object[] options = {"Sim", "Não"};
         int option = JOptionPane.showOptionDialog(this, "Deseja realmente sair?", "Confirmação", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
@@ -588,12 +588,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                confirmarSaida();
-            }
-        });
+        confirmarSaida();
     }//GEN-LAST:event_jLabel19MouseClicked
 
     public void mostrarTabela() {

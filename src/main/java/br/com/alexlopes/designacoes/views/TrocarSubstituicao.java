@@ -557,7 +557,7 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
-            FolhaDesignacao folha = new FolhaDesignacao(a, b, txtData.getText(), parte, txtSala.getText(), numeroParte);
+            FolhaDesignacao folha = new FolhaDesignacao(a, b, txtData.getText(), parte, txtSala.getText(), numeroParte, 1);
         } catch (Exception e) {
             return;
         }
@@ -607,6 +607,10 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
                 Janela.sub.alttxtParte2B(a, b);
             case "txtParte3B" ->
                 Janela.sub.alttxtParte3B(a, b);
+            case "txtParte4A" ->
+                Janela.sub.alttxtParte4A(a, b);
+            case "txtParte4B" ->
+                Janela.sub.alttxtParte4B(a, b);
             default -> {
             }
         }

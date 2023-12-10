@@ -18,7 +18,6 @@ C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\dao\LeitorDAO.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\model\Presidente.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\util\ArquivoTXT.java
-C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\views\Tela1.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\dao\EstudoBiblicoCongregacaoDAO.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\model\Leitor.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\model\Usuario.java
@@ -30,19 +29,16 @@ C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\views\Tela2.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\views\TrocarSubstituicao.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\model\EstudoBiblicoCongregacao.java
-C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\views\Tela11.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\dao\ParteDAO.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\model\Oracao.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\views\Trocar.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\dao\PessoaDAO.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\dao\PresidenteDAO.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\model\Semana.java
-C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\dao\NossaVidaDAO.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\dao\OracaoDAO.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\dao\TodasPartesDAO.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\model\NossaVida.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\views\CadastroParticipantes.java
-C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\dao\JoiasDAO.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\util\SalvarImagem.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\login\AlterarDados.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\login\Entrar.java

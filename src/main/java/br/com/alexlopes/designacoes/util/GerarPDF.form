@@ -2,7 +2,7 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[707, 932]"/>
     </Property>
@@ -92,7 +92,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel4" min="-2" pref="344" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
@@ -103,13 +103,13 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLabel3" min="-2" pref="344" max="-2" attributes="0"/>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="labelParte2" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                           <Component id="labelAjudante2A" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
-                                                          <Component id="labelParte3" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
-                                                          <Component id="labelParte4" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                                                          <Component id="labelParte2" pref="211" max="32767" attributes="0"/>
+                                                          <Component id="labelParte3" alignment="0" max="32767" attributes="0"/>
+                                                          <Component id="labelParte4" alignment="0" max="32767" attributes="0"/>
                                                       </Group>
-                                                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                           <Component id="parte4A" alignment="1" pref="180" max="32767" attributes="0"/>
                                                           <Component id="parte3a" alignment="1" max="32767" attributes="0"/>
@@ -130,19 +130,6 @@
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="salaB" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="labelConselheiro" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="labelPresidente" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="labelOracaoInicial" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lOracaoInicial" min="-2" pref="254" max="-2" attributes="0"/>
-                                          <Component id="lconselheiro" min="-2" pref="254" max="-2" attributes="0"/>
-                                          <Component id="lpresidente" min="-2" pref="254" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
                                   <Component id="jLabel2" min="-2" pref="625" max="-2" attributes="0"/>
                                   <Component id="labelSemana" min="-2" pref="625" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
@@ -151,10 +138,7 @@
                                           <Component id="labelJoias" min="-2" pref="150" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                                              <Component id="lleituraBiblia" min="-2" pref="262" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="lleituraBiblia" min="-2" pref="262" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
                                               <Component id="ljoias" max="32767" attributes="0"/>
@@ -162,15 +146,25 @@
                                       </Group>
                                   </Group>
                                   <Component id="jLabel1" alignment="0" min="-2" pref="344" max="-2" attributes="0"/>
-                                  <Component id="labelParte1" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
                                   <Component id="labelAjudante1A" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="labelTesouros" min="-2" pref="377" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="labelConselheiro" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelPresidente" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelOracaoInicial" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelTesouros" min="-2" pref="404" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="ltesouros" min="-2" pref="269" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="lOracaoInicial" pref="254" max="32767" attributes="0"/>
+                                          <Component id="lconselheiro" pref="254" max="32767" attributes="0"/>
+                                          <Component id="lpresidente" pref="254" max="32767" attributes="0"/>
+                                          <Component id="ltesouros" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
+                                  <Component id="labelParte1" alignment="0" min="-2" pref="212" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -211,14 +205,12 @@
                   <Component id="jLabel1" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="labelTesouros" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ltesouros" alignment="0" min="-2" pref="17" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="labelJoias" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="ltesouros" min="-2" pref="17" max="-2" attributes="0"/>
+                      <Component id="labelTesouros" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="labelJoias" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="ljoias" alignment="1" min="-2" pref="17" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -571,6 +563,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="text" type="java.lang.String" value="Discurso: "/>
           </Properties>
         </Component>
@@ -692,6 +685,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="4"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="ljoias">
@@ -702,6 +696,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="4"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lleituraBiblia">
@@ -898,6 +893,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="4"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lnossa2">
@@ -908,6 +904,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="4"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lestudo">
@@ -918,6 +915,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="4"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lleitor">
@@ -928,6 +926,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="4"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelParte4">

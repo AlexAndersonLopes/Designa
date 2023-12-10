@@ -1,18 +1,14 @@
 package br.com.alexlopes.designacoes.views;
 
 import br.com.alexlopes.designacoes.dao.EstudoBiblicoCongregacaoDAO;
-import br.com.alexlopes.designacoes.dao.JoiasDAO;
 import br.com.alexlopes.designacoes.dao.LeitorDAO;
-import br.com.alexlopes.designacoes.dao.NossaVidaDAO;
 import br.com.alexlopes.designacoes.dao.OracaoDAO;
 import br.com.alexlopes.designacoes.dao.ParteDAO;
 import br.com.alexlopes.designacoes.dao.PessoaDAO;
 import br.com.alexlopes.designacoes.dao.PresidenteDAO;
 import br.com.alexlopes.designacoes.dao.TesourosDAO;
 import br.com.alexlopes.designacoes.model.EstudoBiblicoCongregacao;
-import br.com.alexlopes.designacoes.model.Joias;
 import br.com.alexlopes.designacoes.model.Leitor;
-import br.com.alexlopes.designacoes.model.NossaVida;
 import br.com.alexlopes.designacoes.model.Oracao;
 import br.com.alexlopes.designacoes.model.Parte;
 import br.com.alexlopes.designacoes.model.Pessoa;
@@ -821,20 +817,6 @@ public class AlterarParticipantes extends javax.swing.JFrame {
             parte.setDescricao("Joias");
             parte.setPessoa(pessoa);
             pdao.cadastrar(parte);
-
-            Joias joias = new Joias();
-            JoiasDAO jDAO = new JoiasDAO();
-            if (!jDAO.verificarExistenciaJoiaPorPessoaId(pessoa.getId())) {
-                joias.setPessoa(pessoa);
-                joias.setData(null);
-                jDAO.cadastrar(joias);
-            }
-
-        } else {
-            JoiasDAO jDAO = new JoiasDAO();
-            if (jDAO.verificarExistenciaJoiaPorPessoaId(pessoa.getId())) {
-                jDAO.excluirJoiaPorPessoaId(pessoa.getId());
-            }
         }
 
         if (rLeituraBiblia.isSelected()) {
@@ -842,37 +824,37 @@ public class AlterarParticipantes extends javax.swing.JFrame {
             parte.setDescricao("LeituraBiblia");
             parte.setPessoa(pessoa);
             pdao.cadastrar(parte);
-        } 
+        }
         if (rVideo.isSelected()) {
             Parte parte = new Parte();
             parte.setDescricao("Video");
             parte.setPessoa(pessoa);
             pdao.cadastrar(parte);
-        } 
+        }
         if (rIniciando.isSelected()) {
             Parte parte = new Parte();
             parte.setDescricao("Iniciando conversas");
             parte.setPessoa(pessoa);
             pdao.cadastrar(parte);
-        } 
+        }
         if (rCultivando.isSelected()) {
             Parte parte = new Parte();
             parte.setDescricao("Cultivando o interesse");
             parte.setPessoa(pessoa);
             pdao.cadastrar(parte);
-        } 
+        }
         if (rExplicando.isSelected()) {
             Parte parte = new Parte();
             parte.setDescricao("Explicando suas crenças");
             parte.setPessoa(pessoa);
             pdao.cadastrar(parte);
-        } 
+        }
         if (rFazendo.isSelected()) {
             Parte parte = new Parte();
             parte.setDescricao("Fazendo discipulos");
             parte.setPessoa(pessoa);
             pdao.cadastrar(parte);
-        } 
+        }
         if (rDiscurso.isSelected()) {
             Parte parte = new Parte();
             parte.setDescricao("Discurso");
@@ -884,25 +866,12 @@ public class AlterarParticipantes extends javax.swing.JFrame {
             parte.setDescricao("Ajudante");
             parte.setPessoa(pessoa);
             pdao.cadastrar(parte);
-        } 
+        }
         if (rNossaVidaCrista.isSelected()) {
             Parte parte = new Parte();
             parte.setDescricao("NossaVidaCrista");
             parte.setPessoa(pessoa);
             pdao.cadastrar(parte);
-
-            NossaVida nossaVida = new NossaVida();
-            NossaVidaDAO vidaDAO = new NossaVidaDAO();
-            if (!vidaDAO.verificarExistenciaNossaVidaPorPessoaId(pessoa.getId())) {
-                nossaVida.setPessoa(pessoa);
-                nossaVida.setData(null);
-                vidaDAO.cadastrar(nossaVida);
-            }
-        } else {
-            NossaVidaDAO vidaDAO = new NossaVidaDAO();
-            if (vidaDAO.verificarExistenciaNossaVidaPorPessoaId(pessoa.getId())) {
-                vidaDAO.excluirNossaVidaPorPessoaId(pessoa.getId());
-            }
         }
 
         if (rEstudoCongregacao.isSelected()) {
