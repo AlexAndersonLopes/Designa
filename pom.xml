@@ -16,7 +16,8 @@
     </properties>
     
     <dependencies>
-        <!-- Selenium --> <dependency>
+        <!-- Selenium --> 
+        <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.15.0</version>
@@ -51,7 +52,7 @@
         <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>6.0.0.Final</version>
+            <version>6.4.0.Final</version>
         </dependency>
         
         <dependency>
@@ -73,8 +74,9 @@
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
-            <version>5.0.1</version>
+            <version>5.0.0</version> 
         </dependency>
+
                  
     </dependencies>
     

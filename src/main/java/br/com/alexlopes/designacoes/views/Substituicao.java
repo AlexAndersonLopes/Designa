@@ -407,6 +407,7 @@ public class Substituicao extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Tesouros:");
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
@@ -424,7 +425,9 @@ public class Substituicao extends javax.swing.JFrame {
 
         labelParte1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelParte1.setForeground(new java.awt.Color(0, 0, 102));
+        labelParte1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelParte1.setText("Parte 1:");
+        labelParte1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         txtAjudante1A.setEditable(false);
         txtAjudante1A.setBackground(new java.awt.Color(255, 255, 204));
@@ -550,16 +553,21 @@ public class Substituicao extends javax.swing.JFrame {
 
         labelParte2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelParte2.setForeground(new java.awt.Color(0, 0, 102));
+        labelParte2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelParte2.setText("Parte 2:");
+        labelParte2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         labelParte3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelParte3.setForeground(new java.awt.Color(0, 0, 102));
+        labelParte3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelParte3.setText("Parte 3:");
+        labelParte3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel14.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("Nossa vida Cristã 1:");
+        jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel14MouseClicked(evt);
@@ -570,6 +578,7 @@ public class Substituicao extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel15.setText("Nossa vida Cristã 2:");
+        jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel15MouseClicked(evt);
@@ -614,6 +623,7 @@ public class Substituicao extends javax.swing.JFrame {
         labelParte4.setForeground(new java.awt.Color(0, 0, 102));
         labelParte4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelParte4.setText("Parte 4:");
+        labelParte4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel13.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 51, 0));
@@ -698,16 +708,16 @@ public class Substituicao extends javax.swing.JFrame {
                                         .addComponent(jLabel7))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(nParte1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(labelParte1))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(labelParte1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(nParte2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(labelParte2))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(labelParte2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(nParte3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(labelParte3))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(labelParte3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)

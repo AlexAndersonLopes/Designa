@@ -1,9 +1,5 @@
 package br.com.alexlopes.designacoes.dao;
 
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import br.com.alexlopes.designacoes.fabrica.FabricaJPA;
 import br.com.alexlopes.designacoes.model.Usuario;
 import jakarta.persistence.EntityManager;
@@ -32,7 +28,7 @@ public class UsuarioDAO {
             }
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
     }
@@ -47,7 +43,7 @@ public class UsuarioDAO {
             return false;
         } finally {
             if (em != null && em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
     }
@@ -60,7 +56,7 @@ public class UsuarioDAO {
                 return count > 0;
             } finally {
                 if (em != null && em.isOpen()) {
-                    FabricaJPA.closeEtityManager();
+                    em.close();
                 }
             }
         }
@@ -78,7 +74,7 @@ public class UsuarioDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -95,7 +91,7 @@ public class UsuarioDAO {
             return hash;
         } catch (NoSuchAlgorithmException e) {
         } finally {
-            FabricaJPA.closeEtityManager();
+            //FabricaJPA.closeEtityManager();
         }
         return null;
     }
@@ -108,7 +104,7 @@ public class UsuarioDAO {
             Long resultado = query.getSingleResult();
             return resultado > 0;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -120,7 +116,7 @@ public class UsuarioDAO {
             TypedQuery<Usuario> query = em.createQuery(jpql, Usuario.class);
             return query.getSingleResult();
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -141,7 +137,7 @@ public class UsuarioDAO {
             // Usuário não encontrado, retorna null
             return null;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -162,7 +158,7 @@ public class UsuarioDAO {
         } catch (Exception e) {
             e.getStackTrace();
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return false;
     }
@@ -188,7 +184,7 @@ public class UsuarioDAO {
         } catch (Exception e) {
             e.getStackTrace();
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return false;
     }

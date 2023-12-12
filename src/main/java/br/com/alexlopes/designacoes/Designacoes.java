@@ -16,7 +16,6 @@ import java.io.File;
 public class Designacoes {
 
     public static void main(String[] args) {
-        
 
         if (!bancoDeDadosExiste() || !UsuarioDAO.tabelaUsuarioPossuiRegistros()) {
             if (!bancoDeDadosExiste()) {
@@ -48,36 +47,34 @@ public class Designacoes {
 
 }
 /*
-<?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              version="3.0"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
-
     <persistence-unit name="go" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <properties>
-            <!-- Configuração do Derby -->
+            <!-- Configurações do driver e URL do banco de dados -->
             <property name="jakarta.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
             <property name="jakarta.persistence.jdbc.url" value="jdbc:derby:pessoa_db;create=true" />
             <property name="jakarta.persistence.jdbc.user" value="designa" />
             <property name="jakarta.persistence.jdbc.password" value="123" />
-            
-            <!-- Configuração do Hibernate para o HikariCP -->
-            <property name="hibernate.hikari.dataSourceClassName" value="com.zaxxer.hikari.HikariDataSource" />
-            <property name="hibernate.hikari.dataSource.url" value="jdbc:derby:pessoa_db;create=true" />
-            <property name="hibernate.hikari.dataSource.user" value="designa" />
-            <property name="hibernate.hikari.dataSource.password" value="123" />
-            
-            <!-- Configuração de dialeto específico para Derby -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect"/>
+
+            <!-- Configurações do HikariCP -->
+            <property name="hibernate.hikari.connectionTimeout" value="20000" />
+            <property name="hibernate.hikari.minimumIdle" value="10" />
+            <property name="hibernate.hikari.maximumPoolSize" value="20" />
+            <property name="hibernate.hikari.idleTimeout" value="300000" />
+            <property name="hibernate.hikari.poolName" value="HikariCP" />
+            <property name="hibernate.hikari.autoCommit" value="false" />
+
+            <!-- Outras propriedades do Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
         </properties>
     </persistence-unit>
 </persistence>
-
 */
-
-
 
 
 
@@ -99,5 +96,6 @@ public class Designacoes {
     </persistence-unit>
 
 </persistence>
+
 
 */

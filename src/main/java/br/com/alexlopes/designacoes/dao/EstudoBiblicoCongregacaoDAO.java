@@ -27,7 +27,7 @@ public class EstudoBiblicoCongregacaoDAO {
             }
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
     }
@@ -44,7 +44,7 @@ public class EstudoBiblicoCongregacaoDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -57,11 +57,11 @@ public class EstudoBiblicoCongregacaoDAO {
             query.setParameter("pessoaId", pessoaId);
             Long resultado = query.getSingleResult();
             return resultado > 0;
-            
+
         } catch (Exception e) {
         } finally {
             if (em != null && em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
         return false;
@@ -96,7 +96,7 @@ public class EstudoBiblicoCongregacaoDAO {
             }
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
     }
@@ -115,7 +115,7 @@ public class EstudoBiblicoCongregacaoDAO {
             }
             return null;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -134,7 +134,7 @@ public class EstudoBiblicoCongregacaoDAO {
             }
             return null;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -151,7 +151,7 @@ public class EstudoBiblicoCongregacaoDAO {
             em.getTransaction().commit();
         } catch (Exception e) {
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -168,7 +168,7 @@ public class EstudoBiblicoCongregacaoDAO {
             }
             return null; // Retorna nulo se não encontrar um presidente com o ID da pessoa
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 

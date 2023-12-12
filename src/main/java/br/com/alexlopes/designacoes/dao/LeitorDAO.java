@@ -27,7 +27,7 @@ public class LeitorDAO {
             }
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
     }
@@ -44,7 +44,7 @@ public class LeitorDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -61,7 +61,7 @@ public class LeitorDAO {
         } catch (Exception e) {
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
         return false;
@@ -96,7 +96,7 @@ public class LeitorDAO {
             }
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
     }
@@ -114,7 +114,7 @@ public class LeitorDAO {
                 return leitores.get(0);
             }
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -133,7 +133,7 @@ public class LeitorDAO {
                 return leitores.get(indiceAleatorio);
             }
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -151,7 +151,7 @@ public class LeitorDAO {
             em.getTransaction().commit();
         } catch (Exception e) {
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -165,7 +165,7 @@ public class LeitorDAO {
             return query.getResultList();
         } catch (Exception e) {
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -183,7 +183,7 @@ public class LeitorDAO {
             }
             return null; // Retorna nulo se não encontrar um presidente com o ID da pessoa
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 

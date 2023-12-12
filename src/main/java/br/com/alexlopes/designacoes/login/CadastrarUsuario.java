@@ -1,6 +1,7 @@
 package br.com.alexlopes.designacoes.login;
 
 import br.com.alexlopes.designacoes.dao.UsuarioDAO;
+import br.com.alexlopes.designacoes.fabrica.FabricaJPA;
 import br.com.alexlopes.designacoes.model.Usuario;
 import br.com.alexlopes.designacoes.util.ClasseEmail;
 import br.com.alexlopes.designacoes.util.Janela;
@@ -42,6 +43,7 @@ public class CadastrarUsuario extends javax.swing.JFrame {
         Object[] options = {"Sim", "Não"};
         int option = JOptionPane.showOptionDialog(this, "Deseja realmente sair?", "Confirmação", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
         if (option == JOptionPane.YES_OPTION) {
+            FabricaJPA.closeEntityManager();
             dispose();
         } else {
             setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

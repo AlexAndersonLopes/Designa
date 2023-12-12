@@ -195,7 +195,7 @@ public class Tela2 extends javax.swing.JFrame {
         proximaSemana = new javax.swing.JButton();
         botaoRecomecar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela de Designação");
 
         jDesktopPane1.setMinimumSize(new java.awt.Dimension(1352, 683));
@@ -222,6 +222,7 @@ public class Tela2 extends javax.swing.JFrame {
         });
 
         panelA.setBackground(new java.awt.Color(204, 204, 204));
+        panelA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         cOracaoFinal.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         cOracaoFinal.setForeground(new java.awt.Color(0, 0, 0));
@@ -284,7 +285,7 @@ public class Tela2 extends javax.swing.JFrame {
         temaNossaVida2.setBackground(new java.awt.Color(255, 255, 255));
         temaNossaVida2.setForeground(new java.awt.Color(0, 0, 0));
         temaNossaVida2.setText("Nossa Vida Cristã - parte 2");
-        temaNossaVida2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        temaNossaVida2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         temaNossaVida2.setPreferredSize(new java.awt.Dimension(73, 25));
 
         cNossaVida1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -300,7 +301,7 @@ public class Tela2 extends javax.swing.JFrame {
         temaNossaVida1.setBackground(new java.awt.Color(255, 255, 255));
         temaNossaVida1.setForeground(new java.awt.Color(0, 0, 0));
         temaNossaVida1.setText("Nossa Vida Cristã - parte 1");
-        temaNossaVida1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        temaNossaVida1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         temaNossaVida1.setPreferredSize(new java.awt.Dimension(73, 25));
 
         cLeituraBiblia.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -350,7 +351,7 @@ public class Tela2 extends javax.swing.JFrame {
         temaDiscurso.setBackground(new java.awt.Color(255, 255, 255));
         temaDiscurso.setForeground(new java.awt.Color(0, 0, 0));
         temaDiscurso.setText("Discurso");
-        temaDiscurso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        temaDiscurso.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         temaDiscurso.setMinimumSize(new java.awt.Dimension(13, 25));
         temaDiscurso.setPreferredSize(new java.awt.Dimension(73, 25));
 
@@ -1061,24 +1062,25 @@ public class Tela2 extends javax.swing.JFrame {
         temaVideo1.setBackground(new java.awt.Color(255, 255, 204));
         temaVideo1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         temaVideo1.setForeground(new java.awt.Color(0, 0, 0));
-        temaVideo1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        temaVideo1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         temaVideo1.setPreferredSize(new java.awt.Dimension(13, 25));
 
         temaVideo2.setBackground(new java.awt.Color(204, 255, 204));
         temaVideo2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         temaVideo2.setForeground(new java.awt.Color(0, 0, 0));
-        temaVideo2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        temaVideo2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         temaVideo2.setPreferredSize(new java.awt.Dimension(13, 25));
 
         temaVideo3.setBackground(new java.awt.Color(255, 255, 204));
         temaVideo3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         temaVideo3.setForeground(new java.awt.Color(0, 0, 0));
-        temaVideo3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        temaVideo3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         temaVideo3.setPreferredSize(new java.awt.Dimension(13, 25));
 
         temaVideo4.setBackground(new java.awt.Color(204, 255, 204));
         temaVideo4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         temaVideo4.setForeground(new java.awt.Color(0, 0, 0));
+        temaVideo4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         temaVideo4.setPreferredSize(new java.awt.Dimension(13, 25));
 
         nParte2.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
@@ -2307,13 +2309,14 @@ public class Tela2 extends javax.swing.JFrame {
                     listaIgnorarEstudantes.add(ajudante1B.getId());
                 }
             }
-            if (parte.equals("Discurso")) {
-                temaVideo1.setVisible(true);
+            if (parte.equals("Discurso")) {                
                 String tema = JOptionPane.showInputDialog("Informe o tema:");
                 temaVideo1.setText(tema);
+                temaVideo1.setVisible(true);
             }
 
         } else if (parte.equals("Faça seu melhor no ministério")) {
+            temaVideo1.setText("");
             temaVideo1.setVisible(false);
             txtParte1.setText("");
             txtParte1B.setText("");
@@ -2415,8 +2418,11 @@ public class Tela2 extends javax.swing.JFrame {
             if (parte.equals("Discurso")) {
                 String tema = JOptionPane.showInputDialog("Informe o tema:");
                 temaVideo2.setText(tema);
+                temaVideo2.setVisible(true);
             }
         } else if (parte.equals("Faça seu melhor no ministério")) {
+            temaVideo2.setText("");
+            temaVideo2.setVisible(false);
             txtParte2.setText("");
             txtParte2B.setText("");
             txtAjudante2.setText("");
@@ -2519,8 +2525,11 @@ public class Tela2 extends javax.swing.JFrame {
             if (parte.equals("Discurso")) {
                 String tema = JOptionPane.showInputDialog("Informe o tema:");
                 temaVideo3.setText(tema);
+                temaVideo3.setVisible(true);
             }
         } else if (parte.equals("Faça seu melhor no ministério")) {
+            temaVideo3.setText("");
+            temaVideo3.setVisible(false);
             txtParte3.setText("");
             txtParte3B.setText("");
             txtAjudante3.setText("");
@@ -2625,8 +2634,11 @@ public class Tela2 extends javax.swing.JFrame {
             if (parte.equals("Discurso")) {
                 String tema = JOptionPane.showInputDialog("Informe o tema:");
                 temaVideo4.setText(tema);
+                temaVideo4.setVisible(true);
             }
         } else if (parte.equals("Faça seu melhor no ministério")) {
+            temaVideo4.setText("");
+            temaVideo4.setVisible(false);
             txtParte4.setText("");
             txtParte4B.setText("");
             txtAjudante4.setText("");

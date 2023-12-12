@@ -27,7 +27,7 @@ public class TesourosDAO {
             }
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
     }
@@ -44,7 +44,7 @@ public class TesourosDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -60,7 +60,7 @@ public class TesourosDAO {
             return resultado > 0;
         } catch (Exception e) {
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return false;
     }
@@ -94,7 +94,7 @@ public class TesourosDAO {
             }
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
     }
@@ -114,7 +114,7 @@ public class TesourosDAO {
         } catch (Exception e) {
             return buscarTesouroSemDataMaisAntigaParaPessoas2();
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -137,7 +137,7 @@ public class TesourosDAO {
             // No exemplo anterior, você chamou buscarTesouroSemDataMaisAntigaParaPessoas2() em caso de exceção.
             // Certifique-se de implementar a lógica correta de tratamento de exceção.
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -158,7 +158,7 @@ public class TesourosDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -171,7 +171,7 @@ public class TesourosDAO {
             return query.getResultList();
         } catch (Exception e) {
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -189,7 +189,7 @@ public class TesourosDAO {
             }
             return null; // Retorna nulo se não encontrar um presidente com o ID da pessoa
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 

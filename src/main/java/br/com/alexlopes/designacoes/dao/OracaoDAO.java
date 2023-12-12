@@ -27,7 +27,7 @@ public class OracaoDAO {
             }
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
     }
@@ -44,7 +44,7 @@ public class OracaoDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -75,7 +75,7 @@ public class OracaoDAO {
             }
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
     }
@@ -93,7 +93,7 @@ public class OracaoDAO {
         } catch (Exception e) {
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
         return false;
@@ -113,7 +113,7 @@ public class OracaoDAO {
             }
             return null;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -134,7 +134,7 @@ public class OracaoDAO {
             // Se ocorrer uma exceção, você pode implementar um tratamento específico aqui
             // Certifique-se de implementar a lógica correta de tratamento de exceção.
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -152,7 +152,7 @@ public class OracaoDAO {
             em.getTransaction().commit();
         } catch (Exception e) {
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -166,7 +166,7 @@ public class OracaoDAO {
             return query.getResultList();
         } catch (Exception e) {
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -184,7 +184,7 @@ public class OracaoDAO {
             }
             return null; // Retorna nulo se não encontrar um presidente com o ID da pessoa
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 

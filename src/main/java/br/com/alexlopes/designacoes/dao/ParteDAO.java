@@ -25,7 +25,7 @@ public class ParteDAO {
             }
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
     }
@@ -40,7 +40,7 @@ public class ParteDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -51,7 +51,7 @@ public class ParteDAO {
             query.setParameter("idPessoa", idPessoa);
             return query.getResultList();
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -70,7 +70,7 @@ public class ParteDAO {
             em.getTransaction().commit();
         } catch (Exception e) {
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 /*

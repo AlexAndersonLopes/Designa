@@ -26,7 +26,7 @@ public class PresidenteDAO {
             }
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
     }
@@ -43,7 +43,7 @@ public class PresidenteDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -76,7 +76,7 @@ public class PresidenteDAO {
             }
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
     }
@@ -97,7 +97,7 @@ public class PresidenteDAO {
         } catch (Exception e) {
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
         return null;
@@ -129,7 +129,7 @@ public class PresidenteDAO {
         } catch (Exception e) {
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
         return null;
@@ -162,7 +162,7 @@ public class PresidenteDAO {
         } catch (Exception e) {
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
         return null;
@@ -189,7 +189,7 @@ public class PresidenteDAO {
         } catch (Exception e) {
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
         return null;
@@ -213,7 +213,7 @@ public class PresidenteDAO {
         } catch (Exception e) {
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
         return null;
@@ -238,7 +238,7 @@ public class PresidenteDAO {
         } catch (Exception e) {
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
         return null;
@@ -257,7 +257,7 @@ public class PresidenteDAO {
         } catch (Exception e) {
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
         return false;
@@ -274,7 +274,7 @@ public class PresidenteDAO {
             presidente.setData(novaData);
             transaction.commit();
         }
-        FabricaJPA.closeEtityManager();
+        em.close();
     }
 
     public Presidente buscarPorIdPessoa(int idPessoa) {
@@ -289,7 +289,7 @@ public class PresidenteDAO {
             }
             return null; // Retorna nulo se não encontrar um presidente com o ID da pessoa
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 

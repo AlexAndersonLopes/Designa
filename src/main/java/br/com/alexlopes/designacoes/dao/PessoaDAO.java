@@ -27,7 +27,7 @@ public class PessoaDAO {
             }
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
     }
@@ -42,7 +42,7 @@ public class PessoaDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -52,7 +52,7 @@ public class PessoaDAO {
             TypedQuery<Pessoa> query = em.createQuery("SELECT p FROM Pessoa p ORDER BY p.nome", Pessoa.class);
             return query.getResultList();
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -63,7 +63,7 @@ public class PessoaDAO {
             query.setParameter("nome", "%" + nome.toLowerCase() + "%");
             return query.getResultList();
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -72,7 +72,7 @@ public class PessoaDAO {
         try {
             return em.find(Pessoa.class, id);
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -89,7 +89,7 @@ public class PessoaDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -103,7 +103,7 @@ public class PessoaDAO {
             return query.getSingleResult();
         } catch (Exception e) {
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -122,7 +122,7 @@ public class PessoaDAO {
             }
         } catch (Exception e) {
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -152,7 +152,7 @@ public class PessoaDAO {
 
             return buscarPessoa2(descricaoParte, sexo, idsPessoasIgnorar);
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -179,7 +179,7 @@ public class PessoaDAO {
             }
             return buscarPessoa3(descricaoParte, sexo, idsPessoasIgnorar);
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -205,7 +205,7 @@ public class PessoaDAO {
             }
             return buscarPessoaComCondicoesSemData(descricaoParte, sexo, idsPessoasIgnorar);
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -234,7 +234,7 @@ public class PessoaDAO {
 
             return buscarPessoaComCondicoesAjudante2(descricaoParte, sexo, idsPessoasIgnorar, dataIgnorar);
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -263,7 +263,7 @@ public class PessoaDAO {
             }
             return buscarPessoaComCondicoesAjudante3(descricaoParte, sexo, idsPessoasIgnorar, dataIgnorar);
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -289,7 +289,7 @@ public class PessoaDAO {
             }
             return buscarPessoaComCondicoesSemData(descricaoParte, sexo, idsPessoasIgnorar);
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -313,7 +313,7 @@ public class PessoaDAO {
                 return pessoas.get(index);
             }
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -345,7 +345,7 @@ public class PessoaDAO {
 
             return buscarPessoaComCondicoesSalaBB(descricaoParte, sexo, idsPessoasIgnorar, salaIgnorar);
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -374,7 +374,7 @@ public class PessoaDAO {
             }
             return buscarPessoaComCondicoesSalaBBB(descricaoParte, sexo, idsPessoasIgnorar, salaIgnorar);
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -402,7 +402,7 @@ public class PessoaDAO {
             }
             return buscarPessoaComCondicoesSemData(descricaoParte, sexo, idsPessoasIgnorar);
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -427,7 +427,7 @@ public class PessoaDAO {
                 return pessoas.get(index);
             }
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -458,7 +458,7 @@ public class PessoaDAO {
 
             return buscarPessoaComCondicoes22(descricaoParte, sexo, idsPessoasIgnorar, dataIgnorar, salaIgnorada);
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -495,7 +495,7 @@ public class PessoaDAO {
             }
             return buscarPessoaComCondicoes222(descricaoParte, sexo, idsPessoasIgnorar, dataIgnorar, salaIgnorada);
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -523,7 +523,7 @@ public class PessoaDAO {
             }
             return buscarPessoaComCondicoes2222(descricaoParte, sexo, idsPessoasIgnorar, dataIgnorar, salaIgnorada);
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -548,7 +548,7 @@ public class PessoaDAO {
             }
             return null;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -571,7 +571,7 @@ public class PessoaDAO {
                 return pessoas.get(index);
             }
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -598,7 +598,7 @@ public class PessoaDAO {
             }
             return null;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -621,7 +621,7 @@ public class PessoaDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -632,7 +632,7 @@ public class PessoaDAO {
             TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
             return query.getResultList();
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -653,7 +653,7 @@ public class PessoaDAO {
             return query.getResultList();
         } catch (Exception e) {
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -675,7 +675,7 @@ public class PessoaDAO {
             return query.getResultList();
         } catch (Exception e) {
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -690,7 +690,7 @@ public class PessoaDAO {
             return query.getResultList();
         } catch (Exception e) {
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -717,7 +717,7 @@ public class PessoaDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -733,7 +733,7 @@ public class PessoaDAO {
         } catch (NoResultException e) {
             return null; // Retorna null se nenhuma pessoa for encontrada
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -753,7 +753,7 @@ public class PessoaDAO {
             return query.getResultList();
         } catch (Exception e) {
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
         return null;
     }
@@ -777,7 +777,7 @@ public class PessoaDAO {
             }
             throw e;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -806,7 +806,7 @@ public class PessoaDAO {
 
             return buscarPartes2(descricaoParte, sexo, idsPessoasIgnorar);
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -832,7 +832,7 @@ public class PessoaDAO {
             }
             return buscarPessoaComCondicoesSemData(descricaoParte, sexo, idsPessoasIgnorar);
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 }

@@ -25,7 +25,7 @@ public class SemanaDAO {
             }
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
     }
@@ -56,7 +56,7 @@ public class SemanaDAO {
             }
             throw e;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -70,7 +70,7 @@ public class SemanaDAO {
             Long count = query.getSingleResult();
             return count > 0;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -82,7 +82,7 @@ public class SemanaDAO {
             TypedQuery<Semana> query = em.createQuery(jpql, Semana.class);
             return query.getResultList();
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 

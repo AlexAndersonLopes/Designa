@@ -65,7 +65,6 @@ br\com\alexlopes\designacoes\views\Tela2$72.class
 br\com\alexlopes\designacoes\util\whats\Aguarde.class
 br\com\alexlopes\designacoes\views\Substituicao$25.class
 br\com\alexlopes\designacoes\views\TrocarSubstituicao.class
-br\com\alexlopes\designacoes\model\NossaVida.class
 br\com\alexlopes\designacoes\views\Substituicao$5.class
 br\com\alexlopes\designacoes\views\Tela2$20.class
 br\com\alexlopes\designacoes\views\Tela2$41.class
@@ -198,7 +197,6 @@ br\com\alexlopes\designacoes\util\Janela.class
 br\com\alexlopes\designacoes\views\Tela2$15.class
 br\com\alexlopes\designacoes\views\Tela2$55.class
 br\com\alexlopes\designacoes\views\Substituicao$30.class
-br\com\alexlopes\designacoes\model\Joias.class
 br\com\alexlopes\designacoes\views\CadastroParticipantes$4.class
 br\com\alexlopes\designacoes\login\CadastrarUsuario$12.class
 br\com\alexlopes\designacoes\views\MenuPrincipal$17.class

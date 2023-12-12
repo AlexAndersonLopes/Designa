@@ -24,7 +24,7 @@ public class TodasPartesDAO {
             }
         } finally {
             if (em.isOpen()) {
-                FabricaJPA.closeEtityManager();
+                em.close();
             }
         }
     }
@@ -41,7 +41,7 @@ public class TodasPartesDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -51,7 +51,7 @@ public class TodasPartesDAO {
             TodasPartes todasPartes = em.find(TodasPartes.class, id);
             return todasPartes;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -67,7 +67,7 @@ public class TodasPartesDAO {
             em.getTransaction().rollback();
             throw e;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -82,7 +82,7 @@ public class TodasPartesDAO {
             List<TodasPartes> resultList = query.getResultList();
             return resultList;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
@@ -99,7 +99,7 @@ public class TodasPartesDAO {
             TodasPartes resultado = query.getSingleResult();
             return resultado;
         } finally {
-            FabricaJPA.closeEtityManager();
+            em.close();
         }
     }
 
