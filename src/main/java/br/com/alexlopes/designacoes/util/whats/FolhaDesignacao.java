@@ -58,7 +58,7 @@ public class FolhaDesignacao extends javax.swing.JFrame {
             if(sub == 1){
                 si.salvar(imag, a01.getNome() + a01.getSobrenome() + "_" + diadia + mess, "Substituição");
             }
-            
+                        
             zap.enviarMensagem(a01.getCelular().replaceAll("[^0-9]", ""), imag);
 
             this.dispose();
@@ -287,7 +287,7 @@ public class FolhaDesignacao extends javax.swing.JFrame {
             }
             txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
             txtParteNumero.setText("4");
-            txtParte.setText(dados.getNomeParte1());
+            txtParte.setText("<html>" + dados.getNomeParte1() + "</html>");            
             txtLocal.setText("SALA  A");
             BufferedImage imag = preencherDesignacao();
             si.salvar(imag, parte1A.getNome() + parte1A.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
@@ -303,7 +303,7 @@ public class FolhaDesignacao extends javax.swing.JFrame {
             }
             txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
             txtParteNumero.setText("5");
-            txtParte.setText(dados.getNomeParte2());
+            txtParte.setText("<html>" + dados.getNomeParte2() + "</html>");
             txtLocal.setText("SALA  A");
             BufferedImage imag = preencherDesignacao();
             si.salvar(imag, parte2A.getNome() + parte2A.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
@@ -319,7 +319,7 @@ public class FolhaDesignacao extends javax.swing.JFrame {
             }
             txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
             txtParteNumero.setText("6");
-            txtParte.setText(dados.getNomeparte3());
+            txtParte.setText("<html>" + dados.getNomeparte3() + "</html>");                                    
             txtLocal.setText("SALA  A");
             BufferedImage imag = preencherDesignacao();
             si.salvar(imag, parte3A.getNome() + parte3A.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
@@ -335,7 +335,7 @@ public class FolhaDesignacao extends javax.swing.JFrame {
             }
             txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
             txtParteNumero.setText("7");
-            txtParte.setText(dados.getNomeParte4());
+            txtParte.setText("<html>" + dados.getNomeParte4() + "</html>");
             txtLocal.setText("SALA  A");
             BufferedImage imag = preencherDesignacao();
             si.salvar(imag, parte4A.getNome() + parte4A.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
@@ -362,7 +362,7 @@ public class FolhaDesignacao extends javax.swing.JFrame {
             }
             txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
             txtParteNumero.setText("4");
-            txtParte.setText(dados.getNomeParte1());
+            txtParte.setText("<html>" + dados.getNomeParte1() + "<html>");
             txtLocal.setText("SALA  B");
             BufferedImage imag = preencherDesignacao();
             si.salvar(imag, parte1B.getNome() + parte1B.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
@@ -378,7 +378,7 @@ public class FolhaDesignacao extends javax.swing.JFrame {
             }
             txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
             txtParteNumero.setText("5");
-            txtParte.setText(dados.getNomeParte2());
+            txtParte.setText("<html>" + dados.getNomeParte2() + "<html>");
             txtLocal.setText("SALA  B");
             BufferedImage imag = preencherDesignacao();
             si.salvar(imag, parte2B.getNome() + parte2B.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
@@ -394,7 +394,7 @@ public class FolhaDesignacao extends javax.swing.JFrame {
             }
             txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
             txtParteNumero.setText("6");
-            txtParte.setText(dados.getNomeparte3());
+            txtParte.setText("<html>" + dados.getNomeparte3() + "<html>");
             txtLocal.setText("SALA  B");
             BufferedImage imag = preencherDesignacao();
             si.salvar(imag, parte3B.getNome() + parte3B.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
@@ -410,7 +410,7 @@ public class FolhaDesignacao extends javax.swing.JFrame {
             }
             txtData.setText("Semana  " + dados.getDia() + " de " + dados.getMes() + ", " + dados.getAno());
             txtParteNumero.setText("7");
-            txtParte.setText(dados.getNomeParte4());
+            txtParte.setText("<html>" + dados.getNomeParte4() + "<html>");
             txtLocal.setText("SALA  B");
             BufferedImage imag = preencherDesignacao();
             si.salvar(imag, parte4B.getNome() + parte4B.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());

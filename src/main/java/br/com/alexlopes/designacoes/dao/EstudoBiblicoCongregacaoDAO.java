@@ -103,8 +103,7 @@ public class EstudoBiblicoCongregacaoDAO {
 
     // Método para buscar um EstudoBiblicoCongregacao com data nula ou a mais antiga (se não houver data nula), ignorando uma lista de pessoas
     public EstudoBiblicoCongregacao buscarEstudoBiblicoCongregacaoSemDataMaisAntigaParaPessoas(List<Integer> idsPessoasIgnorar) {
-        EntityManager em = FabricaJPA.getEntityManager();
-        try {
+        try (EntityManager em = FabricaJPA.getEntityManager()) {
             String queryString = "SELECT e FROM EstudoBiblicoCongregacao e WHERE e.pessoa.id NOT IN (:idsPessoasIgnorar) ORDER BY e.data ASC NULLS FIRST";
             TypedQuery<EstudoBiblicoCongregacao> query = em.createQuery(queryString, EstudoBiblicoCongregacao.class)
                     .setParameter("idsPessoasIgnorar", idsPessoasIgnorar)
@@ -114,14 +113,11 @@ public class EstudoBiblicoCongregacaoDAO {
                 return estudos.get(0);
             }
             return null;
-        } finally {
-            em.close();
         }
     }
 
     public EstudoBiblicoCongregacao buscarEstudoBiblicoCongregacaoSemDataMaisAntigaParaPessoas2() {
-        EntityManager em = FabricaJPA.getEntityManager();
-        try {
+        try (EntityManager em = FabricaJPA.getEntityManager()) {
             String queryString = "SELECT e FROM EstudoBiblicoCongregacao e WHERE e.data IS NULL OR e.data = (SELECT MIN(eb.data) FROM EstudoBiblicoCongregacao eb WHERE eb.data IS NOT NULL)";
             TypedQuery<EstudoBiblicoCongregacao> query = em.createQuery(queryString, EstudoBiblicoCongregacao.class);
 
@@ -133,15 +129,12 @@ public class EstudoBiblicoCongregacaoDAO {
                 return estudos.get(indiceAleatorio);
             }
             return null;
-        } finally {
-            em.close();
         }
     }
 
     // Método para alterar a data de um registro em EstudoBiblicoCongregacao
     public void alterarDataEstudoBiblicoCongregacao(int estudoId, LocalDate novaData) {
-        EntityManager em = FabricaJPA.getEntityManager();
-        try {
+        try (EntityManager em = FabricaJPA.getEntityManager()) {
             em.getTransaction().begin();
             EstudoBiblicoCongregacao estudo = em.find(EstudoBiblicoCongregacao.class, estudoId);
             if (estudo != null) {
@@ -150,15 +143,12 @@ public class EstudoBiblicoCongregacaoDAO {
             }
             em.getTransaction().commit();
         } catch (Exception e) {
-        } finally {
-            em.close();
         }
     }
 
     //Buscar pessoa por id
     public EstudoBiblicoCongregacao buscarPorIdPessoa(int idPessoa) {
-        EntityManager em = FabricaJPA.getEntityManager();
-        try {
+        try (EntityManager em = FabricaJPA.getEntityManager()) {
             String jpql = "SELECT p FROM EstudoBiblicoCongregacao p WHERE p.pessoa.id = :idPessoa";
             TypedQuery<EstudoBiblicoCongregacao> query = em.createQuery(jpql, EstudoBiblicoCongregacao.class);
             query.setParameter("idPessoa", idPessoa);
@@ -167,8 +157,6 @@ public class EstudoBiblicoCongregacaoDAO {
                 return resultados.get(0);
             }
             return null; // Retorna nulo se não encontrar um presidente com o ID da pessoa
-        } finally {
-            em.close();
         }
     }
 

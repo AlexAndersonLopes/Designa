@@ -20,6 +20,7 @@ import br.com.alexlopes.designacoes.util.GerarPDF;
 import br.com.alexlopes.designacoes.util.Janela;
 import br.com.alexlopes.designacoes.util.Mensagem;
 import br.com.alexlopes.designacoes.util.whats.FolhaDesignacao;
+import br.com.alexlopes.designacoes.util.whats.WhatsApp;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -31,6 +32,7 @@ import java.util.Calendar;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 public class Tela2 extends javax.swing.JFrame {
 
@@ -194,6 +196,7 @@ public class Tela2 extends javax.swing.JFrame {
         botaoSalvar = new javax.swing.JButton();
         proximaSemana = new javax.swing.JButton();
         botaoRecomecar = new javax.swing.JButton();
+        botaoConectar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela de Designação");
@@ -375,7 +378,7 @@ public class Tela2 extends javax.swing.JFrame {
         comboParte4.setBackground(new java.awt.Color(51, 255, 102));
         comboParte4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         comboParte4.setForeground(new java.awt.Color(0, 0, 0));
-        comboParte4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Faça seu melhor no ministério", "Iniciando conversas", "Cultivando o interesse", "Explicando suas crenças", "Discurso", "Consideração da Brocura" }));
+        comboParte4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Faça seu melhor no ministério", "Iniciando conversas", "Cultivando o interesse", "Explicando suas crenças", "Fazendo discipulos", "Discurso", "Consideração da Brocura" }));
         comboParte4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         comboParte4.setPreferredSize(new java.awt.Dimension(73, 25));
         comboParte4.addActionListener(new java.awt.event.ActionListener() {
@@ -387,7 +390,7 @@ public class Tela2 extends javax.swing.JFrame {
         comboParte3.setBackground(new java.awt.Color(255, 255, 0));
         comboParte3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         comboParte3.setForeground(new java.awt.Color(0, 0, 0));
-        comboParte3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Faça seu melhor no ministério", "Iniciando conversas", "Cultivando o interesse", "Explicando suas crenças", "Discurso", "Consideração da Brocura" }));
+        comboParte3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Faça seu melhor no ministério", "Iniciando conversas", "Cultivando o interesse", "Explicando suas crenças", "Fazendo discipulos", "Discurso", "Consideração da Brocura" }));
         comboParte3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         comboParte3.setPreferredSize(new java.awt.Dimension(73, 25));
         comboParte3.addActionListener(new java.awt.event.ActionListener() {
@@ -399,7 +402,7 @@ public class Tela2 extends javax.swing.JFrame {
         comboParte2.setBackground(new java.awt.Color(51, 255, 102));
         comboParte2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         comboParte2.setForeground(new java.awt.Color(0, 0, 0));
-        comboParte2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Faça seu melhor no ministério", "Iniciando conversas", "Cultivando o interesse", "Explicando suas crenças", "Discurso", "Consideração da Brocura" }));
+        comboParte2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Faça seu melhor no ministério", "Iniciando conversas", "Cultivando o interesse", "Explicando suas crenças", "Fazendo discipulos", "Discurso", "Consideração da Brocura" }));
         comboParte2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         comboParte2.setPreferredSize(new java.awt.Dimension(73, 25));
         comboParte2.addActionListener(new java.awt.event.ActionListener() {
@@ -411,7 +414,7 @@ public class Tela2 extends javax.swing.JFrame {
         comboParte1.setBackground(new java.awt.Color(255, 255, 0));
         comboParte1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         comboParte1.setForeground(new java.awt.Color(0, 0, 0));
-        comboParte1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Faça seu melhor no ministério", "Iniciando conversas", "Cultivando o interesse", "Explicando suas crenças", "Discurso", "Consideração da Brocura" }));
+        comboParte1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Faça seu melhor no ministério", "Iniciando conversas", "Cultivando o interesse", "Explicando suas crenças", "Fazendo discipulos", "Discurso", "Consideração da Brocura" }));
         comboParte1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         comboParte1.setPreferredSize(new java.awt.Dimension(73, 25));
         comboParte1.addActionListener(new java.awt.event.ActionListener() {
@@ -864,6 +867,7 @@ public class Tela2 extends javax.swing.JFrame {
         enviarPresidenteB.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         enviarPresidenteB.setForeground(new java.awt.Color(0, 0, 0));
         enviarPresidenteB.setText("Enviar");
+        enviarPresidenteB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         enviarPresidenteB.setMaximumSize(new java.awt.Dimension(76, 25));
         enviarPresidenteB.setMinimumSize(new java.awt.Dimension(76, 25));
         enviarPresidenteB.setPreferredSize(new java.awt.Dimension(73, 25));
@@ -1491,6 +1495,7 @@ public class Tela2 extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/71124_arrow_back_left_red_icon.png"))); // NOI18N
         jButton1.setText("Voltar");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -1574,44 +1579,69 @@ public class Tela2 extends javax.swing.JFrame {
 
         painelBotoes.setOpaque(false);
 
+        adicionar.setBackground(new java.awt.Color(255, 255, 204));
         adicionar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        adicionar.setForeground(new java.awt.Color(0, 0, 0));
         adicionar.setText("Adicionar Participante");
+        adicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         adicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adicionarActionPerformed(evt);
             }
         });
 
+        alterar.setBackground(new java.awt.Color(255, 255, 204));
         alterar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        alterar.setForeground(new java.awt.Color(0, 0, 0));
         alterar.setText("Alterar Participante");
+        alterar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         alterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 alterarActionPerformed(evt);
             }
         });
 
+        botaoSalvar.setBackground(new java.awt.Color(204, 0, 0));
         botaoSalvar.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         botaoSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/85542_guardar_save_icon.png"))); // NOI18N
         botaoSalvar.setText("Salvar");
+        botaoSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoSalvarActionPerformed(evt);
             }
         });
 
+        proximaSemana.setBackground(new java.awt.Color(255, 255, 204));
         proximaSemana.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        proximaSemana.setForeground(new java.awt.Color(0, 0, 0));
         proximaSemana.setText("Proxima semana");
+        proximaSemana.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         proximaSemana.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 proximaSemanaActionPerformed(evt);
             }
         });
 
+        botaoRecomecar.setBackground(new java.awt.Color(255, 255, 204));
         botaoRecomecar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        botaoRecomecar.setForeground(new java.awt.Color(0, 0, 0));
         botaoRecomecar.setText("Recomeçar essa Semana");
+        botaoRecomecar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botaoRecomecar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoRecomecarActionPerformed(evt);
+            }
+        });
+
+        botaoConectar.setBackground(new java.awt.Color(51, 204, 0));
+        botaoConectar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        botaoConectar.setForeground(new java.awt.Color(0, 0, 0));
+        botaoConectar.setText("Conectar WhatsApp");
+        botaoConectar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botaoConectar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConectarActionPerformed(evt);
             }
         });
 
@@ -1619,14 +1649,18 @@ public class Tela2 extends javax.swing.JFrame {
         painelBotoes.setLayout(painelBotoesLayout);
         painelBotoesLayout.setHorizontalGroup(
             painelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelBotoesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(painelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(adicionar, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                    .addComponent(alterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botaoRecomecar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                    .addComponent(proximaSemana, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botaoSalvar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(painelBotoesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelBotoesLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(painelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(adicionar, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(alterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botaoRecomecar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(proximaSemana, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botaoSalvar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(botaoConectar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         painelBotoesLayout.setVerticalGroup(
@@ -1634,13 +1668,15 @@ public class Tela2 extends javax.swing.JFrame {
             .addGroup(painelBotoesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(adicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(alterar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoConectar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoRecomecar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(proximaSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(proximaSemana, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1718,6 +1754,26 @@ public class Tela2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void salvarFalso() {
+        Thread thread = new Thread(() -> {
+            SwingUtilities.invokeLater(() -> {
+                botaoSalvar.setBackground(new Color(204, 0, 0));
+            });
+            salvo = false;
+        });
+        thread.start();
+    }
+
+    private void salvarVerdadeiro() {
+        Thread thread = new Thread(() -> {
+            SwingUtilities.invokeLater(() -> {
+                botaoSalvar.setBackground(new Color(37, 211, 102));
+            });
+            salvo = true;
+        });
+        thread.start();
+    }
 
     private void botaoDefinirDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDefinirDataActionPerformed
         linha = 0;
@@ -1806,7 +1862,6 @@ public class Tela2 extends javax.swing.JFrame {
         int a = selecionarMes();
         String b = selecionarAno();
         LocalDate data = LocalDate.of(Integer.parseInt(b), a, 1);
-
         while (data.getMonthValue() == a) {
             if (data.getDayOfWeek() == DayOfWeek.MONDAY) {
                 segundasFeiras.add(data);
@@ -1823,7 +1878,6 @@ public class Tela2 extends javax.swing.JFrame {
                 int diaDoMes = semanaAtual.getDayOfMonth();
                 String diaDoMesFormatado = String.format("%02d", diaDoMes);
                 dia = diaDoMesFormatado.substring(0, 2);
-                System.out.println("Dois primeiros dígitos do dia: " + dia);
                 break;  // Sai do loop ao encontrar uma semana não cadastrada
             }
             linha++;
@@ -1834,26 +1888,29 @@ public class Tela2 extends javax.swing.JFrame {
     }
 
     private void setTema() {
-        temaNossaVida1.setText("Nossa Vida Cristã - parte 1");
-        temaNossaVida2.setText("Nossa Vida Cristã - parte 2");
-        temaDiscurso.setText("Discurso");
-        temaVideo1.setText("");
-        temaVideo1.setVisible(false);
-        temaVideo2.setText("");
-        temaVideo2.setVisible(false);
-        temaVideo3.setText("");
-        temaVideo3.setVisible(false);
-        temaVideo4.setText("");
-        temaVideo4.setVisible(false);
+        Thread thread = new Thread(() -> {
+            SwingUtilities.invokeLater(() -> {
+                temaNossaVida1.setText("Nossa Vida Cristã - parte 1");
+                temaNossaVida2.setText("Nossa Vida Cristã - parte 2");
+                temaDiscurso.setText("Discurso");
+                temaVideo1.setText("");
+                temaVideo1.setVisible(false);
+                temaVideo2.setText("");
+                temaVideo2.setVisible(false);
+                temaVideo3.setText("");
+                temaVideo3.setVisible(false);
+                temaVideo4.setText("");
+                temaVideo4.setVisible(false);
+            });
+        });
+        thread.start();
     }
 
     private void limparTelaListas() {
         // Limpar as listas ignorar 
         listaIgnorarEstudantes.clear();
-
         // Recondicionar as Listas
         listaIgnorarEstudantes.add(-1);
-
         //Limpar Tela
         desmarcarCheck();
         limparCampoTextos();
@@ -1882,7 +1939,6 @@ public class Tela2 extends javax.swing.JFrame {
         txtTesouros.setEnabled(true);
         txtJoias.setText(null);
         txtJoias.setEnabled(true);
-
         txtLeituraBiblia.setText(null);
         txtParte1.setText(null);
         txtAjudante1.setText(null);
@@ -1892,7 +1948,6 @@ public class Tela2 extends javax.swing.JFrame {
         txtAjudante3.setText(null);
         txtParte4.setText(null);
         txtAjudante4.setText(null);
-
         txtCrista1.setText(null);
         txtNossaVida2.setText(null);
         txtEstudoCongregacao.setText(null);
@@ -2014,7 +2069,7 @@ public class Tela2 extends javax.swing.JFrame {
                 txtPresidenteB.setText(null);
             }
         }
-        salvo = false;
+        salvarFalso();
     }//GEN-LAST:event_cPresidenteMouseClicked
 
     private void cOracaoInicialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cOracaoInicialMouseClicked
@@ -2035,7 +2090,7 @@ public class Tela2 extends javax.swing.JFrame {
             listaIgnorarEstudantes.remove(Integer.valueOf(oracaoA.getId()));
             txtOracaoInicial.setText(null);
         }
-        salvo = false;
+        salvarFalso();
     }//GEN-LAST:event_cOracaoInicialMouseClicked
 
     private void cTesourosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cTesourosMouseClicked
@@ -2057,8 +2112,13 @@ public class Tela2 extends javax.swing.JFrame {
             txtTesouros.setText(null);
         }
         String tema = JOptionPane.showInputDialog("Informe o tema do Discurso:");
-        temaDiscurso.setText(tema);
-        salvo = false;
+        if (tema.isEmpty()) {
+            temaDiscurso.setText("Discurso");
+            salvarFalso();
+        } else {
+            temaDiscurso.setText(tema);
+            salvarFalso();
+        }
     }//GEN-LAST:event_cTesourosMouseClicked
 
     private void cJoiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cJoiasMouseClicked
@@ -2080,7 +2140,7 @@ public class Tela2 extends javax.swing.JFrame {
             listaIgnorarEstudantes.remove(Integer.valueOf(joias.getId()));
             txtJoias.setText(null);
         }
-        salvo = false;
+        salvarFalso();
     }//GEN-LAST:event_cJoiasMouseClicked
 
     private void cLeituraBibliaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cLeituraBibliaMouseClicked
@@ -2118,7 +2178,7 @@ public class Tela2 extends javax.swing.JFrame {
                 txtLeituraBibliaB.setText(null);
             }
         }
-        salvo = false;
+        salvarFalso();
     }//GEN-LAST:event_cLeituraBibliaMouseClicked
 
     private void cNossaVida1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cNossaVida1MouseClicked
@@ -2141,8 +2201,13 @@ public class Tela2 extends javax.swing.JFrame {
         }
         parteNumero();
         String tema = JOptionPane.showInputDialog("Informe o tema da parte número: " + nNossa1.getText());
-        temaNossaVida1.setText(tema);
-        salvo = false;
+        if (tema.isEmpty()) {
+            temaNossaVida1.setText("Nossa Vida Cristã - parte 1");
+            salvarFalso();
+        } else {
+            temaNossaVida1.setText(tema);
+            salvarFalso();
+        }
     }//GEN-LAST:event_cNossaVida1MouseClicked
 
     private void cNossaVida2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cNossaVida2MouseClicked
@@ -2165,8 +2230,13 @@ public class Tela2 extends javax.swing.JFrame {
         }
         parteNumero();
         String tema = JOptionPane.showInputDialog("Informe o tema da parte número: " + nNossa2.getText());
-        temaNossaVida2.setText(tema);
-        salvo = false;
+        if (tema.isEmpty()) {
+            temaNossaVida2.setText("Nossa Vida Cristã - parte 2");
+            salvarFalso();
+        } else {
+            temaNossaVida2.setText(tema);
+            salvarFalso();
+        }
     }//GEN-LAST:event_cNossaVida2MouseClicked
 
     private void cEstudoCongregacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cEstudoCongregacaoMouseClicked
@@ -2188,7 +2258,7 @@ public class Tela2 extends javax.swing.JFrame {
             txtEstudoCongregacao.setText(null);
         }
         parteNumero();
-        salvo = false;
+        salvarFalso();
     }//GEN-LAST:event_cEstudoCongregacaoMouseClicked
 
     private void cLeitorEstudoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cLeitorEstudoMouseClicked
@@ -2209,7 +2279,7 @@ public class Tela2 extends javax.swing.JFrame {
             listaIgnorarEstudantes.remove(Integer.valueOf(leitor.getId()));
             txtLeitor.setText(null);
         }
-        salvo = false;
+        salvarFalso();
     }//GEN-LAST:event_cLeitorEstudoMouseClicked
 
     private void cOracaoFinalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cOracaoFinalMouseClicked
@@ -2230,14 +2300,13 @@ public class Tela2 extends javax.swing.JFrame {
             listaIgnorarEstudantes.remove(Integer.valueOf(oracaoB.getId()));
             txtOracaoFinal.setText(null);
         }
-        salvo = false;
+        salvarFalso();
     }//GEN-LAST:event_cOracaoFinalMouseClicked
 
     private void comboParte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboParte1ActionPerformed
-        salvo = false;
+        salvarFalso();
         String parte = (String) comboParte1.getSelectedItem();
         if (parte.equals("Consideração da Brocura")) {
-            temaVideo1.setVisible(true);
             parte1A = pDAO.buscarPessoaComCondicoes("Video", null, listaIgnorarEstudantes);
             if (parte1A == null) {
                 parte1A = pDAO.buscarPessoaComCondicoesSalaB2(parte, null);
@@ -2252,6 +2321,7 @@ public class Tela2 extends javax.swing.JFrame {
             }
             String tema = JOptionPane.showInputDialog("Informe o tema:");
             temaVideo1.setText(tema);
+            temaVideo1.setVisible(true);
         } else if (!parte.equals("Consideração da Brocura") && !parte.equals("Faça seu melhor no ministério")) {
             temaVideo1.setVisible(false);
             if (cSalaA.isSelected() && txtParte1.getText().equals("")) {
@@ -2309,7 +2379,7 @@ public class Tela2 extends javax.swing.JFrame {
                     listaIgnorarEstudantes.add(ajudante1B.getId());
                 }
             }
-            if (parte.equals("Discurso")) {                
+            if (parte.equals("Discurso")) {
                 String tema = JOptionPane.showInputDialog("Informe o tema:");
                 temaVideo1.setText(tema);
                 temaVideo1.setVisible(true);
@@ -2342,7 +2412,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_comboParte1ActionPerformed
 
     private void comboParte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboParte2ActionPerformed
-        salvo = false;
+        salvarFalso();
         String parte = (String) comboParte2.getSelectedItem();
         if (parte.equals("Consideração da Brocura")) {
             temaVideo2.setVisible(true);
@@ -2447,7 +2517,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_comboParte2ActionPerformed
 
     private void comboParte3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboParte3ActionPerformed
-        salvo = false;
+        salvarFalso();
         String parte = (String) comboParte3.getSelectedItem();
         if (parte.equals("Consideração da Brocura")) {
             temaVideo3.setVisible(true);
@@ -2555,7 +2625,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_comboParte3ActionPerformed
 
     private void comboParte4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboParte4ActionPerformed
-        salvo = false;
+        salvarFalso();
         String parte = (String) comboParte4.getSelectedItem();
         if (parte.equals("Consideração da Brocura")) {
             temaVideo4.setVisible(true);
@@ -2665,7 +2735,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_comboParte4ActionPerformed
 
     private void txtPresidenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPresidenteMouseClicked
-        salvo = false;
+        salvarFalso();
         if (!txtPresidente.getText().isEmpty()) {
             Janela.irTrocar(2, presidenteA.getPessoa().getSexo(), presidenteA.getPessoa(), listaIgnorarEstudantes, null);
         } else {
@@ -2674,7 +2744,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPresidenteMouseClicked
 
     private void txtOracaoInicialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtOracaoInicialMouseClicked
-        salvo = false;
+        salvarFalso();
         if (!txtOracaoInicial.getText().isEmpty()) {
             Janela.irTrocar(4, oracaoA.getPessoa().getSexo(), oracaoA.getPessoa(), listaIgnorarEstudantes, null);
         } else {
@@ -2683,7 +2753,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtOracaoInicialMouseClicked
 
     private void txtTesourosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTesourosMouseClicked
-        salvo = false;
+        salvarFalso();
         if (!txtTesouros.getText().isEmpty()) {
             Janela.irTrocar(3, tesouros.getPessoa().getSexo(), tesouros.getPessoa(), listaIgnorarEstudantes, null);
         } else {
@@ -2692,7 +2762,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTesourosMouseClicked
 
     private void txtLeituraBibliaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLeituraBibliaMouseClicked
-        salvo = false;
+        salvarFalso();
         if (!txtLeituraBiblia.getText().isEmpty()) {
             Janela.irTrocar(1, leituraBibliaA.getSexo(), leituraBibliaA, listaIgnorarEstudantes, null);
         } else {
@@ -2701,7 +2771,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLeituraBibliaMouseClicked
 
     private void txtCrista1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCrista1MouseClicked
-        salvo = false;
+        salvarFalso();
         if (!txtCrista1.getText().isEmpty()) {
             Janela.irTrocar(5, nossaVida1.getSexo(), nossaVida1, listaIgnorarEstudantes, null);
         } else {
@@ -2710,7 +2780,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCrista1MouseClicked
 
     private void txtLeitorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLeitorMouseClicked
-        salvo = false;
+        salvarFalso();
         if (!txtLeitor.getText().isEmpty()) {
             Janela.irTrocar(6, leitor.getPessoa().getSexo(), leitor.getPessoa(), listaIgnorarEstudantes, null);
         } else {
@@ -2719,7 +2789,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLeitorMouseClicked
 
     private void txtJoiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtJoiasMouseClicked
-        salvo = false;
+        salvarFalso();
         if (!txtJoias.getText().isEmpty()) {
             Janela.irTrocar(7, joias.getSexo(), joias, listaIgnorarEstudantes, null);
         } else {
@@ -2728,7 +2798,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtJoiasMouseClicked
 
     private void txtOracaoFinalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtOracaoFinalMouseClicked
-        salvo = false;
+        salvarFalso();
         if (!txtOracaoFinal.getText().isEmpty()) {
             Janela.irTrocar(19, oracaoB.getPessoa().getSexo(), oracaoB.getPessoa(), listaIgnorarEstudantes, null);
         } else {
@@ -2737,7 +2807,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtOracaoFinalMouseClicked
 
     private void txtNossaVida2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNossaVida2MouseClicked
-        salvo = false;
+        salvarFalso();
         if (!txtNossaVida2.getText().isEmpty()) {
             Janela.irTrocar(20, nossaVida2.getSexo(), nossaVida2, listaIgnorarEstudantes, null);
         } else {
@@ -2746,7 +2816,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNossaVida2MouseClicked
 
     private void txtEstudoCongregacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEstudoCongregacaoMouseClicked
-        salvo = false;
+        salvarFalso();
         if (!txtEstudoCongregacao.getText().isEmpty()) {
             Janela.irTrocar(21, estudoCong.getPessoa().getSexo(), estudoCong.getPessoa(), listaIgnorarEstudantes, null);
         } else {
@@ -2755,7 +2825,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEstudoCongregacaoMouseClicked
 
     private void txtPresidenteBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPresidenteBMouseClicked
-        salvo = false;
+        salvarFalso();
         if (cSalaA.isSelected()) {
             Mensagem.mensagemAlerta("A sala B não foi selecionada");
         } else if (!txtPresidenteB.getText().isEmpty()) {
@@ -2766,7 +2836,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPresidenteBMouseClicked
 
     private void txtLeituraBibliaBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLeituraBibliaBMouseClicked
-        salvo = false;
+        salvarFalso();
         if (cSalaA.isSelected()) {
             Mensagem.mensagemAlerta("A sala B não foi selecionada");
         } else if (!txtLeituraBibliaB.getText().isEmpty() && !txtLeituraBibliaB.getText().equals("")) {
@@ -2777,7 +2847,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLeituraBibliaBMouseClicked
 
     private void txtParte1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParte1MouseClicked
-               salvo = false;
+        salvarFalso();
         String parte = (String) comboParte1.getSelectedItem();
         if (!txtParte1.getText().isEmpty() && !txtParte1.getText().equals("")) {
             Janela.irTrocar(8, parte1A.getSexo(), parte1A, listaIgnorarEstudantes, parte);
@@ -2787,7 +2857,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtParte1MouseClicked
 
     private void txtAjudante1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAjudante1MouseClicked
-        salvo = false;
+        salvarFalso();
         if (!txtParte1.getText().isEmpty()) {
             if (!txtAjudante1.getText().isEmpty()) {
                 Janela.irTrocar(9, ajudante1A.getSexo(), ajudante1A, listaIgnorarEstudantes, null);
@@ -2800,7 +2870,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAjudante1MouseClicked
 
     private void txtParte1BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParte1BMouseClicked
-        salvo = false;
+        salvarFalso();
         if (cSalaA.isSelected()) {
             Mensagem.mensagemAlerta("A sala B não foi selecionada");
         } else if (!txtParte1B.getText().isEmpty() && !txtParte1B.getText().equals("")) {
@@ -2812,7 +2882,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtParte1BMouseClicked
 
     private void txtAjudante1BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAjudante1BMouseClicked
-        salvo = false;
+        salvarFalso();
         if (cSalaA.isSelected()) {
             Mensagem.mensagemAlerta("A sala B não foi selecionada");
         } else if (!txtParte1B.getText().isEmpty()) {
@@ -2827,7 +2897,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAjudante1BMouseClicked
 
     private void txtParte2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParte2MouseClicked
-        salvo = false;
+        salvarFalso();
         String parte = (String) comboParte2.getSelectedItem();
         if (!txtParte2.getText().isEmpty() && !txtParte2.getText().equals("")) {
             Janela.irTrocar(12, parte2A.getSexo(), parte2A, listaIgnorarEstudantes, parte);
@@ -2837,7 +2907,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtParte2MouseClicked
 
     private void txtAjudante2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAjudante2MouseClicked
-        salvo = false;
+        salvarFalso();
         if (!txtParte2.getText().isEmpty()) {
             if (!txtAjudante2.getText().isEmpty()) {
                 Janela.irTrocar(13, ajudante2A.getSexo(), ajudante2A, listaIgnorarEstudantes, null);
@@ -2850,7 +2920,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAjudante2MouseClicked
 
     private void txtParte2BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParte2BMouseClicked
-        salvo = false;
+        salvarFalso();
         if (cSalaA.isSelected()) {
             Mensagem.mensagemAlerta("A sala B não foi selecionada");
         } else if (!txtParte2B.getText().isEmpty() && !txtParte2B.getText().equals("")) {
@@ -2862,7 +2932,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtParte2BMouseClicked
 
     private void txtAjudante2BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAjudante2BMouseClicked
-        salvo = false;
+        salvarFalso();
         if (cSalaA.isSelected()) {
             Mensagem.mensagemAlerta("A sala B não foi selecionada");
         } else if (!txtParte2B.getText().isEmpty()) {
@@ -2877,7 +2947,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAjudante2BMouseClicked
 
     private void txtParte3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParte3MouseClicked
-        salvo = false;
+        salvarFalso();
         String parte = (String) comboParte3.getSelectedItem();
         if (!txtParte3.getText().isEmpty() && !txtParte3.getText().equals("")) {
             Janela.irTrocar(16, parte3A.getSexo(), parte3A, listaIgnorarEstudantes, parte);
@@ -2887,7 +2957,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtParte3MouseClicked
 
     private void txtAjudante3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAjudante3MouseClicked
-        salvo = false;
+        salvarFalso();
         if (!txtParte3.getText().isEmpty()) {
             if (!txtAjudante3.getText().isEmpty()) {
                 Janela.irTrocar(17, ajudante3A.getSexo(), ajudante3A, listaIgnorarEstudantes, null);
@@ -2900,7 +2970,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAjudante3MouseClicked
 
     private void txtParte3BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParte3BMouseClicked
-        salvo = false;
+        salvarFalso();
         if (cSalaA.isSelected()) {
             Mensagem.mensagemAlerta("A sala B não foi selecionada");
         } else if (!txtParte3B.getText().isEmpty() && !txtParte3B.getText().equals("")) {
@@ -2912,7 +2982,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtParte3BMouseClicked
 
     private void txtAjudante3BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAjudante3BMouseClicked
-        salvo = false;
+        salvarFalso();
         if (cSalaA.isSelected()) {
             Mensagem.mensagemAlerta("A sala B não foi selecionada");
         } else if (!txtParte3B.getText().isEmpty()) {
@@ -2927,7 +2997,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAjudante3BMouseClicked
 
     private void txtParte4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParte4MouseClicked
-        salvo = false;
+        salvarFalso();
         String parte = (String) comboParte4.getSelectedItem();
         if (!txtParte4.getText().isEmpty() && !txtParte4.getText().equals("")) {
             Janela.irTrocar(23, parte4A.getSexo(), parte4A, listaIgnorarEstudantes, parte);
@@ -2937,7 +3007,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtParte4MouseClicked
 
     private void txtAjudante4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAjudante4MouseClicked
-        salvo = false;
+        salvarFalso();
         if (!txtParte4.getText().isEmpty()) {
             if (!txtAjudante4.getText().isEmpty()) {
                 Janela.irTrocar(24, ajudante4A.getSexo(), ajudante4A, listaIgnorarEstudantes, null);
@@ -2950,7 +3020,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAjudante4MouseClicked
 
     private void txtParte4BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtParte4BMouseClicked
-        salvo = false;
+        salvarFalso();
         if (cSalaA.isSelected()) {
             Mensagem.mensagemAlerta("A sala B não foi selecionada");
         } else if (!txtParte4B.getText().isEmpty() && !txtParte4B.getText().equals("")) {
@@ -2962,7 +3032,7 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtParte4BMouseClicked
 
     private void txtAjudante4BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAjudante4BMouseClicked
-        salvo = false;
+        salvarFalso();
         if (cSalaA.isSelected()) {
             Mensagem.mensagemAlerta("A sala B não foi selecionada");
         } else if (!txtParte4B.getText().isEmpty()) {
@@ -2977,271 +3047,452 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAjudante4BMouseClicked
 
     private void enviarPresidenteAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarPresidenteAActionPerformed
-        try {
-            if (salvo) {
-                folha = new FolhaDesignacao(presidenteA.getPessoa(), null, labelDATA.getText(), "", "SALA A", "Presidente", 2);
-                enviarPresidenteA.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtPresidente.getText());
+                    });
+                    folha = new FolhaDesignacao(presidenteA.getPessoa(), null, labelDATA.getText(), "", "SALA A", "Presidente", 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarPresidenteA.setBackground(new Color(37, 211, 102));
+                        enviarPresidenteA.setText("Enviar");
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarPresidenteAActionPerformed
 
     private void enviarOracaoInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarOracaoInicialActionPerformed
-        try {
-            if (salvo) {
-                folha = new FolhaDesignacao(oracaoA.getPessoa(), null, labelDATA.getText(), "", "SALA A", "Oração Inicial", 2);
-                enviarOracaoInicial.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtOracaoInicial.getText());
+                    });
+                    folha = new FolhaDesignacao(oracaoA.getPessoa(), null, labelDATA.getText(), "", "SALA A", "Oração Inicial", 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarOracaoInicial.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarOracaoInicialActionPerformed
 
     private void enviarDiscursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarDiscursoActionPerformed
-        try {
-            if (salvo) {
-                folha = new FolhaDesignacao(tesouros.getPessoa(), null, labelDATA.getText(), temaDiscurso.getText(), "SALA A", "1", 2);
-                enviarDiscurso.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtTesouros.getText());
+                    });
+                    folha = new FolhaDesignacao(tesouros.getPessoa(), null, labelDATA.getText(), temaDiscurso.getText(), "SALA A", "1", 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarDiscurso.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarDiscursoActionPerformed
 
     private void enviarJoiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarJoiasActionPerformed
-        try {
-            if (salvo) {
-                folha = new FolhaDesignacao(joias, null, labelDATA.getText(), "Joias Espirítuais", "SALA A", "2", 2);
-                enviarJoias.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtJoias.getText());
+                    });
+                    folha = new FolhaDesignacao(joias, null, labelDATA.getText(), "Joias Espirítuais", "SALA A", "2", 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarJoias.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarJoiasActionPerformed
 
     private void enviarLeituraBibliaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarLeituraBibliaActionPerformed
-        try {
-            if (salvo) {
-                folha = new FolhaDesignacao(leituraBibliaA, null, labelDATA.getText(), "Leitura da Bíblia", "SALA A", "3", 2);
-                enviarLeituraBiblia.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtLeituraBiblia.getText());
+                    });
+                    folha = new FolhaDesignacao(leituraBibliaA, null, labelDATA.getText(), "Leitura da Bíblia", "SALA A", "3", 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarLeituraBiblia.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarLeituraBibliaActionPerformed
 
     private void enviarParte1AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarParte1AActionPerformed
-        try {
-            if (salvo) {
-                String tema = comboParte1.getSelectedItem() + ": " + temaVideo1.getText();
-                folha = new FolhaDesignacao(parte1A, ajudante1A, labelDATA.getText(), tema, "SALA A", "4", 2);
-                enviarParte1A.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtParte1.getText());
+                    });
+                    String tema = comboParte1.getSelectedItem() + ": " + temaVideo1.getText();
+                    folha = new FolhaDesignacao(parte1A, ajudante1A, labelDATA.getText(), tema, "SALA A", "4", 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarParte1A.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarParte1AActionPerformed
 
     private void enviarParte2AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarParte2AActionPerformed
-        try {
-            if (salvo) {
-                String tema = comboParte2.getSelectedItem() + ": " + temaVideo2.getText();
-                folha = new FolhaDesignacao(parte2A, ajudante2A, labelDATA.getText(), tema, "SALA A", "5", 2);
-                enviarParte2A.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtParte2.getText());
+                    });
+                    String tema = comboParte2.getSelectedItem() + ": " + temaVideo2.getText();
+                    folha = new FolhaDesignacao(parte2A, ajudante2A, labelDATA.getText(), tema, "SALA A", "5", 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarParte2A.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarParte2AActionPerformed
 
     private void enviarParte3AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarParte3AActionPerformed
-        try {
-            if (salvo) {
-                String tema = comboParte3.getSelectedItem() + ": " + temaVideo3.getText();
-                folha = new FolhaDesignacao(parte3A, ajudante3A, labelDATA.getText(), tema, "SALA A", nParte3.getText(), 2);
-                enviarParte3A.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtParte3.getText());
+                    });
+                    String tema = comboParte3.getSelectedItem() + ": " + temaVideo3.getText();
+                    folha = new FolhaDesignacao(parte3A, ajudante3A, labelDATA.getText(), tema, "SALA A", nParte3.getText(), 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarParte3A.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarParte3AActionPerformed
 
     private void enviarParte4AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarParte4AActionPerformed
-        try {
-            if (salvo) {
-                String tema = comboParte4.getSelectedItem() + ": " + temaVideo4.getText();
-                folha = new FolhaDesignacao(parte4A, ajudante4A, labelDATA.getText(), tema, "SALA A", nParte4.getText(), 2);
-                enviarParte4A.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtParte4.getText());
+                    });
+                    String tema = comboParte4.getSelectedItem() + ": " + temaVideo4.getText();
+                    folha = new FolhaDesignacao(parte4A, ajudante4A, labelDATA.getText(), tema, "SALA A", nParte4.getText(), 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarParte4A.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarParte4AActionPerformed
 
     private void enviarLeituraBibliaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarLeituraBibliaBActionPerformed
-        try {
-            if (salvo) {
-                folha = new FolhaDesignacao(leituraBibliaB, null, labelDATA.getText(), "Leitura da Bíblia", "SALA B", "3", 2);
-                enviarLeituraBibliaB.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtLeituraBibliaB.getText());
+                    });
+                    folha = new FolhaDesignacao(leituraBibliaB, null, labelDATA.getText(), "Leitura da Bíblia", "SALA B", "3", 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarLeituraBibliaB.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarLeituraBibliaBActionPerformed
 
     private void enviarParte1BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarParte1BActionPerformed
-        try {
-            if (salvo) {
-                String tema = comboParte1.getSelectedItem() + ": " + temaVideo1.getText();
-                folha = new FolhaDesignacao(parte1B, ajudante1B, labelDATA.getText(), tema, "SALA B", "4", 2);
-                enviarParte1B.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtParte1B.getText());
+                    });
+                    String tema = comboParte1.getSelectedItem() + ": " + temaVideo1.getText();
+                    folha = new FolhaDesignacao(parte1B, ajudante1B, labelDATA.getText(), tema, "SALA B", "4", 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarParte1B.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarParte1BActionPerformed
 
     private void enviarParte2BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarParte2BActionPerformed
-        try {
-            if (salvo) {
-                String tema = comboParte2.getSelectedItem() + ": " + temaVideo2.getText();
-                folha = new FolhaDesignacao(parte2B, ajudante2B, labelDATA.getText(), tema, "SALA B", "5", 2);
-                enviarParte2B.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtParte2B.getText());
+                    });
+                    String tema = comboParte2.getSelectedItem() + ": " + temaVideo2.getText();
+                    folha = new FolhaDesignacao(parte2B, ajudante2B, labelDATA.getText(), tema, "SALA B", "5", 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarParte2B.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarParte2BActionPerformed
 
     private void enviarParte3BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarParte3BActionPerformed
-        try {
-            if (salvo) {
-                String tema = comboParte3.getSelectedItem() + ": " + temaVideo3.getText();
-                folha = new FolhaDesignacao(parte3B, ajudante3B, labelDATA.getText(), tema, "SALA B", nParte3.getText(), 2);
-                enviarParte3B.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtParte3B.getText());
+                    });
+                    String tema = comboParte3.getSelectedItem() + ": " + temaVideo3.getText();
+                    folha = new FolhaDesignacao(parte3B, ajudante3B, labelDATA.getText(), tema, "SALA B", nParte3.getText(), 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarParte3B.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarParte3BActionPerformed
 
     private void enviarParte4BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarParte4BActionPerformed
-        try {
-            if (salvo) {
-                String tema = comboParte4.getSelectedItem() + ": " + temaVideo4.getText();
-                folha = new FolhaDesignacao(parte4B, ajudante4B, labelDATA.getText(), tema, "SALA B", nParte4.getText(), 2);
-                enviarParte4B.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtParte4B.getText());
+                    });
+                    String tema = comboParte4.getSelectedItem() + ": " + temaVideo4.getText();
+                    folha = new FolhaDesignacao(parte4B, ajudante4B, labelDATA.getText(), tema, "SALA B", nParte4.getText(), 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarParte4B.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarParte4BActionPerformed
 
     private void enviarPresidenteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarPresidenteBActionPerformed
-        try {
-            if (salvo) {
-                folha = new FolhaDesignacao(presidenteB.getPessoa(), null, labelDATA.getText(), "", "SALA B", "Presidente", 2);
-                enviarPresidenteB.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtPresidenteB.getText());
+                    });
+                    folha = new FolhaDesignacao(presidenteB.getPessoa(), null, labelDATA.getText(), "", "SALA B", "Presidente", 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarPresidenteB.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarPresidenteBActionPerformed
 
     private void enviarNossaVida1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarNossaVida1ActionPerformed
-        try {
-            if (salvo) {
-                folha = new FolhaDesignacao(nossaVida1, null, labelDATA.getText(), temaNossaVida1.getText(), "SALA A", nNossa1.getText(), 2);
-                enviarNossaVida1.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtCrista1.getText());
+                    });
+                    folha = new FolhaDesignacao(nossaVida1, null, labelDATA.getText(), temaNossaVida1.getText(), "SALA A", nNossa1.getText(), 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarNossaVida1.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarNossaVida1ActionPerformed
 
     private void enviarNossaVida2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarNossaVida2ActionPerformed
-        try {
-            if (salvo) {
-                folha = new FolhaDesignacao(nossaVida2, null, labelDATA.getText(), temaNossaVida2.getText(), "SALA A", nNossa2.getText(), 2);
-                enviarNossaVida2.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtNossaVida2.getText());
+                    });
+                    folha = new FolhaDesignacao(nossaVida2, null, labelDATA.getText(), temaNossaVida2.getText(), "SALA A", nNossa2.getText(), 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarNossaVida2.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarNossaVida2ActionPerformed
 
     private void enviarEstudoCongregacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarEstudoCongregacaoActionPerformed
-        try {
-            if (salvo) {
-                folha = new FolhaDesignacao(estudoCong.getPessoa(), null, labelDATA.getText(), "Estudo Bíblico de Congregação", "SALA A", nEstudoLivro.getText(), 2);
-                enviarEstudoCongregacao.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtEstudoCongregacao.getText());
+                    });
+                    folha = new FolhaDesignacao(estudoCong.getPessoa(), null, labelDATA.getText(), "Estudo Bíblico de Congregação", "SALA A", nEstudoLivro.getText(), 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarEstudoCongregacao.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarEstudoCongregacaoActionPerformed
 
     private void enviarEstudoLeitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarEstudoLeitorActionPerformed
-        try {
-            if (salvo) {
-                folha = new FolhaDesignacao(leitor.getPessoa(), null, labelDATA.getText(), "Leitura do estudo Bíblico de congregação", "SALA A", "Leitor", 2);
-                enviarEstudoLeitor.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtLeitor.getText());
+                    });
+                    folha = new FolhaDesignacao(leitor.getPessoa(), null, labelDATA.getText(), "Leitura do estudo Bíblico de congregação", "SALA A", "Leitor", 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarEstudoLeitor.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarEstudoLeitorActionPerformed
 
     private void enviarOracaoFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarOracaoFinalActionPerformed
-        try {
-            if (salvo) {
-                folha = new FolhaDesignacao(oracaoB.getPessoa(), null, labelDATA.getText(), "", "SALA A", "Oração Final", 2);
-                enviarOracaoFinal.setBackground(new Color(37, 211, 102));
-            } else {
-                Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+        Thread thread = new Thread(() -> {
+            try {
+                if (salvo) {
+                    SwingUtilities.invokeLater(() -> {
+                        Janela.irAguarde2(txtOracaoFinal.getText());
+                    });
+                    folha = new FolhaDesignacao(oracaoB.getPessoa(), null, labelDATA.getText(), "", "SALA A", "Oração Final", 2);
+                    SwingUtilities.invokeLater(() -> {
+                        enviarOracaoFinal.setBackground(new Color(37, 211, 102));
+                        Janela.a2.fechar();
+                    });
+                } else {
+                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                }
+            } catch (Exception e) {
+                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
-        } catch (Exception e) {
-            Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
-        }
+        });
+        thread.start();
     }//GEN-LAST:event_enviarOracaoFinalActionPerformed
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
@@ -3264,13 +3515,13 @@ public class Tela2 extends javax.swing.JFrame {
             // Salvar em arquivo .pdf
             salvarPdf();
 
-            salvo = true;
-            
+            salvarVerdadeiro();
+
             Janela.menu.mostrarTabela();
 
         } catch (Exception e) {
-            e.printStackTrace();
-            Mensagem.mensagemErro("Erro ao Salvar");
+            Mensagem.mensagemErro("Feche o programa, e tente novamente. "
+                    + "\nAbra o programa clicando com o botão direito e selecione:\nExecutar como Administrador.");
         }
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
@@ -3298,7 +3549,6 @@ public class Tela2 extends javax.swing.JFrame {
     }
 
     private void salvarAlterar() {
-
         if (presidenteA != null) {
             preDAO.alterarSalaEDataPresidente(presidenteA.getId(), "SalaA", semanaAtual); //Botão Salvar 
             pDAO.alterarDataUltimaPessoa(presidenteA.getPessoa().getId(), semanaAtual, null);
@@ -3396,7 +3646,6 @@ public class Tela2 extends javax.swing.JFrame {
             pDAO.alterarDataUltimaPessoa(ajudante4B.getId(), semanaAtual, "SalaB");//Botão Salvar
             pDAO.atualizarAjudante(ajudante4B.getId(), semanaAtual);
         }
-
     }
 
     private void adicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarActionPerformed
@@ -3426,7 +3675,7 @@ public class Tela2 extends javax.swing.JFrame {
 
                 redefinirComboBox();
 
-                salvo = false;
+                salvarFalso();
             } else {
                 Mensagem.mensagemAlerta("Primeiro salve essa semana para depois prosseguir.");
             }
@@ -3441,11 +3690,22 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void botaoRecomecarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRecomecarActionPerformed
-        redefinirComboBox();
-        todas = null;
-        java.awt.event.ActionEvent evts = null;
-        botaoDefinirDataActionPerformed(evts);
+        Object[] options = {"Sim", "Cancelar"};
+        int option = JOptionPane.showOptionDialog(this, "Deseja realmente recomeçar essa semana?\nSe a semana já foi salva, essa ação não é recomendada.", "Confirmação", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
+        if (option == JOptionPane.YES_OPTION) {
+            redefinirComboBox();
+            redefinirTemas();
+            todas = null;
+            salvarFalso();
+            java.awt.event.ActionEvent evts = null;
+            botaoDefinirDataActionPerformed(evts);
+        } else {
+        }
     }//GEN-LAST:event_botaoRecomecarActionPerformed
+
+    private void botaoConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConectarActionPerformed
+        WhatsApp.conectar();
+    }//GEN-LAST:event_botaoConectarActionPerformed
 
     private void redefinirParticipantes() {
         if (presidenteB != null) {
@@ -3494,7 +3754,6 @@ public class Tela2 extends javax.swing.JFrame {
         try {
             SemanaDAO sDAO = new SemanaDAO();
             Semana semana = new Semana();
-
             semana.setData(semanaAtual);
             sDAO.cadastrar(semana);
         } catch (Exception e) {
@@ -3503,13 +3762,23 @@ public class Tela2 extends javax.swing.JFrame {
     }
 
     private void redefinirTemas() {
-        temaDiscurso.setText("Discurso");
-        temaVideo1.setText("");
-        temaVideo2.setText("");
-        temaVideo3.setText("");
-        temaVideo4.setText("");
-        temaNossaVida1.setText("Nossa Vida Cristã - parte 1");
-        temaNossaVida2.setText("Nossa Vida Cristã - parte 2");
+        Thread thread = new Thread(() -> {
+            SwingUtilities.invokeLater(() -> {
+                temaDiscurso.setText("Discurso");
+                temaVideo1.setText("");
+                temaVideo2.setText("");
+                temaVideo3.setText("");
+                temaVideo4.setText("");
+                temaNossaVida1.setText("Nossa Vida Cristã - parte 1");
+                temaNossaVida2.setText("Nossa Vida Cristã - parte 2");
+                nParte3.setText("?");
+                nParte4.setText("?");
+                nNossa1.setText("?");
+                nNossa2.setText("?");
+                nEstudoLivro.setText("?");
+            });
+        });
+        thread.start();
     }
 
     private void verificarSegundas() {
@@ -3522,12 +3791,21 @@ public class Tela2 extends javax.swing.JFrame {
             Mensagem.mensagemExito("Esse mês não tem mais semanas.");
             labelDATA.setText("SELECIONE UMA DATA");
             segundasFeiras.clear();
-            panelA.setVisible(false);
+            Thread thread = new Thread(() -> {
+                SwingUtilities.invokeLater(() -> {
+                    panelA.setVisible(false);
+                    painelBotoes.setVisible(false);
+                    cSalaA.setSelected(false);
+                    cSalaAB.setSelected(false);
+                    painelSalas.setBackground(new java.awt.Color(204, 0, 0));
+                    painelSalas.setVisible(false);
+                });
+            });
+            thread.start();
         }
         int diaDoMes = semanaAtual.getDayOfMonth();
         String diaDoMesFormatado = String.format("%02d", diaDoMes);
         dia = diaDoMesFormatado.substring(0, 2);
-        System.out.println("Dois primeiros dígitos do dia: " + dia);
     }
 
     protected void altParte4B(Pessoa a) {
@@ -3820,10 +4098,6 @@ public class Tela2 extends javax.swing.JFrame {
         Mensagem.mensagemExito("Designado para Presidente sala B, Alterado com Sucesso");
     }
 
-    protected void altIniciando() {
-
-    }
-
     private void salvarTodasPartes() {
         todas = new TodasPartes();
         todas.setDia(dia);
@@ -3838,40 +4112,49 @@ public class Tela2 extends javax.swing.JFrame {
         todas.setJoias(txtJoias.getText());
         todas.setLeituraBibliaA(txtLeituraBiblia.getText());
         todas.setLeituraBibliaB(txtLeituraBibliaB.getText());
-
-        todas.setNomeParte1(comboParte1.getSelectedItem() + " " + temaVideo1.getText());
+        if (comboParte1.getSelectedItem().equals("Faça seu melhor no ministério")) {
+            todas.setNomeParte1("");
+        } else {
+            todas.setNomeParte1(comboParte1.getSelectedItem() + " " + temaVideo1.getText());
+        }
         todas.setParte1A(txtParte1.getText());
         todas.setAjudante1A(txtAjudante1.getText());
         todas.setParte1B(txtParte1B.getText());
         todas.setAjudante1B(txtAjudante1B.getText());
-
-        todas.setNomeParte2(comboParte2.getSelectedItem() + " " + temaVideo2.getText());
+        if (comboParte2.getSelectedItem().equals("Faça seu melhor no ministério")) {
+            todas.setNomeParte2("");
+        } else {
+            todas.setNomeParte2(comboParte2.getSelectedItem() + " " + temaVideo2.getText());
+        }
         todas.setParte2A(txtParte2.getText());
         todas.setAjudante2A(txtAjudante2.getText());
         todas.setParte2B(txtParte2B.getText());
         todas.setAjudante2B(txtAjudante2B.getText());
-
-        todas.setNomeparte3(comboParte3.getSelectedItem() + " " + temaVideo3.getText());
+        if (comboParte3.getSelectedItem().equals("Faça seu melhor no ministério")) {
+            todas.setNomeparte3("");
+        } else {
+            todas.setNomeparte3(comboParte3.getSelectedItem() + " " + temaVideo3.getText());
+        }
         todas.setParte3A(txtParte3.getText());
         todas.setAjudante3A(txtAjudante3.getText());
         todas.setParte3B(txtParte3B.getText());
         todas.setAjudante3B(txtAjudante3B.getText());
-
-        todas.setNomeParte4(comboParte4.getSelectedItem() + " " + temaVideo4.getText());
+        if (comboParte4.getSelectedItem().equals("Faça seu melhor no ministério")) {
+            todas.setNomeParte4("");
+        } else {
+            todas.setNomeParte4(comboParte4.getSelectedItem() + " " + temaVideo4.getText());
+        }
         todas.setParte4A(txtParte4.getText());
         todas.setAjudante4A(txtAjudante4.getText());
         todas.setParte4B(txtParte4B.getText());
         todas.setAjudante4B(txtAjudante4B.getText());
-
         todas.setLabelNossaVida1(temaNossaVida1.getText());
         todas.setNossaVida1(txtCrista1.getText());
-
         todas.setLabelNossaVida2(temaNossaVida2.getText());
         todas.setNossaVida2(txtNossaVida2.getText());
         todas.setEstudoLivro(txtEstudoCongregacao.getText());
         todas.setLeitor(txtLeitor.getText());
         todas.setOracaoFinal(txtOracaoFinal.getText());
-
         tddao.cadastrar(todas);
     }
 
@@ -3888,34 +4171,47 @@ public class Tela2 extends javax.swing.JFrame {
         todas.setJoias(txtJoias.getText());
         todas.setLeituraBibliaA(txtLeituraBiblia.getText());
         todas.setLeituraBibliaB(txtLeituraBibliaB.getText());
-
-        todas.setNomeParte1(comboParte1.getName() + " " + temaVideo1.getText());
+        if (comboParte1.getSelectedItem().equals("Faça seu melhor no ministério")) {
+            todas.setNomeParte1("");
+        } else {
+            todas.setNomeParte1(comboParte1.getSelectedItem() + " " + temaVideo1.getText());
+        }
         todas.setParte1A(txtParte1.getText());
         todas.setAjudante1A(txtAjudante1.getText());
         todas.setParte1B(txtParte1B.getText());
         todas.setAjudante1B(txtAjudante1B.getText());
 
-        todas.setNomeParte2(comboParte2.getName() + " " + temaVideo2.getText());
+        if (comboParte2.getSelectedItem().equals("Faça seu melhor no ministério")) {
+            todas.setNomeParte2("");
+        } else {
+            todas.setNomeParte2(comboParte2.getSelectedItem() + " " + temaVideo2.getText());
+        }
         todas.setParte2A(txtParte2.getText());
         todas.setAjudante2A(txtAjudante2.getText());
         todas.setParte2B(txtParte2B.getText());
         todas.setAjudante2B(txtAjudante2B.getText());
 
-        todas.setNomeparte3(comboParte3.getName() + " " + temaVideo3.getText());
+        if (comboParte3.getSelectedItem().equals("Faça seu melhor no ministério")) {
+            todas.setNomeparte3("");
+        } else {
+            todas.setNomeparte3(comboParte3.getSelectedItem() + " " + temaVideo3.getText());
+        }
         todas.setParte3A(txtParte3.getText());
         todas.setAjudante3A(txtAjudante3.getText());
         todas.setParte3B(txtParte3B.getText());
         todas.setAjudante3B(txtAjudante3B.getText());
 
-        todas.setNomeParte4(comboParte4.getName() + " " + temaVideo4.getText());
+        if (comboParte4.getSelectedItem().equals("Faça seu melhor no ministério")) {
+            todas.setNomeParte4("");
+        } else {
+            todas.setNomeParte4(comboParte4.getSelectedItem() + " " + temaVideo4.getText());
+        }
         todas.setParte4A(txtParte4.getText());
         todas.setAjudante4A(txtAjudante4.getText());
         todas.setParte4B(txtParte4B.getText());
         todas.setAjudante4B(txtAjudante4B.getText());
-
         todas.setLabelNossaVida1(temaNossaVida1.getText());
         todas.setNossaVida1(txtCrista1.getText());
-
         todas.setLabelNossaVida2(temaNossaVida2.getText());
         todas.setNossaVida2(txtNossaVida2.getText());
         todas.setEstudoLivro(txtEstudoCongregacao.getText());
@@ -4035,6 +4331,7 @@ public class Tela2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton adicionar;
     private javax.swing.JButton alterar;
+    private javax.swing.JButton botaoConectar;
     private javax.swing.JButton botaoDefinirData;
     private javax.swing.JButton botaoRecomecar;
     private javax.swing.JButton botaoSalvar;

@@ -6,8 +6,10 @@ import br.com.alexlopes.designacoes.login.Entrar;
 import br.com.alexlopes.designacoes.model.Pessoa;
 import br.com.alexlopes.designacoes.model.Usuario;
 import br.com.alexlopes.designacoes.util.whats.Aguarde;
+import br.com.alexlopes.designacoes.util.whats.Aguarde2;
 import br.com.alexlopes.designacoes.views.AlterarParticipantes;
 import br.com.alexlopes.designacoes.views.CadastroParticipantes;
+import br.com.alexlopes.designacoes.views.Duvidas;
 import br.com.alexlopes.designacoes.views.FalarCom;
 import br.com.alexlopes.designacoes.views.MenuPrincipal;
 import br.com.alexlopes.designacoes.views.Substituicao;
@@ -19,6 +21,7 @@ import javax.swing.JFrame;
 
 public class Janela {
 
+    public static Aguarde2 a2;
     public static Tela2 tela2;
     public static Substituicao sub;
     public static Aguarde ag;
@@ -43,6 +46,13 @@ public class Janela {
             menu.setExtendedState(JFrame.MAXIMIZED_BOTH);
             menu.setVisible(true);
         }
+    }
+    
+    public static void irDuvidas(){
+        Duvidas a = new Duvidas();
+        a.pack();
+        a.setLocationRelativeTo(null);
+        a.setVisible(true);
     }
 
     public static void irAlterarDados() {
@@ -79,8 +89,14 @@ public class Janela {
         }
     }
 
-    
-     public static void irTela2() {
+    public static void irAguarde2(String nome) {
+        a2 = new Aguarde2(tela2, false, nome);
+        a2.setLocationRelativeTo(null);
+        a2.pack();
+        a2.setVisible(true);
+    }
+
+    public static void irTela2() {
         if (tela2 == null) {
             tela2 = new Tela2();
             tela2.pack();
@@ -140,7 +156,7 @@ public class Janela {
             sub.pack();
             sub.setVisible(true);
             sub.mostrarTabela();
-        } else {            
+        } else {
             sub.setExtendedState(JFrame.MAXIMIZED_BOTH);
             sub.setVisible(true);
             sub.mostrarTabela();

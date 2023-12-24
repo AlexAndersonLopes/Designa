@@ -12,10 +12,12 @@ import br.com.alexlopes.designacoes.dao.TodasPartesDAO;
 import br.com.alexlopes.designacoes.dao.UsuarioDAO;
 import br.com.alexlopes.designacoes.util.Janela;
 import java.io.File;
+import javax.swing.ImageIcon;
 
 public class Designacoes {
 
     public static void main(String[] args) {
+        
 
         if (!bancoDeDadosExiste() || !UsuarioDAO.tabelaUsuarioPossuiRegistros()) {
             if (!bancoDeDadosExiste()) {

@@ -3,6 +3,7 @@ C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\model\Parte.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\model\Tesouros.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\util\whats\FolhaDesignacao.java
+C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\views\Duvidas.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\util\Janela.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\fabrica\FabricaJPA.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\util\Mensagem.java
@@ -13,6 +14,7 @@ C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\util\whats\WhatsApp.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\Designacoes.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\views\FalarCom.java
+C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\model\Joias.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\model\TodasPartes.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\dao\LeitorDAO.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\model\Presidente.java
@@ -36,6 +38,8 @@ C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\model\Semana.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\dao\OracaoDAO.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\dao\TodasPartesDAO.java
+C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\util\whats\Aguarde2.java
+C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\model\NossaVida.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\views\CadastroParticipantes.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\util\SalvarImagem.java
 C:\Users\alex9\OneDrive\Documentos\NetBeansProjects\Designacoes\src\main\java\br\com\alexlopes\designacoes\login\AlterarDados.java

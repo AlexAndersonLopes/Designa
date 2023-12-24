@@ -16,6 +16,8 @@
     </properties>
     
     <dependencies>
+
+        
         <!-- Selenium --> 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -25,7 +27,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.4.1</version>
+            <version>5.6.2</version>
         </dependency>
        
         
@@ -108,10 +110,6 @@
             </plugin>
         </plugins>
     </build>
-
-
-
-
    
 </project>
     
