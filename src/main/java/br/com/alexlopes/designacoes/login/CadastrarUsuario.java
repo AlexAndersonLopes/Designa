@@ -85,9 +85,9 @@ public class CadastrarUsuario extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(761, 511));
         setResizable(false);
 
-        jPanel1.setMaximumSize(new java.awt.Dimension(744, 511));
-        jPanel1.setMinimumSize(new java.awt.Dimension(744, 511));
-        jPanel1.setPreferredSize(new java.awt.Dimension(744, 511));
+        jPanel1.setMaximumSize(new java.awt.Dimension(761, 583));
+        jPanel1.setMinimumSize(new java.awt.Dimension(761, 583));
+        jPanel1.setPreferredSize(new java.awt.Dimension(761, 583));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -297,7 +297,7 @@ public class CadastrarUsuario extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -308,11 +308,11 @@ public class CadastrarUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -502,7 +502,7 @@ public class CadastrarUsuario extends javax.swing.JFrame {
                     + "Digite o codigo aqui:\n ");
             if (a.equals(b)) {
                 return true;
-            } else {
+            }  else {
                 JOptionPane.showMessageDialog(null, "Código incorreto. Tente novamente.");
             }
         }
@@ -511,8 +511,8 @@ public class CadastrarUsuario extends javax.swing.JFrame {
     private void enviarDados() {
         try {
             ClasseEmail classe = new ClasseEmail();
-        classe.enviarEmail("Novo Cadastro efetuado", "Nome: " + txtNome.getText() + "\n"
-                + "Email: " + txtEmail.getText() + "\n" + "Celular: " + txtCelular.getText());
+            classe.enviarEmail("Novo Cadastro efetuado", "Nome: " + txtNome.getText() + "\n"
+                    + "Email: " + txtEmail.getText() + "\n" + "Celular: " + txtCelular.getText());
         } catch (Exception e) {
         }
     }

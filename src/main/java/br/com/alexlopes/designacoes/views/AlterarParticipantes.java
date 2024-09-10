@@ -16,6 +16,7 @@ import br.com.alexlopes.designacoes.model.Presidente;
 import br.com.alexlopes.designacoes.model.Tesouros;
 import br.com.alexlopes.designacoes.util.Janela;
 import br.com.alexlopes.designacoes.util.Mensagem;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.WindowAdapter;
@@ -33,7 +34,7 @@ public class AlterarParticipantes extends javax.swing.JFrame {
 
     private final PessoaDAO pesDAO = new PessoaDAO();
     private DefaultTableModel tab;
-    private int linha = -1;
+    private int linha = -1, contar;
     private Pessoa pessoa;
     private final ParteDAO pDAO = new ParteDAO();
 
@@ -169,20 +170,19 @@ public class AlterarParticipantes extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 52, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(100, 100, 100))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(botaoMostrarTodos)
-                                .addGap(74, 74, 74))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtPesquisar)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(100, 100, 100))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(botaoMostrarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -519,9 +519,8 @@ public class AlterarParticipantes extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(botaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(botaoCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)))
-                .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(botaoCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -533,7 +532,7 @@ public class AlterarParticipantes extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(botaoRemover, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                .addComponent(botaoRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -558,7 +557,7 @@ public class AlterarParticipantes extends javax.swing.JFrame {
                             .addComponent(botaoCadastrar)
                             .addComponent(botaoExcluir)))
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -572,7 +571,7 @@ public class AlterarParticipantes extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -662,6 +661,8 @@ public class AlterarParticipantes extends javax.swing.JFrame {
                 pessoa.setDataUltima(pessoa.getDataUltima());
                 pessoa.setSala(pessoa.getSala());
                 pesDAO.atualizarPessoa(pessoa.getId(), pessoa);
+                
+                jPanel4.setBackground(Color.WHITE);
 
                 definirPartes(pessoa);
                 mostrarTabela();
@@ -939,9 +940,11 @@ public class AlterarParticipantes extends javax.swing.JFrame {
         limparTela();
         if (a.getSexo().equals("Homem")) {
             homem.setSelected(true);
+            jPanel4.setBackground(new Color(173, 216, 230));
         }
         if (a.getSexo().equals("Mulher")) {
             mulher.setSelected(true);
+            jPanel4.setBackground(new Color(255, 99, 71));
         }
         txtNome.setText(a.getNome());
         txtSobrenome.setText(a.getSobrenome());
@@ -1012,12 +1015,15 @@ public class AlterarParticipantes extends javax.swing.JFrame {
         List<Pessoa> lista = pesDAO.buscarTodasPorOrdemAlfabetica();
         tab = (DefaultTableModel) tabela.getModel();
         tab.setNumRows(0);
+        contar=0;
         for (Pessoa a : lista) {
             tab.addRow(new Object[]{
                 a.getId(),
-                "  " + a.getNome() + " " + a.getSobrenome()
+                "  " + a.getNome() + " " + a.getSobrenome(),
+                contar++
             });
         }
+        botaoMostrarTodos.setText("Mostrar Todos: " + contar);
     }
 
     private void limparTela() {

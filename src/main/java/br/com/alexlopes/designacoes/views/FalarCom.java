@@ -51,6 +51,7 @@ public class FalarCom extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Enviar Email para o Desenvolvedor");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 

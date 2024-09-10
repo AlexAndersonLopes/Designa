@@ -8,7 +8,7 @@ import jakarta.persistence.TypedQuery;
 import java.util.List;
 
 public class TodasPartesDAO {
-      
+
     // Método para criar a tabela TodasPartes
     public static void criarTabela() {
         EntityManager em = FabricaJPA.getEntityManager();
@@ -29,7 +29,24 @@ public class TodasPartesDAO {
         }
     }
 
-    
+    public TodasPartes encontrarPorSemana(String semana) {
+        EntityManager em = FabricaJPA.getEntityManager();
+
+        try {
+            String jpql = "SELECT t FROM TodasPartes t WHERE t.semana = :semana";
+            TypedQuery<TodasPartes> query = em.createQuery(jpql, TodasPartes.class);
+            query.setParameter("semana", semana);
+
+            TodasPartes resultado = query.getSingleResult();
+            return resultado;
+
+        } finally {
+            if (em.isOpen()) {
+                em.close();
+            }
+        }
+    }
+
     public void cadastrar(TodasPartes a) {
         EntityManager em = FabricaJPA.getEntityManager();
         try {
@@ -103,4 +120,39 @@ public class TodasPartesDAO {
         }
     }
 
+    public static List<TodasPartes> obterTodosRegistros() {
+        EntityManager em = FabricaJPA.getEntityManager();
+
+        try {
+            String jpql = "SELECT t FROM TodasPartes t";
+            TypedQuery<TodasPartes> query = em.createQuery(jpql, TodasPartes.class);
+            return query.getResultList();
+        } finally {
+            if (em.isOpen()) {
+                em.close();
+            }
+        }
+    }
+
+    public void excluirPorSemana(String semana) {
+        EntityManager em = FabricaJPA.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            TodasPartes todasPartes = encontrarPorSemana(semana);
+            if (todasPartes != null) {
+                em.remove(todasPartes);
+            }
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+        } finally {
+            if (em.isOpen()) {
+                em.close();
+            }
+        }
+    }
+    
 }

@@ -2036,6 +2036,7 @@ public class Tela2 extends javax.swing.JFrame {
         if (txtPresidente.getText().isEmpty()) {
             if (presidenteA != null) {
                 txtPresidente.setText(presidenteA.getPessoa().getNome() + " " + presidenteA.getPessoa().getSobrenome());
+                listaIgnorarEstudantes.add(presidenteA.getPessoa().getId());
             } else {
                 presidenteA = preDAO.buscarPresidenteAntigoFezParteNaSala_B();
                 if (presidenteA == null) {
@@ -2053,6 +2054,7 @@ public class Tela2 extends javax.swing.JFrame {
         if (cSalaAB.isSelected() && txtPresidenteB.getText().isEmpty()) {
             if (presidenteB != null) {
                 txtPresidenteB.setText(presidenteB.getPessoa().getNome() + " " + presidenteB.getPessoa().getSobrenome());
+                listaIgnorarEstudantes.add(presidenteB.getPessoa().getId());
             } else {
                 //Definir o presidente da sala B
                 presidenteB = preDAO.buscarPresidenteAntigoFezParteNaSala_A(presidenteA.getId());
@@ -2076,6 +2078,7 @@ public class Tela2 extends javax.swing.JFrame {
         if (txtOracaoInicial.getText().isEmpty()) {
             if (oracaoA != null) {
                 txtOracaoInicial.setText(oracaoA.getPessoa().getNome() + " " + oracaoA.getPessoa().getSobrenome());
+                listaIgnorarEstudantes.add(oracaoA.getPessoa().getId());
             } else {
                 oracaoA = oDAO.buscarOracaoSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
                 if (oracaoA == null) {
@@ -2097,6 +2100,7 @@ public class Tela2 extends javax.swing.JFrame {
         if (txtTesouros.getText().isEmpty()) {
             if (tesouros != null) {
                 txtTesouros.setText(tesouros.getPessoa().getNome() + " " + tesouros.getPessoa().getSobrenome());
+                listaIgnorarEstudantes.add(tesouros.getPessoa().getId());
             } else {
                 tesouros = tDAO.buscarTesouroSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
                 if (tesouros == null) {
@@ -2125,6 +2129,7 @@ public class Tela2 extends javax.swing.JFrame {
         if (txtJoias.getText().isEmpty()) {
             if (joias != null) {
                 txtJoias.setText(joias.getNome() + " " + joias.getSobrenome());
+                listaIgnorarEstudantes.add(joias.getId());
             } else {
                 //joias = jDAO.buscarJoiaSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
                 joias = pDAO.buscarPartes("Joias", "Homem", listaIgnorarEstudantes);
@@ -2147,6 +2152,7 @@ public class Tela2 extends javax.swing.JFrame {
         if (txtLeituraBiblia.getText().isEmpty()) {
             if (leituraBibliaA != null) {
                 txtLeituraBiblia.setText(leituraBibliaA.getNome() + " " + leituraBibliaA.getSobrenome());
+                listaIgnorarEstudantes.add(leituraBibliaA.getId());
             } else {
                 //SALA A
                 leituraBibliaA = pDAO.buscarPessoaComCondicoesSalaB("LeituraBiblia", null, listaIgnorarEstudantes, "SalaA");
@@ -2160,6 +2166,7 @@ public class Tela2 extends javax.swing.JFrame {
         if (cSalaAB.isSelected() && txtLeituraBibliaB.getText().isEmpty()) {
             if (leituraBibliaB != null) {
                 txtLeituraBibliaB.setText(leituraBibliaB.getNome() + " " + leituraBibliaB.getSobrenome());
+                listaIgnorarEstudantes.add(leituraBibliaB.getId());
             } else {
                 //SALA B
                 leituraBibliaB = pDAO.buscarPessoaComCondicoesSalaB("LeituraBiblia", null, listaIgnorarEstudantes, "SalaB");
@@ -2169,7 +2176,7 @@ public class Tela2 extends javax.swing.JFrame {
                 txtLeituraBibliaB.setText(leituraBibliaB.getNome() + " " + leituraBibliaB.getSobrenome());
                 listaIgnorarEstudantes.add(leituraBibliaB.getId());
             }
-        }
+        } 
         if (!cLeituraBiblia.isSelected()) {
             listaIgnorarEstudantes.remove(Integer.valueOf(leituraBibliaA.getId()));
             txtLeituraBiblia.setText(null);
@@ -2185,6 +2192,7 @@ public class Tela2 extends javax.swing.JFrame {
         if (txtCrista1.getText().isEmpty()) {
             if (nossaVida1 != null) {
                 txtCrista1.setText(nossaVida1.getNome() + " " + nossaVida1.getSobrenome());
+                listaIgnorarEstudantes.add(nossaVida1.getId());
             } else {
                 nossaVida1 = pDAO.buscarPartes("NossaVidaCrista", "Homem", listaIgnorarEstudantes);
                 if (nossaVida1 == null) {
@@ -2214,6 +2222,7 @@ public class Tela2 extends javax.swing.JFrame {
         if (txtNossaVida2.getText().isEmpty()) {
             if (nossaVida2 != null) {
                 txtNossaVida2.setText(nossaVida2.getNome() + " " + nossaVida2.getSobrenome());
+                listaIgnorarEstudantes.add(nossaVida2.getId());
             } else {
                 nossaVida2 = pDAO.buscarPartes("NossaVidaCrista", "Homem", listaIgnorarEstudantes);
                 if (nossaVida2 == null) {
@@ -2243,6 +2252,7 @@ public class Tela2 extends javax.swing.JFrame {
         if (txtEstudoCongregacao.getText().isEmpty()) {
             if (estudoCong != null) {
                 txtEstudoCongregacao.setText(estudoCong.getPessoa().getNome() + " " + estudoCong.getPessoa().getSobrenome());
+                listaIgnorarEstudantes.add(estudoCong.getPessoa().getId());
             } else {
                 estudoCong = congDAO.buscarEstudoBiblicoCongregacaoSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
                 if (estudoCong == null) {
@@ -2265,6 +2275,7 @@ public class Tela2 extends javax.swing.JFrame {
         if (txtLeitor.getText().isEmpty()) {
             if (leitor != null) {
                 txtLeitor.setText(leitor.getPessoa().getNome() + " " + leitor.getPessoa().getSobrenome());
+                listaIgnorarEstudantes.add(leitor.getPessoa().getId());
             } else {
                 leitor = leiDAO.buscarLeitorSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
                 if (leitor == null) {
@@ -2286,6 +2297,7 @@ public class Tela2 extends javax.swing.JFrame {
         if (txtOracaoFinal.getText().isEmpty()) {
             if (oracaoB != null) {
                 txtOracaoFinal.setText(oracaoB.getPessoa().getNome() + " " + oracaoB.getPessoa().getSobrenome());
+                listaIgnorarEstudantes.add(oracaoB.getPessoa().getId());
             } else {
                 oracaoB = oDAO.buscarOracaoSemDataMaisAntigaParaPessoas(listaIgnorarEstudantes);
                 if (oracaoB == null) {

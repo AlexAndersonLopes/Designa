@@ -25,7 +25,7 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
         initComponents();
     }
 
-    public TrocarSubstituicao(String campo, int num, String parteBD, String parte, String data, String sala, Pessoa a, Pessoa b, String parteNum) {
+    public TrocarSubstituicao(String campo, int num, String parteBD, String parte, String data, String sala, Pessoa a, Pessoa b, String parteNum, int n) {
         initComponents();
 
         this.campo = campo;
@@ -37,6 +37,16 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
         this.a = a;
         this.b = b;
         this.numeroParte = parteNum;
+
+        // Pré selecionar quem será subistituido
+        if (n == 1) {
+            java.awt.event.MouseEvent evts = null;
+            txtParteMouseClicked(evts);
+        }
+        if (n == 2) {
+            java.awt.event.MouseEvent evts = null;
+            txtAjudanteMouseClicked(evts);
+        }
 
         //Partes sem ajudante
         if (num == 1) {
@@ -88,13 +98,13 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
         mulher = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         panelDesignacao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtNome.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtNome.setForeground(new java.awt.Color(0, 0, 0));
         txtNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtNome.setText("Nome");
 
         txtNomeAjudante.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtNomeAjudante.setForeground(new java.awt.Color(0, 0, 0));
@@ -133,19 +143,19 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDesignacaoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelDesignacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelDesignacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtNomeAjudante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtParteNumero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                    .addComponent(txtParteNumero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelDesignacaoLayout.setVerticalGroup(
             panelDesignacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDesignacaoLayout.createSequentialGroup()
                 .addGap(89, 89, 89)
-                .addComponent(txtNome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNomeAjudante, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -203,16 +213,17 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtParte, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtAjudante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(labelAjudante, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtParte, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAjudante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(labelAjudante, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -403,7 +414,12 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
     private void todosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todosActionPerformed
         try {
             PessoaDAO pes = new PessoaDAO();
-            List<Object[]> resultadoConsulta = pes.buscarNomesParaSubstituicao(null, parteBD2);
+            List<Object[]> resultadoConsulta;
+            resultadoConsulta = pes.buscarNomesParaSubstituicao(null, parteBD2);
+            if (resultadoConsulta == null || resultadoConsulta.isEmpty()) {
+                String texto = verParte();
+                resultadoConsulta = pes.buscarNomesParaSubstituicao(null, texto);
+            }
             tab = (DefaultTableModel) tabela.getModel();
             tab.setNumRows(0);
             DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -435,7 +451,12 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
     private void homemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homemActionPerformed
         try {
             PessoaDAO pes = new PessoaDAO();
-            List<Object[]> resultadoConsulta = pes.buscarNomesParaSubstituicao("Homem", parteBD2);
+            List<Object[]> resultadoConsulta;
+            resultadoConsulta = pes.buscarNomesParaSubstituicao("Homem", parteBD2);
+            if (resultadoConsulta == null || resultadoConsulta.isEmpty()) {
+                String texto = verParte();
+                resultadoConsulta = pes.buscarNomesParaSubstituicao("Homem", texto);
+            }
             tab = (DefaultTableModel) tabela.getModel();
             tab.setNumRows(0);
             DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -467,7 +488,12 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
     private void mulherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mulherActionPerformed
         try {
             PessoaDAO pes = new PessoaDAO();
-            List<Object[]> resultadoConsulta = pes.buscarNomesParaSubstituicao("Mulher", parteBD2);
+            List<Object[]> resultadoConsulta;
+            resultadoConsulta = pes.buscarNomesParaSubstituicao("Mulher", parteBD2);
+            if (resultadoConsulta == null || resultadoConsulta.isEmpty()) {
+                String texto = verParte();
+                resultadoConsulta = pes.buscarNomesParaSubstituicao("Mulher", texto);
+            }
             tab = (DefaultTableModel) tabela.getModel();
             tab.setNumRows(0);
             DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -495,6 +521,23 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
             Mensagem.mensagemAlerta("Escolha quem substituir, o Responsavel ou o Ajudante");
         }
     }//GEN-LAST:event_mulherActionPerformed
+
+    private String verParte() {
+        String str = parteBD2;
+        int primeiroEspaco = str.indexOf(' ');
+        String primeiraPalavra = str.substring(0, primeiroEspaco);
+
+        if (primeiraPalavra.equals("Discurso")) {
+            return "Discurso";
+        } else if (primeiraPalavra.equals("Consideração")) {
+            return "Video";
+        } else if (numeroParte.equals("6") || numeroParte.equals("7") || numeroParte.equals("8") || numeroParte.equals("9")) {
+            return "NossaVidaCrista";
+        } else if (numeroParte.equals("1")) {
+            return "Tesouros";
+        }
+        return null;
+    }
 
     private void txtAjudanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAjudanteMouseClicked
         if (!txtAjudante.getText().equals("NA")) {
@@ -538,6 +581,20 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
                     a = dao.buscarPessoaPorId(idPessoaClicada);
                     txtParte.setText(a.getNome() + " " + a.getSobrenome());
                     txtNome.setText(a.getNome() + " " + a.getSobrenome());
+                    linha = -1;
+                    if (num == 2 && txtAjudante.getText().equals("     ")) {
+                        Mensagem.mensagemAlerta("Agora selecione o ajudante");
+                        responsavel = 2;
+                        java.awt.event.MouseEvent evts = null;
+                        txtAjudanteMouseClicked(evts);
+                        if (a.getSexo().equals("Homem")) {
+                            java.awt.event.ActionEvent evtss = null;
+                            homemActionPerformed(evtss);
+                        } else {
+                            java.awt.event.ActionEvent evtss = null;
+                            mulherActionPerformed(evtss);
+                        }
+                    }
                 }
             }
         } else if (responsavel == 2) {
@@ -623,10 +680,13 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
         mulher.setEnabled(false);
 
         txtTipo.setText(parteBD);
-        txtParte.setText(a.getNome() + " " + a.getSobrenome());
+
+        if (a != null) {
+            txtParte.setText(a.getNome() + " " + a.getSobrenome());
+            txtNome.setText(a.getNome() + " " + a.getSobrenome());
+        }
         txtAjudante.setText("");
         txtAjudante.setEnabled(false);
-        txtNome.setText(a.getNome() + " " + a.getSobrenome());
         txtNomeAjudante.setText("   ");
         txtData.setText(data);
         txtParteNumero.setText(numeroParte);
@@ -639,8 +699,15 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
 
     private void preencher2() {
         txtTipo.setText(parteBD);
-        txtParte.setText(a.getNome() + " " + a.getSobrenome());
-        txtNome.setText(a.getNome() + " " + a.getSobrenome());
+
+        if (a != null) {
+            txtParte.setText(a.getNome() + " " + a.getSobrenome());
+            txtNome.setText(a.getNome() + " " + a.getSobrenome());
+        } else {
+            txtParte.setText("    ");
+            txtNome.setText("     ");
+        }
+
         if (b != null) {
             txtNomeAjudante.setText(b.getNome() + " " + b.getSobrenome());
             txtAjudante.setText(b.getNome() + " " + b.getSobrenome());
@@ -650,7 +717,7 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
         }
         txtData.setText(data);
         txtParteNumero.setText(numeroParte);
-        txtTipoParte.setText(parte);
+        txtTipoParte.setText("<html>" + parte + "</html>");
         txtSala.setText(sala);
     }
 

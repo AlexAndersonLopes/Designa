@@ -33,14 +33,13 @@ public class Duvidas extends javax.swing.JFrame {
         seguro = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         programafaz = new javax.swing.JLabel();
-        teste = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tutorial e dúvidas");
         setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 0, 51), 5));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 0, 51), 7));
         jPanel2.setForeground(new java.awt.Color(0, 0, 0));
 
         cadastrarParticipante.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -115,7 +114,7 @@ public class Duvidas extends javax.swing.JFrame {
 
         ondeFoiSalvo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         ondeFoiSalvo.setForeground(new java.awt.Color(0, 0, 0));
-        ondeFoiSalvo.setText("Onde foi salvo meu arquivos?");
+        ondeFoiSalvo.setText("Onde foram salvo meu arquivos?");
         ondeFoiSalvo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ondeFoiSalvo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -150,16 +149,6 @@ public class Duvidas extends javax.swing.JFrame {
             }
         });
 
-        teste.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        teste.setForeground(new java.awt.Color(0, 0, 0));
-        teste.setText("Teste após a instalação - Importante");
-        teste.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        teste.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                testeMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -168,7 +157,6 @@ public class Duvidas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(teste)
                     .addComponent(programafaz)
                     .addComponent(seguro)
                     .addComponent(ondeFoiSalvo)
@@ -187,9 +175,7 @@ public class Duvidas extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(programafaz, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(teste, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(cadastrarParticipante, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(alterarParticipante, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -207,7 +193,7 @@ public class Duvidas extends javax.swing.JFrame {
                 .addComponent(ondeFoiSalvo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(seguro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -218,9 +204,7 @@ public class Duvidas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -255,7 +239,7 @@ public class Duvidas extends javax.swing.JFrame {
     }//GEN-LAST:event_comoEnviarMouseClicked
 
     private void ondeFoiSalvoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ondeFoiSalvoMouseClicked
-        abrirVideo("1nJMmIl2IXU");
+        abrirVideo("Q4Enslh_l98");
     }//GEN-LAST:event_ondeFoiSalvoMouseClicked
 
     private void seguroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seguroMouseClicked
@@ -265,10 +249,6 @@ public class Duvidas extends javax.swing.JFrame {
     private void programafazMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_programafazMouseClicked
         abrirVideo("zJ4-EDYOsf0");
     }//GEN-LAST:event_programafazMouseClicked
-
-    private void testeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_testeMouseClicked
-        abrirVideo("E-bPlS_DwBE");
-    }//GEN-LAST:event_testeMouseClicked
 
     private void abrirVideo(String videoId) {
         try {
@@ -381,6 +361,5 @@ public class Duvidas extends javax.swing.JFrame {
     private javax.swing.JLabel ondeFoiSalvo;
     private javax.swing.JLabel programafaz;
     private javax.swing.JLabel seguro;
-    private javax.swing.JLabel teste;
     // End of variables declaration//GEN-END:variables
 }

@@ -86,4 +86,37 @@ public class SemanaDAO {
         }
     }
 
+    public void excluirSemana(int id) {
+        EntityManager em = FabricaJPA.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            Semana semanaParaExcluir = em.find(Semana.class, id);
+            if (semanaParaExcluir != null) {
+                em.remove(semanaParaExcluir);
+            }
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            throw e;
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close();
+            }
+        }
+    }
+
+    public Semana buscarSemanaPorId(int id) {
+        EntityManager em = FabricaJPA.getEntityManager();
+        try {
+            return em.find(Semana.class, id);
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close();
+            }
+        }
+    }
+
 }

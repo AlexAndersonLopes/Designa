@@ -418,6 +418,7 @@ public class Trocar extends javax.swing.JFrame {
         botaoLista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         tabela.setBackground(new java.awt.Color(204, 204, 204));
         tabela.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N

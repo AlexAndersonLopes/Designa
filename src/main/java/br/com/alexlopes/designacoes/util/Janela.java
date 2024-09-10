@@ -12,6 +12,7 @@ import br.com.alexlopes.designacoes.views.CadastroParticipantes;
 import br.com.alexlopes.designacoes.views.Duvidas;
 import br.com.alexlopes.designacoes.views.FalarCom;
 import br.com.alexlopes.designacoes.views.MenuPrincipal;
+import br.com.alexlopes.designacoes.views.Qual;
 import br.com.alexlopes.designacoes.views.Substituicao;
 import br.com.alexlopes.designacoes.views.Tela2;
 import br.com.alexlopes.designacoes.views.Trocar;
@@ -47,8 +48,8 @@ public class Janela {
             menu.setVisible(true);
         }
     }
-    
-    public static void irDuvidas(){
+
+    public static void irDuvidas() {
         Duvidas a = new Duvidas();
         a.pack();
         a.setLocationRelativeTo(null);
@@ -71,8 +72,8 @@ public class Janela {
 
     public static void irEntrar() {
         Entrar a = new Entrar();
-        a.setLocationRelativeTo(null);
         a.pack();
+        a.setLocationRelativeTo(null);
         a.setVisible(true);
     }
 
@@ -80,8 +81,8 @@ public class Janela {
         if (ag == null) {
             ag = new Aguarde();
             ag.setTitle("Alterar particpante para Reunião do Meio de Semana");
-            ag.setLocationRelativeTo(null);
             ag.pack();
+            ag.setLocationRelativeTo(null);
             ag.setVisible(true);
         } else {
             ag.setLocationRelativeTo(null);
@@ -91,8 +92,8 @@ public class Janela {
 
     public static void irAguarde2(String nome) {
         a2 = new Aguarde2(tela2, false, nome);
-        a2.setLocationRelativeTo(null);
         a2.pack();
+        a2.setLocationRelativeTo(null);
         a2.setVisible(true);
     }
 
@@ -111,40 +112,40 @@ public class Janela {
     public static void irCadastroParticipantes() {
         CadastroParticipantes a = new CadastroParticipantes();
         a.setTitle("Cadastrar particpantes para Reunião do Meio de Semana");
-        a.setExtendedState(JFrame.MAXIMIZED_BOTH);
         a.pack();
+        a.setExtendedState(JFrame.MAXIMIZED_BOTH);
         a.setVisible(true);
     }
 
     public static void irAlterarParticipantes() {
         AlterarParticipantes a = new AlterarParticipantes();
         a.setTitle("Alterar particpante para Reunião do Meio de Semana");
-        a.setExtendedState(JFrame.MAXIMIZED_BOTH);
         a.pack();
+        a.setExtendedState(JFrame.MAXIMIZED_BOTH);
         a.setVisible(true);
     }
 
     public static void irTrocar(int c, String b, Pessoa p, List<Integer> lista, String parte) {
         Trocar a = new Trocar(c, b, p, lista, parte);
         a.setTitle("Alterar particpante para Reunião do Meio de Semana");
-        a.setLocationRelativeTo(null);
         a.pack();
+        a.setLocationRelativeTo(null);
         a.setVisible(true);
     }
 
     public static void irTrocar2(int c, String b, List<Integer> lista) {
         Trocar a = new Trocar(c, b, lista);
         a.setTitle("Alterar particpante para Reunião do Meio de Semana");
-        a.setLocationRelativeTo(null);
         a.pack();
+        a.setLocationRelativeTo(null);
         a.setVisible(true);
     }
 
-    public static void irTrocarSubstituicao(String campo, int num, String parteBD, String parte, String data, String sala, Pessoa a, Pessoa b, String numero) {
-        TrocarSubstituicao t = new TrocarSubstituicao(campo, num, parteBD, parte, data, sala, a, b, numero);
+    public static void irTrocarSubstituicao(String campo, int num, String parteBD, String parte, String data, String sala, Pessoa a, Pessoa b, String numero, int n) {
+        TrocarSubstituicao t = new TrocarSubstituicao(campo, num, parteBD, parte, data, sala, a, b, numero, n);
         t.setTitle("Tela de Substituição");
-        t.setLocationRelativeTo(null);
         t.pack();
+        t.setLocationRelativeTo(null);
         t.setVisible(true);
     }
 
@@ -152,8 +153,8 @@ public class Janela {
         if (sub == null) {
             sub = new Substituicao();
             sub.setTitle("Tela de Substituição");
-            sub.setExtendedState(JFrame.MAXIMIZED_BOTH);
             sub.pack();
+            sub.setExtendedState(JFrame.MAXIMIZED_BOTH);
             sub.setVisible(true);
             sub.mostrarTabela();
         } else {
@@ -165,6 +166,13 @@ public class Janela {
 
     public static void irFalarCom() {
         FalarCom a = new FalarCom();
+        a.pack();
+        a.setLocationRelativeTo(null);
+        a.setVisible(true);
+    }
+
+    public static void irQual(String num) {
+        Qual a = new Qual(num);
         a.setLocationRelativeTo(null);
         a.pack();
         a.setVisible(true);

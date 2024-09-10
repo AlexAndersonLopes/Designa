@@ -16,8 +16,10 @@ import br.com.alexlopes.designacoes.model.Presidente;
 import br.com.alexlopes.designacoes.model.Tesouros;
 import br.com.alexlopes.designacoes.util.Janela;
 import br.com.alexlopes.designacoes.util.Mensagem;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.ParseException;
@@ -32,9 +34,11 @@ import javax.swing.text.MaskFormatter;
 public class CadastroParticipantes extends javax.swing.JFrame {
 
     private final PessoaDAO pesDAO = new PessoaDAO();
+    private int contar = 0;
 
     public CadastroParticipantes() {
         initComponents();
+        homem.requestFocus();
         mostrarTabela();
         addWindowListener(new WindowAdapter() {
             @Override
@@ -90,6 +94,7 @@ public class CadastroParticipantes extends javax.swing.JFrame {
         rFazendo = new javax.swing.JRadioButton();
         rVideo = new javax.swing.JRadioButton();
         botaoVoltar1 = new javax.swing.JButton();
+        mostrarContar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -162,10 +167,20 @@ public class CadastroParticipantes extends javax.swing.JFrame {
         txtNome.setBackground(new java.awt.Color(255, 255, 255));
         txtNome.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         txtNome.setForeground(new java.awt.Color(0, 0, 0));
+        txtNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNomeKeyPressed(evt);
+            }
+        });
 
         txtSobrenome.setBackground(new java.awt.Color(255, 255, 255));
         txtSobrenome.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         txtSobrenome.setForeground(new java.awt.Color(0, 0, 0));
+        txtSobrenome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSobrenomeKeyPressed(evt);
+            }
+        });
 
         buttonGroup1.add(mulher);
         mulher.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
@@ -173,6 +188,16 @@ public class CadastroParticipantes extends javax.swing.JFrame {
         mulher.setText("Mulher");
         mulher.setContentAreaFilled(false);
         mulher.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mulher.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mulherMouseClicked(evt);
+            }
+        });
+        mulher.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                mulherKeyPressed(evt);
+            }
+        });
 
         buttonGroup1.add(homem);
         homem.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
@@ -180,6 +205,16 @@ public class CadastroParticipantes extends javax.swing.JFrame {
         homem.setText("Homem");
         homem.setContentAreaFilled(false);
         homem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        homem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homemMouseClicked(evt);
+            }
+        });
+        homem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                homemKeyPressed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -199,6 +234,11 @@ public class CadastroParticipantes extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtCelularFocusLost(evt);
+            }
+        });
+        txtCelular.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCelularKeyPressed(evt);
             }
         });
 
@@ -445,8 +485,7 @@ public class CadastroParticipantes extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -464,28 +503,41 @@ public class CadastroParticipantes extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                        .addGap(108, 108, 108)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(botaoVoltar)
                             .addComponent(botaoCadastrar)
-                            .addComponent(botaoVoltar1))))
-                .addGap(70, 70, 70))
+                            .addComponent(botaoVoltar1)))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        mostrarContar.setBackground(new java.awt.Color(255, 255, 255));
+        mostrarContar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        mostrarContar.setForeground(new java.awt.Color(0, 0, 0));
+        mostrarContar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mostrarContar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        mostrarContar.setOpaque(true);
 
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(mostrarContar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(8, Short.MAX_VALUE)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(mostrarContar, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
@@ -499,7 +551,9 @@ public class CadastroParticipantes extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(23, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mostrarContar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -510,7 +564,7 @@ public class CadastroParticipantes extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 686, Short.MAX_VALUE)
         );
 
         pack();
@@ -540,6 +594,8 @@ public class CadastroParticipantes extends javax.swing.JFrame {
                 limparTela();
                 limparTelaCheck();
 
+                jPanel3.setBackground(Color.WHITE);
+                homem.requestFocus();
             }
         } catch (Exception e) {
             Mensagem.mensagemErro("Erro ao tentar fazer o cadastro");
@@ -589,6 +645,79 @@ public class CadastroParticipantes extends javax.swing.JFrame {
         this.dispose();
         Janela.irAlterarParticipantes();
     }//GEN-LAST:event_botaoVoltar1ActionPerformed
+
+    private void homemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homemMouseClicked
+        jPanel3.setBackground(new Color(173, 216, 230));
+    }//GEN-LAST:event_homemMouseClicked
+
+    private void mulherMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mulherMouseClicked
+        jPanel3.setBackground(new Color(255, 99, 71));
+    }//GEN-LAST:event_mulherMouseClicked
+
+    private void homemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_homemKeyPressed
+        switch (evt.getKeyCode()) {
+            case KeyEvent.VK_ENTER -> {
+                java.awt.event.MouseEvent evts = null;
+                homemMouseClicked(evts);
+                txtNome.requestFocus();
+            }
+            case KeyEvent.VK_RIGHT ->
+                mulher.requestFocus();
+            default -> {
+            }
+        }
+    }//GEN-LAST:event_homemKeyPressed
+
+    private void mulherKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mulherKeyPressed
+        switch (evt.getKeyCode()) {
+            case KeyEvent.VK_ENTER -> {
+                java.awt.event.MouseEvent evts = null;
+                mulherMouseClicked(evts);
+                txtNome.requestFocus();
+            }
+            case KeyEvent.VK_LEFT ->
+                homem.requestFocus();
+            default -> {
+            }
+        }
+    }//GEN-LAST:event_mulherKeyPressed
+
+    private void txtNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyPressed
+        switch (evt.getKeyCode()) {
+            case KeyEvent.VK_ENTER -> {
+                txtSobrenome.requestFocus();
+            }
+            case KeyEvent.VK_UP ->
+                homem.requestFocus();
+            case KeyEvent.VK_DOWN ->
+                txtSobrenome.requestFocus();
+            default -> {
+            }
+        }
+    }//GEN-LAST:event_txtNomeKeyPressed
+
+    private void txtSobrenomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSobrenomeKeyPressed
+        switch (evt.getKeyCode()) {
+            case KeyEvent.VK_ENTER -> {
+                txtCelular.requestFocus();
+            }
+            case KeyEvent.VK_UP ->
+                txtNome.requestFocus();
+            case KeyEvent.VK_DOWN ->
+                txtCelular.requestFocus();
+            default -> {
+            }
+        }
+    }//GEN-LAST:event_txtSobrenomeKeyPressed
+
+    private void txtCelularKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCelularKeyPressed
+        switch (evt.getKeyCode()) {
+            case KeyEvent.VK_UP ->
+                txtSobrenome.requestFocus();
+            default -> {
+            }
+        }
+    }//GEN-LAST:event_txtCelularKeyPressed
 
     private void definirPartes(Pessoa pessoa) {
         ParteDAO pdao = new ParteDAO();
@@ -743,11 +872,14 @@ public class CadastroParticipantes extends javax.swing.JFrame {
         List<Pessoa> lista = pesDAO.buscarTodasPorOrdemAlfabetica();
         DefaultTableModel tab = (DefaultTableModel) tabela.getModel();
         tab.setNumRows(0);
+        contar = 0;
         for (Pessoa a : lista) {
             tab.addRow(new Object[]{
-                "  " + a.getNome() + " " + a.getSobrenome()
+                "  " + a.getNome() + " " + a.getSobrenome(),
+                    contar++
             });
         }
+        mostrarContar.setText(contar + " participantes cadastrados");
     }
 
     private void limparTela() {
@@ -822,6 +954,7 @@ public class CadastroParticipantes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel mostrarContar;
     private javax.swing.JRadioButton mulher;
     private javax.swing.JRadioButton rAjudante;
     private javax.swing.JRadioButton rCultivando;

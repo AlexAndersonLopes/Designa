@@ -740,18 +740,24 @@ public class PessoaDAO {
     public List<Object[]> buscarNomesParaSubstituicao(String sexo, String descricao) {
         EntityManager em = FabricaJPA.getEntityManager();
         try {
-            String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), p.pessoa.dataUltima, p.pessoa.ajudante FROM Parte p WHERE p.descricao = :descricao";
+            String jpql = "SELECT p.pessoa.id, CONCAT(p.pessoa.nome, ' ', p.pessoa.sobrenome), MAX(p.pessoa.dataUltima), p.pessoa.ajudante FROM Parte p WHERE 1=1";
+            if (descricao != null) {
+                jpql += " AND p.descricao = :descricao";
+            }
             if (sexo != null) {
                 jpql += " AND p.pessoa.sexo = :sexo";
             }
-            jpql += " ORDER BY p.pessoa.dataUltima";
+            jpql += " GROUP BY p.pessoa.id, p.pessoa.nome, p.pessoa.sobrenome, p.pessoa.ajudante";
+            jpql += " ORDER BY CASE WHEN MAX(p.pessoa.dataUltima) IS NULL THEN 1 ELSE 2 END, MAX(p.pessoa.dataUltima) ASC";
             TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
-            query.setParameter("descricao", descricao);
+            if (descricao != null) {
+                query.setParameter("descricao", descricao);
+            }
             if (sexo != null) {
                 query.setParameter("sexo", sexo);
             }
             return query.getResultList();
-        } catch (Exception e) {
+        } catch (Exception e) {           
         } finally {
             em.close();
         }
