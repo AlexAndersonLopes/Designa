@@ -30,6 +30,10 @@ public class CadastrarUsuario extends javax.swing.JFrame {
 
     public CadastrarUsuario() {
         initComponents();
+        // Definir a imagem como ícone da janela
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/designacaoo.png"));
+        Image image = icon.getImage();
+        setIconImage(image);
         txtNome.requestFocus();
         addWindowListener(new WindowAdapter() {
             @Override

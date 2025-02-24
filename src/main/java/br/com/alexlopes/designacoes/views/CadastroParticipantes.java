@@ -38,6 +38,10 @@ public class CadastroParticipantes extends javax.swing.JFrame {
 
     public CadastroParticipantes() {
         initComponents();
+        // Definir a imagem como ícone da janela
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/designacaoo.png"));
+        Image image = icon.getImage();
+        setIconImage(image);
         homem.requestFocus();
         mostrarTabela();
         addWindowListener(new WindowAdapter() {

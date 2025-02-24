@@ -27,9 +27,17 @@ public class FolhaDesignacao extends javax.swing.JFrame {
     public FolhaDesignacao(Pessoa a01, Pessoa b02, String dataParte, String parteTipo, String salaLocal, String ParteNum, int sub) {
         initComponents();
         try {
-            if (sub != 1) {
-                WhatsApp.conectar();
+            String sexo = a01.getSexo();
+            String queridoa;
+            String irmaoa;
+            if(sexo.equals("Homem")){
+                queridoa = "querido";
+                irmaoa = "irmão";
+            }else{
+                queridoa = "querida";
+                irmaoa = "irmã";
             }
+            String saudacao = "Olá, " + queridoa + " " + irmaoa + " " + a01.getNome() + ", segue sua designação para a " + dataParte + ".";
 
             dataParte = dataParte.replace("Semana: ", "");
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -57,10 +65,10 @@ public class FolhaDesignacao extends javax.swing.JFrame {
 
             if (sub == 1) {
                 si.salvar(imag, a01.getNome() + a01.getSobrenome() + "_" + diadia + mess, "Substituição");
-                zap.enviarMensagem(a01.getCelular().replaceAll("[^0-9]", ""), imag);
+                zap.enviarMensagem(a01.getCelular().replaceAll("[^0-9]", ""), imag, saudacao);
                 this.dispose();
             } else {
-                zap.enviarMensagem(a01.getCelular().replaceAll("[^0-9]", ""), imag);
+                zap.enviarMensagem(a01.getCelular().replaceAll("[^0-9]", ""), imag, saudacao);
                 this.dispose();
                 Janela.irTela2();
             }
@@ -417,14 +425,6 @@ public class FolhaDesignacao extends javax.swing.JFrame {
             si.salvar(imag, parte4B.getNome() + parte4B.getSobrenome() + "_" + dados.getDia() + dados.getMes(), dados.getMes() + dados.getAno());
         }
         this.dispose();
-    }
-
-    private void validar(BufferedImage imag) {
-        WhatsApp zap = new WhatsApp();
-        try {
-            zap.enviarMensagemUsuario(imag);
-        } catch (Exception e) {
-        }
     }
 
     public static void main(String args[]) {

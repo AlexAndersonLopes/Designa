@@ -31,6 +31,10 @@ public class Entrar extends javax.swing.JFrame {
 
     public Entrar() {
         initComponents();
+        // Definir a imagem como ícone da janela
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/designacaoo.png"));
+        Image image = icon.getImage();
+        setIconImage(image);
         txtSenha.requestFocus();
         usuario = dao.obterUsuarioUnico();
         Janela.setUsuario(usuario);

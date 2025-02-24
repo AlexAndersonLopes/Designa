@@ -40,6 +40,10 @@ public class AlterarParticipantes extends javax.swing.JFrame {
 
     public AlterarParticipantes() {
         initComponents();
+        // Definir a imagem como ícone da janela
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/designacaoo.png"));
+        Image image = icon.getImage();
+        setIconImage(image);
         mostrarTabela();
         addWindowListener(new WindowAdapter() {
             @Override

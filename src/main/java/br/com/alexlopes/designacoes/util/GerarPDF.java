@@ -20,8 +20,9 @@ import javax.swing.JPanel;
 
 public class GerarPDF extends javax.swing.JFrame {
 
-    private final String cam = System.getProperty("user.home") + "\\OneDrive\\Área de Trabalho\\Designações\\";
-
+    //private final String cam = System.getProperty("user.home") + "\\OneDrive\\Área de Trabalho\\Designações\\";
+    private final String cam = System.getProperty("user.home") + "\\Designações\\";
+    
     private String seguir;
     private String caminho;
     private int num = 5;

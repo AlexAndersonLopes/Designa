@@ -792,7 +792,7 @@
               <Font name="Arial" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="VERS&#xc3;O 1.4 - jan 24"/>
+            <Property name="text" type="java.lang.String" value="VERS&#xc3;O 1.5 - nov 24"/>
           </Properties>
         </Component>
       </SubComponents>

@@ -1,185 +1,211 @@
 package br.com.alexlopes.designacoes.util.whats;
 
-import br.com.alexlopes.designacoes.util.Janela;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import java.awt.Desktop;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.time.Duration;
-import java.util.Set;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.file.Paths;
+import java.util.Base64;
+import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import javax.imageio.ImageWriteParam;
+import javax.imageio.ImageWriter;
+import javax.imageio.stream.ImageOutputStream;
 
 public class WhatsApp {
 
-    private static WebDriver driver;
+    private static final String SERVER_IMAGE_URL = "http://localhost:3000/send-image";
 
-    public static WebDriver getDriver() {
-        return driver;
-    }
+    //Caminho para abrir o index.js no prompt
+    //private static final String projectDirs = "meu-bot-whatsapp";
+    private static final String projectDirs = Paths.get("").toAbsolutePath().toString() + "/meu-bot-whatsapp";
 
-
-    private static boolean verificarPaginaWebAberta() {
+    public void enviarMensagem(String number, BufferedImage image, String caption) {
         try {
-            Set<String> windowHandles = driver.getWindowHandles();
+            // Reduzir o tamanho da imagem para 600x600 pixels
+            BufferedImage resizedImage = resizeImage(image, 650, 900);
 
-            if (!windowHandles.isEmpty()) {
-                // Já existem janelas abertas, verificar se a janela está minimizada
-                for (String handle : windowHandles) {
-                    driver.switchTo().window(handle);
-                    if (driver.manage().window().getPosition().getX() == -32000) {
-                        // A posição -32000 indica que a janela está minimizada
-                        driver.manage().window().maximize();
-                        break;
-                    }
-                }
-                return true;
+            // Converter imagem para JPEG com qualidade reduzida
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            compressImageToJPEG(resizedImage, baos, 0.7f); // Qualidade 70%
+            byte[] imageBytes = baos.toByteArray();
+            String imageData = Base64.getEncoder().encodeToString(imageBytes);
+
+            // Criar a URL
+            URL url = new URL(SERVER_IMAGE_URL);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setDoOutput(true);
+
+            // Criar o corpo da requisição
+            String jsonInputString = String.format(
+                    "{\"number\":\"%s\", \"imageData\":\"%s\", \"caption\":\"%s\"}",
+                    55 + number, imageData, caption != null ? caption : ""
+            );
+
+            // Enviar a requisição
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes("utf-8");
+                os.write(input, 0, input.length);
             }
 
-            driver.manage().window().maximize();
-            WebElement searchBar = driver.findElement(By.xpath("//div[@contenteditable='true']"));
-            searchBar.click();
-            // Se não ocorreu uma exceção, então a barra de pesquisa está presente, indicando que a página está aberta
-            return true;
+            // Verificar a resposta
+            int responseCode = conn.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                System.out.println("Imagem enviada com sucesso!");
+            } else {
+                System.out.println("Falha ao enviar imagem. Código de resposta: " + responseCode);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Método para redimensionar a imagem
+    private static BufferedImage resizeImage(BufferedImage originalImage, int targetWidth, int targetHeight) {
+        Image resultingImage = originalImage.getScaledInstance(targetWidth, targetHeight, Image.SCALE_SMOOTH);
+        BufferedImage outputImage = new BufferedImage(targetWidth, targetHeight, BufferedImage.TYPE_INT_RGB);
+        Graphics2D g2d = outputImage.createGraphics();
+        g2d.drawImage(resultingImage, 0, 0, null);
+        g2d.dispose();
+        return outputImage;
+    }
+
+    // Método para comprimir imagem para JPEG com qualidade ajustada
+    private static void compressImageToJPEG(BufferedImage image, OutputStream os, float quality) throws IOException {
+        ImageWriter jpegWriter = ImageIO.getImageWritersByFormatName("jpg").next();
+        ImageWriteParam jpegParams = jpegWriter.getDefaultWriteParam();
+        jpegParams.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
+        jpegParams.setCompressionQuality(quality); // Qualidade de 0 a 1
+
+        try (ImageOutputStream ios = ImageIO.createImageOutputStream(os)) {
+            jpegWriter.setOutput(ios);
+            jpegWriter.write(null, new IIOImage(image, null, null), jpegParams);
+        } finally {
+            jpegWriter.dispose();
+        }
+    }
+
+    // Método para verificar o status do WhatsApp
+    public static String getWhatsAppStatus() {
+        String result = "";
+        try {
+            URL url = new URL("http://localhost:3000/status");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+
+            int code = conn.getResponseCode();
+            if (code == 200) {
+                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                String inputLine;
+                StringBuilder response = new StringBuilder();
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+                in.close();
+                result = response.toString();
+            } else {
+                System.out.println("Erro ao verificar status: " + code);
+            }
         } catch (Exception e) {
-            // Se ocorreu uma exceção, a barra de pesquisa não foi encontrada, indicando que a página não está aberta
-            driver = null;
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static void iniciarWhatsApp() {
+        // Verificar se a porta 3000 está em uso
+        if (isPortInUse(3000)) {
+            System.out.println("A porta 3000 está em uso. Tentando fechá-la...");
+            closePort(3000);
+        } else {
+            System.out.println("A porta 3000 está livre. Iniciando o servidor Node.js...");
+        }
+
+        // Criar um ProcessBuilder para iniciar o servidor Node.js no cmd
+        ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", "start", "cmd.exe", "/k", "cd " + projectDirs + " && node index.js");
+
+        processBuilder.inheritIO(); // Isso herda a saída e erro do processo pai (console)
+
+        try {
+            // Iniciar o processo
+            Process process = processBuilder.start();
+
+            System.out.println("Servidor Node.js iniciado com sucesso!");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Erro ao iniciar o servidor Node.js.");
+        }
+    }
+
+    // Método para verificar se a porta está em uso
+    private static boolean isPortInUse(int port) {
+        String command = "netstat -ano | findstr :" + port;
+        try {
+            Process process = Runtime.getRuntime().exec(command);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            return reader.readLine() != null; // Se houver uma linha, a porta está em uso
+        } catch (IOException e) {
+            e.printStackTrace();
             return false;
         }
     }
 
-    public static void conectar() {
-        if (!verificarPaginaWebAberta()) {
-            // Configurar o driver do Chrome usando o WebDriverManager
-            ChromeOptions options = new ChromeOptions();
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver(options);
-        }
-        // Verificar se a janela do WhatsApp já está aberta
-        Set<String> windowHandles = driver.getWindowHandles();
-        boolean whatsappWindowFound = false;
-
-        for (String handle : windowHandles) {
-            driver.switchTo().window(handle);
-            if (driver.getCurrentUrl().startsWith("https://web.whatsapp.com/")) {
-                whatsappWindowFound = true;
-                break;
-            }
-        }
-        // Abrir o WhatsApp Web se a janela não foi encontrada
-        if (!whatsappWindowFound) {
-            driver.get("https://web.whatsapp.com/");
-        }
-    }
-    
-    public static void sair() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
-        }
-    }
-
-    public void enviarMensagemUsuario(BufferedImage imag) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        BufferedImage imagem = imag;
-        String telefone = Janela.getUsuario().getCelular().replaceAll("[^0-9]", "");
-
+    // Método para fechar a porta (terminar o processo que está usando a porta)
+    private static void closePort(int port) {
+        String command = "netstat -ano | findstr :" + port;
         try {
-            // Localizar e preencher o campo de pesquisa
-            WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@contenteditable='true'][@data-tab='3']")));
-            for (int i = 0; i < telefone.length(); i++) {
-                searchBox.sendKeys(Keys.BACK_SPACE);
+            Process process = Runtime.getRuntime().exec(command);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // Extrair o PID da linha que contém o uso da porta
+                String[] parts = line.trim().split("\\s+");
+                String pid = parts[parts.length - 1]; // O PID é o último elemento
+                System.out.println("Fechando o processo com PID: " + pid);
+                // Matar o processo
+                Runtime.getRuntime().exec("taskkill /PID " + pid + " /F");
             }
-            searchBox.sendKeys(telefone);
-            searchBox.sendKeys(Keys.ENTER);
-
-            // Clicar no ícone de anexo para abrir o menu de anexos
-            By attachButtonLocator = By.xpath("//div[@title='Anexar']");
-            WebElement attachButton = wait.until(ExpectedConditions.elementToBeClickable(attachButtonLocator));
-            attachButton.click();
-
-            // Selecionar a opção de envio de imagem
-            By imageOptionLocator = By.xpath("//input[@accept='image/*,video/mp4,video/3gpp,video/quicktime']");
-            WebElement imageOption = wait.until(ExpectedConditions.presenceOfElementLocated(imageOptionLocator));
-
-            // Salvar a imagem em um arquivo temporário para carregar no input do WebDriver
-            File tempImageFile = File.createTempFile("tempImage", ".jpg");
-            ImageIO.write(imagem, "jpg", tempImageFile);
-
-            // Enviar o caminho do arquivo para o campo de input de imagem
-            imageOption.sendKeys(tempImageFile.getAbsolutePath());
-
-            // Aguardar o upload da imagem (pode ser necessário um tempo extra)
-            Thread.sleep(5000); // Ajuste o tempo conforme necessário
-
-            // Pressionar Enter após enviar o caminho do arquivo
-            Actions actions = new Actions(driver);
-            actions.sendKeys(Keys.ENTER).build().perform();
-
-            // Aguardar o envio da imagem
-            Thread.sleep(5000); // Ajuste o tempo conforme necessário
-
-            // Enviar uma quebra de linha
-            WebElement messageBox = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='main']/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p")));
-            messageBox.sendKeys("\n");
-
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public void enviarMensagem(String telefone, BufferedImage imagem) {
+    // Método para encerrar o servidor Node.js via endpoint HTTP
+    public static void shutdownServer() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            // Configura a URL para a chamada ao endpoint de shutdown
+            URL url = new URL("http://localhost:3000/shutdown");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-            driver.get(driver.getCurrentUrl());
+            // Define o método como POST
+            conn.setRequestMethod("POST");
+            conn.setDoOutput(true); // Permite enviar dados na requisição
 
-            // Localizar e preencher o campo de pesquisa
-            WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@contenteditable='true'][@data-tab='3']")));
-            searchBox.sendKeys(telefone);
-            searchBox.sendKeys(Keys.ENTER);
+            // Envia a requisição POST
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = "{}".getBytes("utf-8"); // Corpo vazio para a requisição
+                os.write(input, 0, input.length);
+            }
 
-            // Clicar no ícone de anexo para abrir o menu de anexos
-            By attachButtonLocator = By.xpath("//div[@title='Anexar']");
-            WebElement attachButton = wait.until(ExpectedConditions.elementToBeClickable(attachButtonLocator));
-            attachButton.click();
-
-            // Selecionar a opção de envio de imagem
-            By imageOptionLocator = By.xpath("//input[@accept='image/*,video/mp4,video/3gpp,video/quicktime']");
-            WebElement imageOption = wait.until(ExpectedConditions.presenceOfElementLocated(imageOptionLocator));
-
-            // Salvar a imagem em um arquivo temporário para carregar no input do WebDriver
-            File tempImageFile = File.createTempFile("tempImage", ".jpg");
-            ImageIO.write(imagem, "jpg", tempImageFile);
-
-            // Enviar o caminho do arquivo para o campo de input de imagem
-            imageOption.sendKeys(tempImageFile.getAbsolutePath());
-
-            // Aguardar o upload da imagem (pode ser necessário um tempo extra)
-            Thread.sleep(5000); // Ajuste o tempo conforme necessário
-
-            // Pressionar Enter após enviar o caminho do arquivo
-            Actions actions = new Actions(driver);
-            actions.sendKeys(Keys.ENTER).build().perform();
-
-            // Aguardar o envio da imagem
-            Thread.sleep(5000); // Ajuste o tempo conforme necessário
-
-            // Enviar uma quebra de linha
-            WebElement messageBox = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='main']/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p")));
-            messageBox.sendKeys("\n");
-        } catch (IOException | InterruptedException e) {
-            enviarMensagemUsuario(imagem);
+            // Verifica a resposta do servidor
+            int responseCode = conn.getResponseCode();
+            if (responseCode == 200) {
+                System.out.println("Servidor encerrado com sucesso.");
+            } else {
+                System.out.println("Erro ao encerrar o servidor. Código: " + responseCode);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

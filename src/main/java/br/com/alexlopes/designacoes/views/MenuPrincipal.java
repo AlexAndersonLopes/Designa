@@ -4,6 +4,7 @@ import br.com.alexlopes.designacoes.dao.SemanaDAO;
 import br.com.alexlopes.designacoes.fabrica.FabricaJPA;
 import br.com.alexlopes.designacoes.model.Semana;
 import br.com.alexlopes.designacoes.util.Janela;
+import br.com.alexlopes.designacoes.util.Mensagem;
 import br.com.alexlopes.designacoes.util.whats.WhatsApp;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -26,6 +27,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     public MenuPrincipal() {
         initComponents();
+        // Definir a imagem como ícone da janela
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/designacaoo.png"));
+        Image image = icon.getImage();
+        setIconImage(image);
         mostrarTabela();
         addWindowListener(new WindowAdapter() {
             @Override
@@ -40,7 +45,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         int option = JOptionPane.showOptionDialog(this, "Deseja realmente sair?", "Confirmação", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
         if (option == JOptionPane.YES_OPTION) {
             FabricaJPA.closeEntityManager();
-            WhatsApp.sair();
+            WhatsApp.shutdownServer();
             dispose();
             System.exit(0);
         } else {
@@ -515,7 +520,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jLabel15.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("VERSÃO 1.4 - jan 24");
+        jLabel15.setText("VERSÃO 1.5 - nov 24");
 
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -599,11 +604,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        WhatsApp.conectar();
+        try {
+            String a = WhatsApp.getWhatsAppStatus();
+            if (a.equals("{\"status\":\"conectado\"}")) {
+                Mensagem.mensagemExito("O WhatsApp já está conectado!");
+            } else {
+                WhatsApp.iniciarWhatsApp();
+            }
+        } catch (Exception e) {
+            WhatsApp.iniciarWhatsApp();
+        }
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-        WhatsApp.conectar();
+        try {
+            String a = WhatsApp.getWhatsAppStatus();
+            if (a.equals("{\"status\":\"conectado\"}")) {
+                Mensagem.mensagemExito("O WhatsApp já está conectado!");
+            } else {
+                WhatsApp.iniciarWhatsApp();
+            }
+        } catch (Exception e) {
+            WhatsApp.iniciarWhatsApp();
+        }
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked

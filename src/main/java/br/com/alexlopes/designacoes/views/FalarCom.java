@@ -15,6 +15,10 @@ public class FalarCom extends javax.swing.JFrame {
 
     public FalarCom() {
         initComponents();
+        // Definir a imagem como ícone da janela
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/designacaoo.png"));
+        Image image = icon.getImage();
+        setIconImage(image);
         txtEmail.setLineWrap(true);
         txtEmail.setWrapStyleWord(true);
         addWindowListener(new WindowAdapter() {

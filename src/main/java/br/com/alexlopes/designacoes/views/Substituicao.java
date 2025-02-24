@@ -33,6 +33,10 @@ public class Substituicao extends javax.swing.JFrame {
 
     public Substituicao() {
         initComponents();
+        // Definir a imagem como ícone da janela
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/designacaoo.png"));
+        Image image = icon.getImage();
+        setIconImage(image);
         mostrarTabela();
         addWindowListener(new WindowAdapter() {
             @Override

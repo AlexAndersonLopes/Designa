@@ -1,6 +1,8 @@
 package br.com.alexlopes.designacoes.views;
 
 import br.com.alexlopes.designacoes.util.Janela;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class Qual extends javax.swing.JDialog {
@@ -10,12 +12,20 @@ public class Qual extends javax.swing.JDialog {
     public Qual(String num) {
         super();
         initComponents();
+        // Definir a imagem como ícone da janela
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/designacaoo.png"));
+        Image image = icon.getImage();
+        setIconImage(image);
         jLabel1.setText("Selecione qual é a parte número " + num + ":");
     }
 
     private Qual(JFrame jFrame, boolean b) {
         super(jFrame, b);
         initComponents();
+        // Definir a imagem como ícone da janela
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/designacaoo.png"));
+        Image image = icon.getImage();
+        setIconImage(image);
     }
 
     @SuppressWarnings("unchecked")

@@ -1,0 +1,19 @@
+{
+  "name": "meu-bot-whatsapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.9",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "qrcode-image": "^0.1.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}

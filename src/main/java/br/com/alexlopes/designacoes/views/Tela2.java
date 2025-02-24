@@ -69,6 +69,10 @@ public class Tela2 extends javax.swing.JFrame {
 
     public Tela2() {
         initComponents();
+        // Definir a imagem como ícone da janela
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/designacaoo.png"));
+        Image image = icon.getImage();
+        setIconImage(image);
         comboAno.addItem("           ANO");
         comboAno.addItem(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
         comboAno.addItem(String.valueOf(Calendar.getInstance().get(Calendar.YEAR) + 1));
@@ -76,6 +80,7 @@ public class Tela2 extends javax.swing.JFrame {
         panelA.setVisible(false);
         painelSalas.setVisible(false);
         painelBotoes.setVisible(false);
+        getWhatsappIniciar();
     }
 
     @SuppressWarnings("unchecked")
@@ -1775,6 +1780,30 @@ public class Tela2 extends javax.swing.JFrame {
         thread.start();
     }
 
+    //Retornar verdadeiro se o whatsapp estiver conectado
+    private boolean getWhatsApp() {
+        try {
+            String a = WhatsApp.getWhatsAppStatus();
+            return a.equals("{\"status\":\"conectado\"}");
+        } catch (Exception e) {
+            Mensagem.mensagemErro("Por favor, conecte ao servidor do WhatsApp!");
+            return false;
+        }
+    }
+
+    private void getWhatsappIniciar() {
+        try {
+            String a = WhatsApp.getWhatsAppStatus();
+            if (a.equals("{\"status\":\"conectado\"}")) {
+                botaoConectar.setText("WhatsApp - Conectado");
+            } else {
+                botaoConectar.setText("WhatsApp - Não Conectado");
+            }
+        } catch (Exception e) {
+            botaoConectar.setText("WhatsApp - Não Conectado");
+        }
+    }
+
     private void botaoDefinirDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDefinirDataActionPerformed
         linha = 0;
         redefinirComboBox();
@@ -2176,7 +2205,7 @@ public class Tela2 extends javax.swing.JFrame {
                 txtLeituraBibliaB.setText(leituraBibliaB.getNome() + " " + leituraBibliaB.getSobrenome());
                 listaIgnorarEstudantes.add(leituraBibliaB.getId());
             }
-        } 
+        }
         if (!cLeituraBiblia.isSelected()) {
             listaIgnorarEstudantes.remove(Integer.valueOf(leituraBibliaA.getId()));
             txtLeituraBiblia.setText(null);
@@ -3060,22 +3089,24 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarPresidenteAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarPresidenteAActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtPresidente.getText());
-                    });
-                    folha = new FolhaDesignacao(presidenteA.getPessoa(), null, labelDATA.getText(), "", "SALA A", "Presidente", 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarPresidenteA.setBackground(new Color(37, 211, 102));
-                        enviarPresidenteA.setText("Enviar");
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtPresidente.getText());
+                        });
+                        folha = new FolhaDesignacao(presidenteA.getPessoa(), null, labelDATA.getText(), "", "SALA A", "Presidente", 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarPresidenteA.setBackground(new Color(37, 211, 102));
+                            enviarPresidenteA.setText("Enviar");
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3083,21 +3114,23 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarOracaoInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarOracaoInicialActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtOracaoInicial.getText());
-                    });
-                    folha = new FolhaDesignacao(oracaoA.getPessoa(), null, labelDATA.getText(), "", "SALA A", "Oração Inicial", 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarOracaoInicial.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtOracaoInicial.getText());
+                        });
+                        folha = new FolhaDesignacao(oracaoA.getPessoa(), null, labelDATA.getText(), "", "SALA A", "Oração Inicial", 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarOracaoInicial.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3105,21 +3138,23 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarDiscursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarDiscursoActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtTesouros.getText());
-                    });
-                    folha = new FolhaDesignacao(tesouros.getPessoa(), null, labelDATA.getText(), temaDiscurso.getText(), "SALA A", "1", 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarDiscurso.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtTesouros.getText());
+                        });
+                        folha = new FolhaDesignacao(tesouros.getPessoa(), null, labelDATA.getText(), temaDiscurso.getText(), "SALA A", "1", 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarDiscurso.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3127,21 +3162,23 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarJoiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarJoiasActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtJoias.getText());
-                    });
-                    folha = new FolhaDesignacao(joias, null, labelDATA.getText(), "Joias Espirítuais", "SALA A", "2", 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarJoias.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtJoias.getText());
+                        });
+                        folha = new FolhaDesignacao(joias, null, labelDATA.getText(), "Joias Espirítuais", "SALA A", "2", 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarJoias.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3149,21 +3186,23 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarLeituraBibliaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarLeituraBibliaActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtLeituraBiblia.getText());
-                    });
-                    folha = new FolhaDesignacao(leituraBibliaA, null, labelDATA.getText(), "Leitura da Bíblia", "SALA A", "3", 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarLeituraBiblia.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtLeituraBiblia.getText());
+                        });
+                        folha = new FolhaDesignacao(leituraBibliaA, null, labelDATA.getText(), "Leitura da Bíblia", "SALA A", "3", 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarLeituraBiblia.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3171,22 +3210,24 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarParte1AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarParte1AActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtParte1.getText());
-                    });
-                    String tema = comboParte1.getSelectedItem() + ": " + temaVideo1.getText();
-                    folha = new FolhaDesignacao(parte1A, ajudante1A, labelDATA.getText(), tema, "SALA A", "4", 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarParte1A.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtParte1.getText());
+                        });
+                        String tema = comboParte1.getSelectedItem() + ": " + temaVideo1.getText();
+                        folha = new FolhaDesignacao(parte1A, ajudante1A, labelDATA.getText(), tema, "SALA A", "4", 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarParte1A.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3194,22 +3235,24 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarParte2AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarParte2AActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtParte2.getText());
-                    });
-                    String tema = comboParte2.getSelectedItem() + ": " + temaVideo2.getText();
-                    folha = new FolhaDesignacao(parte2A, ajudante2A, labelDATA.getText(), tema, "SALA A", "5", 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarParte2A.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtParte2.getText());
+                        });
+                        String tema = comboParte2.getSelectedItem() + ": " + temaVideo2.getText();
+                        folha = new FolhaDesignacao(parte2A, ajudante2A, labelDATA.getText(), tema, "SALA A", "5", 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarParte2A.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3217,22 +3260,24 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarParte3AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarParte3AActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtParte3.getText());
-                    });
-                    String tema = comboParte3.getSelectedItem() + ": " + temaVideo3.getText();
-                    folha = new FolhaDesignacao(parte3A, ajudante3A, labelDATA.getText(), tema, "SALA A", nParte3.getText(), 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarParte3A.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtParte3.getText());
+                        });
+                        String tema = comboParte3.getSelectedItem() + ": " + temaVideo3.getText();
+                        folha = new FolhaDesignacao(parte3A, ajudante3A, labelDATA.getText(), tema, "SALA A", nParte3.getText(), 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarParte3A.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3240,22 +3285,24 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarParte4AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarParte4AActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtParte4.getText());
-                    });
-                    String tema = comboParte4.getSelectedItem() + ": " + temaVideo4.getText();
-                    folha = new FolhaDesignacao(parte4A, ajudante4A, labelDATA.getText(), tema, "SALA A", nParte4.getText(), 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarParte4A.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtParte4.getText());
+                        });
+                        String tema = comboParte4.getSelectedItem() + ": " + temaVideo4.getText();
+                        folha = new FolhaDesignacao(parte4A, ajudante4A, labelDATA.getText(), tema, "SALA A", nParte4.getText(), 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarParte4A.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3263,21 +3310,23 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarLeituraBibliaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarLeituraBibliaBActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtLeituraBibliaB.getText());
-                    });
-                    folha = new FolhaDesignacao(leituraBibliaB, null, labelDATA.getText(), "Leitura da Bíblia", "SALA B", "3", 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarLeituraBibliaB.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtLeituraBibliaB.getText());
+                        });
+                        folha = new FolhaDesignacao(leituraBibliaB, null, labelDATA.getText(), "Leitura da Bíblia", "SALA B", "3", 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarLeituraBibliaB.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3285,22 +3334,24 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarParte1BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarParte1BActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtParte1B.getText());
-                    });
-                    String tema = comboParte1.getSelectedItem() + ": " + temaVideo1.getText();
-                    folha = new FolhaDesignacao(parte1B, ajudante1B, labelDATA.getText(), tema, "SALA B", "4", 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarParte1B.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtParte1B.getText());
+                        });
+                        String tema = comboParte1.getSelectedItem() + ": " + temaVideo1.getText();
+                        folha = new FolhaDesignacao(parte1B, ajudante1B, labelDATA.getText(), tema, "SALA B", "4", 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarParte1B.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3308,22 +3359,24 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarParte2BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarParte2BActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtParte2B.getText());
-                    });
-                    String tema = comboParte2.getSelectedItem() + ": " + temaVideo2.getText();
-                    folha = new FolhaDesignacao(parte2B, ajudante2B, labelDATA.getText(), tema, "SALA B", "5", 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarParte2B.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtParte2B.getText());
+                        });
+                        String tema = comboParte2.getSelectedItem() + ": " + temaVideo2.getText();
+                        folha = new FolhaDesignacao(parte2B, ajudante2B, labelDATA.getText(), tema, "SALA B", "5", 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarParte2B.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3331,22 +3384,24 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarParte3BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarParte3BActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtParte3B.getText());
-                    });
-                    String tema = comboParte3.getSelectedItem() + ": " + temaVideo3.getText();
-                    folha = new FolhaDesignacao(parte3B, ajudante3B, labelDATA.getText(), tema, "SALA B", nParte3.getText(), 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarParte3B.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtParte3B.getText());
+                        });
+                        String tema = comboParte3.getSelectedItem() + ": " + temaVideo3.getText();
+                        folha = new FolhaDesignacao(parte3B, ajudante3B, labelDATA.getText(), tema, "SALA B", nParte3.getText(), 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarParte3B.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3354,22 +3409,24 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarParte4BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarParte4BActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtParte4B.getText());
-                    });
-                    String tema = comboParte4.getSelectedItem() + ": " + temaVideo4.getText();
-                    folha = new FolhaDesignacao(parte4B, ajudante4B, labelDATA.getText(), tema, "SALA B", nParte4.getText(), 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarParte4B.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtParte4B.getText());
+                        });
+                        String tema = comboParte4.getSelectedItem() + ": " + temaVideo4.getText();
+                        folha = new FolhaDesignacao(parte4B, ajudante4B, labelDATA.getText(), tema, "SALA B", nParte4.getText(), 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarParte4B.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3377,21 +3434,23 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarPresidenteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarPresidenteBActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtPresidenteB.getText());
-                    });
-                    folha = new FolhaDesignacao(presidenteB.getPessoa(), null, labelDATA.getText(), "", "SALA B", "Presidente", 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarPresidenteB.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtPresidenteB.getText());
+                        });
+                        folha = new FolhaDesignacao(presidenteB.getPessoa(), null, labelDATA.getText(), "", "SALA B", "Presidente", 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarPresidenteB.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3399,21 +3458,23 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarNossaVida1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarNossaVida1ActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtCrista1.getText());
-                    });
-                    folha = new FolhaDesignacao(nossaVida1, null, labelDATA.getText(), temaNossaVida1.getText(), "SALA A", nNossa1.getText(), 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarNossaVida1.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtCrista1.getText());
+                        });
+                        folha = new FolhaDesignacao(nossaVida1, null, labelDATA.getText(), temaNossaVida1.getText(), "SALA A", nNossa1.getText(), 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarNossaVida1.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3421,21 +3482,23 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarNossaVida2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarNossaVida2ActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtNossaVida2.getText());
-                    });
-                    folha = new FolhaDesignacao(nossaVida2, null, labelDATA.getText(), temaNossaVida2.getText(), "SALA A", nNossa2.getText(), 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarNossaVida2.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtNossaVida2.getText());
+                        });
+                        folha = new FolhaDesignacao(nossaVida2, null, labelDATA.getText(), temaNossaVida2.getText(), "SALA A", nNossa2.getText(), 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarNossaVida2.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3443,21 +3506,23 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarEstudoCongregacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarEstudoCongregacaoActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtEstudoCongregacao.getText());
-                    });
-                    folha = new FolhaDesignacao(estudoCong.getPessoa(), null, labelDATA.getText(), "Estudo Bíblico de Congregação", "SALA A", nEstudoLivro.getText(), 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarEstudoCongregacao.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtEstudoCongregacao.getText());
+                        });
+                        folha = new FolhaDesignacao(estudoCong.getPessoa(), null, labelDATA.getText(), "Estudo Bíblico de Congregação", "SALA A", nEstudoLivro.getText(), 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarEstudoCongregacao.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3465,21 +3530,23 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarEstudoLeitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarEstudoLeitorActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtLeitor.getText());
-                    });
-                    folha = new FolhaDesignacao(leitor.getPessoa(), null, labelDATA.getText(), "Leitura do estudo Bíblico de congregação", "SALA A", "Leitor", 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarEstudoLeitor.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtLeitor.getText());
+                        });
+                        folha = new FolhaDesignacao(leitor.getPessoa(), null, labelDATA.getText(), "Leitura do estudo Bíblico de congregação", "SALA A", "Leitor", 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarEstudoLeitor.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3487,21 +3554,23 @@ public class Tela2 extends javax.swing.JFrame {
 
     private void enviarOracaoFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarOracaoFinalActionPerformed
         Thread thread = new Thread(() -> {
-            try {
-                if (salvo) {
-                    SwingUtilities.invokeLater(() -> {
-                        Janela.irAguarde2(txtOracaoFinal.getText());
-                    });
-                    folha = new FolhaDesignacao(oracaoB.getPessoa(), null, labelDATA.getText(), "", "SALA A", "Oração Final", 2);
-                    SwingUtilities.invokeLater(() -> {
-                        enviarOracaoFinal.setBackground(new Color(37, 211, 102));
-                        Janela.a2.fechar();
-                    });
-                } else {
-                    Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+            if (getWhatsApp()) {
+                try {
+                    if (salvo) {
+                        SwingUtilities.invokeLater(() -> {
+                            Janela.irAguarde2(txtOracaoFinal.getText());
+                        });
+                        folha = new FolhaDesignacao(oracaoB.getPessoa(), null, labelDATA.getText(), "", "SALA A", "Oração Final", 2);
+                        SwingUtilities.invokeLater(() -> {
+                            enviarOracaoFinal.setBackground(new Color(37, 211, 102));
+                            Janela.a2.fechar();
+                        });
+                    } else {
+                        Mensagem.mensagemAlerta("Antes de enviar, Salve os dados dessa semana.");
+                    }
+                } catch (Exception e) {
+                    Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
                 }
-            } catch (Exception e) {
-                Mensagem.mensagemErro("Erro ao enviar, conecte o WhatsApp novamente.");
             }
         });
         thread.start();
@@ -3716,7 +3785,20 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoRecomecarActionPerformed
 
     private void botaoConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConectarActionPerformed
-        WhatsApp.conectar();
+        try {
+            WhatsApp.iniciarWhatsApp();
+            String a = WhatsApp.getWhatsAppStatus();
+            if (a.equals("{\"status\":\"conectado\"}")) {
+                botaoConectar.setText("CONECTADO");
+                Mensagem.mensagemExito("Está tudo certo, pode enviar as designações!");
+            } else {
+                botaoConectar.setText("NÃO CONECTADO");
+                Mensagem.mensagemErro("Por favor, conecte ao servidor do WhatsApp!");
+            }
+        } catch (Exception e) {
+            botaoConectar.setText("NÃO CONECTADO");
+            Mensagem.mensagemErro("Por favor, conecte ao servidor do WhatsApp!");
+        }
     }//GEN-LAST:event_botaoConectarActionPerformed
 
     private void redefinirParticipantes() {

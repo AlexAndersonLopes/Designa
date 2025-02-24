@@ -27,6 +27,10 @@ public class TrocarSubstituicao extends javax.swing.JFrame {
 
     public TrocarSubstituicao(String campo, int num, String parteBD, String parte, String data, String sala, Pessoa a, Pessoa b, String parteNum, int n) {
         initComponents();
+        // Definir a imagem como ícone da janela
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/designacaoo.png"));
+        Image image = icon.getImage();
+        setIconImage(image);
 
         this.campo = campo;
         this.num = num;

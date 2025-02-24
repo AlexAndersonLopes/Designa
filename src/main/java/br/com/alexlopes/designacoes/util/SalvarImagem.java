@@ -10,7 +10,8 @@ import java.nio.file.Paths;
 
 public class SalvarImagem {
 
-    private final String cam = System.getProperty("user.home") + "\\OneDrive\\Área de Trabalho\\Designações\\";
+  //private final String cam = System.getProperty("user.home") + "\\OneDrive\\Área de Trabalho\\Designações\\";
+    private final String cam = System.getProperty("user.home") + "\\Designações\\";
 
     
     public void salvar(BufferedImage imagem, String nome, String mes) {

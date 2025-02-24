@@ -26,6 +26,10 @@ public class Trocar extends javax.swing.JFrame {
 
     public Trocar() {
         initComponents();
+        // Definir a imagem como ícone da janela
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/designacaoo.png"));
+        Image image = icon.getImage();
+        setIconImage(image);
     }
 
     //int é o tipo da parte que o usuario quer alterar
@@ -33,6 +37,10 @@ public class Trocar extends javax.swing.JFrame {
     //string p é a pessoa
     public Trocar(int a, String b, Pessoa p, List<Integer> lista, String parte) {
         initComponents();
+        // Definir a imagem como ícone da janela
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/designacaoo.png"));
+        Image image = icon.getImage();
+        setIconImage(image);
         txtProcurar.requestFocus();
         pessoa = p;
         labelNomeAntigo.setText(p.getNome() + " " + p.getSobrenome());

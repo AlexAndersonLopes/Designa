@@ -12,7 +12,8 @@ import javax.swing.JOptionPane;
 
 public class ArquivoTXT {
 
-    private final String cam = System.getProperty("user.home") + "\\OneDrive\\Área de Trabalho\\Designações\\";
+  //private final String cam = System.getProperty("user.home") + "\\OneDrive\\Área de Trabalho\\Designações\\";
+    private final String cam = System.getProperty("user.home") + "\\Designações\\";
     private String seguir;
     private String caminho;
 

@@ -1,7 +1,9 @@
 package br.com.alexlopes.designacoes.views;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import java.awt.Image;
 import java.util.Set;
+import javax.swing.ImageIcon;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +16,10 @@ public class Duvidas extends javax.swing.JFrame {
 
     public Duvidas() {
         initComponents();
+        // Definir a imagem como ícone da janela
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/designacaoo.png"));
+        Image image = icon.getImage();
+        setIconImage(image);
     }
 
 

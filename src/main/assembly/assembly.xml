@@ -1,5 +1,5 @@
 <assembly>
-    <id>Designacoes</id>
+    <id>GeradorHTML</id>
     <formats>
         <format>jar</format>
     </formats>

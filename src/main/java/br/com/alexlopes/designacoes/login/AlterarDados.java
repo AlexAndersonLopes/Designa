@@ -27,10 +27,18 @@ public class AlterarDados extends javax.swing.JFrame {
 
     public AlterarDados() {
         initComponents();
+        // Definir a imagem como ícone da janela
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/designacaoo.png"));
+        Image image = icon.getImage();
+        setIconImage(image);
     }
 
     public AlterarDados(Usuario a) {
         initComponents();
+        // Definir a imagem como ícone da janela
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Imagem/designacaoo.png"));
+        Image image = icon.getImage();
+        setIconImage(image);
         txtNome.requestFocus();
         this.usuario = a;
         preencher();
