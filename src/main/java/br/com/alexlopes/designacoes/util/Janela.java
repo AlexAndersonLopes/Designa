@@ -80,7 +80,7 @@ public class Janela {
     public static void irAguarde() {
         if (ag == null) {
             ag = new Aguarde();
-            ag.setTitle("Alterar particpante para Reunião do Meio de Semana");
+            ag.setTitle("Alterar participante para Reunião do Meio de Semana");
             ag.pack();
             ag.setLocationRelativeTo(null);
             ag.setVisible(true);
@@ -111,7 +111,7 @@ public class Janela {
 
     public static void irCadastroParticipantes() {
         CadastroParticipantes a = new CadastroParticipantes();
-        a.setTitle("Cadastrar particpantes para Reunião do Meio de Semana");
+        a.setTitle("Cadastrar participantes para Reunião do Meio de Semana");
         a.pack();
         a.setExtendedState(JFrame.MAXIMIZED_BOTH);
         a.setVisible(true);
@@ -119,7 +119,7 @@ public class Janela {
 
     public static void irAlterarParticipantes() {
         AlterarParticipantes a = new AlterarParticipantes();
-        a.setTitle("Alterar particpante para Reunião do Meio de Semana");
+        a.setTitle("Alterar participante para Reunião do Meio de Semana");
         a.pack();
         a.setExtendedState(JFrame.MAXIMIZED_BOTH);
         a.setVisible(true);
@@ -127,7 +127,7 @@ public class Janela {
 
     public static void irTrocar(int c, String b, Pessoa p, List<Integer> lista, String parte) {
         Trocar a = new Trocar(c, b, p, lista, parte);
-        a.setTitle("Alterar particpante para Reunião do Meio de Semana");
+        a.setTitle("Alterar participante para Reunião do Meio de Semana");
         a.pack();
         a.setLocationRelativeTo(null);
         a.setVisible(true);
@@ -135,7 +135,7 @@ public class Janela {
 
     public static void irTrocar2(int c, String b, List<Integer> lista) {
         Trocar a = new Trocar(c, b, lista);
-        a.setTitle("Alterar particpante para Reunião do Meio de Semana");
+        a.setTitle("Alterar participante para Reunião do Meio de Semana");
         a.pack();
         a.setLocationRelativeTo(null);
         a.setVisible(true);

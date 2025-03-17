@@ -59,7 +59,7 @@ public class PessoaDAO {
     public List<Pessoa> buscarPorNome(String nome) {
         EntityManager em = FabricaJPA.getEntityManager();
         try {
-            TypedQuery<Pessoa> query = em.createQuery("SELECT p FROM Pessoa p WHERE LOWER(p.nome) LIKE :nome ORDER BY p.nome", Pessoa.class);
+            TypedQuery<Pessoa> query = em.createQuery("SELECT p FROM Pessoa p WHERE LOWER(p.nome)||' '||LOWER(p.sobrenome) LIKE :nome ORDER BY p.nome", Pessoa.class);
             query.setParameter("nome", "%" + nome.toLowerCase() + "%");
             return query.getResultList();
         } finally {
