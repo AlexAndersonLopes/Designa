@@ -27,18 +27,7 @@ public class FolhaDesignacao extends javax.swing.JFrame {
     public FolhaDesignacao(Pessoa a01, Pessoa b02, String dataParte, String parteTipo, String salaLocal, String ParteNum, int sub) {
         initComponents();
         try {
-            String sexo = a01.getSexo();
-            String queridoa;
-            String irmaoa;
-            if(sexo.equals("Homem")){
-                queridoa = "querido";
-                irmaoa = "irmão";
-            }else{
-                queridoa = "querida";
-                irmaoa = "irmã";
-            }
-            String saudacao = "Olá, " + queridoa + " " + irmaoa + " " + a01.getNome() + ", segue sua designação para a " + dataParte + ".";
-
+            
             dataParte = dataParte.replace("Semana: ", "");
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             LocalDate dataa = LocalDate.parse(dataParte, formatter);
@@ -47,6 +36,20 @@ public class FolhaDesignacao extends javax.swing.JFrame {
             int mesmes = dataa.getMonthValue();
             int anoano = dataa.getYear();
             String mess = definirNomeMes(mesmes);
+            
+            
+            String sexo = a01.getSexo();
+            String queridoa;
+            String irmaoa;
+            if (sexo.equals("Homem")) {
+                queridoa = "querido";
+                irmaoa = "irmão";
+            } else {
+                queridoa = "querida";
+                irmaoa = "irmã";
+            }
+            String saudacao = "Olá, " + queridoa + " " + irmaoa + " " + a01.getNome() + ", segue sua designação para a Semana " + diadia + " de " + mess + ".";
+
 
             SalvarImagem si = new SalvarImagem();
             WhatsApp zap = new WhatsApp();
@@ -72,6 +75,99 @@ public class FolhaDesignacao extends javax.swing.JFrame {
                 this.dispose();
                 Janela.irTela2();
             }
+        } catch (Exception e) {
+        }
+    }
+
+    public FolhaDesignacao(Pessoa a01, Pessoa b02, String dataParte, String parteTipo, String salaLocal, String ParteNum) {
+        initComponents();
+        try {
+             dataParte = dataParte.replace("Semana: ", "");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate dataa = LocalDate.parse(dataParte, formatter);
+
+            int diadia = dataa.getDayOfMonth();
+            int mesmes = dataa.getMonthValue();
+            int anoano = dataa.getYear();
+            String mess = definirNomeMes(mesmes);
+            
+            String sexo = a01.getSexo();
+            String queridoa;
+            String irmaoa;
+            if (sexo.equals("Homem")) {
+                queridoa = "querido";
+                irmaoa = "irmão";
+            } else {
+                queridoa = "querida";
+                irmaoa = "irmã";
+            }
+            String saudacao = "Olá, " + queridoa + " " + irmaoa + " " + a01.getNome() + ", segue sua designação para a Semana " + diadia + " de " + mess + ".";
+
+            SalvarImagem si = new SalvarImagem();
+            WhatsApp zap = new WhatsApp();
+
+            txtNome.setText(a01.getNome() + " " + a01.getSobrenome());
+            if (b02 != null) {
+                txtAjudante.setText(b02.getNome() + " " + b02.getSobrenome() + " - " + b02.getCelular());
+            } else {
+                txtAjudante.setText("    ");
+            }
+            txtData.setText("Semana: " + diadia + " de " + mess + ", " + anoano);
+            txtParteNumero.setText(ParteNum);
+            txtParte.setText("<html>" + parteTipo + "</html>");
+            txtLocal.setText(salaLocal);
+            BufferedImage imag = preencherDesignacao();
+
+            zap.enviarMensagem(a01.getCelular().replaceAll("[^0-9]", ""), imag, saudacao);
+            this.dispose();
+
+        } catch (Exception e) {
+        }
+    }
+    
+    // Metodo apenas de salvar
+     public FolhaDesignacao(Pessoa a01, Pessoa b02, String dataParte, String parteTipo, String salaLocal, String ParteNum, int sub, int nada) {
+        initComponents();
+        try {
+            
+            dataParte = dataParte.replace("Semana: ", "");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate dataa = LocalDate.parse(dataParte, formatter);
+
+            int diadia = dataa.getDayOfMonth();
+            int mesmes = dataa.getMonthValue();
+            int anoano = dataa.getYear();
+            String mess = definirNomeMes(mesmes);
+            
+            
+            String sexo = a01.getSexo();
+            String queridoa;
+            String irmaoa;
+            if (sexo.equals("Homem")) {
+                queridoa = "querido";
+                irmaoa = "irmão";
+            } else {
+                queridoa = "querida";
+                irmaoa = "irmã";
+            }
+            String saudacao = "Olá, " + queridoa + " " + irmaoa + " " + a01.getNome() + ", segue sua designação para a Semana " + diadia + " de " + mess + ".";
+
+            SalvarImagem si = new SalvarImagem();
+
+            txtNome.setText(a01.getNome() + " " + a01.getSobrenome());
+            if (b02 != null) {
+                txtAjudante.setText(b02.getNome() + " " + b02.getSobrenome() + " - " + b02.getCelular());
+            } else {
+                txtAjudante.setText("    ");
+            }
+            txtData.setText("Semana: " + diadia + " de " + mess + ", " + anoano);
+            txtParteNumero.setText(ParteNum);
+            txtParte.setText("<html>" + parteTipo + "</html>");
+            txtLocal.setText(salaLocal);
+            BufferedImage imag = preencherDesignacao();
+
+            this.dispose();
+            
         } catch (Exception e) {
         }
     }

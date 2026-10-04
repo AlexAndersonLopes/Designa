@@ -15,7 +15,7 @@ public class ClasseEmail {
     private final String host = "smtp.gmail.com";
     private final String username = "programadesigna@gmail.com";
     //private final String password = "vggqwmeqvtvcfnyt";iddq oara ehaz nf
-    private final String password = "hkup rpkg vrjf xrex";
+    private final String password = "hkup rpkg vrjf xrex";  //hkuprpkgvrjfxrex
     private final Properties props;
 
     public ClasseEmail() {
