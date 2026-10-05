@@ -35,6 +35,7 @@ br\com\alexlopes\designacoes\views\Tela2$53.class
 br\com\alexlopes\designacoes\views\Substituicao$20.class
 br\com\alexlopes\designacoes\util\GerarPDF$1.class
 br\com\alexlopes\designacoes\util\whats\Aguarde2$1.class
+br\com\alexlopes\designacoes\views\Substituicao$40.class
 br\com\alexlopes\designacoes\login\AlterarDados$4.class
 br\com\alexlopes\designacoes\views\Tela2$45.class
 br\com\alexlopes\designacoes\views\Tela2$65.class
@@ -97,6 +98,7 @@ br\com\alexlopes\designacoes\views\Tela2$64.class
 br\com\alexlopes\designacoes\model\Tesouros.class
 br\com\alexlopes\designacoes\views\MenuPrincipal$11.class
 br\com\alexlopes\designacoes\views\Trocar$5.class
+br\com\alexlopes\designacoes\views\TrocarSubstituicao$13.class
 br\com\alexlopes\designacoes\views\Tela2$37.class
 br\com\alexlopes\designacoes\views\Tela2$57.class
 br\com\alexlopes\designacoes\views\Duvidas$4.class
@@ -163,6 +165,7 @@ br\com\alexlopes\designacoes\views\CadastroParticipantes$10.class
 br\com\alexlopes\designacoes\model\Usuario.class
 br\com\alexlopes\designacoes\util\whats\WhatsApp.class
 br\com\alexlopes\designacoes\views\MenuPrincipal$10.class
+br\com\alexlopes\designacoes\util\whats\Aguarde3.class
 br\com\alexlopes\designacoes\views\Trocar$4.class
 br\com\alexlopes\designacoes\model\EstudoBiblicoCongregacao.class
 br\com\alexlopes\designacoes\views\Tela2$3.class
@@ -254,6 +257,7 @@ br\com\alexlopes\designacoes\views\Duvidas$7.class
 br\com\alexlopes\designacoes\model\Parte.class
 br\com\alexlopes\designacoes\views\Qual$7$1.class
 br\com\alexlopes\designacoes\dao\TodasPartesDAO.class
+br\com\alexlopes\designacoes\util\whats\Aguarde3$1$1.class
 br\com\alexlopes\designacoes\dao\TesourosDAO.class
 br\com\alexlopes\designacoes\views\AlterarParticipantes$11.class
 br\com\alexlopes\designacoes\views\MenuPrincipal.class
@@ -291,4 +295,5 @@ br\com\alexlopes\designacoes\views\Tela2$1.class
 br\com\alexlopes\designacoes\util\whats\FolhaDesignacao$1.class
 br\com\alexlopes\designacoes\views\Substituicao$8.class
 br\com\alexlopes\designacoes\views\Substituicao$33.class
+br\com\alexlopes\designacoes\util\whats\Aguarde3$1.class
 br\com\alexlopes\designacoes\views\Substituicao$28.class

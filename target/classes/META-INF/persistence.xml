@@ -5,10 +5,20 @@
     <persistence-unit name="go" transaction-type="RESOURCE_LOCAL">
         <properties>
             <!-- Configurações do driver e URL do banco de dados -->
-            <property name="jakarta.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:derby:pessoa_db;create=true" />
-            <property name="jakarta.persistence.jdbc.user" value="designa" />
-            <property name="jakarta.persistence.jdbc.password" value="123" />
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://designaonline.mysql.dbaas.com.br:3306/designaonline"/>
+            <property name="jakarta.persistence.jdbc.user" value="designaonline"/>
+            <property name="jakarta.persistence.jdbc.password" value="D3s1gn@"/>
+            
+            <!-- Outras configurações -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="true" />
+            
+            <!-- Força o Hibernate a usar EXATAMENTE o nome digitado no @Table(name="...") sem alterar a caixa -->
+            <property name="hibernate.physical_naming_strategy" value="org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl"/>
+            <property name="hibernate.implicit_naming_strategy" value="org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl"/>
+            <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
 
             <!-- Configurações do HikariCP -->
             <property name="hibernate.hikari.connectionTimeout" value="20000" />
@@ -17,11 +27,6 @@
             <property name="hibernate.hikari.idleTimeout" value="300000" />
             <property name="hibernate.hikari.poolName" value="HikariCP" />
             <property name="hibernate.hikari.autoCommit" value="false" />
-
-            <!-- Outras propriedades do Hibernate -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect" />
-            <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.format_sql" value="true" />
         </properties>
     </persistence-unit>
 </persistence>

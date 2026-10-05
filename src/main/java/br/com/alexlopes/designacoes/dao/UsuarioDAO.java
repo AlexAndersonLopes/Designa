@@ -36,7 +36,7 @@ public class UsuarioDAO {
     public static boolean tabelaUsuarioExiste() {
         EntityManager em = FabricaJPA.getEntityManager();
         try {
-            List<?> result = em.createNativeQuery("SELECT 1 FROM Usuario").getResultList();
+            List<?> result = em.createNativeQuery("SELECT 1 FROM USUARIO").getResultList();
             return !result.isEmpty();
         } catch (Exception e) {
             e.printStackTrace();

@@ -3580,26 +3580,20 @@ public class Tela2 extends javax.swing.JFrame {
         try {
             // Cadastrar na tabela do banco de dados: SEMANA
             cadastrarSemana();
-
             // Cadastrar cada parte no BD
             salvarAlterar();
-
             // SALVAR NA CLASSE TODAS AS PARTES
             if (todas == null) {
                 salvarTodasPartes();
             } else {
                 atualizarTodasPartes();
             }
-
             salvarFolhaDesignacaos();
-
             // Salvar em arquivo .pdf
             salvarPdf();
-
             salvarVerdadeiro();
-
             Janela.menu.mostrarTabela();
-
+            
         } catch (Exception e) {
             Mensagem.mensagemErro("Feche o programa, e tente novamente. "
                     + "\nAbra o programa clicando com o botão direito e selecione:\nExecutar como Administrador.");
@@ -3790,10 +3784,8 @@ public class Tela2 extends javax.swing.JFrame {
             String a = WhatsApp.getWhatsAppStatus();
             if (a.equals("{\"status\":\"conectado\"}")) {
                 botaoConectar.setText("CONECTADO");
-                Mensagem.mensagemExito("Está tudo certo, pode enviar as designações!");
             } else {
                 botaoConectar.setText("NÃO CONECTADO");
-                Mensagem.mensagemErro("Por favor, conecte ao servidor do WhatsApp!");
             }
         } catch (Exception e) {
             botaoConectar.setText("NÃO CONECTADO");
