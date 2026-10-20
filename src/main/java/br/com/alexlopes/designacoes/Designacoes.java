@@ -19,20 +19,14 @@ public class Designacoes {
     public static void main(String[] args) {
         
 
-        if (!bancoDeDadosExiste() || !UsuarioDAO.tabelaUsuarioPossuiRegistros()) {
-            if (!bancoDeDadosExiste()) {
-                criarTabelas();
-            }
+        if (!UsuarioDAO.tabelaUsuarioPossuiRegistros()) {
             Janela.irCadastrarUsuario();
         } else {
             Janela.irEntrar();
         }
     }
 
-    public static boolean bancoDeDadosExiste() {
-        File databaseDir = new File("pessoa_db");
-        return databaseDir.exists();
-    }
+    
 
     public static void criarTabelas() {
         PessoaDAO.criarTabela();

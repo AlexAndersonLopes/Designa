@@ -9,6 +9,9 @@ import br.com.alexlopes.designacoes.model.TodasPartes;
 import br.com.alexlopes.designacoes.util.GerarPDF;
 import br.com.alexlopes.designacoes.util.Janela;
 import br.com.alexlopes.designacoes.util.Mensagem;
+import br.com.alexlopes.designacoes.util.whats.Aguarde3;
+import br.com.alexlopes.designacoes.util.whats.FolhaDesignacao;
+import br.com.alexlopes.designacoes.util.whats.WhatsApp;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.WindowAdapter;
@@ -74,6 +77,7 @@ public class Substituicao extends javax.swing.JFrame {
         txtAjudante3B = new javax.swing.JTextField();
         txtParte4B = new javax.swing.JTextField();
         txtAjudante4B = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -280,6 +284,18 @@ public class Substituicao extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(153, 255, 153));
+        jButton4.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(0, 153, 0));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/imgZap.png"))); // NOI18N
+        jButton4.setText(" Enviar Todas");
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -290,18 +306,23 @@ public class Substituicao extends javax.swing.JFrame {
                 .addContainerGap(82, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtAjudante4B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtParte4B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAjudante3B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtParte3B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAjudante2B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtParte2B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAjudante1B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtParte1B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLeituraBibliaB, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPresidenteB, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtAjudante4B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtParte4B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAjudante3B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtParte3B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAjudante2B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtParte2B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAjudante1B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtParte1B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtLeituraBibliaB, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPresidenteB, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -328,7 +349,9 @@ public class Substituicao extends javax.swing.JFrame {
                 .addComponent(txtParte4B, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtAjudante4B, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
@@ -1465,13 +1488,165 @@ public class Substituicao extends javax.swing.JFrame {
                 dao.excluirPorSemana("Semana: " + data);
                 linha = -1;
                 mostrarTabela();
-                Janela.menu.mostrarTabela();
+                this.dispose();
+                Janela.irNovaSubstituicao();
+
             }
         } catch (Exception e) {
             e.getStackTrace();
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+     //Retornar verdadeiro se o whatsapp estiver conectado
+    private boolean getWhatsApp() {
+        try {
+            String a = WhatsApp.getWhatsAppStatus();
+            return a.equals("{\"status\":\"conectado\"}");
+        } catch (Exception e) {
+            Mensagem.mensagemErro("Por favor, conecte ao servidor do WhatsApp!");
+            return false;
+        }
+    }
+    
+    //Enviar a designação para todos participantes
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if (getWhatsApp()) {
+            try {
+                FolhaDesignacao folha;
+                Aguarde3 aguarde3 = new Aguarde3();
+
+                if (!txtPresidenteA.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtPresidenteA.getText());
+                    folha = new FolhaDesignacao(p1, null, data, "", "Sala A", "Presidente");
+                }
+                if (!txtOracaoInicial.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtOracaoInicial.getText());
+                    folha = new FolhaDesignacao(p1, null, data, "", "Sala A", "Oração Inicial");
+                }
+                if (!txtTesouros.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtTesouros.getText());
+                    folha = new FolhaDesignacao(p1, null, data, jLabel5.getText().replaceFirst(":$", ""), "Sala A", "1");
+                }
+                if (!txtJoias.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtJoias.getText());
+                    folha = new FolhaDesignacao(p1, null, data, "Joias Espirituais", "Sala A", "2");
+                }
+                if (!txtLeituraBibliaA.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtLeituraBibliaA.getText());
+                    folha = new FolhaDesignacao(p1, null, data, "Leitura da Bíblia", "Sala A", "3");
+                }
+                if (!txtParte1A.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte1A.getText());
+                    if (!txtAjudante1A.getText().isEmpty()) {
+                        p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante1A.getText());
+                    } else {
+                        p2 = null;
+                    }
+                    folha = new FolhaDesignacao(p1, p2, data, labelParte1.getText().replaceFirst(":$", ""), "Sala A", "4");
+                }
+                if (!txtParte2A.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte2A.getText());
+                    if (!txtAjudante2A.getText().isEmpty()) {
+                        p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante2A.getText());
+                    } else {
+                        p2 = null;
+                    }
+                    folha = new FolhaDesignacao(p1, p2, data, labelParte2.getText().replaceFirst(":$", ""), "Sala A", "5");
+                }
+                if (!txtParte3A.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte3A.getText());
+                    if (!txtAjudante3A.getText().isEmpty()) {
+                        p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante3A.getText());
+                    } else {
+                        p2 = null;
+                    }
+                    folha = new FolhaDesignacao(p1, p2, data, labelParte3.getText().replaceFirst(":$", ""), "Sala A", nParte3.getText());
+                }
+                if (!txtParte4A.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte4A.getText());
+                    if (!txtAjudante4A.getText().isEmpty()) {
+                        p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante4A.getText());
+                    } else {
+                        p2 = null;
+                    }
+                    folha = new FolhaDesignacao(p1, p2, data, labelParte4.getText().replaceFirst(":$", ""), "Sala A", nParte4.getText());
+                }
+                if (!txtNossaVida1.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtNossaVida1.getText());
+                    folha = new FolhaDesignacao(p1, null, data, jLabel14.getText().replaceFirst(":$", ""), "Sala A", nNossa1.getText());
+                }
+                if (!txtNossaVida2.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtNossaVida2.getText());
+                    folha = new FolhaDesignacao(p1, null, data, jLabel15.getText().replaceFirst(":$", ""), "Sala A", nNossa2.getText());
+                }
+                if (!txtEstudoCongregacao.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtEstudoCongregacao.getText());
+                    folha = new FolhaDesignacao(p1, null, data, "Estudo Bíblico de Congregação", "Sala A", nEstudoLivro.getText());
+                }
+                if (!txtLeitor.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtLeitor.getText());
+                    folha = new FolhaDesignacao(p1, null, data, "", "Sala A", "Leitura do estudo Bíblico de congregação");
+                }
+                if (!txtOracaoFinal.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtOracaoFinal.getText());
+                    folha = new FolhaDesignacao(p1, null, data, "", "Sala A", "Oração Final");
+                }
+                if (!txtPresidenteB.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtPresidenteB.getText());
+                    folha = new FolhaDesignacao(p1, null, data, "", "Sala B", "Presidente");
+                }
+                if (!txtLeituraBibliaB.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtLeituraBibliaB.getText());
+                    folha = new FolhaDesignacao(p1, null, data, "Leitura da Bíblia", "Sala B", "3");
+                }
+                if (!txtParte1B.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte1B.getText());
+                    if (!txtAjudante1B.getText().isEmpty()) {
+                        p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante1B.getText());
+                    } else {
+                        p2 = null;
+                    }
+                    folha = new FolhaDesignacao(p1, p2, data, labelParte1.getText().replaceFirst(":$", ""), "Sala B", "4");
+                }
+                if (!txtParte2B.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte2B.getText());
+                    if (!txtAjudante2B.getText().isEmpty()) {
+                        p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante2B.getText());
+                    } else {
+                        p2 = null;
+                    }
+                    folha = new FolhaDesignacao(p1, p2, data, labelParte2.getText().replaceFirst(":$", ""), "Sala B", "5");
+                }
+                if (!txtParte3B.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte3B.getText());
+                    if (!txtAjudante3B.getText().isEmpty()) {
+                        p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante3B.getText());
+                    } else {
+                        p2 = null;
+                    }
+                    folha = new FolhaDesignacao(p1, p2, data, labelParte3.getText().replaceFirst(":$", ""), "Sala B", nParte3.getText());
+                }
+                if (!txtParte4B.getText().isEmpty()) {
+                    p1 = pDAO.buscarPessoaPorNomeESobrenomes(txtParte4B.getText());
+                    if (!txtAjudante4B.getText().isEmpty()) {
+                        p2 = pDAO.buscarPessoaPorNomeESobrenomes(txtAjudante4B.getText());
+                    } else {
+                        p2 = null;
+                    }
+                    folha = new FolhaDesignacao(p1, p2, data, labelParte4.getText().replaceFirst(":$", ""), "Sala B", nParte4.getText());
+                }
+
+                aguarde3.fechar();
+                Mensagem.mensagemExito("Mensagens enviadas com Sucesso!");
+
+            } catch (Exception e) {
+                Mensagem.mensagemErro("O envio de mensagem falhou!");
+            }
+        } else{
+            Mensagem.mensagemErro("O WhatsApp não está conectado! \n Conecte o WhatsApp para enviar as designações.");
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+        
     private boolean confirmarExcluir() {
         Object[] options = {"Sim", "Não"};
         int option = JOptionPane.showOptionDialog(this, "Deseja realmente excluí essa semana?\n "
@@ -1609,49 +1784,71 @@ public class Substituicao extends javax.swing.JFrame {
 
     public void alttxtPresidenteA(Pessoa a1) {
         txtPresidenteA.setText(a1.getNome() + " " + a1.getSobrenome());
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtOracaoInicial(Pessoa a1) {
         txtOracaoInicial.setText(a1.getNome() + " " + a1.getSobrenome());
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtTesouros(Pessoa a1) {
         txtTesouros.setText(a1.getNome() + " " + a1.getSobrenome());
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtJoias(Pessoa a1) {
         txtJoias.setText(a1.getNome() + " " + a1.getSobrenome());
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtLeituraBibliaA(Pessoa a1) {
         txtLeituraBibliaA.setText(a1.getNome() + " " + a1.getSobrenome());
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtNossaVida1(Pessoa a1) {
         txtNossaVida1.setText(a1.getNome() + " " + a1.getSobrenome());
         verNumeroParte();
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtNossaVida2(Pessoa a1) {
         txtNossaVida2.setText(a1.getNome() + " " + a1.getSobrenome());
         verNumeroParte();
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtEstudoCongregacao(Pessoa a1) {
         txtEstudoCongregacao.setText(a1.getNome() + " " + a1.getSobrenome());
         verNumeroParte();
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtLeitor(Pessoa a1) {
         txtLeitor.setText(a1.getNome() + " " + a1.getSobrenome());
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtOracaoFinal(Pessoa a1) {
-        txtOracaoFinal.setText(a1.getNome() + " " + a1.getSobrenome());       
+        txtOracaoFinal.setText(a1.getNome() + " " + a1.getSobrenome());
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtPresidenteB(Pessoa a1) {
         txtPresidenteB.setText(a1.getNome() + " " + a1.getSobrenome());
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtParte1A(Pessoa a1, Pessoa b1) {
@@ -1660,6 +1857,8 @@ public class Substituicao extends javax.swing.JFrame {
             txtAjudante1A.setText(b1.getNome() + " " + b1.getSobrenome());
         }
         verNumeroParte();
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtParte2A(Pessoa a1, Pessoa b1) {
@@ -1668,6 +1867,8 @@ public class Substituicao extends javax.swing.JFrame {
             txtAjudante2A.setText(b1.getNome() + " " + b1.getSobrenome());
         }
         verNumeroParte();
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtParte3A(Pessoa a1, Pessoa b1) {
@@ -1676,6 +1877,8 @@ public class Substituicao extends javax.swing.JFrame {
             txtAjudante3A.setText(b1.getNome() + " " + b1.getSobrenome());
         }
         verNumeroParte();
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtParte1B(Pessoa a1, Pessoa b1) {
@@ -1684,6 +1887,8 @@ public class Substituicao extends javax.swing.JFrame {
             txtAjudante1B.setText(b1.getNome() + " " + b1.getSobrenome());
         }
         verNumeroParte();
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtParte2B(Pessoa a1, Pessoa b1) {
@@ -1692,6 +1897,8 @@ public class Substituicao extends javax.swing.JFrame {
             txtAjudante2B.setText(b1.getNome() + " " + b1.getSobrenome());
         }
         verNumeroParte();
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtParte3B(Pessoa a1, Pessoa b1) {
@@ -1700,6 +1907,8 @@ public class Substituicao extends javax.swing.JFrame {
             txtAjudante3B.setText(b1.getNome() + " " + b1.getSobrenome());
         }
         verNumeroParte();
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtParte4A(Pessoa a1, Pessoa b1) {
@@ -1708,6 +1917,8 @@ public class Substituicao extends javax.swing.JFrame {
             txtAjudante4A.setText(b1.getNome() + " " + b1.getSobrenome());
         }
         verNumeroParte();
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtParte4B(Pessoa a1, Pessoa b1) {
@@ -1716,11 +1927,15 @@ public class Substituicao extends javax.swing.JFrame {
             txtAjudante4B.setText(b1.getNome() + " " + b1.getSobrenome());
         }
         verNumeroParte();
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     public void alttxtLeituraBibliaB(Pessoa a1) {
         txtLeituraBibliaB.setText(a1.getNome() + " " + a1.getSobrenome());
         verNumeroParte();
+        atualizarTodasPartes();
+        salvarPdf();
     }
 
     private void verNumeroParte() {
@@ -1783,6 +1998,7 @@ public class Substituicao extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

@@ -1,10 +1,10 @@
 const express = require('express');
 const makeWASocket = require('@whiskeysockets/baileys').default;
-const { useMultiFileAuthState, DisconnectReason } = require('@whiskeysockets/baileys');
+const { useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion } = require('@whiskeysockets/baileys');
 const qrcode = require('qrcode-terminal');
 const cors = require('cors');
 const fs = require('fs');
-
+const { Boom } = require('@hapi/boom');
 
 const app = express();
 app.use(express.json());
@@ -18,9 +18,14 @@ let server; // Referência para o servidor HTTP
 async function startBot() {
     try {
         const { state, saveCreds } = await useMultiFileAuthState('./auth_info');
+        const { version } = await fetchLatestBaileysVersion();
         console.log('Auth state loaded:', state);
 
-        sock = makeWASocket({ auth: state });
+        sock = makeWASocket({
+            version,
+            auth: state,
+            printQRInTerminal: true
+        });
 
         sock.ev.on('connection.update', (update) => {
             const { connection, lastDisconnect, qr } = update;
@@ -31,19 +36,21 @@ async function startBot() {
                 lastQRCode = qr;
                 qrcode.generate(qr, { small: true });
             }
+
             if (connection === 'close') {
-                const shouldReconnect =
-                    lastDisconnect?.error?.output?.statusCode !== DisconnectReason.loggedOut;
+                const code = new Boom(lastDisconnect?.error)?.output?.statusCode;
+                const shouldReconnect = code !== DisconnectReason.loggedOut;
+
                 if (shouldReconnect) {
-                    console.log('Reconectando...');
+                    console.log('Reconectando... Código:', code);
                     startBot(); // Tenta reconectar
                 } else {
-                    console.log('Desconectado. Reescaneie o QR code.');
+                    console.log('Desconectado permanentemente. Reescaneie o QR code.');
                     deleteAuthFolder(); // Exclui pasta de autenticação
-                    startBot(); // Reinicia o processo para gerar novo QR Codeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                    startBot(); // Reinicia o processo
                 }
             } else if (connection === 'open') {
-                console.log('Conexão aberta.');
+                console.log('✅ Conectado com sucesso!');
             }
         });
 
@@ -59,13 +66,12 @@ startBot();
 // Rota para verificar o status da sessão
 app.get('/status', (req, res) => {
     try {
-        const status = sock.user ? 'conectado' : 'desconectado';
+        const status = sock?.user ? 'conectado' : 'desconectado';
         res.status(200).json({ status });
     } catch (error) {
         res.status(500).json({ status: 'error', error: error.message });
     }
 });
-
 
 // Rota GET para obter o QR Code
 app.get('/obter-qr', (req, res) => {
@@ -95,11 +101,6 @@ app.post('/send-message', async (req, res) => {
     }
 });
 
-
-
-
-
-// Rota para enviar imagem
 // Rota POST para enviar uma imagem
 app.post('/send-image', async (req, res) => {
     const { number, imageData, caption } = req.body;
@@ -125,12 +126,6 @@ app.post('/send-image', async (req, res) => {
     }
 });
 
-
-
-
-
-
-
 // Inicia o servidor na porta 3000
 server = app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
@@ -146,7 +141,6 @@ function shutdownServer() {
     if (server) {
         server.close(() => {
             console.log('Servidor encerrado.');
-            // deleteAuthFolder();
             process.exit(0); // Encerra o processo Node.js
         });
     } else {

@@ -45,7 +45,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         int option = JOptionPane.showOptionDialog(this, "Deseja realmente sair?", "Confirmação", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
         if (option == JOptionPane.YES_OPTION) {
             FabricaJPA.closeEntityManager();
-            WhatsApp.shutdownServer();
             dispose();
             System.exit(0);
         } else {
@@ -115,7 +114,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/49576_new_add_plus_user_icon.png"))); // NOI18N
         jLabel7.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel7.setBorder(null);
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel7.setOpaque(true);
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -520,7 +518,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jLabel15.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("VERSÃO 1.5 - nov 24");
+        jLabel15.setText("VERSÃO 1.6 - mai 25");
 
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);

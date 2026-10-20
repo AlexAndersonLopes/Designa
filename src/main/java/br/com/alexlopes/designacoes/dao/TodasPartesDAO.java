@@ -134,6 +134,7 @@ public class TodasPartesDAO {
         }
     }
 
+    /*
     public void excluirPorSemana(String semana) {
         EntityManager em = FabricaJPA.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -153,6 +154,49 @@ public class TodasPartesDAO {
                 em.close();
             }
         }
+    }*/
+    public void excluirPorSemana(String semana) {
+        EntityManager em = FabricaJPA.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+
+            // Buscar todos os registros com a semana informada
+            List<TodasPartes> registros = em.createQuery(
+                    "SELECT t FROM TodasPartes t WHERE t.semana = :semana", TodasPartes.class)
+                    .setParameter("semana", semana)
+                    .getResultList();
+
+            // Remover cada registro
+            for (TodasPartes t : registros) {
+                em.remove(em.contains(t) ? t : em.merge(t));
+            }
+
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null && tx.isActive()) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            if (em.isOpen()) {
+                em.close();
+            }
+        }
     }
-    
+
+    public List<TodasPartes> encontrarTodosPorSemana(String semana) {
+        EntityManager em = FabricaJPA.getEntityManager();
+        try {
+            String jpql = "SELECT t FROM TodasPartes t WHERE t.semana = :semana";
+            TypedQuery<TodasPartes> query = em.createQuery(jpql, TodasPartes.class);
+            query.setParameter("semana", semana);
+            return query.getResultList(); // <-- retorna uma lista
+        } finally {
+            if (em.isOpen()) {
+                em.close();
+            }
+        }
+    }
+
 }
